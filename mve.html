@@ -120,6 +120,12 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
         <div class="card-desc" id="t3Desc">otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze</div>
         <div class="arrow">→</div>
       </a>
+      <a class="card" href="#" onclick="startTest('t4');return false;">
+        <div class="card-tag">// Test 4</div>
+        <div class="card-name">Osciloskopy II</div>
+        <div class="card-desc" id="t4Desc">otázek — vzorkování, spouštění, čítače, Lissajousovy obrazce</div>
+        <div class="arrow">→</div>
+      </a>
     </div>
   </div>
 
@@ -160,7 +166,257 @@ function toggleTheme(){
 // ── MVE test data ──────────────────────────────────────────────
 // Test 1 embedded directly so the page works from file:// too.
 const MVE_TESTS = {
-  t1: {
+  t4: {
+  "subject": "MVE - Test 4: Osciloskopy II — vzorkování, spouštění, čítače a Lissajousovy obrazce",
+  "questions": [
+    {
+      "question": "Co umožňuje funkce pretrigger?",
+      "answers": [
+        "Umožňuje zobrazit sledovaný průběh bez požadavku na synchronizaci.",
+        "Umožňuje zobrazit sledovaný průběh po začátku synchronizace.",
+        "Umožňuje zobrazit sledovaný průběh před začátkem synchronizace.",
+        "Umožňuje zobrazit sledovaný průběh po ukončení synchronizace."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Pretrigger umožňuje zobrazit i tu část průběhu signálu, která nastala ještě před okamžikem spuštění (synchronizace) — číslicový osciloskop průběžně ukládá vzorky do kruhové paměti, takže po příchodu spouštěcího impulzu může zobrazit i data z doby před ním."
+    },
+    {
+      "question": "Čím je udávána přesnost, neboli rozlišovací schopnost osciloskopu?",
+      "answers": [
+        "Počtem bitů na jeden získaný vzorek",
+        "Velikostí napětí na vstupu osciloskopu",
+        "Maximální vzorkovací frekvencí osciloskopu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Rozlišovací schopnost (vertikální rozlišení) číslicového osciloskopu je dána počtem bitů A/D převodníku připadajících na jeden získaný vzorek — čím vyšší bitové rozlišení, tím jemněji lze rozlišit amplitudu signálu."
+    },
+    {
+      "question": "K čemu dojde při nedodržení vzorkovacího teorému?",
+      "answers": [
+        "K aliasing chybě",
+        "Ke změně amplitudy rekonstruovaného signálu oproti původnímu signálu",
+        "Nenastane žádná změna v rekonstruovaném signálu, jenom je delší zpracování osciloskopem"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vzorkovací (Shannonův/Nyquistův) teorém vyžaduje, aby vzorkovací kmitočet byl alespoň dvojnásobkem nejvyšší kmitočtové složky signálu. Při jeho nedodržení dochází k aliasing chybě — v rekonstruovaném signálu se objeví falešné, nižší kmitočtové složky, které v původním signálu nebyly."
+    },
+    {
+      "question": "Pro jaký účel slouží u digitálního osciloskopu měření s maskou?",
+      "answers": [
+        "Slouží pro kontrolu, zda se signál vždy nachází mimo vyznačenou oblast definovanou maskou signálu.",
+        "Slouží pro ověření správného průchodu měřeného signálu maskou, což je oblast v okolí definovaného signálu určená limity od uživatele.",
+        "Slouží pro měření velikosti signálu."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Měření s maskou (mask testing) ověřuje, zda naměřený signál po celou dobu prochází uvnitř tolerančního pásma (masky) definovaného kolem etalonového průběhu s limity nastavenými uživatelem — používá se např. pro automatickou kontrolu shody signálu se specifikací."
+    },
+    {
+      "question": "Co umožňuje měřit číslicový čítač?",
+      "answers": [
+        "Měření časových intervalů a zkreslení signálu.",
+        "Měření časových intervalů, periody, kmitočtu signálu.",
+        "Měření amplitudy, efektivní hodnoty a střední hodnoty signálu.",
+        "Měření amplitudy, fáze a zkreslení signálu.",
+        "Měření časových intervalů a překmitů signálu."
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Číslicový (univerzální) čítač umožňuje měřit časové intervaly, periodu a kmitočet signálu — principem čítání impulsů referenčního oscilátoru mezi start a stop impulsy odvozenými z měřeného signálu."
+    },
+    {
+      "question": "Z jakých údajů se určí délka časového intervalu měřená číslicovým čítačem?",
+      "answers": [
+        "Z rozdílu času mezi náběžnou a sestupnou hranou měřeného signálu.",
+        "Z rozdílu času mezi start a stop impulsem.",
+        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich periody.",
+        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich amplitudy."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Číslicový čítač určuje délku časového intervalu ze součinu počtu napočítaných impulsů referenčního (etalonového) oscilátoru mezi start a stop impulsem a periody tohoto referenčního signálu: t = N × T_ref."
+    },
+    {
+      "question": "Jaká je základní jednotka frekvence signálu?",
+      "answers": [
+        "sekunda",
+        "MHz",
+        "Hz",
+        "bezrozměrná veličina"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základní jednotkou kmitočtu (frekvence) v soustavě SI je hertz (Hz), definovaný jako počet period děje za sekundu (1 Hz = 1/s)."
+    },
+    {
+      "question": "Jak se odvozují start a stop impulsy při měření časového intervalu pomocí číslicového čítače?",
+      "answers": [
+        "Impulsy start a stop se odvozují vždy pouze od sestupných hran měřeného průběhu.",
+        "Impulsy start a stop se odvozují od náběžných a sestupných hran měřeného průběhu.",
+        "Impulsy start a stop jsou pevně nadefinovány v univerzálním číslicovém čítači.",
+        "Impulsy start a stop se odvozují vždy pouze od náběžných hran měřeného průběhu."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Start a stop impulsy pro měření časového intervalu se u číslicového čítače mohou odvozovat jak od náběžných, tak od sestupných hran měřeného průběhu, podle nastavení přístroje a definice měřeného intervalu (např. šířka pulzu, perioda)."
+    },
+    {
+      "question": "Pro zobrazení jakých signálů je vhodné použít funkci Hold-off pro zpoždění spouštěcího pulsu?",
+      "answers": [
+        "Pro signály harmonické",
+        "Pro obdélníkové a pilové průběhy signálu",
+        "Pro zachycení jednorázového děje",
+        "Pro signály tvořené opakujícími se skupinami nepravidelně rozložených pulsů, které obsahují řadu potenciálních okamžiků spouštění"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Funkce Hold-off (zpoždění spouštěcího pulzu) je vhodná pro zobrazení signálů tvořených opakujícími se skupinami nepravidelně rozložených pulzů s řadou potenciálních okamžiků spouštění — bez hold-off by docházelo k nestabilnímu spouštění na různých místech skupiny; hold-off zajistí spouštění vždy na stejném místě."
+    },
+    {
+      "question": "Od čeho může být odvozen spouštěcí signál u číslicového osciloskopu?",
+      "answers": [
+        "Pouze od externího signálu",
+        "Od měřeného signálu i od externího signálu",
+        "Pouze od měřeného signálu"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Spouštěcí (trigger) signál u číslicového osciloskopu může být odvozen jak přímo od měřeného (vstupního) signálu, tak od externího signálu přivedeného na samostatný vstup pro externí trigger."
+    },
+    {
+      "question": "Jak vypadá Lissajousův obrazec pro signály se stejnou fází a stejnou frekvencí?",
+      "answers": [
+        "Položená osmička",
+        "Elipsa",
+        "Kruh",
+        "Úsečka"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mají-li oba signály stejnou frekvenci a jsou přesně ve fázi (fázový posun 0°), výsledný Lissajousův obrazec degeneruje na přímku (úsečku)."
+    },
+    {
+      "question": "Jaké metody lze použít pro měření fázového rozdílu dvou signálů pomocí osciloskopu?",
+      "answers": [
+        "Přímé měření z časového průběhu a měření pomocí Lissajousových obrazců",
+        "Pouze přímé měření z časového průběhu",
+        "Osciloskopem nelze měřit fázový posun mezi signály",
+        "Pouze pomocí Lissajousových obrazců"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Osciloskopem lze fázový rozdíl dvou signálů měřit dvěma základními způsoby: přímým měřením časového posunu z časového průběhu obou signálů (úhel = (t0/T)×360°), nebo pomocí Lissajousových obrazců (XY zobrazení)."
+    },
+    {
+      "question": "Který typ vzorkování u číslicových osciloskopů neumožňuje pretriggering?",
+      "answers": [
+        "Sekvenční vzorkování",
+        "Náhodné vzorkování",
+        "Vzorkování v reálném čase"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Sekvenční (ekvivalentní) vzorkování skládá výsledný průběh postupně z několika period opakujícího se signálu a vzorky odebírá až po příchodu spouštěcího impulzu — neumožňuje proto zobrazit část signálu před okamžikem spuštění (pretrigger), na rozdíl od vzorkování v reálném čase."
+    },
+    {
+      "question": "Jaké jsou metody měření fázového posuvu?",
+      "answers": [
+        "Osciloskopické metody, srovnávací metoda, nepřímá metoda.",
+        "Přímé a nepřímé.",
+        "Měření fázového rozdílu pomocí měření časového intervalu.",
+        "Měření fázového rozdílu měřením napětí, pomocí fázového detektoru, osciloskopické metody.",
+        "Měření pomocí čítače"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Fázový posuv lze měřit několika způsoby: měřením napětí (např. detekcí průchodu nulou a přepočtem), pomocí fázového detektoru (fázový diskriminátor), nebo osciloskopickými metodami (přímé měření z časového průběhu či Lissajousovy obrazce)."
+    },
+    {
+      "question": "U číslicového měření časového intervalu s frekvencí oscilátoru f = 100 kHz byl zaznamenán počet impulsů při otevření hradla po dobu měřeného časového intervalu N = 10⁵. Jak dlouhý byl měřený časový interval?",
+      "answers": [
+        "10 s",
+        "0,1 s",
+        "1 s",
+        "1 ms"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Perioda referenčního oscilátoru T = 1/f = 1/100 000 Hz = 10 µs. Měřený časový interval t = N × T = 10⁵ × 10 µs = 1 000 000 µs = 1 s."
+    },
+    {
+      "question": "Jaký je fázový posun mezi dvěma signály, pokud na osciloskopu získáte tento Lissajousův obrazec (kruh)?",
+      "answers": [
+        "60 stupňů",
+        "90 stupňů",
+        "180 stupňů",
+        "0 stupňů"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_kruh.png",
+      "explanation": "Kruhový Lissajousův obrazec vzniká, mají-li oba signály stejnou amplitudu a frekvenci a jejich vzájemný fázový posun je 90° (čtvrtina periody) — jde o zvláštní případ elipsy s rovnými poloosami."
+    },
+    {
+      "question": "Jaký mód je nastaven na osciloskopu při měření fáze pomocí Lissajousových obrazců?",
+      "answers": [
+        "Zoom mode",
+        "Samostatné zobrazení X a Y kanálu",
+        "XY mode",
+        "Single mode"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Pro zobrazení Lissajousova obrazce se osciloskop musí přepnout do režimu XY mode, kdy jeden kanál vychyluje bod ve směru X a druhý ve směru Y, místo běžného zobrazení napětí v závislosti na čase."
+    },
+    {
+      "question": "V jakém poměru jsou frekvence dvou signálů, pokud se na osciloskopu zobrazí tento Lissajousův obrazec?",
+      "answers": [
+        "1:4",
+        "1:8",
+        "1:1",
+        "1:2"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_1_2.png",
+      "explanation": "Poměr frekvencí dvou signálů lze z Lissajousova obrazce odečíst jako poměr počtu dotyků (tečen) obrazce se svislou a vodorovnou osou. Zobrazený obrazec se dvěma smyčkami (protínajícími se uprostřed) odpovídá poměru kmitočtů fx : fy = 1 : 2."
+    },
+    {
+      "question": "Jak se vypočte fázový posuv ve stupních u měření fáze pomocí čítače? (ta je časový interval změřený čítačem odpovídající fázovému posuvu, T je perioda impulsů)",
+      "answers": [
+        "Fázový posuv = ta/T",
+        "Fázový posuv = 360·(ta/T)",
+        "Fázový posuv = 180·(ta/T)",
+        "Fázový posuv = cos(ta/T)",
+        "Fázový posuv = 360·(T/ta)"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Jedna celá perioda T odpovídá fázovému úhlu 360°. Fázový posuv se proto vypočte jako podíl časového intervalu ta (odpovídajícího fázovému posunu) a periody T, vynásobený 360°: Fázový posuv = 360° × (ta/T)."
+    }
+  ]
+},
+  t3: {
   "subject": "MVE - Test 3: Osciloskopy",
   "questions": [
     {
@@ -633,7 +889,7 @@ const MVE_TESTS = {
     }
   ]
 },
-  t3: {
+  t1: {
   "subject": "MVE - Test 1: Chyby a nejistoty měření",
   "questions": [
     {
@@ -935,6 +1191,8 @@ document.getElementById('t2Desc').textContent =
   MVE_TESTS.t2.questions.length + ' otázek — číslicové/analogové voltmetry, digity, A/D převodníky';
 document.getElementById('t3Desc').textContent =
   MVE_TESTS.t3.questions.length + ' otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze';
+document.getElementById('t4Desc').textContent =
+  MVE_TESTS.t4.questions.length + ' otázek — vzorkování, spouštění, čítače, Lissajousovy obrazce';
 
 function startTest(id){
   const data = MVE_TESTS[id];
