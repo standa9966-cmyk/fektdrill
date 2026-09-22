@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — Vlastní test online testy a procvičování otázek zdarma">
+<title>Vlastní test — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<script>
+// Load AdSense only when running on a real server (not file://)
+if (window.location.protocol !== 'file:') {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+</script>
+<!-- auto ads disabled -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
+  --accent:#0f6cbd;--accent-h:#115ea3;
+  --green:#107c41;--green-bg:#e8f5ee;--green-bd:#c1e0ce;
+  --red:#c4262e;--red-bg:#fdf0f0;--red-bd:#f1c0c0;
+  --text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);
+  --r:10px;
+}
+[data-theme="dark"]{
+  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
+  --accent:#5b8cff;--accent-h:#7aa5ff;
+  --green:#3dd68c;--green-bg:rgba(61,214,140,.12);--green-bd:rgba(61,214,140,.3);
+  --red:#ff6b6b;--red-bg:rgba(255,107,107,.12);--red-bd:rgba(255,107,107,.3);
+  --text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
+
+/* TOP PANEL */
+.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
+.top-panel a{color:#fff;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px;}
+.top-panel a:hover{text-decoration:underline;}
+.top-panel-text{color:rgba(255,255,255,.8);}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;flex-wrap:wrap;transition:background .2s;flex-shrink:0;}
+.topbar-l{display:flex;align-items:center;gap:12px;}
+.btn-back{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .15s;}
+.btn-back:hover{border-color:var(--accent);color:var(--accent);}
+.subject-lbl{font-size:13px;font-weight:600;color:var(--accent);}
+.topbar-r{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;flex-shrink:0;}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.prog-wrap{display:flex;align-items:center;gap:8px;}
+.prog-outer{width:100px;height:4px;background:var(--surface2);border-radius:2px;overflow:hidden;}
+.prog-inner{height:100%;background:var(--accent);border-radius:2px;transition:width .4s;width:0%;}
+.prog-lbl{font-size:12px;color:var(--subtle);white-space:nowrap;}
+.mode-tog{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.mbtn{padding:7px 16px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;transition:all .15s;}
+.mbtn.on{background:var(--accent);color:#fff;}
+
+/* FILTER */
+.fbar{display:flex;align-items:center;gap:8px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--surface);flex-wrap:wrap;flex-shrink:0;}
+.flbl{font-size:11px;color:var(--subtle);text-transform:uppercase;letter-spacing:.8px;}
+.fbtn{padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:none;color:var(--muted);font-size:12px;font-family:inherit;cursor:pointer;transition:all .15s;}
+.fbtn.on{background:var(--surface2);border-color:var(--accent);color:var(--accent);font-weight:600;}
+.sbox{margin-left:auto;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:6px 12px;color:var(--text);font-family:inherit;font-size:13px;outline:none;width:190px;transition:all .15s;}
+.sbox:focus{border-color:var(--accent);background:var(--surface);}
+.sbox::placeholder{color:var(--subtle);}
+
+/* PAGE LAYOUT — side ads */
+.page-layout{display:flex;flex:1;}
+.ad-col{width:160px;flex-shrink:0;padding:20px 10px;display:flex;flex-direction:column;align-items:center;position:sticky;top:80px;height:fit-content;align-self:flex-start;}
+.ad-col.left{padding-left:16px;}
+.ad-col.right{padding-right:16px;}
+.content-col{flex:1;min-width:0;display:flex;flex-direction:column;}
+.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;margin-bottom:4px;text-align:center;}
+.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
+
+/* CONTENT */
+.area{padding:24px 20px;max-width:860px;width:100%;margin:0 auto;}
+
+/* IMAGE */
+.q-img{margin:10px 0 14px;text-align:center;}
+.q-img img{max-width:100%;border-radius:8px;border:1px solid var(--border);}
+.q-img-ph{background:var(--surface2);border:2px dashed var(--border);border-radius:8px;padding:20px 16px;text-align:center;color:var(--subtle);font-size:13px;}
+.q-img-ph .ph-icon{font-size:24px;margin-bottom:4px;}
+.q-img-ph code{font-size:11px;opacity:.7;display:block;margin-top:4px;}
+
+/* BROWSE */
+.qcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:12px;box-shadow:var(--shadow);transition:border-color .15s;}
+.qcard:hover{border-color:var(--accent);}
+.qhead{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.qnum{font-size:11px;font-weight:700;color:var(--accent);background:var(--surface2);border:1px solid var(--border);border-radius:5px;padding:3px 9px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.qtxt{font-size:15px;font-weight:600;line-height:1.5;}
+.agrid{display:grid;gap:6px;}
+.aitem{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:7px;background:var(--surface2);border:1px solid transparent;font-size:14px;line-height:1.45;}
+.aitem.ok{background:var(--green-bg);border-color:var(--green-bd);}
+.akey{font-size:11px;font-weight:700;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--border);color:var(--muted);margin-top:1px;}
+.aitem.ok .akey{background:var(--green);color:#fff;}
+[data-theme="dark"] .aitem.ok .akey{color:#0b0c0f;}
+.abadge{font-size:11px;color:var(--green);font-weight:600;margin-left:auto;white-space:nowrap;padding-left:8px;align-self:center;}
+.empty{text-align:center;padding:60px;color:var(--subtle);}
+.empty .ei{font-size:36px;margin-bottom:10px;}
+
+/* DRILL */
+#drillArea{display:none;}
+.dcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;max-width:660px;margin:0 auto;box-shadow:var(--shadow);}
+.dmeta{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.dctr{font-size:12px;color:var(--subtle);font-weight:500;}
+.dscore{display:flex;gap:12px;}
+.si{font-size:12px;display:flex;align-items:center;gap:5px;font-weight:600;}
+.si .dot{width:8px;height:8px;border-radius:50%;}
+.si.ok{color:var(--green);} .si.ok .dot{background:var(--green);}
+.si.ko{color:var(--red);}   .si.ko .dot{background:var(--red);}
+.dq{font-size:17px;font-weight:700;line-height:1.5;margin-bottom:10px;}
+.dopts{display:grid;gap:9px;margin-bottom:18px;}
+.dopt{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:9px;border:1.5px solid var(--border);background:var(--surface);cursor:pointer;transition:all .15s;text-align:left;width:100%;font-size:14px;color:var(--text);line-height:1.45;font-family:inherit;}
+.dopt:hover:not(:disabled){border-color:var(--accent);background:var(--surface2);}
+.dopt:disabled{cursor:default;}
+.dopt.sc{border-color:var(--green)!important;background:var(--green-bg)!important;}
+.dopt.sw{border-color:var(--red)!important;background:var(--red-bg)!important;}
+.dopt.rc{border-color:var(--green)!important;background:var(--green-bg)!important;opacity:.75;}
+.okey{font-size:11px;font-weight:700;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--surface2);color:var(--muted);margin-top:1px;transition:all .15s;}
+.dopt.sc .okey{background:var(--green);color:#fff;}
+.dopt.sw .okey{background:var(--red);color:#fff;}
+.dopt.rc .okey{background:var(--green);color:#fff;}
+[data-theme="dark"] .dopt.sc .okey,[data-theme="dark"] .dopt.rc .okey{color:#0b0c0f;}
+.fb{padding:12px 16px;border-radius:8px;font-weight:600;font-size:14px;margin-bottom:16px;opacity:0;transition:opacity .2s;border:1px solid transparent;}
+.fb.show{opacity:1;}
+.fb.ok{background:var(--green-bg);color:var(--green);border-color:var(--green-bd);}
+.fb.ko{background:var(--red-bg);color:var(--red);border-color:var(--red-bd);}
+.bnext{width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:9px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;display:none;transition:background .15s;}
+.bnext:hover{background:var(--accent-h);}
+.bnext.show{display:block;}
+
+/* RESULTS */
+.res{text-align:center;padding:44px 24px;max-width:480px;margin:0 auto;}
+.rei{font-size:56px;margin-bottom:14px;}
+.ret{font-size:28px;font-weight:800;margin-bottom:6px;}
+.res-sub{color:var(--muted);margin-bottom:24px;font-size:15px;}
+.rstats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px;}
+.rsbox{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 10px;box-shadow:var(--shadow);}
+.rsval{font-size:26px;font-weight:800;margin-bottom:3px;}
+.rskey{font-size:10px;color:var(--subtle);text-transform:uppercase;letter-spacing:.8px;}
+.rsbox.g .rsval{color:var(--green);}
+.rsbox.r .rsval{color:var(--red);}
+.rsbox.b .rsval{color:var(--accent);}
+.bres{padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:9px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;margin-right:10px;transition:background .15s;}
+.bres:hover{background:var(--accent-h);}
+.bhome{padding:12px 28px;background:none;color:var(--muted);border:1px solid var(--border);border-radius:9px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .15s;}
+.bhome:hover{border-color:var(--accent);color:var(--accent);}
+
+/* FOOTER */
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.footer-links a:hover{color:var(--accent);}
+
+/* hide side ads on narrow screens */
+@media(max-width:960px){.ad-col{display:none;}}
+@media(max-width:640px){
+  .top-panel{font-size:12px;padding:7px 14px;}
+  .topbar{padding:10px 14px;}
+  .subject-lbl{display:none;}
+  .prog-outer{width:70px;}
+  .mbtn{padding:7px 11px;font-size:12px;}
+  .fbar{padding:8px 14px;}
+  .sbox{width:100%;margin-left:0;margin-top:4px;}
+  .area{padding:16px 14px;}
+  .dcard{padding:20px 16px;border-radius:10px;}
+  .dq{font-size:16px;}
+  .dopt{font-size:14px;padding:13px 14px;}
+  .rstats{gap:8px;}
+  .rsval{font-size:22px;}
+  .bres,.bhome{display:block;width:100%;margin-right:0;}
+  .bhome{margin-top:10px;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{flex-wrap:wrap;justify-content:center;}
+}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+.donate-inline{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);display:flex;align-items:center;gap:20px;}
+.donate-inline-qr{width:90px;height:90px;border-radius:6px;border:1px solid var(--border);flex-shrink:0;}
+.donate-inline-title{font-size:15px;font-weight:700;margin-bottom:4px;}
+.donate-inline-sub{font-size:13px;color:var(--muted);line-height:1.4;}
+@media(max-width:480px){.donate-inline{flex-direction:column;text-align:center;}.donate-inline-qr{width:120px;height:120px;}}
+
+
+.explanation{margin-top:12px;padding:12px 14px;background:var(--surface2);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:13px;color:var(--muted);line-height:1.55;}
+.explanation strong{color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.6px;display:block;margin-bottom:4px;}
+.drill-explanation{margin-top:14px;padding:14px 16px;background:var(--surface2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:14px;color:var(--muted);line-height:1.55;display:none;}
+.drill-explanation strong{color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.6px;display:block;margin-bottom:5px;}
+.drill-explanation.show{display:block;}
+
+</style>
+
+<style>
+/* Hide ads when running locally */
+.local-hide { display: none !important; }
+</style>
+<script>
+if (window.location.protocol === 'file:') {
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.ad-col, .home-ad, .ad-label').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // Remove gap left by hidden ad columns
+    var layout = document.querySelector('.page-layout');
+    if (layout) layout.style.justifyContent = 'center';
+  });
+}
+</script>
+</head>
+<body>
+
+<div class="top-panel">
+  <span class="top-panel-text">🔗 Také nás zajímá:</span>
+  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
+</div>
+<div class="topbar">
+  <div class="topbar-l">
+    <button class="btn-back" onclick="history.back()">← Zpět</button>
+    <span class="subject-lbl" id="subLbl">Vlastní test</span>
+  </div>
+  <div class="topbar-r">
+    <div class="prog-wrap">
+      <div class="prog-outer"><div class="prog-inner" id="progBar"></div></div>
+      <span class="prog-lbl" id="progLbl">0 / 0</span>
+    </div>
+    <div class="mode-tog">
+      <button class="mbtn on" id="mBrowse">📖 Procházet</button>
+      <button class="mbtn"    id="mDrill">🎯 Drill</button>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Přepnout motiv">🌙</button>
+  </div>
+</div>
+<div class="fbar" id="fbar">
+  <span class="flbl">Zobrazit:</span>
+  <button class="fbtn on" data-f="all">Vše</button>
+  <button class="fbtn" data-f="2">2 možnosti</button>
+  <button class="fbtn" data-f="3">3 možnosti</button>
+  <button class="fbtn" data-f="4">4 možnosti</button>
+  <input class="sbox" id="sbox" placeholder="🔍 Hledat…">
+</div>
+<div class="page-layout">
+  <aside class="ad-col left">
+    <span class="ad-label">Reklama</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="true"></ins><script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+  <div class="content-col">
+    <div class="area" id="browseArea"></div>
+    <div class="area" id="drillArea">
+      <div class="dcard" id="dcard">
+        <div class="dmeta">
+          <span class="dctr" id="dctr">Otázka 1 / 0</span>
+          <div class="dscore">
+            <div class="si ok"><div class="dot"></div><span id="sok">0</span></div>
+            <div class="si ko"><div class="dot"></div><span id="sko">0</span></div>
+          </div>
+        </div>
+        <div class="dq" id="dq"></div>
+        <div id="dimg"></div>
+        <div class="dopts" id="dopts"></div>
+        <div class="drill-explanation" id="dexpl"></div>
+        <div class="fb" id="fb"><span id="fbtxt"></span></div>
+        <button class="bnext" id="bnext" onclick="nextQ()">Další otázka →</button>
+      </div>
+      <div class="res" id="resBox" style="display:none">
+        <div class="rei" id="rei">🎉</div>
+        <div class="ret" id="ret">Hotovo!</div>
+        <div class="res-sub" id="resub"></div>
+        <div class="rstats">
+          <div class="rsbox g"><div class="rsval" id="rok">0</div><div class="rskey">SPRÁVNĚ</div></div>
+          <div class="rsbox r"><div class="rsval" id="rko">0</div><div class="rskey">ŠPATNĚ</div></div>
+          <div class="rsbox b"><div class="rsval" id="rpct">0%</div><div class="rskey">ÚSPĚŠNOST</div></div>
+        </div>
+        <button class="bres" onclick="startDrill()">🔄 Znovu</button>
+        <button class="bhome" onclick="history.back()">← Domů</button>
+      </div>
+    </div>
+  </div>
+  <aside class="ad-col right">
+    <span class="ad-label">Reklama</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="true"></ins><script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="https://techquizz.com/privacy.html">Ochrana soukromí</a>
+      <a href="https://techquizz.com/cookies.html">Nastavení cookies</a>
+      <a href="https://techquizz.com/about_us.html">O nás</a> &nbsp;·&nbsp; <a href="index.html#support" style="color:var(--muted);text-decoration:none;" title="Podpora projektu">☕ Podpora</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var t=localStorage.getItem('ql-theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'light';
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=n==='dark'?'☀️':'🌙';
+  localStorage.setItem('ql-theme',n);
+}
+const RAW=(function(){try{var d=JSON.parse(sessionStorage.getItem('ql-data')||'null');if(d&&d.questions&&d.questions.length){var e=document.getElementById('subLbl');if(e)e.textContent=d.subject||'Vlastní test';return d.questions;}}catch(e){}document.getElementById('browseArea').innerHTML='<div class="empty"><div class="ei">⚠️</div><p>Žádná data. <a href="index.html" style="color:var(--accent)">← Zpět</a></p></div>';document.getElementById('browseArea').style.display='block';throw 0;})();
+const L=['A','B','C','D','E','F'];
+const QS=RAW.map(q=>({...q,answer_count:q.answer_count||q.answers.length})).filter(q=>q.question&&Array.isArray(q.answers)&&q.answers.length);
+let mode='browse',filt='all',dq=[],di=0,dok=0,dko=0,answered=false;
+function isMobile(){return window.innerWidth<=640;}
+function imgHtml(q){
+  if(!q.image_name)return '';
+  var src='images/'+q.image_name;
+  return '<div class="q-img"><img src="'+src+'" alt="Obrazek k otazce" loading="lazy" onerror="this.style.display=&quot;none&quot;;this.nextSibling.style.display=&quot;block&quot;"><div class="q-img-ph" style="display:none"><div class="ph-icon">&#128444;</div>Obrazek nenalezen<code>'+src+'</code></div></div>';
+}
+function explanationHtml(q){
+  if(!q.explanation)return '';
+  return '<div class="explanation"><strong>&#128218; Vysvetleni</strong>'+esc(q.explanation)+'</div>';
+}
+setMode('browse');
+document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));b.classList.add('on');filt=b.dataset.f;renderBrowse();}));
+document.getElementById('sbox').addEventListener('input',renderBrowse);
+document.getElementById('mBrowse').addEventListener('click',()=>setMode('browse'));
+document.getElementById('mDrill').addEventListener('click',()=>setMode('drill'));
+document.getElementById('themeBtn').addEventListener('click',toggleTheme);
+function setMode(m){
+  mode=m;
+  document.getElementById('mBrowse').className='mbtn'+(m==='browse'?' on':'');
+  document.getElementById('mDrill').className='mbtn'+(m==='drill'?' on':'');
+  document.getElementById('fbar').style.display=m==='browse'?'flex':'none';
+  document.getElementById('browseArea').style.display=m==='browse'?'block':'none';
+  document.getElementById('drillArea').style.display=m==='drill'?'block':'none';
+  if(m==='browse')renderBrowse();else startDrill();
+}
+function filtered(){
+  const s=document.getElementById('sbox').value.toLowerCase();
+  return QS.filter(q=>(filt==='all'||String(q.answer_count)===filt)&&(!s||q.question.toLowerCase().includes(s)||q.answers.some(a=>a.toLowerCase().includes(s))));
+}
+function renderBrowse(){
+  const list=filtered();setProgress(list.length,QS.length);
+  const el=document.getElementById('browseArea');
+  if(!list.length){el.innerHTML='<div class="empty"><div class="ei">🔍</div><p>Žádné výsledky.</p></div>';return;}
+  el.innerHTML='<div class="donate-inline">  <img src="images/qr_support.png" alt="QR podpora" class="donate-inline-qr">  <div class="donate-inline-text">    <div class="donate-inline-title">☕ Podpora projektu</div>    <div class="donate-inline-sub">Líbí se ti TechQuizz? Naskenuj QR a podpoř provoz — 50 CZK.</div>  </div></div>'+list.map(q=>{
+    const gi=QS.indexOf(q)+1;
+    const ans=q.answers.map((a,ai)=>'<div class="aitem'+(ai===q.correct?' ok':'')+'"><div class="akey">'+(L[ai]||ai)+'</div><div>'+esc(a)+'</div>'+(ai===q.correct?'<div class="abadge">✓ správně</div>':'')+' </div>').join('');
+    return '<div class="qcard"><div class="qhead"><div class="qnum">#'+gi+'</div><div class="qtxt">'+esc(q.question)+'</div></div>'+imgHtml(q)+'<div class="agrid">'+ans+'</div>'+explanationHtml(q)+'</div>';
+  }).join('');
+}
+function startDrill(){dq=shuffle([...QS]);di=0;dok=0;dko=0;answered=false;document.getElementById('dcard').style.display='block';document.getElementById('resBox').style.display='none';setProgress(0,dq.length);renderQ();}
+function renderQ(){
+  if(di>=dq.length){showRes();return;}
+  answered=false;const q=dq[di];
+  document.getElementById('dctr').textContent='Otázka '+(di+1)+' / '+dq.length;
+  document.getElementById('sok').textContent=dok;
+  document.getElementById('sko').textContent=dko;
+  document.getElementById('dq').textContent=q.question;
+  document.getElementById('dimg').innerHTML=imgHtml(q);
+  document.getElementById('dexpl').className='drill-explanation';
+  document.getElementById('dexpl').innerHTML=q.explanation?'<strong>&#128218; Vysvetleni</strong>'+esc(q.explanation||''):'';  document.getElementById('fb').className='fb';
+  document.getElementById('bnext').className='bnext';
+  setProgress(di,dq.length);
+  const opts=document.getElementById('dopts');
+  opts.innerHTML=q.answers.map((a,ai)=>'<button class="dopt" data-i="'+ai+'"><div class="okey">'+(L[ai]||ai)+'</div><span>'+esc(a)+'</span></button>').join('');
+  opts.querySelectorAll('.dopt').forEach(b=>b.addEventListener('click',()=>pick(parseInt(b.dataset.i))));
+  if(isMobile())document.getElementById('dcard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function pick(chosen){
+  if(answered)return;answered=true;
+  const q=dq[di],ok=chosen===q.correct;
+  if(ok)dok++;else dko++;
+  document.querySelectorAll('.dopt').forEach(b=>b.disabled=true);
+  const btns=document.querySelectorAll('.dopt');
+  btns[chosen].classList.add(ok?'sc':'sw');
+  if(!ok)btns[q.correct].classList.add('rc');
+  document.getElementById('sok').textContent=dok;
+  document.getElementById('sko').textContent=dko;
+  document.getElementById('fbtxt').textContent=ok?'✓ Správně!':'✗ Špatně! Správná: '+L[q.correct];
+  document.getElementById('fb').className='fb show '+(ok?'ok':'ko');
+  document.getElementById('bnext').className='bnext show';
+  if(q.explanation) document.getElementById('dexpl').className='drill-explanation show';
+  if(isMobile())setTimeout(()=>document.getElementById('bnext').scrollIntoView({behavior:'smooth',block:'nearest'}),150);
+}
+function nextQ(){di++;renderQ();}
+function showRes(){
+  document.getElementById('dcard').style.display='none';
+  const total=dq.length,pct=total?Math.round(dok/total*100):0;
+  document.getElementById('rok').textContent=dok;
+  document.getElementById('rko').textContent=dko;
+  document.getElementById('rpct').textContent=pct+'%';
+  document.getElementById('rei').textContent=pct>=80?'🎉':pct>=50?'💪':'📚';
+  document.getElementById('ret').textContent=pct>=80?'Skvělé!':pct>=50?'Dobrá práce!':'Procvičuj dál!';
+  document.getElementById('resub').textContent=dok+' správně z '+total+' — '+pct+'% úspěšnost';
+  document.getElementById('resBox').style.display='block';
+  if(isMobile())document.getElementById('resBox').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function setProgress(cur,tot){document.getElementById('progBar').style.width=tot?(cur/tot*100)+'%':'0%';document.getElementById('progLbl').textContent=cur+' / '+tot;}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script>
+<script>
+// ── Source protection ──────────────────────────────────────────
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  // Block Ctrl+U (view source), Ctrl+S (save), Ctrl+Shift+I/J/C (devtools), F12
+  if (e.ctrlKey && (e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')) { e.preventDefault(); return false; }
+  if (e.ctrlKey && e.shiftKey && (e.key==='I'||e.key==='i'||e.key==='J'||e.key==='j'||e.key==='C'||e.key==='c')) { e.preventDefault(); return false; }
+  if (e.key==='F12') { e.preventDefault(); return false; }
+});
+</script>
+</body>
+</html>

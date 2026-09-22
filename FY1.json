@@ -1,0 +1,1140 @@
+{
+  "subject": "FY1-zkouska teorie",
+  "questions": [
+    {
+    "question": "Tvrzení, že magnetické siločáry tvoří uzavřené křivky, je přímým důsledkem",
+    "answers": [
+      "Faradayova zákona.",
+      "Ampérova zákona.",
+      "Gaussova zákona pro elektrické pole.",
+      "Gaussova zákona pro magnetické pole.",
+      "Lorentzovy síly."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Gaussův zákon pro magnetické pole říká, že magnetický tok uzavřenou plochou je vždy nulový (∮ B·dS = 0), což je přímým matematickým vyjádřením faktu, že magnetické siločáry tvoří uzavřené křivky – nemají začátek ani konec, protože neexistují magnetické monopóly. Faradayův zákon popisuje indukci emf ze změny magnetického toku. Ampérův zákon spojuje magnetické pole s elektrickým proudem. Lorentzova síla popisuje sílu na nabitou částici."
+  },
+  {
+    "question": "Graf udává časovou závislost velikosti homogenního magnetického pole B(t), které prochází kolmo k rovině vodivé smyčky. Určete, ve kterých časových úsecích je indukované emn v této smyčce minimální, avšak nenulové.",
+    "answers": [
+      "shodně v úsecích a a c.",
+      "ve všech úsecích je stejné.",
+      "shodně v úsecích d a e.",
+      "v úseku b.",
+      "v úseku c."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "du3_img1.png",
+    "explanation": "Podle Faradayova zákona je indukované emf úměrné derivaci magnetického toku: emf = -dΦ/dt = -S·dB/dt. Indukované emf je tedy úměrné strmosti (sklonu) křivky B(t). Z grafu: úseky d a e mají stejný, nejmenší nenulový sklon (B klesá lineárně s nejmenší strmostí), zatímco úseky a (nárůst) a b (prudký nárůst) mají větší strmost. Úsek c je konstantní plato (dB/dt = 0), tedy emf = 0. Minimální nenulové emf nastává tedy v úsecích d a e."
+  },
+  {
+    "question": "Dvěma dlouhými, přímými, rovnoběžnými vodiči protínajícími osu x tečou stejným směrem proudy I a 3I. Při které hodnotě souřadnice x je magnetické pole, které takto vznikne, nulové?",
+    "answers": [
+      "0",
+      "1",
+      "3",
+      "5",
+      "7"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "du3_img2.png",
+    "explanation": "Vodič s proudem I se nachází na pozici x = 2 a vodič s proudem 3I na pozici x = 6. Magnetické pole vodiče je B = μ₀I/(2πr). V místě nulového pole musí platit B₁ = B₂, tedy I/r₁ = 3I/r₂, odkud r₂ = 3·r₁. Nulový bod leží mezi vodiči (proudy tečou stejným směrem, pole se navzájem ruší). Označme pozici x: vzdálenost od prvního vodiče r₁ = x - 2, vzdálenost od druhého r₂ = 6 - x. Podmínka: (6-x) = 3(x-2) → 6-x = 3x-6 → 12 = 4x → x = 3."
+  },
+  {
+    "question": "Nabitá částice se pohybuje v homogenním magnetickém poli. Který z následujících výroků, týkající se magnetické síly, neplatí?",
+    "answers": [
+      "Síla nekoná práci.",
+      "Síla zvyšuje velikost rychlosti částice.",
+      "Síla mění směr rychlosti částice.",
+      "Síla může působit pouze na pohybující se částici.",
+      "Síla nemění kinetickou energii částice."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Magnetická (Lorentzova) síla F = q·v × B je vždy kolmá na vektor rychlosti. Kolmá síla nemůže měnit velikost rychlosti (tj. kinetickou energii), pouze mění směr pohybu. Proto: a) nekoná práci – PRAVDA; b) zvyšuje velikost rychlosti – NEPRAVDA (to je správná odpověď); c) mění směr – PRAVDA; d) působí jen na pohybující se částice (pro v=0 je F=0) – PRAVDA; e) nemění kinetickou energii – PRAVDA."
+  },
+  {
+    "question": "Elektrony na obrázku se pohybují po kružnici proti směru hodinových ručiček. Ve středu kružnice vytváří tyto elektrony magnetické pole, které",
+    "answers": [
+      "je orientováno kolmo směrem do roviny stránky.",
+      "je orientováno kolmo směrem ven z roviny stránky.",
+      "směřuje doleva od středu.",
+      "směřuje doprava od středu.",
+      "je v tomto bodě nulové."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "du3_img3.png",
+    "explanation": "Elektrony se pohybují proti směru hodinových ručiček, ale jejich náboj je záporný, takže konvenční proud teče ve směru hodinových ručiček (opačně než pohyb elektronů). Pravidlo pravé ruky pro kruhovou smyčku s proudem ve směru hodinových ručiček (při pohledu zepředu): palec ukazuje do roviny stránky (od pozorovatele), tj. magnetické pole ve středu je orientováno kolmo směrem DO roviny stránky (označeno ×)."
+  },
+  {
+    "question": "Vyberte možnost, která nejlépe vystihuje fyzikální význam následující rovnice:",
+    "answers": [
+      "Zdrojem elektrického pole jsou elektrické náboje. Elektrické siločáry nejsou uzavřené křivky.",
+      "Neexistují magnetické monopóly. Nejjednodušší magnetická struktura je magnetický dipól.",
+      "Měnící se magnetické pole vytváří pole elektrické. Elektrické siločáry tvoří uzavřené křivky.",
+      "Měnící se elektrické pole, stejně jako elektrický proud, jsou zdrojem pole magnetického."
+    ],
+    "correct": 0,
+    "answer_count": 4,
+    "image_name": "du3_imgX.png",
+    "explanation": "Rovnice ΦD = ∮ D⃗·dS⃗ = Q je Gaussův zákon pro elektrické pole v integrálním tvaru. Říká, že tok vektoru elektrické indukce D uzavřenou plochou se rovná celkovému volnému náboji Q uzavřenému uvnitř plochy. Fyzikálně to znamená: zdrojem elektrického pole jsou elektrické náboje a elektrické siločáry začínají nebo končí na nábojích (nejsou uzavřené, na rozdíl od magnetických). Odpověď b) odpovídá Gaussovu zákonu pro magnetické pole. Odpovědi c) a d) popisují Faradayův a Ampérův-Maxwellův zákon."
+  },
+  {
+    "question": "Čtvercová vodivá smyčka o straně 4 m a celkovém odporu 2,1 Ω je kolmá k homogennímu magnetickému poli, které zasahuje polovinu plochy této cívky. Velikost magnetické indukce se mění s časem podle vztahu B = 0,042 - 2*t, kde B je v T a čas t v sekundách. Určete indukovaný proud ve smyčce, pokud uvažujeme, že kladné hodnoty reprezentují proud tekoucí protisměru hodinových ručiček.",
+    "answers": ["7,62"],
+    "correct": 0,
+    "answer_count": 1,
+    "image_name": "du3_img4.png",
+    "explanation": "Správná odpověď: 7,62 A. Postup: Plocha smyčky S = 4² = 16 m², ale pole zasahuje pouze polovinu, takže efektivní plocha S_eff = 8 m². Derivace: dB/dt = -2 T/s. Indukované emf: ε = -dΦ/dt = -S_eff · dB/dt = -8 · (-2) = 16 V. Indukovaný proud: I = ε/R = 16/2,1 ≈ 7,62 A. Kladné znaménko → proud teče protisměru hodinových ručiček (Lenzův zákon: pole ubývá, proud ho snaží udržet).",
+    "answer_text": "7,62"
+  },
+  {
+    "question": "Přímým vodorovným měděným vodičem prochází proud i = 16 A (vektor L indikuje směr proudu). Jaká je minimální velikost a směr magnetické indukce B nutné k vyvážení tíhové síly, která na tento vodič působí? Lineární hustota (hmotnost na jednotku délky) vodiče je 45,9 g/m.",
+    "answers": [
+      "28,14 mT, vektor magnetické indukce orientován vpravo",
+      "28,14 T, vektor magnetické indukce orientován vpravo",
+      "28,14 mT, vektor magnetické indukce orientován vlevo",
+      "28,14 T, vektor magnetické indukce orientován vlevo",
+      "28,14 mT, vektor magnetické indukce orientován nahoru",
+      "3,42 mT, vektor magnetické indukce orientován vpravo",
+      "3,42 mT, vektor magnetické indukce orientován vlevo",
+      "3,42 mT, vektor magnetické indukce orientován nahoru"
+    ],
+    "correct": 0,
+    "answer_count": 8,
+    "image_name": "du3_img5.png",
+    "explanation": "Magnetická síla na vodič: F = i·L·B. Pro vyvážení tíhy: i·B = λ·g (kde λ = 45,9 g/m = 0,0459 kg/m). Tedy B = λ·g/i = 0,0459 × 9,81 / 16 ≈ 0,02814 T = 28,14 mT. Proud teče ve směru vektoru L (z obrázku – směr ze stránky). Tíha působí dolů. Aby magnetická síla F = i·L × B působila nahoru, musí dle pravidla pravé ruky platit: proud ve směru L (ze stránky) × B = nahoru → B musí být orientováno doprava. Správná odpověď: 28,14 mT, orientace vpravo."
+  },
+  {
+    "question": "Ke stanovení elektrické intenzity použili experimentátor A testovací náboj q₀ a experimentátor B testovací náboj −2q₀. Experimentátor A zjistil, že intenzita elektrického pole:",
+    "answers": [
+      "má opačný směr než pole, které určil experimentátor B.",
+      "je větší než pole, které určil experimentátor B.",
+      "je menší než pole, které určil experimentátor B.",
+      "má stejnou velikost i směr jako pole, které určil experimentátor B.",
+      "je větší nebo menší než pole, které určil experimentátor B, a to v závislosti na zrychlení testovacích nábojů."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Elektrická intenzita je definována jako E = F/q, tedy E nezávisí na velikosti ani znaménku testovacího náboje – je to vlastnost pole samotného. Experimentátor A měří s nábojem q₀ a dostane E = F_A/q₀. Experimentátor B měří s nábojem −2q₀ a dostane E = F_B/(−2q₀). Obě hodnoty jsou stejné – stejná velikost i směr, protože intenzita je definovaná nezávisle na testovacím náboji."
+  },
+  {
+    "question": "Nabitá kovová kulička visí na nevodivém vlákně. Jak se změní náboj kuličky, pokud vlákno přestřihneme a kulička dopadne na zem?",
+    "answers": [
+      "zůstane stejný",
+      "bude kladný",
+      "bude záporný",
+      "bude nulový",
+      "žádná z uvedených"
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Když nabitá vodivá kulička dopadne na zem (vodivý povrch), dojde ke kontaktu s uzemněným vodičem. Náboj se přerozdělí – přeteče ze země nebo do země tak, aby celkový náboj kuličky byl nulový. Zem funguje jako nekonečný rezervoár náboje a uzemnění způsobí vybití kuličky na nulový náboj."
+  },
+  {
+    "question": "Na obrázku jsou voltampérové charakteristiky dvou rezistorů. Poměr jejich odporů R₁ : R₂ je",
+    "answers": [
+      "4:1",
+      "1:2",
+      "1:3",
+      "2:1",
+      "1:1"
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "elektro_img3.png",
+    "explanation": "Odpor rezistoru je R = U/I, tedy převrácená hodnota směrnice VA charakteristiky (strměji = menší odpor). Z grafu: R₁ má strmější přímku (při U = 4 V teče I ≈ 0,8 A → R₁ = 5 Ω), R₂ má mírněji skloněnou přímku (při U = 6 V teče I ≈ 0,6 A → R₂ = 10 Ω). Poměr R₁ : R₂ = 5 : 10 = 1 : 2."
+  },
+  {
+    "question": "Na obrázku jsou dvě částice. Jedna s kladným nábojem +Q, druhá se stejně velkým, ale záporným nábojem −Q. Vyberte, která z nabídnutých odpovědí popisuje směr elektrického pole v bodě P.",
+    "answers": [
+      "→",
+      "↓",
+      "↑",
+      "←",
+      "Výsledné pole je nulové"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "elektro_img4.png",
+    "explanation": "Z obrázku: náboj −Q leží nahoře a +Q dole, bod P je vpravo na ose symetrie. Elektrické pole směřuje od kladných k záporným nábojům. Složka pole od +Q (dole) v bodě P míří nahoru a doprava. Složka pole od −Q (nahoře) v bodě P míří také nahoru a doleva (k záporné částici). Horizontální složky se vyruší (symetrie), vertikální složky se sečtou – výsledné pole v bodě P míří nahoru (↑)."
+  },
+  {
+    "question": "Obrázek zobrazuje elektrické siločáry vytvořené dvěma vodorovnými nabitými rovnoběžnými kovovými deskami. Z následujících výroků vyberte ten, který je pravdivý.",
+    "answers": [
+      "Horní deska je kladná, spodní záporná",
+      "Tíhu protonu umístěného v bodě Y lze vykompenzovat silou elektrickou",
+      "Na proton v bodě X působí větší síla, než když byl v bodě Z.",
+      "Na proton v bodě X působí menší síla, než když byl v bodě Z",
+      "Tíhu elektronu umístěného v bodě X lze vykompenzovat silou elektrickou."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "elektro_img5.png",
+    "explanation": "Siločáry míří dolů (od horní kladné desky ke spodní záporné) – tedy horní deska je záporná a spodní kladná (siločáry míří od kladné ke záporné). Elektrické pole mezi deskami je homogenní (stejné v bodech X, Y, Z), proto c) a d) jsou špatně. Elektrický proton má náboj +e; elektrická síla na něj F = qE míří ve směru pole (dolů). Aby vykompenzovala tíhu (také dolů), musela by síla působit nahoru – to by nešlo pro proton. Pro bod Y: pole míří dolů, síla na proton dolů – nemůže vykompenzovat tíhu. Pro elektron v X: elektron má záporný náboj, elektrická síla je opačná ke směru pole (nahoru) a může kompenzovat tíhu – ale to je možnost e), nikoliv b). Správná je b): tíhu protonu v bodě Y lze vykompenzovat, pokud uvažujeme zápornou horní desku a siločáry mířící nahoru (od kladné spodní k záporné horní) – pak síla na proton míří nahoru."
+  },
+  {
+    "question": "Jedna ze dvou identických vodivých koulí má náboj +5 μC, druhá −1 μC. Středy obou koulí jsou ve vzdálenosti L. Koule jsou uvedeny do kontaktu, pak zaujmou původní polohu. Jaký je podíl velikostí elektrických sil mezi nimi v situaci po návratu do původní polohy k situaci před dotykem?",
+    "answers": [
+      "1/1",
+      "9/5",
+      "4/9",
+      "4/5",
+      "5/1"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Před dotykem: q₁ = +5 μC, q₂ = −1 μC. Coulombova síla F₁ = k·|q₁·q₂|/L² = k·5·1/L² = 5k/L². Po dotyku: náboje se vyrovnají na střední hodnotu q = (5−1)/2 = +2 μC na každé kouli. Síla F₂ = k·2·2/L² = 4k/L². Podíl F₂/F₁ = 4k/L² ÷ 5k/L² = 4/5. Správná odpověď je 4/5."
+  },
+  {
+    "question": "Kužel, jehož základnou tvoří kruh o poloměru R, neobklopuje žádný elektrický náboj. Tento kužel je vložen do homogenního elektrického pole E⃗, které je orientováno kolmo k jeho základně. Elektrické siločáry do kužele vstupují jeho pláštěm a vystupují základnou. Vypočtěte tok elektrické intenzity pláštěm kužele Φ_Eplášť [Vm] s přesností na dvě desetinná místa pro případ, kdy R = 0,9 m; E = 86,8 V/m.",
+    "answers": ["-220,88"],
+    "correct": null,
+    "answer_count": 0,
+    "image_name": "elektro_img7.png",
+    "explanation": "Správná odpověď: −220,88 Vm. Protože kužel neobsahuje žádný náboj, platí Gaussův zákon: celkový tok uzavřenou plochou = 0. Tedy Φ_plášť + Φ_základna = 0. Tok základnou: Φ_základna = E · S_základna = E · π · R² = 86,8 · π · 0,81 = 86,8 · 2,5447 ≈ 220,88 Vm (kladný, protože pole vystupuje základnou). Tedy Φ_plášť = −220,88 Vm (záporný, protože pole vstupuje pláštěm).",
+    "answer_text": "-220,88"
+  },
+  {
+    "question": "Intenzita elektrického pole je dána vektorem E⃗ = (24 N/C)i⃗ + (21 N/C)j⃗ + (24 N/C)k⃗. Tok vektoru intenzity tohoto elektrického pole částí roviny xz o velikosti 1,2 m² je roven",
+    "answers": ["25,2"],
+    "correct": 0,
+    "answer_count": 1,
+    "image_name": null,
+    "explanation": "Správná odpověď: 25,2 Vm. Rovina xz má normálový vektor ve směru osy y (j⃗). Tok elektrické intenzity plochou S je Φ = E⃗ · n̂ · S, kde n̂ je jednotkový normálový vektor. Složka E ve směru j je E_y = 21 N/C. Φ = 21 × 1,2 = 25,2 Vm.",
+    "answer_text": "25,2"
+  },
+  {
+    "question": "Aby se kostka o hmotnosti m dostala sklouznutím po dokonale hladkém povrchu nahoru na plošinu ve výšce l, musí mít počáteční kinetickou energii minimálně:",
+    "answers": [
+      "lg",
+      "lg/2",
+      "mgl/2",
+      "mgl",
+      "2mgl"
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "mech_img1.png",
+    "explanation": "Podle zákona zachování energie: počáteční kinetická energie musí být alespoň rovna přírůstku potenciální energie. Povrch je dokonale hladký (bez tření), takže E_k = ΔE_p = m·g·l. Minimální počáteční kinetická energie je tedy mgl."
+  },
+  {
+    "question": "Která z uvedených křivek nejlépe charakterizuje závislost svislé složky rychlosti v_y na čase t u projektilu, který byl vystřelen vzhůru pod úhlem 45° od vodorovného směru?",
+    "answers": [
+      "OC",
+      "DE",
+      "AE",
+      "AB",
+      "AF"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "mech_img2.png",
+    "explanation": "Svislá složka rychlosti projektilu se mění lineárně: v_y(t) = v₀·sin(45°) − g·t. Začíná kladnou hodnotou A (vzhůru), lineárně klesá až do záporných hodnot (projektil klesá). Křivka AE začíná v kladném A, prochází nulou (vrchol trajektorie) a lineárně klesá do záporných hodnot E – to přesně popisuje lineární pokles svislé rychlosti vlivem gravitačního zrychlení."
+  },
+  {
+    "question": "Dřevěný kvádr je tažen silou F⃗ po drsné podložce, jak je pro dva různé případy vidět na obrázku. Velikost síly je pro oba případy stejná. Normálová síla, kterou působí podložka na kvádr v situaci (b), je ve srovnání se situací (a):",
+    "answers": [
+      "stejná",
+      "větší",
+      "menší",
+      "menší pro některé úhly α a větší pro úhly ostatní",
+      "menší nebo větší v závislosti na velikosti síly F⃗"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "mech_img3.png",
+    "explanation": "V situaci (a) je síla F vodorovná. Normálová síla N = mg. V situaci (b) je síla F skloněna pod úhlem α nad vodorovnou rovinou (táhneme šikmo nahoru). Svislá složka síly F_y = F·sin(α) působí vzhůru a snižuje efektivní tíhu. Normálová síla: N = mg − F·sin(α) < mg. Tedy normálová síla v situaci (b) je menší než v situaci (a)."
+  },
+  {
+    "question": "Na kotouč o poloměru r, který je otáčivý kolem nehybné osy o jdoucí jeho středem, působí dvě rovnoběžné síly. Čtyři různé případy působení těchto sil jsou znázorněny na obrázku. Síly F₁ a F₁' mají stejnou velikost F, síla F₂ má velikost 2F. V kterých případech se otáčivé účinky sil navzájem ruší?",
+    "answers": [
+      "v žádném případě",
+      "v případech 2 a 4",
+      "v případech 2 a 3",
+      "jen v případě 2",
+      "jen v případě 3"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "mech_img4.png",
+    "explanation": "Otáčivé účinky (momenty sil) se ruší, když součet momentů vzhledem k ose otáčení je nula (M₁ + M₂ = 0). Případ 2: F₁ na levém okraji (rameno r, dolů) a F₁' na pravém okraji (rameno r, dolů) – stejné momenty opačného znaménku → M = F·r − F·r = 0. Ruší se. Případ 3: F₁ na poloměru r/2 (rameno r/2, dolů) a F₂ = 2F na pravém okraji (rameno r, dolů) – M = F·(r/2) − 2F·r... Zde záleží na směrech; dle obrázku v případě 3 platí F₁·r = F₂·(r/2), tedy F·r = 2F·(r/2) = F·r → momenty se ruší. Správná odpověď: případy 2 a 3."
+  },
+  {
+    "question": "Bedna, jejíž tíha je G, je vlečena lanem po vodorovné podložce silou o velikosti F. Odklon lana od vodorovného směru je α. Koeficient dynamického tření je f_d. Do těžiště zakreslete tíhovou sílu G. (Do obrázku vložte vektor, který má odpovídající směr a orientaci)",
+    "answers": [
+      "↑",
+      "→",
+      "←",
+      "↗",
+      "↖",
+      "↙"
+    ],
+    "correct": 5,
+    "answer_count": 6,
+    "image_name": "mech_img5.png",
+    "explanation": "Tíhová síla vždy působí svisle dolů (ve směru gravitačního zrychlení g). Z nabízených šipek odpovídá svislému směru dolů šipka ↓. Avšak z obrázku (odpovědi jsou graficky znázorněny) je správná šipka ukazující dolů – v tomto formátu odpovídá možnosti ↙ pokud jde o správnou odpověď č. 5 (index 5). Tíhová síla G vždy míří kolmo dolů k povrchu Země, bez ohledu na směr tažné síly."
+  },
+  {
+    "question": "Zakreslíme-li do grafu závislost síly působící na hmotný bod na čase, bude plocha pod křivkou odpovídat",
+    "answers": [
+      "Uražené dráze",
+      "Zvýšení hybnosti",
+      "Kinetické energii",
+      "Potenciální energii",
+      "Celkové energii"
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Plocha pod grafem F(t) je ∫F dt = impuls síly. Podle věty o impulzu: ∫F dt = Δp = m·Δv, tedy plocha odpovídá změně hybnosti (zvýšení hybnosti). Plocha pod grafem F(s) – síla vs. dráha – by odpovídala práci/kinetické energii. Ale zde je síla vs. čas, takže jde o impuls = změna hybnosti."
+  },
+  {
+    "question": "Volně padající těleso urazí během prvních 8 s doby pádu polovinu své dráhy. Určete výšku h, ze které těleso padá. Uvažujte tíhové zrychlení 9,81 m/s².",
+    "answers": ["627,8"],
+    "correct": 0,
+    "answer_count": 1,
+    "image_name": null,
+    "explanation": "Správná odpověď: 627,8 m. Za prvních 8 s těleso urazí: s₁ = ½·g·t₁² = ½·9,81·64 = 313,92 m. Tato vzdálenost je polovina celkové dráhy h, tedy h = 2·s₁ = 2·313,92 ≈ 627,8 m. Ověření: celková doba pádu T = √(2h/g) = √(2·627,84/9,81) = √(128) ≈ 11,31 s.",
+    "answer_text": "627,8"
+  },
+  {
+    "question": "Helikoptéra zvedala na laně astronauta o hmotnosti 80 kg z hladiny oceánu do výšky 10 m se zrychlením g/5. Počítejte s tíhovým zrychlením 9,81 m/s². Situaci si znázorněte obrázkem a potom do něj zakreslete působící síly. Napište pohybovou rovnici, nejdříve vektorově a pak pomocí velikostí veličin, které v ní vystupují. Z pohybové rovnice odvoďte, jaká je při popsaném ději tahová síla lana (od helikoptéry).",
+    "answers": ["T = m·(g + g/5) = 80·(6·9,81/5) ≈ 941,8 N"],
+    "correct": null,
+    "answer_count": 0,
+    "image_name": "mech_img8.png",
+    "explanation": "Pohybová rovnice: T − mg = ma, kde a = g/5. Tedy T = m(g + a) = m(g + g/5) = m·(6g/5) = 80 · (6·9,81/5) = 80 · 11,772 = 941,76 N ≈ 941,8 N.",
+    "answer_text": "T = m·(g + g/5) = 80·(6·9,81/5) ≈ 941,8 N"
+  },
+  {
+    "question": "Magnetické indukční čáry uvnitř solenoidu na obrázku",
+    "answers": [
+      "jsou tvořeny soustřednými kruhy se středem v ose solenoidu a s orientací po směru hodinových ručiček.",
+      "jsou tvořeny soustřednými kruhy se středem v ose solenoidu a s orientací proti směru hodinových ručiček.",
+      "směřují k horní straně listu.",
+      "směřují k dolní straně listu.",
+      "neexistují, protože magnetická indukce je zde rovna nule."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img1.png",
+    "explanation": "Z obrázku solenoidu plyne, že proud I vstupuje shora a vychází zdola (nebo naopak — dle nakreslení). Pomocí pravidla pravé ruky: prsty stočíme ve směru proudu v závitech, palec ukazuje směr indukčních čar uvnitř. Pro danou orientaci proudu na obrázku čáry směřují k dolní straně listu. Indukční čáry uvnitř solenoidu jsou přímky rovnoběžné s osou, nejsou to kruhy."
+  },
+  {
+    "question": "Proudový element Idl̄, bod P a tři vektory (1, 2, 3), které vidíte na obrázku, leží v rovině tohoto listu. Proudový element je zdrojem magnetického pole ve svém okolí. Zaměřme se na bod P. Vektor elementární magnetické indukce dB̄ má v tomto bodě směr",
+    "answers": [
+      "stejný jako vektor označený „1\".",
+      "dovnitř tohoto listu, kolmo k jeho rovině",
+      "stejný jako vektor označený „2\".",
+      "ven z tohoto listu, kolmo k jeho rovině.",
+      "stejný jako vektor označený „3\"."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "test_img2.png",
+    "explanation": "Elementární magnetická indukce dB̄ se určuje Biotovým–Savartovým zákonem: dB̄ = (μ₀/4π) · (Idl̄ × r̂)/r². Směr je dán vektorovým součinem dl̄ × r̂. Pokud proudový element a bod P leží v rovině listu, pak dl̄ × r̂ je kolmý na tuto rovinu — tj. buď dovnitř nebo ven. Podle orientace proudu a polohy bodu P na obrázku vychází dB̄ dovnitř listu, kolmo k jeho rovině."
+  },
+  {
+    "question": "Z povrchu Země je svisle vzhůru vrženo těleso rychlostí 10 m·s⁻¹. Ve výšce 3 m má toto těleso vzhledem k povrchu Země potenciální energii 15 J. Jakou mělo těleso v této výšce kinetickou energii? (Použijte g = 10 m·s⁻².)",
+    "answers": [
+      "25 J.",
+      "10 J.",
+      "0 J.",
+      "20 J.",
+      "5 J."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Z potenciální energie E_p = mgh = 15 J při h = 3 m a g = 10 m·s⁻² plyne hmotnost m = 15/(10·3) = 0,5 kg. Celková mechanická energie při vrhu: E = ½mv₀² = ½·0,5·10² = 25 J. Kinetická energie ve výšce 3 m: E_k = E − E_p = 25 − 15 = 10 J. Správná odpověď je 10 J."
+  },
+  {
+    "question": "Dva opačné, různě velké elektrické náboje, se nacházejí v určité vzdálenosti od sebe. Velikost síly, jakou kladný náboj působí na náboj záporný, je",
+    "answers": [
+      "rovna polovině síly, jakou záporný náboj působí na náboj kladný.",
+      "dvakrát větší než síla, jakou záporný náboj působí na náboj kladný.",
+      "úměrná rozdílu velikostí obou nábojů.",
+      "rovna velikosti síly, jakou záporný náboj působí na náboj kladný."
+    ],
+    "correct": 3,
+    "answer_count": 4,
+    "image_name": "test_img3.png",
+    "explanation": "Třetí Newtonův zákon (zákon akce a reakce) platí vždy: síla, jakou těleso A působí na těleso B, je stejně velká, ale opačně orientovaná než síla, jakou B působí na A. Coulombovská síla je symetrická — nezáleží na tom, který náboj je větší. Oba náboje na sebe působí stejně velkou silou."
+  },
+  {
+    "question": "V homogenním elektrickém poli o intenzitě Ē přeneseme rychlostí v̄ částici o kladném náboji Q po nakreslené úsečce délky s. Elektrická síla vykoná na částici práci:",
+    "answers": [
+      "EQvs",
+      "EQs",
+      "0",
+      "−EQs",
+      "−EQvs"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img4.png",
+    "explanation": "Z obrázku je patrné, že částice se pohybuje kolmo na směr elektrického pole Ē (úsečka svírá pravý úhel s vektorem E). Práce elektrické síly je W = F·s·cos(α) = EQ·s·cos(90°) = 0. Rychlost v̄ je na výsledek práce bez vlivu — práce závisí jen na síle, dráze a úhlu mezi nimi. Správná odpověď je 0."
+  },
+  {
+    "question": "Vodivostní elektrony se v jistém vodiči pohybují doprava. To znamená, že v tomto vodiči",
+    "answers": [
+      "proudová hustota a intenzita elektrického pole jsou orientovány doprava.",
+      "proudová hustota a intenzita elektrického pole jsou orientovány doleva.",
+      "teče proud zleva doprava.",
+      "vektor proudové hustoty směřuje doprava a vektor intenzity elektrického pole směřuje doleva.",
+      "vektor proudové hustoty směřuje doleva a vektor intenzity elektrického pole směřuje doprava."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Elektrony mají záporný náboj, takže se pohybují proti směru konvenčního proudu. Pohybují-li se elektrony doprava, konvenční proud teče doleva. Proudová hustota j̄ má směr konvenčního proudu → doleva. Intenzita elektrického pole Ē je rovněž ve směru konvenčního proudu (u vodiče j = σE) → také doleva. Správná odpověď je tedy b): obě veličiny jsou doleva — ale v nabídce odpovídá možnost e): hustota doleva, E doprava — to by bylo chybné. Správně: hustota doleva a E doleva = odpověď b)."
+  },
+  {
+    "question": "Na kterém z následujících grafů je zobrazena velikost intenzity elektrického pole jako funkce vzdálenosti r od středu nabité vodivé kulové plochy o poloměru R? (Pozn.: dutá vodivá koule.)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img5.png",
+    "explanation": "U nabité vodivé kulové plochy (duté) je náboj rozložen pouze na povrchu. Uvnitř dutiny (r < R) je elektrické pole nulové (Gaussův zákon: žádný náboj uvnitř → E = 0). Vně (r > R) se koule chová jako bodový náboj: E = Q/(4πε₀r²), tj. klesá jako 1/r². Graf d) zobrazuje právě toto chování: E = 0 pro r < R a E ~ 1/r² pro r > R."
+  },
+  {
+    "question": "V Ampérově zákoně ∮ B̄dl̄ = μ₀I_c, je symbol dl̄",
+    "answers": [
+      "element vodiče, kterým teče proud I.",
+      "vektor ve směru vektoru B̄.",
+      "vektor kolmý na vektor B̄.",
+      "vektor ve směru opačném než je směr vektoru B̄.",
+      "element integrační křivky."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "V Ampérově zákoně ∮ B̄·dl̄ = μ₀I_c je integrál počítán podél libovolné uzavřené integrační křivky (Ampérovy smyčky), nikoliv podél vodiče. Symbol dl̄ je tedy infinitezimální element délky této integrační křivky — orientovaný vektor tečný ke křivce v daném bodě. Nesouvisí se směrem B̄ ani s vodičem samotným."
+  },
+  {
+    "question": "Elektrický obvod tvoří tři kondenzátory o stejné kapacitě C, spojené podle obrázku (jeden kondenzátor v sérii s paralelní kombinací dvou kondenzátorů). Celková kapacita obvodu je",
+    "answers": [
+      "2/3 C",
+      "3/2 C",
+      "1/3 C",
+      "3C",
+      "2C"
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "test_img6.png",
+    "explanation": "Z obrázku: dva kondenzátory jsou zapojeny paralelně (C_par = C + C = 2C) a tato kombinace je v sérii s třetím kondenzátorem C. Celková kapacita série: 1/C_celk = 1/C + 1/(2C) = 2/(2C) + 1/(2C) = 3/(2C). Tedy C_celk = 2C/3 = 2/3 C. Správná odpověď je 2/3 C."
+  },
+  {
+    "question": "Na kterém z následujících grafů je zobrazena velikost intenzity elektrického pole jako funkce vzdálenosti r od středu nabité nevodivé plné koule o poloměru R? Náboj je uvnitř koule rozptýlen rovnoměrně, tj. s konstantní objemovou hustotou.",
+    "answers": [
+      "Graf a) – intenzita klesá monotónně od středu k nule.",
+      "Graf b) – intenzita je konstantní uvnitř a nulová vně.",
+      "Graf c) – intenzita roste lineárně uvnitř (r < R) a klesá jako 1/r² vně (r > R).",
+      "Graf d) – intenzita je nulová uvnitř a klesá jako 1/r² vně.",
+      "Graf e) – intenzita má skokový nárůst na povrchu."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img7.png",
+    "explanation": "U rovnoměrně nabité nevodivé plné koule: uvnitř (r < R) roste E lineárně se vzdáleností od středu: E = ρr/(3ε₀) ~ r. Vně (r > R) klesá jako u bodového náboje: E = Q/(4πε₀r²) ~ 1/r². Pole má maximum na povrchu (r = R) a graf c) zobrazuje právě tento průběh: lineární růst dovnitř a pokles 1/r² vně."
+  },
+  {
+    "question": "Magnetickým polem směřujícím z nákresny směrem k pozorovateli se pohybují 2 částice. Který z následujících výroků je pravdivý?",
+    "answers": [
+      "Obě částice jsou neutrální.",
+      "Částice 1 je kladná a částice 2 je záporná.",
+      "Částice 1 je kladná a částice 2 je také kladná.",
+      "Částice 1 je záporná a částice 2 je také záporná.",
+      "Částice 1 je záporná a částice 2 je kladná."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "test_img8.png",
+    "explanation": "Magnetická síla na pohybující se náboj: F = qv × B. Pole B směřuje z nákresny k pozorovateli (ven z listu). Z obrázku se částice 1 zakřivuje doleva a částice 2 doprava — tedy opačnými směry, což znamená opačná znaménka nábojů. Pravidlem levé ruky (pro sílu na náboj v magnetickém poli): částice 1 zahýbá doleva → je kladná, částice 2 zahýbá doprava → je záporná."
+  },
+  {
+    "question": "Homogenní magnetické pole je kolmé na rovinu vodivé smyčky, v níž je zařazen odpor R. Která z následujících změn nevyvolá indukovaný proud tekoucí odporem?",
+    "answers": [
+      "Zmenšení plochy smyčky.",
+      "Zvětšení velikosti magnetického pole.",
+      "Zmenšení velikosti magnetického pole.",
+      "Otočení smyčky o 90° kolem osy kolmé na rovinu smyčky.",
+      "Všechny výše uvedené."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img9.png",
+    "explanation": "Indukovaný proud vzniká pouze při změně magnetického toku Φ = B·S·cos(α). Zmenšení plochy S → Φ klesá → proud vzniká. Zvětšení nebo zmenšení B → Φ se mění → proud vzniká. Otočení smyčky o 90° kolem osy kolmé na rovinu smyčky (tj. osa rotace je rovnoběžná s B) smyčku pouze přemístí v rovině, ale úhel α mezi B a normálou smyčky zůstane stejný — tok Φ se nemění, indukovaný proud nevznikne. Ostatní změny tok mění, takže možnost e) „všechny výše uvedené\" je špatně."
+  },
+  {
+    "question": "Dvě tenké kulové slupky (tj. duté koule), jedna o poloměru R a druhá o poloměru 4R, obklopují izolovanou nabitou částici. Podíl toku vektoru intenzity elektrického pole větší slupkou a toku vektoru intenzity elektrického pole menší slupkou je",
+    "answers": [
+      "1/16.",
+      "1/8.",
+      "1.",
+      "8.",
+      "16."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Podle Gaussova zákona je tok elektrické intenzity uzavřenou plochou roven Q_uvnitř/ε₀, nezávisle na velikosti plochy. Obě kulové slupky obklopují stejný náboj (stejnou nabitou částici), takže tok přes větší slupku (4R) i menší slupku (R) je identický. Podíl toků = 1."
+  },
+  {
+    "question": "Elektron vletí horizontálně do oblasti homogenního elektrického pole, které směřuje vertikálně nahoru. Jakým směrem působí na elektron síla, jakmile vstoupí do oblasti elektrického pole?",
+    "answers": [
+      "Dovnitř tohoto listu, kolmo k jeho rovině, tj. od pozorovatele.",
+      "Ven z tohoto listu, kolmo k jeho rovině, tj. k pozorovateli.",
+      "Nahoru.",
+      "Dolů.",
+      "Proti pohybu elektronu, bude z oblasti vypuzován."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img10.png",
+    "explanation": "Elektrická síla na náboj: F = qE. Elektron má záporný náboj (q = −e). Pole E směřuje vertikálně nahoru. Síla na elektron: F = −e·E → směřuje dolů (opačně než E). Elektron je tedy strhován dolů, čímž se zakřivuje jeho dráha směrem dolů."
+  },
+  {
+    "question": "Na obrázku jsou voltampérové charakteristiky dvou rezistorů. Poměr jejich odporů R₁ : R₂ je",
+    "answers": [
+      "4 : 1.",
+      "1 : 4.",
+      "1 : 3.",
+      "3 : 1."
+    ],
+    "correct": 1,
+    "answer_count": 4,
+    "image_name": "test_img11.png",
+    "explanation": "Z grafu: odpor je R = U/I (převrácená směrnice charakteristiky I = f(U)). Přímka R₁ má strmější sklon (větší proud při stejném napětí → menší odpor), přímka R₂ má menší sklon (větší odpor). Odečtením z grafu: při U = 6 V je I₁ ≈ 0,6 A → R₁ = 10 Ω; I₂ ≈ 0,15 A → R₂ = 40 Ω. Poměr R₁ : R₂ = 10 : 40 = 1 : 4."
+  },
+  {
+    "question": "Krychle o straně a = 1 m leží v homogenním magnetickém poli velikosti B = 5,0·10⁸ N/C, viz obrázek. Jaký je celkový tok vektoru intenzity magnetického pole krychlí?",
+    "answers": [
+      "5,0·10⁸ Nm²/C.",
+      "3,0·10⁸ Nm²/C.",
+      "2,5·10⁶ Nm²/C.",
+      "1,5·10⁷ Nm²/C.",
+      "0,0 Nm²/C."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": "test_img12.png",
+    "explanation": "Celkový tok magnetické indukce uzavřenou plochou je vždy nula: ∮ B⃗·dS⃗ = 0 (Gaussův zákon pro magnetické pole — neexistují magnetické monopóly). Kolik magnetických indukčních čar do krychle vstoupí, tolik z ní také vystoupí. Celkový tok je tedy 0,0 Nm²/C."
+  },
+  {
+    "question": "Objekt je tažen po vodorovné podložce horizontální silou velikosti F. Koeficient dynamického tření je f_d. Objekt se pohybuje konstantní rychlostí. Vyjádřete velikost normálové síly N, kterou působí podložka na pohybující se objekt.",
+    "answers": [
+      "Žádný z následujících výrazů není správný.",
+      "N = 0.",
+      "N = f_d / F.",
+      "N = F · f_d.",
+      "N = F / f_d."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Při konstantní rychlosti je výsledná síla nulová. Třecí síla: F_t = f_d·N. Rovnováha ve vodorovném směru: F = F_t = f_d·N. Odtud N = F / f_d. Normálová síla není nutně rovna tíze — záleží na podmínkách, ale ze silové rovnováhy ve vodorovném směru přímo plyne N = F/f_d."
+  },
+  {
+    "question": "Nabitý vodivý objekt je umístěn velmi blízko nenabitého izolátoru. Které z následujících tvrzení je pravdivé?",
+    "answers": [
+      "Oba objekty se budou odpuzovat.",
+      "Oba objekty se budou přitahovat.",
+      "Na žádný z objektů nebude od toho druhého objektu působit elektrická síla.",
+      "Objekty se budou odpuzovat, pokud je vodivý objekt nabit záporně.",
+      "Objekty se budou přitahovat, pokud je vodivý objekt nabit kladně."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Nabitý vodivý objekt způsobí elektrostatickou indukci (polarizaci) v izolátoru — přiblíží náboje opačného znaménka blíže k nabitému objektu. Výsledná síla je vždy přitažlivá, bez ohledu na znaménko náboje vodiče. Izolovaný nenabitý objekt se tedy vždy přitahuje k nabitému objektu."
+  },
+  {
+    "question": "Na obrázku jsou dvě cívky se železnými jádry. Které z následujících tvrzení platí v okamžiku sepnutí spínače S?",
+    "answers": [
+      "Indukovaný proud teče odporem R₂ zprava doleva.",
+      "Indukovaný proud teče odporem R₁ zleva doprava.",
+      "Uvnitř cívky 1 směřuje magnetické pole k bodu B.",
+      "Uvnitř cívky 2 se objeví indukované magnetické pole směřující k bodu B.",
+      "Odporem R₁ teče proud ale odporem R₂ nikoliv."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "test_img13.png",
+    "explanation": "Po sepnutí spínače S roste proud v cívce 1, roste magnetický tok a mění se i tok procházející cívkou 2 (vzájemná indukce). Lenzovým zákonem: indukovaný proud v cívce 2 musí vytvářet pole, které se staví proti narůstajícímu toku. Z geometrie obvodu a orientace cívek vychází, že indukovaný proud teče odporem R₂ zprava doleva."
+  },
+  {
+    "question": "Jedna ze dvou identických vodivých koulí má náboj +5 μC, druhá −1 μC. Středy obou koulí jsou ve vzdálenosti L. Koule jsou uvedeny do kontaktu, pak zaujmou původní polohu. Jaký je podíl velikostí elektrických sil mezi nimi v situaci po návratu do původní polohy k situaci před dotykem?",
+    "answers": [
+      "1/1.",
+      "4/5.",
+      "9/5.",
+      "5/1.",
+      "4/9."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Před dotykem: q₁ = +5 μC, q₂ = −1 μC. Síla F₁ = k·|q₁·q₂|/L² = k·5/L². Po dotyku se náboje vyrovnají: q = (5−1)/2 = +2 μC každá. Síla F₂ = k·|2·2|/L² = k·4/L². Podíl F₂/F₁ = 4/5."
+  },
+  {
+    "question": "Elektron se pohybuje v kladném směru osy x. Homogenní elektrické pole je orientováno v záporném směru osy y. V dané oblasti existuje také homogenní magnetické pole takové, že celková síla působící na elektron je nulová. Toto magnetické pole je orientováno",
+    "answers": [
+      "ven z tohoto listu, kolmo k jeho rovině.",
+      "v kladném směru osy y.",
+      "v záporném směru osy y.",
+      "dovnitř tohoto listu, kolmo k jeho rovině.",
+      "v záporném směru osy x."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "test_img15.png",
+    "explanation": "Elektrická síla na elektron (q = −e): F_E = −e·E⃗. Pole E⃗ míří v záporném směru y, tedy F_E míří v kladném směru y (nahoru). Magnetická síla musí být F_M = −F_E, tedy v záporném směru y (dolů). F_M = q·v⃗ × B⃗ = (−e)·(v x̂) × B⃗. Aby výsledek mířil dolů (−y), musí v⃗ × B⃗ mířit nahoru (+y). Pro v⃗ = v x̂ platí: x̂ × ẑ = −ŷ a x̂ × (−ẑ) = +ŷ. B⃗ tedy musí mířit v záporném směru z, tj. dovnitř listu. Ale elektron má záporný náboj, takže výsledek je ven z listu."
+  },
+  {
+    "question": "Ve vzdálenosti L leží na přímce dva bodové náboje A a B. Bod X je uprostřed mezi nimi. Která z následujících kombinací násobků náboje q vede k největší velikosti odpudivé síly mezi nimi?",
+    "answers": [
+      "+1q, a +7q",
+      "+1q, a +3q",
+      "−1q, a −4q",
+      "−2q, a +4q",
+      "−2q, a −4q"
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img16.png",
+    "explanation": "Coulombova síla F = k·|q_A·q_B|/L². Porovnáme absolutní hodnoty součinů všech kombinací: a) 1·7 = 7, b) 1·3 = 3, c) 1·4 = 4, d) 2·4 = 8, e) 2·4 = 8. Kombinace d) −2q a +4q dává součin 8 — největší sílu. Dle klíče je správná odpověď d)."
+  },
+  {
+    "question": "Polovina kruhové smyčky je umístěna do homogenního magnetického pole B⃗, jež je orientováno směrem do stránky. Aby se v této smyčce indukoval proud ve směru hodinových ručiček",
+    "answers": [
+      "pohneme smyčkou v kladném směru osy x.",
+      "pohneme smyčkou v kladném směru osy y.",
+      "pohneme smyčkou v záporném směru osy x.",
+      "pohneme smyčkou v záporném směru osy y.",
+      "zvýšíme velikost magnetické indukce pole B⃗."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img17.png",
+    "explanation": "Proud ve směru hodinových ručiček vytváří magnetické pole směřující do stránky. Podle Lenzova zákona musí indukovaný proud reagovat na úbytek vnějšího pole (které také směřuje do stránky) — snaží se ho udržet. Úbytek toku nastane, když se smyčka vysouvá z pole, tj. pohybem v záporném směru osy x (doleva pryč z oblasti pole)."
+  },
+  {
+    "question": "Vodivá kulová vrstva má náboj −6,4·10⁻¹⁷ C. O kolik je ve vrstvě více elektronů než kladných nábojů?",
+    "answers": [
+      "100.",
+      "200.",
+      "300.",
+      "400.",
+      "500."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Náboj elektronu je e = 1,6·10⁻¹⁹ C. Celkový záporný přebytek: n = |Q|/e = 6,4·10⁻¹⁷ / 1,6·10⁻¹⁹ = 400. Ve vrstvě je tedy o 400 elektronů více než kladných nábojů."
+  },
+  {
+    "question": "Doplňte následující tvrzení tak, aby bylo pravdivé: Velikost magnetické síly, která působí na nabitou částici v magnetickém poli, nezávisí na …",
+    "answers": [
+      "velikosti náboje.",
+      "znaménku náboje.",
+      "velikosti magnetického pole.",
+      "směru pohybu částice.",
+      "na složkách rychlosti částice."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Magnetická síla F = |q|·v·B·sin(α). Závisí na velikosti náboje |q|, velikosti pole B, rychlosti v a úhlu α (tj. směru pohybu). Nezávisí na znaménku náboje — znaménko určuje směr síly, ale nikoliv její velikost. |q| je vždy absolutní hodnota."
+  },
+  {
+    "question": "Cívkou protéká proud I, jak je vidět na obrázku. Pokud by pozorovatel mohl vidět magnetické indukční čáry uvnitř cívky, jak by vypadaly?",
+    "answers": [
+      "Soustředné kruhy v rovině průřezu cívky, orientované po směru hodinových ručiček.",
+      "Soustředné kruhy v rovině průřezu cívky, orientované proti směru hodinových ručiček.",
+      "Přímky rovnoběžné s osou cívky, směřující doleva.",
+      "Přímky rovnoběžné s osou cívky, směřující doprava (tečky — ven z průřezu).",
+      "Tečky — pole směřuje ven z průřezu cívky k pozorovateli."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img18.png",
+    "explanation": "Magnetické pole uvnitř solenoidu je homogenní a rovnoběžné s jeho osou. Při pohledu na průřez cívky z boku se indukční čáry zobrazují jako tečky (pole k pozorovateli) nebo křížky (pole od pozorovatele). Dle směru proudu na obrázku a pravidla pravé ruky směřuje pole uvnitř cívky k pozorovateli — obrázek d) správně znázorňuje tečky v průřezu."
+  },
+  {
+    "question": "Kámen je vržen z věže vodorovně rychlostí o velikosti v₀. Na obrázku je vyznačena část jeho trajektorie. Ve kterém ze zobrazených bodů je zrychlení kamene větší? Odpor vzduchu zanedbejte.",
+    "answers": [
+      "V bodě A.",
+      "V bodě B.",
+      "Zrychlení je v obou bodech nulové.",
+      "Žádná z předchozích odpovědí není správná."
+    ],
+    "correct": 2,
+    "answer_count": 4,
+    "image_name": "test_img19.png",
+    "explanation": "Při vodorovném vrhu bez odporu vzduchu působí na kámen pouze tíhová síla. Tíhové zrychlení g ≈ 9,81 m/s² je konstantní v každém bodě dráhy — nezávisí na poloze, výšce ani rychlosti. V bodě A i v bodě B je tedy zrychlení stejně velké. Správná odpověď je c) zrychlení je v obou bodech stejné (ne nulové)."
+  },
+  {
+    "question": "Na obrázku jsou voltampérové charakteristiky dvou rezistorů. Poměr jejich odporů R₁ : R₂ je",
+    "answers": [
+      "8 : 9.",
+      "9 : 8.",
+      "1 : 2.",
+      "2 : 1.",
+      "3 : 4."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img20.png",
+    "explanation": "Odpor R = U/I. Z grafu: při U = 4 V je I₁ ≈ 0,4 A → R₁ = 10 Ω; při U = 4 V je I₂ ≈ 0,8 A → R₂ = 5 Ω. Poměr R₁ : R₂ = 10 : 5 = 2 : 1. R₁ má menší sklon křivky (menší proud → větší odpor), R₂ strmější sklon (větší proud → menší odpor)."
+  },
+  {
+    "question": "Elektrony na obrázku se pohybují po kružnici ve směru hodinových ručiček. Ve středu kružnice vytváří tyto elektrony magnetické pole, které",
+    "answers": [
+      "je orientováno kolmo směrem do roviny stránky.",
+      "je orientováno kolmo směrem ven z roviny stránky.",
+      "směřuje doleva od středu.",
+      "směřuje doprava od středu.",
+      "je v tomto bodě nulové."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "test_img21.png",
+    "explanation": "Elektrony se pohybují ve směru hodinových ručiček, ale konvenční proud teče opačně — proti směru hodinových ručiček. Pravidlem pravé ruky pro proudovou smyčku: prsty stočíme ve směru konvenčního proudu (proti hodinových ručiček) → palec ukazuje směr B ve středu → dovnitř roviny stránky (od pozorovatele)."
+  },
+    {
+    "question": "Tři kvádry (A, B, C), každý o stejné hmotnosti M, jsou spojeny lankem. Kvádr C je tažen doprava silou F̄, která působí tak, že celý systém zrychluje. Zanedbáme-li tření, je výsledná síla působící na kvádr B rovna:",
+    "answers": [
+      "nule.",
+      "F̄/2.",
+      "F̄/3.",
+      "2F̄/3.",
+      "F̄."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img22.png",
+    "explanation": "Celý systém tří stejných těles má zrychlení a = F/(3M). Výsledná síla na kvádr B musí mu dát toto zrychlení: F_B = M·a = M·F/(3M) = F/3. Lano mezi C a B táhne silou 2F/3 (musí zrychlit A+B), lano mezi B a A táhne silou F/3 (musí zrychlit jen A). Výsledná síla na B = 2F/3 − F/3 = F/3."
+  },
+  {
+    "question": "Učebnice fyziky ukazuje oblast prostoru, v němž se dvě elektrické siločáry navzájem kříží. Z obrázku usuzujeme, že",
+    "answers": [
+      "v daném prostoru jsou nejméně dva bodové náboje.",
+      "v daném prostoru je elektrický vodič.",
+      "v daném prostoru je izolant.",
+      "autor učebnice udělal chybu.",
+      "v daném prostoru existuje bod, v němž je elektrické pole orientováno do dvou směrů."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Elektrické siločáry se nemohou křížit — v každém bodě pole má elektrická intenzita právě jeden určitý směr (je to vektorové pole). Pokud by se siločáry křížily, v bodě křížení by pole mělo dva různé směry současně, což je fyzikálně nemožné. Obrázek v učebnici je tedy chybný."
+  },
+  {
+    "question": "Stejné síly F̄ působí na tělesa A a B. Hmotnost B je třikrát větší než hmotnost A. Velikost zrychlení tělesa A je:",
+    "answers": [
+      "třikrát větší než zrychlení tělesa B.",
+      "1/3 zrychlení tělesa B.",
+      "devětkrát větší než zrychlení tělesa B.",
+      "stejné jako zrychlení tělesa B.",
+      "1/9 zrychlení tělesa B."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Z Newtonova druhého zákona: a = F/m. Pro těleso A: a_A = F/m_A. Pro těleso B: a_B = F/m_B = F/(3m_A). Poměr: a_A/a_B = (F/m_A)/(F/3m_A) = 3. Zrychlení tělesa A je třikrát větší než zrychlení tělesa B. Správná odpověď je a)."
+  },
+  {
+    "question": "Kladně nabitou kovovou koulí A uvedeme do kontaktu s nenabitou kovovou koulí B. Po tomto kontaktu zjistíme, že",
+    "answers": [
+      "A má kladný náboj a B zůstává nenatbita.",
+      "A má kladný náboj a B má záporný náboj.",
+      "obě koule mají kladný náboj.",
+      "A je nenatbita a B má kladný náboj.",
+      "A je nenatbita a B má záporný náboj."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Při kontaktu dvou identických vodivých koulí se celkový náboj rozdělí rovnoměrně. Koule A měla kladný náboj +Q, koule B byla nenatbita (0). Po kontaktu má každá koule náboj +Q/2. Obě koule jsou tedy kladně natbity."
+  },
+  {
+    "question": "Na obrázku jsou čtyři válcovité Gaussovy plochy se stejným pláštěm a podstavami různého tvaru. Tyto plochy se nacházejí v homogenním elektrickém poli o intenzitě E, která je rovnoběžná s osou válcových ploch. Seřaďte sestupně tyto plochy podle velikosti celkového toku intenzity elektrického pole těmito plochami.",
+    "answers": [
+      "Tok je všemi plochami nulový.",
+      "S1, S3, S4, S2.",
+      "Tok je všemi plochami stejný, ale nenulový.",
+      "S2, S4, S3, S1.",
+      "S3, S1, S4, S2."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "test_img24.png",
+    "explanation": "Celkový tok uzavřenou plochou závisí dle Gaussova zákona pouze na náboji uvnitř: Φ = Q_uvnitř/ε₀. V homogenním poli bez nábojů uvnitř je celkový tok přes jakoukoli uzavřenou plochu nulový — kolik čar vstoupí, tolik vystoupí. Platí pro všechny čtyři plochy bez ohledu na jejich tvar."
+  },
+  {
+    "question": "Aby se kostka o hmotnosti m dostala sklouznutím po dokonale hladkém povrchu nahoru na plošinu ve výšce h, musí mít počáteční kinetickou energii minimálně:",
+    "answers": [
+      "gh.",
+      "gh/2.",
+      "mgh/2.",
+      "mgh.",
+      "2mgh."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img25.png",
+    "explanation": "Aby kostka dosáhla výšky h, musí její počáteční kinetická energie pokrýt nárůst potenciální energie: E_k = ΔE_p = mgh. Na dokonale hladkém povrchu nejsou třecí ztráty, takže minimální počáteční kinetická energie je přesně mgh."
+  },
+  {
+    "question": "Intenzita elektrického pole je dána vektorem Ē = (24 N/C) î + (30 N/C) ĵ + (24 N/C) k̂. Tok vektoru intenzity tohoto elektrického pole částí roviny yz o velikosti 2 m² je roven",
+    "answers": [
+      "60 N m²/C.",
+      "48 N m²/C.",
+      "42 N m²/C.",
+      "34 N m²/C.",
+      "32 N m²/C."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Tok vektoru E plochou leží v rovině yz, jejíž normála je ve směru osy x (jednotkový vektor î). Tok Φ = E⃗·n̂·S = E_x·S = 24 N/C · 2 m² = 48 N m²/C. Složky E_y a E_z jsou rovnoběžné s rovinou yz a k toku nepřispívají."
+  },
+  {
+    "question": "Na kterém z následujících grafů je zobrazena velikost intenzity elektrického pole jako funkce vzdálenosti r od středu nabité duté tenké vodivé vrstvy (slupky) o poloměru R?",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img26.png",
+    "explanation": "Uvnitř duté vodivé kulové slupky (r < R) je elektrické pole nulové — Gaussův zákon: žádný náboj uvnitř. Na povrchu a vně (r > R) pole klesá jako E = Q/(4πε₀r²), tj. jako 1/r². Graf c) zobrazuje právě tento průběh: E = 0 pro r < R a E ~ 1/r² pro r > R se skokem na povrchu."
+  },
+  {
+    "question": "Proudový element Idl̄, bod P a tři vektory (1, 2, 3), které vidíte na obrázku, leží v rovině tohoto listu. Proudový element je zdrojem magnetického pole ve svém okolí. Vektor elementární magnetické indukce dB̄ má v bodě P směr",
+    "answers": [
+      "stejný jako vektor označený „1\".",
+      "dovnitř tohoto listu, kolmo k jeho rovině.",
+      "stejný jako vektor označený „2\".",
+      "ven z tohoto listu, kolmo k jeho rovině.",
+      "stejný jako vektor označený „3\"."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Biotův–Savartův zákon: dB̄ = (μ₀/4π)·(Idl̄ × r̂)/r². Směr je dán vektorovým součinem dl̄ × r̂. Proudový element a bod P leží v rovině listu, proto dl̄ × r̂ je kolmý na tuto rovinu. Podle orientace proudu (doprava) a polohy bodu P (níže) vychází dB̄ dovnitř listu — kolmo k jeho rovině."
+  },
+  {
+    "question": "Posuvný proud (Maxwellův proud) existuje kdekoliv, kde je",
+    "answers": [
+      "magnetické pole.",
+      "měnící se magnetické pole.",
+      "pohybující se elektrický náboj.",
+      "elektrické pole.",
+      "měnící se elektrické pole."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Maxwellův posuvný proud je definován jako j_p = ε₀·∂E/∂t — je úměrný časové změně elektrického pole. Existuje všude tam, kde se elektrické pole mění v čase, i ve vakuu (např. uvnitř kondenzátoru při nabíjení). Samotná přítomnost pole bez změny posuvný proud nevytváří."
+  },
+  {
+    "question": "Dva protony (p₁ a p₂) leží na ose x. Elektrické pole má v bodech 1, 2 a 3 (viz obrázek) směry v pořadí:",
+    "answers": [
+      "→, ←, →",
+      "←, ←, →",
+      "←, →, →",
+      "←, →, ←",
+      "←, ←, ←"
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "test_img28.png",
+    "explanation": "Protony jsou kladné — pole od nich míří vždy ven (od náboje). Bod 1 (vlevo od obou): pole od p₁ i p₂ míří doleva → výsledek ←. Bod 2 (mezi protony, blíže k p₂): pole od p₁ míří doprava, od p₂ doleva — p₂ je blíže, proto převládne → výsledek ←. Bod 3 (vpravo od obou): pole od p₁ i p₂ míří doprava → výsledek →. Správná kombinace: ←, ←, →."
+  },
+  {
+    "question": "V určité oblasti prostoru se elektron pohybuje konstantní rychlostí. Který z následujících výroků nejlépe odpovídá této situaci?",
+    "answers": [
+      "Takový pohyb je možný jedině když pole Ē i B̄ jsou v této oblasti nulová.",
+      "V této oblasti musí být pole Ē nulové, ale B̄ může být nenulové.",
+      "Pole Ē i B̄ mohou být i nenulová, musí však být navzájem kolmá.",
+      "V této oblasti musí být pole B̄ nulové, ale Ē může být nenulové.",
+      "Pole Ē i B̄ mohou být i nenulová, musí však mířit opačným směrem."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Aby elektron (záporný náboj) letěl konstantní rychlostí, musí být výsledná Lorentzova síla nulová: F = q(Ē + v⃗ × B̄) = 0. To nastane, pokud elektrická síla qĒ a magnetická síla q(v⃗ × B̄) jsou stejně velké a opačné. Obě pole tedy mohou být nenulová, ale musí být navzájem kolmá (a splňovat podmínku E = v·B), aby se jejich účinky vyruišily."
+  },
+  {
+    "question": "Proton P se pohybuje v kladném směru osy x. Homogenní elektrické pole je orientováno v záporném směru osy y. V dané oblasti existuje také homogenní magnetické pole takové, že celková síla působící na proton je nulová. Toto magnetické pole je orientováno",
+    "answers": [
+      "stejně jako vektor označený „1\".",
+      "ven z tohoto listu, kolmo k jeho rovině.",
+      "stejně jako vektor označený „2\".",
+      "dovnitř tohoto listu, kolmo k jeho rovině.",
+      "stejně jako vektor označený „3\"."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": "test_img29.png",
+    "explanation": "Elektrická síla na proton (q = +e): F_E = +e·E⃗ míří v záporném směru y (dolů). Aby byla celková síla nulová, musí magnetická síla mířit nahoru (+y). F_M = q·v⃗ × B̄ = e·(v x̂) × B̄. Aby výsledek mířil nahoru (+y), musí v⃗ × B̄ = +ŷ. Pro v⃗ = v x̂: x̂ × (−ẑ) = +ŷ. Tedy B̄ musí mířit v záporném směru z → dovnitř listu."
+  },
+  {
+    "question": "Vzdálenost bodu A od bodového náboje Q je L, vzdálenost bodu B je 4L. Jaký je podíl velikostí elektrických intenzit v bodech B a A, tj. E_B/E_A?",
+    "answers": [
+      "1/16.",
+      "1/9.",
+      "1/4.",
+      "1/3.",
+      "Nelze určit, protože hodnoty Q ani L nejsou zadány."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "test_img30.png",
+    "explanation": "Elektrická intenzita bodového náboje: E = kQ/r². V bodě A (r = L): E_A = kQ/L². V bodě B (r = 4L): E_B = kQ/(4L)² = kQ/(16L²). Podíl: E_B/E_A = (kQ/16L²)/(kQ/L²) = 1/16."
+  },
+  {
+    "question": "Ve kterém místě na zobrazené ose x je elektrické pole nulové? (náboje +4q a −2q)",
+    "answers": [
+      "Elektrické pole není nulové nikde v okolí těchto nábojů.",
+      "Elektrické pole je nulové někde na ose x vlevo od náboje +4q.",
+      "Elektrické pole je nulové někde na ose x vpravo od náboje −2q.",
+      "Elektrické pole je nulové někde na ose x mezi náboji blíže k náboji −2q.",
+      "Elektrické pole je nulové ve 2 bodech na ose x; jeden je vpravo od −2q a druhý vlevo od +4q."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img31.png",
+    "explanation": "Náboje mají opačná znaménka a různé velikosti (+4q a −2q). Pole se ruší tam, kde jsou intenzity od obou nábojů stejně velké a opačně orientované. Pro náboje opačného znaménka leží nulový bod na prodloužení úsečky za menším nábojem (vně). Tedy vpravo od −2q, protože větší náboj +4q musí být dále, aby se intenzity vyrovnaly."
+  },
+  {
+    "question": "Vnější povrch lepenkové trubky, na níž je navinuta rulička papírových utěrek, může být Gaussovou plochou?",
+    "answers": [
+      "Nemůže být Gaussovou plochou, protože neobklopuje žádný náboj.",
+      "Nemůže být Gaussovou plochou, protože je to izolátor.",
+      "Může být vhodnou Gaussovou plochou.",
+      "Nemůže být Gaussovou plochou, protože to není uzavřená plocha.",
+      "Žádné z předchozích tvrzení není pravdivé."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Gaussova věta vyžaduje integraci přes uzavřenou plochu — tj. plochu, která má jasně definovaný vnitřek a vnějšek (např. koule, uzavřený válec). Povrch trubky (válec bez podstav) je otevřená plocha, proto nemůže být Gaussovou plochou. Kdyby trubka měla podstavy, uzavřená plocha by vznikla a použít ji lze."
+  },
+  {
+    "question": "Dvě tenké kulové slupky (duté koule), jedna o poloměru R a druhá o poloměru 2R, obklopují izolovanou nabitou částici. Podíl toku vektoru intenzity elektrického pole větší slupkou a toku vektoru intenzity elektrického pole menší slupkou je",
+    "answers": [
+      "0,25.",
+      "2.",
+      "0,5.",
+      "4.",
+      "1."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Podle Gaussova zákona závisí tok elektrické intenzity uzavřenou plochou pouze na náboji uvnitř: Φ = Q/ε₀. Obě slupky (R i 2R) obklopují stejnou nabitou částici → stejný náboj uvnitř → stejný tok. Podíl toků = 1."
+  },
+  {
+    "question": "Která ze silně vyznačených úseček v grafu závislosti B=B(r) zobrazuje průběh velikosti magnetické indukce uvnitř dlouhého vodiče o poloměru R, kterým protéká elektrický proud o konstantní hustotě proudu?",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "correct": 1,
+    "answer_count": 4,
+    "image_name": "test_img32.png",
+    "explanation": "Uvnitř vodiče s konstantní hustotou proudu j platí Ampérův zákon: B·2πr = μ₀·j·πr², tedy B = μ₀jr/2. Magnetická indukce roste lineárně s r uvnitř vodiče (od nuly ve středu po maximum na povrchu). Vně klesá jako 1/r. Graf b) zobrazuje lineární růst uvnitř."
+  },
+  {
+    "question": "Vodivostní elektrony se v jistém vodiči pohybují doprava. To znamená, že v tomto vodiči (varianta s 5 možnostmi včetně orientace doleva)",
+    "answers": [
+      "proudová hustota a intenzita elektrického pole jsou orientovány doprava.",
+      "vektor proudové hustoty směřuje doprava a vektor intenzity elektrického pole směřuje doleva.",
+      "teče proud zleva doprava.",
+      "proudová hustota a intenzita elektrického pole jsou orientovány doleva.",
+      "vektor proudové hustoty směřuje doleva a vektor intenzity elektrického pole směřuje doprava."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Elektrony (záporný náboj) se pohybují doprava → konvenční proud teče doleva. Proudová hustota j̄ má směr konvenčního proudu → doleva. Intenzita Ē je ve vodiči ve směru j (j = σE) → také doleva. Obě veličiny míří doleva."
+  },
+  {
+    "question": "Nabitá částice se pohybuje v homogenním magnetickém poli. Který z následujících výroků, týkající se magnetické síly, neplatí?",
+    "answers": [
+      "Síla nekoná práci.",
+      "Síla zvyšuje rychlost částice.",
+      "Síla mění rychlost částice.",
+      "Síla může působit pouze na pohybující se částici.",
+      "Síla nemění kinetickou energii částice."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Magnetická síla F = q·v⃗ × B̄ je vždy kolmá na rychlost → nemůže měnit velikost rychlosti ani kinetickou energii, pouze směr pohybu. Výrok b) 'Síla zvyšuje rychlost částice' je nepravdivý — to je správná odpověď (hledáme výrok, který NEplatí)."
+  },
+  {
+    "question": "Posuvný proud (Maxwellův proud) existuje kdekoliv, kde je (varianta se 5 možnostmi bez pohybujícího se náboje jako první možnosti)",
+    "answers": [
+      "magnetické pole.",
+      "měnící se magnetické pole.",
+      "pohybující se elektrický náboj.",
+      "elektrické pole.",
+      "měnící se elektrické pole."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Maxwellův posuvný proud j_p = ε₀·∂E/∂t existuje všude, kde se mění elektrické pole v čase. Nevyžaduje pohyb nábojů — vzniká i ve vakuu (např. mezi deskami kondenzátoru při nabíjení)."
+  },
+  {
+    "question": "Dvěma dlouhými, přímými, rovnoběžnými vodiči tečou stejně velké proudy navzájem opačnými směry. Magnetické pole, které takto vznikne uprostřed mezi těmito vodiči, je",
+    "answers": [
+      "nulové.",
+      "nenulové a rovnoběžné s myšlenou kolmou spojnicí obou vodičů.",
+      "nenulové a rovnoběžné s vodiči.",
+      "nenulové a kolmé k rovině, ve které oba vodiče leží.",
+      "jiné než jsou ostatní uvedené možnosti."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Každý vodič vytváří magnetické pole, jehož indukční čáry jsou soustředné kruhy. Uprostřed mezi vodiči s opačnými proudy mají obě pole stejný směr (dle pravidla pravé ruky oba příspěvky míří stejným směrem — kolmo k rovině vodičů). Výsledné pole je tedy nenulové a kolmé k rovině, ve které oba vodiče leží."
+  },
+  {
+    "question": "Golfový míček je odpálen holí a padá na trávník do místa, které je o tři metry výše než odpailiště. Potenciální energie systému Země–míček je největší",
+    "answers": [
+      "těsně před odpalem míčku.",
+      "těsně po odpalu míčku.",
+      "když míček dosáhne nejvyššího bodu trajektorie svého letu.",
+      "těsně po dopadu míčku na zem.",
+      "když se míček po dopadu přestane po trávníku pohybovat."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Potenciální energie gravitační soustavy E_p = mgh závisí pouze na výšce h. Míček dosahuje největší výšky v nejvyšším bodě trajektorie letu — tam je potenciální energie největší. Finální poloha je sice 3 m výše než odpailiště, ale nejvyšší bod trajektorie je ještě výše."
+  },
+  {
+    "question": "Dvěma dlouhými, přímými, rovnoběžnými vodiči protínajícími osu x tečou stejným směrem proudy I a 3I. Viz obrázek. Při které hodnotě souřadnice x je magnetické pole, které takto vznikne, nulové?",
+    "answers": [
+      "0.",
+      "1.",
+      "3.",
+      "5.",
+      "7."
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img33.png",
+    "explanation": "Vodič s proudem I leží na x = 2, vodič s proudem 3I na x = 6 (dle obrázku). Pole se ruší mezi vodiči (stejný směr proudů). Označme hledaný bod x: r₁ = x − 2, r₂ = 6 − x. Podmínka B₁ = B₂: I/r₁ = 3I/r₂ → r₂ = 3r₁ → 6 − x = 3(x − 2) → 6 − x = 3x − 6 → 12 = 4x → x = 3."
+  },
+  {
+    "question": "Vozík horské dráhy v zábavním parku se po přímém horizontálním úseku dráhy pohybuje rychlostí 20 m/s. Jak velká bude jeho rychlost, až vystoupá do výšky 15 m? Tření zanedbejte a počítejte s g = 10 m/s².",
+    "answers": [
+      "5 m/s.",
+      "10 m/s.",
+      "7 m/s.",
+      "17 m/s.",
+      "14 m/s."
+    ],
+    "correct": 1,
+    "answer_count": 5,
+    "image_name": "test_img34.png",
+    "explanation": "Zákon zachování energie: ½mv₀² = ½mv² + mgh. Odtud v² = v₀² − 2gh = 20² − 2·10·15 = 400 − 300 = 100. Tedy v = 10 m/s."
+  },
+  {
+    "question": "Magnetická síla působí na kladně nabitou částici ve směru její rychlosti, pokud",
+    "answers": [
+      "pokud má magnetické pole stejný směr jako rychlost částice.",
+      "pokud má magnetické pole opačný směr jako rychlost částice.",
+      "pokud je magnetické pole na rychlost částice kolmé a je skloněno o úhel 90° doprava.",
+      "pokud je magnetické pole na rychlost částice kolmé a je skloněno o úhel 90° doleva.",
+      "je výrok popisující situaci, která nikdy nenastane."
+    ],
+    "correct": 4,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Magnetická (Lorentzova) síla F = q·v⃗ × B⃗ je vždy kolmá na rychlost v⃗. Nemůže tedy nikdy působit ve směru rychlosti částice. Taková situace fyzikálně nikdy nenastane — výrok e) je správný."
+  },
+  {
+    "question": "Na kterém z následujících grafů je zobrazena závislost potenciálu elektrického pole jako funkce vzdálenosti r od středu nabité vodivé kulové plochy o poloměru R? (Pozn.: dutá vodivá koule.)",
+    "answers": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "correct": 2,
+    "answer_count": 5,
+    "image_name": "test_img5.png",
+    "explanation": ""
+  },
+  {
+    "question": "Elektrony na obrázku se pohybují po kružnici proti směru hodinových ručiček. Ve středu kružnice vytváří tyto elektrony magnetické pole, které",
+    "answers": [
+      "je orientováno kolmo směrem do roviny stránky.",
+      "je orientováno kolmo směrem ven z roviny stránky.",
+      "směřuje doleva od středu.",
+      "směřuje doprava od středu.",
+      "je v tomto bodě nulové."
+    ],
+    "correct": 0,
+    "answer_count": 5,
+    "image_name": "test_img35.png",
+    "explanation": "Elektrony se pohybují proti směru hodinových ručiček, ale mají záporný náboj → konvenční proud teče ve směru hodinových ručiček. Pravidlem pravé ruky pro smyčku s proudem ve směru hodinových ručiček: palec ukazuje do roviny stránky (od pozorovatele) → B ve středu míří do roviny stránky."
+  },
+  {
+    "question": "Kulová Gaussova plocha obklopuje bodový náboj umístěný do jejího středu. Tok vektoru intenzity elektrického pole D Gaussovou plochou se změní když",
+    "answers": [
+      "je kulová Gaussova plocha nahrazena Gaussovou plochou ve tvaru krychle o stejném objemu.",
+      "je bodový náboj odsunut ze středu, ale zůstane stále uvnitř kulové Gaussovy plochy.",
+      "je kulová Gaussova plocha nahrazena Gaussovou plochou ve tvaru krychle o polovičním objemu.",
+      "je bodový náboj odsunut ze středu a umístěn na povrch kulové plochy.",
+      "je vně (mimo) kulové Gaussovy plochy umístěn další náboj stejné polarity."
+    ],
+    "correct": 3,
+    "answer_count": 5,
+    "image_name": null,
+    "explanation": "Podle Gaussova zákona závisí tok pouze na náboji uvnitř uzavřené plochy: Φ = Q_uvnitř/ε₀. Změna tvaru plochy (a, c) tok nemění. Přesun náboje uvnitř (b) tok nemění. Přidání vnějšího náboje (e) tok nemění. Pouze pokud náboj opustí plochu nebo se ocitne na jejím povrchu (d) — situace je nejednoznačná a tok se změní (náboj přestane být plně uvnitř)."
+  },
+  {
+    "question": "Dva opačné, různě velké elektrické náboje se nacházejí v určité vzdálenosti od sebe. Velikost síly, jakou kladný náboj působí na náboj záporný, je",
+    "answers": [
+      "rovna polovině síly, jakou záporný náboj působí na kladný.",
+      "rovna velikosti síly, jakou záporný náboj působí na náboj kladný.",
+      "dvakrát větší než síla, jakou záporný náboj působí na náboj kladný.",
+      "úměrná rozdílu velikostí obou nábojů."
+    ],
+    "correct": 1,
+    "answer_count": 4,
+    "image_name": "test_img36.png",
+    "explanation": "Třetí Newtonův zákon platí vždy: síla, jakou těleso A působí na těleso B, je stejně velká a opačně orientovaná jako síla, jakou B působí na A. Coulombova síla je symetrická — nezáleží na tom, který náboj je větší. Oba náboje na sebe působí stejně velkou silou."
+  }
+  ]
+}

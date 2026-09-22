@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — MVE online testy a procvičování otázek zdarma">
+<title>MVE — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<script>
+if (window.location.protocol !== 'file:') {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
+  --accent:#0f6cbd;--accent-h:#115ea3;--text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--r:10px;
+}
+[data-theme="dark"]{
+  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
+  --accent:#5b8cff;--accent-h:#7aa5ff;--text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
+.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
+.top-panel a{color:#fff;text-decoration:none;font-weight:600;}
+.top-panel a:hover{text-decoration:underline;}
+.top-panel-text{color:rgba(255,255,255,.8);}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-shrink:0;}
+.topbar-brand{font-size:18px;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:-.3px;}
+.topbar-brand:hover{color:var(--accent-h);}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.btn-home{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-family:inherit;text-decoration:none;transition:all .15s;}
+.btn-home:hover{border-color:var(--accent);color:var(--accent);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
+.ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
+.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
+.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
+@media(max-width:960px){.ad-col{display:none;}}
+.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+.subject-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
+h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing:-1px;text-align:center;margin-bottom:10px;}
+.sub{font-size:14px;color:var(--muted);margin-bottom:40px;text-align:center;max-width:600px;}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:900px;width:100%;margin-bottom:32px;}
+.card{flex:1 1 240px;max-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px 22px;cursor:pointer;transition:all .18s;text-decoration:none;color:var(--text);display:block;position:relative;box-shadow:var(--shadow);}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.card.disabled{cursor:not-allowed;opacity:.55;}
+.card.disabled:hover{border-color:var(--border);transform:none;}
+.card-tag{font-size:10px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.card.disabled .card-tag{color:var(--subtle);}
+.card-name{font-size:18px;font-weight:700;margin-bottom:5px;}
+.card-desc{font-size:13px;color:var(--muted);}
+.arrow{position:absolute;bottom:18px;right:20px;font-size:18px;color:var(--accent);opacity:0;transition:all .18s;transform:translateX(-4px);}
+.card:hover .arrow{opacity:1;transform:translateX(0);}
+.back-link{max-width:900px;width:100%;margin-bottom:8px;}
+.back-link a{color:var(--muted);text-decoration:none;font-size:13px;}
+.back-link a:hover{color:var(--accent);}
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.footer-links a:hover{color:var(--accent);}
+@media(max-width:640px){.main-col{padding:24px 14px;}.footer-inner{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<div class="top-panel">
+  <span class="top-panel-text">🔗 Také nás zajímá:</span>
+  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
+</div>
+
+<div class="topbar">
+  <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
+  <div class="topbar-right">
+    <a class="btn-home" href="index.html">← Domů</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="page-outer">
+  <aside class="ad-col left">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+
+  <div class="main-col">
+    <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
+    <div class="subject-logo">TechQuizz</div>
+    <h1>MVE</h1>
+    <p class="sub">Elektrická měření — chyby a nejistoty měření. Vyberte si test, který chcete procvičit.</p>
+
+    <div class="cards" id="testCards">
+      <a class="card" href="#" onclick="startTest('t1');return false;">
+        <div class="card-tag">// Test 1</div>
+        <div class="card-name">Chyby a nejistoty měření</div>
+        <div class="card-desc" id="t1Desc">otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B</div>
+        <div class="arrow">→</div>
+      </a>
+      <div class="card disabled" title="Připravujeme">
+        <div class="card-tag">// Test 2</div>
+        <div class="card-name">Připravujeme</div>
+        <div class="card-desc">Další sada otázek bude brzy doplněna</div>
+      </div>
+      <div class="card disabled" title="Připravujeme">
+        <div class="card-tag">// Test 3</div>
+        <div class="card-name">Připravujeme</div>
+        <div class="card-desc">Další sada otázek bude brzy doplněna</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="ad-col right">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="privacy.html">Ochrana soukromí</a>
+      <a href="cookies.html">Nastavení cookies</a>
+      <a href="about_us.html">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=localStorage.getItem('ql-theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'light';
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=n==='dark'?'☀️':'🌙';
+  localStorage.setItem('ql-theme',n);
+}
+
+// ── MVE test data ──────────────────────────────────────────────
+// Test 1 embedded directly so the page works from file:// too.
+const MVE_TESTS = {
+  t1: {
+  "subject": "MVE - Test 1: Chyby a nejistoty měření",
+  "questions": [
+    {
+      "question": "Co je to nepřímé měření DC výkonu?",
+      "answers": [
+        "Měření pomocí ampérmetru elektrického proudu na zátěži a pomocí matematického vztahu výpočet výkonu.",
+        "Měření pomocí voltmetru elektrického napětí na zátěži a pomocí matematického vztahu výpočet výkonu.",
+        "Měření pomocí ampérmetru a voltmetru, kdy změříme elektrický proud a napětí na zátěži a pomocí matematického vztahu vypočteme výkon.",
+        "Měření pomocí wattmetru.",
+        "Měření pomocí dvou wattmetrů."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Nepřímé měření výkonu spočívá ve změření dvou veličin – proudu a napětí – a výpočtu výkonu z matematického vztahu P = U·I. Přímé měření výkonu by naopak proběhlo přímo wattmetrem."
+    },
+    {
+      "question": "Jaký vnitřní odpor má mít kvalitní voltmetr?",
+      "answers": [
+        "Co nejmenší",
+        "Co největší",
+        "Nulový",
+        "Nekonečný"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kvalitní voltmetr má mít co největší vnitřní odpor, aby při připojení k obvodu (paralelně) odebíral minimální proud a co nejméně tak ovlivňoval měřené napětí."
+    },
+    {
+      "question": "Jaký vnitřní odpor má mít kvalitní ampérmetr?",
+      "answers": [
+        "Nulový",
+        "Co nejmenší",
+        "Nekonečný",
+        "Co největší"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kvalitní ampérmetr má mít co nejmenší vnitřní odpor, protože se do obvodu zapojuje sériově – malý odpor zajistí, že přístroj co nejméně ovlivní proud tekoucí obvodem."
+    },
+    {
+      "question": "Jak se stanoví celková nejistota typu B pro více zdrojů?",
+      "answers": [
+        "Celková nejistota typu B je dána průměrem nejistot jednotlivých zdrojů",
+        "Celková nejistota typu B je dána geometrickým součtem nejistot jednotlivých zdrojů.",
+        "Celková nejistota typu B je dána aritmetickým součinem nejistot jednotlivých zdrojů",
+        "Celková nejistota typu B je dána aritmetickým součtem nejistot jednotlivých zdrojů"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Celková nejistota typu B se skládá jako geometrický součet (odmocnina součtu čtverců) dílčích nejistot typu B z jednotlivých zdrojů, obdobně jako standardní kombinovaná nejistota."
+    },
+    {
+      "question": "Co je to rozšířená nejistota?",
+      "answers": [
+        "Získá se aritmetickým součtem standardních nejistot typu A a typu B.",
+        "Získá se geometrickým součtem standardních nejistot typu A a typu B.",
+        "Získá se jako součin standardní kombinované nejistoty a koeficientu rozšíření.",
+        "Získá se jako součin standardních nejistot typu A a typu B.",
+        "Získá se jako součin standardních nejistot typu A a typu B a koeficientu rozšíření.",
+        "Získá se jako rozdíl standardních nejistot typu A a typu B."
+      ],
+      "correct": 2,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Rozšířená nejistota U se získá vynásobením standardní kombinované nejistoty uc koeficientem rozšíření k (typicky k = 2 pro interval spolehlivosti cca 95 %): U = k·uc."
+    },
+    {
+      "question": "Čemu odpovídá míra nejistoty typu A?",
+      "answers": [
+        "Výběrové směrodatné odchylce výběrového průměru",
+        "Geometrickému součtu nejistot jednotlivých zdrojů.",
+        "Hodnotě výběrového průměru z naměřených hodnot.",
+        "Hodnotě aritmetického průměru z naměřených hodnot."
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Nejistota typu A se stanovuje statistickým zpracováním opakovaných měření a odpovídá výběrové směrodatné odchylce výběrového průměru (směrodatná odchylka dělená odmocninou z počtu měření)."
+    },
+    {
+      "question": "Co je to třída přesnosti u analogového měřicího přístroje?",
+      "answers": [
+        "Maximální dovolená absolutní chyba měřicího přístroje vyjádřena v jednotkách měřené veličiny při dodržení referenčních podmínek.",
+        "Maximální dovolená poměrná chyba měřicího přístroje vyjádřena v % z největší hodnoty měřicího rozsahu při dodržení referenčních podmínek.",
+        "Je to součet mezní chyby z měřicího rozsahu a mezní chyby z měřené hodnoty.",
+        "Maximální dovolená relativní chyba měřicího přístroje vyjádřena v % při dodržení referenčních podmínek."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Třída přesnosti analogového přístroje udává maximální dovolenou poměrnou (procentuální) chybu vztaženou k největší hodnotě měřicího rozsahu – nikoli k okamžité měřené hodnotě – a to při dodržení referenčních podmínek."
+    },
+    {
+      "question": "V případě, že je funkce neznámé veličiny dána součinem vstupních veličin, jaká je hodnota relativní chyby neznámé veličiny?",
+      "answers": [
+        "Výsledná relativní chyba neznámé veličiny je dána součtem relativních chyb jednotlivých vstupních veličin.",
+        "Výsledná relativní chyba neznámé veličiny je dána součtem absolutních chyb jednotlivých vstupních veličin.",
+        "Výsledná relativní chyba neznámé veličiny je dána součinem relativních chyb jednotlivých vstupních veličin.",
+        "Výsledná relativní chyba neznámé veličiny je dána rozdílem relativních chyb jednotlivých vstupních veličin."
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Je-li výsledná veličina součinem (nebo podílem) vstupních veličin, její relativní chyba je dána součtem relativních chyb jednotlivých vstupních veličin – vyplývá to z pravidel přenosu chyb při násobení/dělení."
+    },
+    {
+      "question": "V jakých jednotkách se uvádí relativní chyba měření?",
+      "answers": [
+        "Ampér",
+        "Je to bezrozměrné číslo nebo se vyjadřuje v procentech.",
+        "Promile",
+        "V jednotkách měřené fyzikální veličiny.",
+        "Volt"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Relativní chyba je poměr absolutní chyby k měřené (správné) hodnotě, je tedy bezrozměrná veličina – obvykle se vyjadřuje v procentech."
+    },
+    {
+      "question": "Mezi jaké chyby patří vypočtené chyby metody u nepřímého měření výkonu?",
+      "answers": [
+        "Přímé",
+        "Absolutní",
+        "Statické",
+        "Soustavné",
+        "Náhodné",
+        "Nepřímé",
+        "Relativní"
+      ],
+      "correct": 3,
+      "answer_count": 7,
+      "image_name": null,
+      "explanation": "Chyby metody u nepřímého měření výkonu (např. vliv vnitřního odporu ampérmetru či voltmetru na výsledek) jsou systematické (soustavné) povahy – opakují se stejným způsobem a lze je částečně korigovat."
+    },
+    {
+      "question": "Jaké je dělení chyb, které se projevují při opakovaných měřeních?",
+      "answers": [
+        "Chyba nastavení nuly a chyba nelinearity",
+        "Chyby absolutní a relativní",
+        "Chyba absolutní, relativní, chyba nelinearity a chyby náhodné",
+        "Chyba zaokrouhlování výsledku, chyba nastavení nuly, chyba zesílení",
+        "Chyby systematické a náhodné"
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Chyby, které se projevují při opakovaných měřeních téže veličiny, se dělí na systematické (soustavné, stále stejný směr a velikost) a náhodné (nepředvídatelně kolísají kolem střední hodnoty)."
+    },
+    {
+      "question": "Jak je zakreslena korekční křivka v grafu?",
+      "answers": [
+        "Body odpovídající korekcím pro jednotlivé díly stupnice vykreslíme do grafu a nepropojujeme.",
+        "Korekční křivka se do grafu nevynáší, hodnoty odpovídající korekcím se zapisují pouze do tabulky.",
+        "Body odpovídající korekcím pro jednotlivé díly stupnice spojíme úsečkami.",
+        "Body odpovídající korekcím pro jednotlivé díly stupnice proložíme pomocí nelineární regrese.",
+        "Body odpovídající korekcím pro jednotlivé díly stupnice proložíme pomocí exponenciální regrese."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Korekční křivka se sestrojuje tak, že se jednotlivé body (korekce pro dané dílky stupnice) spojí přímými úsečkami (lomená čára), nikoliv vyhlazenou křivkou nebo regresí."
+    },
+    {
+      "question": "Jak správně zapíšete, že byl naměřen proud 0,89 A s chybou 0,2 A?",
+      "answers": [
+        "0,89 ± 0,2 A",
+        "0,8 ± 0,2 A",
+        "0,9 ± 0,2 A",
+        "0,890 ± 0,200 A",
+        "0,89 ± 0,20 A"
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Chyba měření se udává na jednu platnou číslici a naměřená hodnota se zaokrouhlí na stejný řád desetinného místa jako chyba. Chyba 0,2 A má přesnost na desetiny, proto se 0,89 A zaokrouhlí na 0,9 A → zápis 0,9 ± 0,2 A."
+    },
+    {
+      "question": "Analogový voltmetr měří hodnotu U = 10 V na rozsahu 100 V a jeho třída přesnosti je 1. Jaká je hodnota relativní chyby údaje tohoto analogového voltmetru?",
+      "answers": [
+        "0,1 %",
+        "10 %",
+        "0,1 V",
+        "1 %",
+        "1 V"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Absolutní chyba = třída přesnosti × rozsah / 100 = 1 % × 100 V = 1 V. Relativní chyba vzhledem k měřené hodnotě = 1 V / 10 V × 100 % = 10 %."
+    },
+    {
+      "question": "Stejnosměrné napětí 20 V je měřeno analogovým voltmetrem na rozsahu 25 V, který má třídu přesnosti 2. Jaké je hodnota relativní chyby údaje?",
+      "answers": [
+        "2 V",
+        "2,5 %",
+        "4 %",
+        "2,5 V",
+        "2 %",
+        "4 V"
+      ],
+      "correct": 1,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Absolutní chyba = 2 % × 25 V = 0,5 V. Relativní chyba vzhledem k naměřené hodnotě = 0,5 V / 20 V × 100 % = 2,5 %."
+    },
+    {
+      "question": "Jak správně zapíšete, že byl naměřen elektrický výkon 125,41 W s chybou 0,5 W?",
+      "answers": [
+        "125,41 ± 0,50 W",
+        "125,410 ± 0,500 W",
+        "125,5 ± 0,5 W",
+        "125,4 ± 0,5 W",
+        "125,41 ± 0,5 W"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Chyba 0,5 W se udává na desetiny, proto se i naměřená hodnota zaokrouhlí na stejný řád: 125,41 → 125,4. Zápis je tedy 125,4 ± 0,5 W."
+    },
+    {
+      "question": "Jak je definována absolutní chyba měření?",
+      "answers": [
+        "ΔX = XM – XS",
+        "ΔX = XS – XM",
+        "ΔX = |XM – XS|"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Absolutní chyba měření je definována jako rozdíl naměřené hodnoty XM a správné (skutečné) hodnoty XS: ΔX = XM − XS (může vyjít kladná i záporná)."
+    },
+    {
+      "question": "Co je to chyba měření?",
+      "answers": [
+        "Je to odchylka měřené hodnoty měřené veličiny XM od hodnoty získané linearizací z naměřených hodnot měřené veličiny XL.",
+        "Je to odchylka správné hodnoty měřené veličiny XS od měřené hodnoty měřené veličiny XM.",
+        "Je to odchylka měřené hodnoty měřené veličiny XM od správné hodnoty měřené veličiny XS.",
+        "Je to odchylka správné hodnoty měřené veličiny XS od hodnoty získané linearizací z naměřených hodnot měřené veličiny XL.",
+        "Je to odchylka hodnoty získané linearizací z naměřených hodnot měřené veličiny XL od měřené hodnoty měřené veličiny XM.",
+        "Je to odchylka hodnoty získané linearizací z naměřených hodnot měřené veličiny XL od správné hodnoty měřené veličiny XS."
+      ],
+      "correct": 2,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Chyba měření je definována jako odchylka (rozdíl) naměřené hodnoty měřené veličiny XM od její správné (skutečné) hodnoty XS."
+    },
+    {
+      "question": "Jak se určí kombinovaná nejistota?",
+      "answers": [
+        "Získá se jako rozdíl standardních nejistot typu A a typu B.",
+        "Získá se jako součin standardních nejistot typu A a typu B a koeficientu rozšíření.",
+        "Získá se geometrickým součtem standardních nejistot typu A a typu B.",
+        "Získá se jako součin standardních nejistot typu A a typu B.",
+        "Získá se aritmetickým součtem standardních nejistot typu A a typu B."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Kombinovaná standardní nejistota uc se stanoví jako geometrický součet (odmocnina součtu čtverců) standardních nejistot typu A a typu B: uc = √(uA² + uB²)."
+    },
+    {
+      "question": "Jaké jsou zdroje nejistot typu B?",
+      "answers": [
+        "Zdroje nejistot typu B jsou dány výrobcem a lze je najít v dokumentaci.",
+        "Zdroje nejistot typu B jsou různého původu, mohou to být například vlivy vázané na použité přístroje, vlivy okolního prostředí, vlivy metody, vlivy operátora, atd.",
+        "Zdroje nejistot typu B jsou dány rozptylem hodnot při opakovaném měření a jejich mírou je výběrová směrodatná odchylka výběrového průměru."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Nejistoty typu B se nezískávají statistickým zpracováním opakovaných měření, ale z jiných zdrojů – údajů výrobce, kalibračních listů, vlivu prostředí, metody měření, zkušenosti operátora apod."
+    },
+    {
+      "question": "Jak je udávána základní chyba číslicového přístroje?",
+      "answers": [
+        "Jako součet dvou chyb - mezní chyby z měřené hodnoty a chyby z největší hodnoty měřicího rozsahu.",
+        "Je dána chybou z největší hodnoty měřicího rozsahu přístroje.",
+        "Je dána součtem chyby metody a maximální chyby měřeného údaje.",
+        "Je dána třídou přesnosti přístroje.",
+        "Je dána mezní chybou z měřené hodnoty, která je způsobená nedokonalým nastavením přístroje."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Základní chyba číslicového (digitálního) přístroje se udává jako součet dvou složek: mezní chyby vztažené k měřené hodnotě a mezní chyby vztažené k největší hodnotě rozsahu."
+    }
+  ]
+}
+};
+
+document.getElementById('t1Desc').textContent =
+  MVE_TESTS.t1.questions.length + ' otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B';
+
+function startTest(id){
+  const data = MVE_TESTS[id];
+  if(!data) return;
+  sessionStorage.setItem('ql-data', JSON.stringify({subject: data.subject, questions: data.questions}));
+  window.location.href = 'quiz.html';
+}
+
+if(window.location.protocol==='file:'){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.ad-col').forEach(function(el){el.style.display='none';});
+  });
+}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
+  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
+  if(e.key==='F12'){e.preventDefault();return false;}
+});
+</script>
+</body>
+</html>

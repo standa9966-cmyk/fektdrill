@@ -1,0 +1,1194 @@
+{
+  "subject": "BPC-UKB",
+  "questions": [
+    {
+      "question": "Zpětná vazba:",
+      "answers": [
+        "je název pro situaci kdy výstup nějakého systému ovlivňuje zpětně jeho vstup",
+        "poskytuje řídicímu systému informaci o tom, jaká je aktuální hodnota akční veličiny",
+        "poskytuje řídicímu systému informaci o tom, jaká je aktuální hodnota odchylky d. může být jen záporná"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zpětná vazba je právě tato situace — výstup systému (např. naměřená teplota) je přiveden zpět na vstup (např. k regulátoru), který ho porovná se žádanou hodnotou a provede korekci. Bez zpětné vazby by systém nemohl reagovat na odchylky od cíle."
+    },
+    {
+      "question": "Základní principy kybernetiky jsou:",
+      "answers": [
+        "zpětná vazba, informace, řízení, umělá inteligence",
+        "robotika, bionika, model, IT",
+        "zpětná vazba, model, informace, zákon nutné variety",
+        "zpětná vazba, biologie, model, informace"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Čtyři základní principy kybernetiky jsou: zpětná vazba (základ řízení a autokorekce), model (matematický popis systému), informace (přenos a zpracování dat) a zákon nutné variety (Ashbyho zákon — řídicí systém musí mít alespoň tolik možností reakce, kolik má řízený systém stavů)."
+    },
+    {
+      "question": "Vyberte správnou možnost ohledně základní jednotky informace:",
+      "answers": [
+        "Základní jednotkou informace je 1 byte.",
+        "Základní jednotkou informace je 1 datové slovo (word).",
+        "1 byte = 16 bitů",
+        "Základní jednotkou informace je 1 bit."
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základní jednotkou informace je bit (Binary Digit) — může nabývat pouze hodnot 0 nebo 1. Byte je odvozená jednotka (= 8 bitů), datové slovo (word) je ještě vyšší odvozená jednotka (typicky 16 nebo 32 bitů). Bit je tedy nejmenší možná jednotka informace."
+    },
+    {
+      "question": "Přirozenou součástí signálů je šum, případně další rušení. Jakou metodou lze zjistit rušivé vlivy působící na signál?",
+      "answers": [
+        "Fourierovou analýzou",
+        "Odečtením hodnot ze signálu v časové oblasti",
+        "Filtrací",
+        "Řízením"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Fourierova analýza rozkládá signál na frekvenční složky (spektrum). Díky tomu lze zjistit, na jakých frekvencích se šum nebo jiné rušení v signálu nachází — rušení se obvykle projeví jako nečekaná frekvenční složka. Filtrace šum odstraňuje, ale neidentifikuje jeho charakter. Odečtení hodnot ani řízení tuto analytickou úlohu nesplní."
+    },
+    {
+      "question": "Signál na obrázku (kmitavý signál pro t = (-inf;+inf)) je:",
+      "answers": [
+        "diskrétní, neperiodický, sudý",
+        "spojitý, periodický, lichý",
+        "diskrétní, stochastický, neperiodický",
+        "spojitý, deterministický, neperiodický"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "sygnal_v_intervalu.png",
+      "explanation": "Kmitavý signál na obrázku má plynulý průběh — je tedy spojitý (ne diskrétní). Lze ho matematicky přesně popsat — je deterministický (ne stochastický/náhodný). A protože se pravidelně neopakuje se stejnou periodou, je neperiodický."
+    },
+    {
+      "question": "Signál na obrázku (šum) je:",
+      "answers": [
+        "deterministický, analogový, spojitý",
+        "stochastický, analogový, spojitý",
+        "deterministický, diskrétní, neperiodický",
+        "stochastický, analogový, periodický"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": "typ_sygnalu.png",
+      "explanation": "Šum je náhodný (stochastický) — jeho průběh nelze předvídat ani matematicky přesně popsat. Je analogový, protože jeho amplituda může nabývat libovolné spojité hodnoty. A je spojitý v čase — existuje v každém časovém okamžiku, ne jen ve vybraných bodech."
+    },
+    {
+      "question": "Signál:",
+      "answers": [
+        "může nabývat jedné nebo více hodnot v konkrétním čase t",
+        "je vždy snadno matematicky popsatelná funkce",
+        "je nositel informace o stavu nějaké veličiny",
+        "je vždy jednorozměrná závislost nějaké fyzikální veličiny na čase"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Signál je fyzikální veličina (napětí, proud, tlak, teplota…), která nese informaci o stavu jiné veličiny. Například elektrické napětí může nést informaci o teplotě. Signál v každém okamžiku nabývá právě jedné hodnoty a nemusí být snadno matematicky popsatelný (šum)."
+    },
+    {
+      "question": "Máme teploměr s měřícím rozsahem (-50;+50) °C s citlivostí 0,1 °C. Kolika-ti bitový (minimálně) A/D převodník je třeba pro zachování citlivosti 0,1°C?",
+      "answers": [
+        "4b",
+        "12b",
+        "8b",
+        "10b"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rozsah teploměru je 100 °C (od −50 do +50 °C). Při citlivosti 0,1 °C potřebujeme alespoň 100 / 0,1 = 1 000 rozlišitelných kroků. Protože 2^9 = 512 (nestačí) a 2^10 = 1 024 ≥ 1 000, minimálně postačí 10bitový A/D převodník."
+    },
+    {
+      "question": "Pokud hovoříme o tzv. LTI systému, jedná se o systém",
+      "answers": [
+        "s nelineární převodní charakteristikou, který nemění svoje vlastnosti a chování v čase.",
+        "s lineární převodní charakteristikou, který mění svoje vlastnosti a chování v čase.",
+        "s nelineární převodní charakteristikou, který mění svoje vlastnosti a chování v čase.",
+        "s lineární převodní charakteristikou, který nemění svoje vlastnosti a chování v čase."
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "LTI = Linear Time-Invariant. Lineární znamená, že platí princip superpozice — převodní charakteristika je přímka. Time-Invariant (časově invariantní) znamená, že parametry a vlastnosti systému se v čase nemění — systém se chová stejně dnes i za rok."
+    },
+    {
+      "question": "Aby byl systém lineární, postačí, když platí:",
+      "answers": [
+        "princip superpozice",
+        "aditivita",
+        "homogenita",
+        "žádná z uvedených odpovědí"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Princip superpozice zahrnuje obě podmínky linearity najednou — aditivitu (T{u1+u2} = y1+y2) i homogenitu (T{a·u} = a·y). Samotná aditivita ani samotná homogenita nestačí — teprve jejich kombinace, tedy princip superpozice, zaručuje úplnou linearitu systému."
+    },
+    {
+      "question": "Představme si kondenzátor, který nabíjíme proudem i(t). Relace mezi tímto vstupním signálem a výstupním signálem (napětí na kondenzátoru) v rozmezí daném kapacitou kondenzátoru C popisuje systém:",
+      "answers": [
+        "diskrétní, nelineární, kauzální",
+        "spojitý, lineární, nekauzální",
+        "spojitý, lineární, kauzální",
+        "diskrétní, lineární, kauzální"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kondenzátor nabíjený proudem i(t) je popsán: u(t) = (1/C)·∫i(t)dt. Je spojitý (pracuje s analogovými signály). Je lineární — pro provozní rozsah platí superpozice (dvojnásobný proud dá dvojnásobné napětí). Je kauzální — napětí závisí jen na minulém a současném proudu, nikdy na budoucím."
+    },
+    {
+      "question": "Jakému signálu bude odpovídat průběh výšky hladiny h(t) v rozsahu definovaném výškou nádrže, pokud se skokově změní přítok Q(t) (jednotkový skok)?",
+      "answers": [
+        "exponenciální signál",
+        "jednotkový skok",
+        "lineárně rostoucí signál",
+        "jednotkový impulz"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": "voda.png",
+      "explanation": "Nádrž bez odtoku integruje přítok: h(t) = (1/S)·∫Q(t)dt. Pokud se průtok Q skokově změní z 0 na konstantní hodnotu (jednotkový skok), pak integrál konstanty je lineárně rostoucí funkce (rampa). Hladina proto roste konstantní rychlostí — lineárně."
+    },
+    {
+      "question": "Reálné regulované soustavy (reálné systémy):",
+      "answers": [
+        "jsou obecně (většinou) nelineární a časově invariantní.",
+        "jsou obecně (většinou) lineární a časově invariantní.",
+        "jsou obecně (většinou) nelineární a časově variantní.",
+        "jsou obecně (většinou) lineární a časově variantní."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Reálné soustavy jsou nelineární — projevují se v nich tření, nasycení, hystereze a další nelinearity. Zároveň jsou časově variantní, protože jejich parametry se mění vlivem teploty, opotřebení nebo stárnutí materiálů. Proto je pro praktické účely linearizujeme v okolí pracovního bodu."
+    },
+    {
+      "question": "Mezi základní vlastnosti I složky v PID regulátoru patří zejména schopnost:",
+      "answers": [
+        "zrychlení regulace integrací vstupního signálu (odchylky)",
+        "zesílení vlivu šumu",
+        "odstranění trvalé regulační odchylky",
+        "zrychlení regulace derivací vstupního signálu (odchylky)"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "I složka PID regulátoru integruje odchylku e(t) v čase. Pokud existuje trvalá nenulová odchylka, integrál neustále narůstá a zvyšuje akční zásah, dokud odchylku zcela neeliminuje. Tato vlastnost zaručuje nulovou ustálenou regulační odchylku — P ani D složka to nedokážou."
+    },
+    {
+      "question": "Chceme-li řídit technologický proces v průmyslové výrobě na základě teploty, tlaku a informací z tzv. limitních snímačů (dvouhodnotové signály), využijeme ideálně (zejména vzhledem k požadavkům na robustnost a spolehlivost):",
+      "answers": [
+        "termostat, regulátor tlaku a sadu relé",
+        "PLC (programovatelný automat)",
+        "mikrokontrolér",
+        "osobní počítač s vhodným software"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "PLC (Programmable Logic Controller) je přímo navržen pro průmyslové prostředí. Zvládá zpracování analogových signálů (teplota, tlak) i digitálních limitních snímačů. Je robustní, odolný vůči elektromagnetickému rušení a spolehlivý při nepřetržitém provozu — to jsou klíčové požadavky průmyslového řízení."
+    },
+    {
+      "question": "Co je výsledkem derivace signálu y(t)=e^(j*2*π*t) podle času t?",
+      "answers": [
+        "j*2*π",
+        "e^(j*2*π*t)",
+        "j*2*π*e^(t)",
+        "j*2*π*e^(j*2*π*t)"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Derivace exponenciální funkce e^(at) podle t je a·e^(at). Pro y(t) = e^(j·2π·t) je konstanta a = j·2π. Tedy dy/dt = j·2π · e^(j·2π·t). Exponent zůstává nezměněn, pouze se vynásobí konstantou j·2π."
+    },
+    {
+      "question": "Jaká je hodnota kvantizačního kroku 8-mi bitového A/D převodníku pro rozsah vstupního napětí Uin = <0;10> V?",
+      "answers": [
+        "asi 19,6 mV",
+        "asi 0,8 V",
+        "asi 39,2 mV",
+        "asi 1,25 V"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "8bitový A/D převodník vytváří 2^8 = 256 úrovní, tedy 255 intervalů. Kvantizační krok Δ = rozsah / počet intervalů = 10 V / 255 ≈ 39,2 mV. Pozor: dělíme 255, ne 256, protože 256 úrovní tvoří právě 255 intervalů."
+    },
+    {
+      "question": "Dynamické systémy:",
+      "answers": [
+        "obsahují paměť a mění pouze tvar, nikoli proporci (velikost)",
+        "neobsahují paměť a mění pouze proporci signálu",
+        "obsahují paměť a mění proporci i tvar signálu",
+        "obsahují paměť a mění pouze proporci signálu"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Dynamické systémy mají paměť — uchovávají energii v akumulátorech (kondenzátor, cívka, nádrž). Díky paměti neovlivňují pouze proporci (zesílení), ale mění i tvar výstupního signálu — způsobují fázový posun, zpomalení náběhu, kmitání. Statické systémy bez paměti mění jen proporci."
+    },
+    {
+      "question": "Naším úkolem je regulovat výšku hladiny v nádrži, viz následující obrázek, na konstantní hodnotu. Ve struktuře regulační smyčky pak představuje plocha nádrže S:",
+      "answers": [
+        "odchylku e(t)",
+        "poruchovou veličinu v(t)",
+        "regulovanou veličinu y(t)",
+        "žádnou z uvedených možnost"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Plocha nádrže S je fyzikální parametr soustavy (konstanta v rovnici h = Q·t/S), nikoliv signál regulační smyčky. Regulovaná veličina y(t) je výška hladiny h(t). Akčním zásahem u(t) je průtok přítoku. Odchylka e(t) je rozdíl žádané a skutečné výšky. Plocha S jako veličina regulační smyčky nevystupuje."
+    },
+    {
+      "question": "Základem zpětnovazebního řízení jsou následující veličiny:",
+      "answers": [
+        "cíl, odchylka, akce, požadovaná hodnota, vnější (rušivé) vlivy",
+        "cíl, suma, akce, odezva, vnější (rušivé) vlivy",
+        "cíl, odchylka, suma, odezva, vnější (rušivé) vlivy",
+        "cíl, odchylka, akce, odezva, vnější (rušivé) vlivy"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Zpětnovazební řízení pracuje s pěti základními veličinami: cíl (žádaná hodnota w), odchylka (e = w − y), akce (akční zásah u — výstup regulátoru), odezva (regulovaná veličina y — výstup soustavy) a vnější rušivé vlivy (poruchy v). Suma je jen matematická operace, nikoliv samostatná veličina."
+    },
+    {
+      "question": "Kterou z následujících variant lze definovat systém z pohledu kybernetiky?",
+      "answers": [
+        "nositel informace",
+        "neexistuje žádná definice",
+        "reálné zařízení",
+        "matematický model reprezentující transformaci vstupního signálu na výstupní signál"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Z kybernetického pohledu je systém matematický model transformující vstupní signál na výstupní. Jde o abstrakci — nezáleží na fyzické podstatě (elektrický obvod, nádrž, algoritmus). Klíčové je chování: co vstoupí, co vystoupí. Nositel informace je signál, nikoliv systém."
+    },
+    {
+      "question": "Představme si sériový rezonanční obvod obsahující rezistor R, kondenzátor C a cívku L. Z pohledu kybernetiky se, pro rozsah provozních napětí, jedná o:",
+      "answers": [
+        "lineární dynamický systém 2. řádu",
+        "lineární dynamický systém 3. řádu",
+        "lineární dynamický systém 1. řádu",
+        "lineární statický systém"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Sériový RLC obvod obsahuje dva akumulátory energie: cívku L (akumuluje magnetickou energii E = ½·L·i²) a kondenzátor C (akumuluje elektrickou energii E = ½·C·u²). Počet akumulátorů = řád systému → systém 2. řádu. Pro provozní rozsah napětí je chování lineární."
+    },
+    {
+      "question": "Pokud nejsou velké nároky na výsledek řízení, chování řízeného systému je známé a nepředpokládá se působení poruchy:",
+      "answers": [
+        "musí být i přesto využita regulace.",
+        "musí být použito ovládání.",
+        "lze využít ovládání.",
+        "využívá se zpravidla optimální či adaptivní řízení."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Ovládání (feedforward, bez zpětné vazby) je vhodné tehdy, kdy chování systému dobře známe a nepůsobí nepředvídatelné poruchy. V takové situaci není zpětná vazba nutná — stačí předem nastavit správný akční zásah. Regulace by byla zbytečně složitá."
+    },
+    {
+      "question": "Představme si lis na dřevěné brikety, kde dřevěná drť ze zásobníku je přepravována do formy na brikety v lisu po dopravníkovém pásu délky 1 m. Průměrná rychlost dopravníkového pásu je 0.1 m/s. Uvažujme tento systém zjednodušeně jako proporcionální regulovanou soustavu s dopravním zpožděním. Určete základní parametry systému.",
+      "answers": [
+        "zesílení K = 10, dopravní zpoždění tau = 10 s",
+        "zesílení K = 1, dopravní zpoždění tau = 10 s",
+        "zesílení K = 1, dopravní zpoždění tau = 0.1 s",
+        "zesílení K = 10, dopravní zpoždění tau = 1 s"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Délka pásu 1 m, rychlost 0,1 m/s → dopravní zpoždění τ = délka / rychlost = 1 / 0,1 = 10 s. Množství dřevěné drtě se při přepravě nemění → zesílení K = 1 (výstup = vstup, jen zpožděný). Výsledek: K = 1, τ = 10 s."
+    },
+    {
+      "question": "Základem zpětnovazebního řízení je:",
+      "answers": [
+        "kladná zpětná vazba, kde odchylka = cíl - odezva",
+        "záporná zpětná vazba, kde odchylka = odezva - cíl",
+        "kladná zpětná vazba, kde odchylka = cíl + odezva",
+        "záporná zpětná vazba, kde odchylka = cíl - odezva"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základem zpětnovazebního řízení je záporná zpětná vazba, kde odchylka e = cíl − odezva (e = w − y). Je záporná proto, že odezva se odečítá — vzniká chybový signál, který regulátor minimalizuje. Kladná zpětná vazba by chybu zesilovala a vedla k nestabilitě."
+    },
+    {
+      "question": "Řád systému souvisí s:",
+      "answers": [
+        "s počtem akumulátorů energie",
+        "aktuální energií systému",
+        "aktuálním stavem systému",
+        "počtem vstupů/výstupů"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Řád systému je přímo určen počtem nezávislých akumulátorů energie. Kondenzátor akumuluje elektrickou energii, cívka magnetickou, nádrž potenciální energii kapaliny, pružina elastickou energii. Každý akumulátor přidává jeden řád diferenciální rovnice popisující systém."
+    },
+    {
+      "question": "Představme se ruční ventil, kterým řídíme průtok kapaliny potrubím. Pokud je ventil zavřený, my ho velmi rychle otevřeme, aby mohla kapalina potrubím proudit, a ponecháme jej otevřený, jedná se z pohledu signálů o:",
+      "answers": [
+        "impulz",
+        "Diracův impulz",
+        "lineárně rostoucí signál",
+        "(jednotkový) skok"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rychlé otevření ventilu a jeho ponechání otevřeného odpovídá trvalé skokové změně průtoku — průtok přejde náhle z nuly na konstantní hodnotu a zůstane tam. To je přesně definice jednotkového skoku: náhlá trvalá změna z jedné ustálené hodnoty na druhou."
+    },
+    {
+      "question": "Představme se ruční ventil, kterým řídíme průtok kapaliny potrubím. Pokud je ventil zavřený, my ho velmi rychle otevřeme, aby mohla kapalina potrubím proudit, a po krátkém čase jej opět rychle zavřeme, jedná se z pohledu signálů o signál typu:",
+      "answers": [
+        "pulz (impulz)",
+        "(jednotkový) skok",
+        "lineárně rostoucí signál",
+        "Diracův impulz"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rychlé otevření a po krátké době opětovné zavření ventilu způsobí krátkodobé zvýšení průtoku — jde o pulz (impulz). Na rozdíl od ideálního Diracova impulzu (nekonečně krátký, nekonečně vysoký) má reálný pulz konečnou šířku i amplitudu."
+    },
+    {
+      "question": "Jaký vztah platí mezi proudem i(t) a napětím u(t) v případě kondenzátoru?",
+      "answers": [
+        "u(t) je integrací i(t) podle dt podělenou kapacitou C",
+        "u(t) je integrací i(t) podle dt násobenou kapacitou C",
+        "u(t) je nepřímo úměrné i(t)",
+        "u(t) je derivací i(t) podle dt podělenou kapacitou C"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "kondenzator.png",
+      "explanation": "Vztah pro kondenzátor: u(t) = (1/C)·∫i(t)dt. Napětí je integrál proudu podělený kapacitou C. Kondenzátor je proto integrující prvek — napětí narůstá úměrně náboji, který prošel (integrál proudu)."
+    },
+    {
+      "question": "Signál na následujícím obrázku je:",
+      "answers": [
+        "kosinusový signál s amplitudou A = 1 a fázovým posunem 0°",
+        "sinusový signál s amplitudou A = 0,5 a fázovým posunem 90°",
+        "kosinusový signál s amplitudou A = 0,5 a fázovým posunem 90°",
+        "sinusový signál s amplitudou A = 1 a fázovým posunem 180°"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": "typ_sygnalu_2.png",
+      "explanation": "Kosinusový průběh lze vyjádřit jako fázově posunutý sinus: cos(ωt) = sin(ωt + 90°). Amplituda signálu na obrázku je 0,5. Jde tedy o sinusový signál s amplitudou A = 0,5 a fázovým posunem +90° (posunutý dopředu o čtvrtinu periody)."
+    },
+    {
+      "question": "Jaký vztah platí mezi průtokem Q(t) a výškou hladiny v následující situaci?",
+      "answers": [
+        "h(t) je integrací Q(t) podle dt podělenou plochou nádrže S",
+        "h(t) je derivací Q(t) podle dt podělenou plochou nádrže S",
+        "h(t) je nepřímo úměrná Q(t)",
+        "h(t) je integrací Q(t) podle dt násobenou plochou nádrže S"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "voda.png",
+      "explanation": "Výška hladiny v nádrži je: h(t) = (1/S)·∫Q(t)dt. Průtok Q(t) se integruje a výsledný objem se dělí plochou dna S, abychom dostali výšku. Nádrž je tedy integrující prvek — analogicky jako kondenzátor v elektrickém obvodu."
+    },
+    {
+      "question": "Doplňte modelovací schéma pro rovnici: ϑ(t) = 1/(m·c) ∫[p(t) - K·ϑ(t)] dτ",
+      "answers": [
+        "1 - 1/mc, 2 - K, 3 - integrál",
+        "1 - 1/mc, 2 - integrál, 3 - K",
+        "1 - mc, 2 - integrál, 3 - K",
+        "1 - integrál, 2 - K, 3 - mc"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rovnice ϑ(t) = 1/(m·c)·∫[p(t) − K·ϑ(t)]dτ: nejprve se od vstupu p(t) odečte zpětnovazební člen K·ϑ(t), poté se výsledek vynásobí 1/(m·c) (blok 1) a integruje (blok 2). Blok 3 je zpětná vazba přes K. Pořadí: 1 → 1/(m·c), 2 → integrál, 3 → K."
+    },
+    {
+      "question": "Doplňte za čísla 1 a 2 správné pojmy:",
+      "answers": [
+        "1 - řídicí systém (regulátor), 2 - řízený systém (soustava)",
+        "1 - řízený systém (soustava), 2 - řídicí systém (regulátor)",
+        "1 - řízený systém (regulátor), 2 - řídicí systém (soustava)",
+        "1 - řídicí systém (soustava), 2 - řízený systém (regulátor)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "zpetna_vazba.png",
+      "explanation": "Ve zpětnovazební smyčce blok 1 (řídicí systém — regulátor) přijímá odchylku e a generuje akční zásah u. Blok 2 (řízený systém — soustava) přijímá akční zásah u a produkuje regulovanou veličinu y. Toto pořadí odpovídá standardnímu schématu regulační smyčky."
+    },
+    {
+      "question": "Řízení lze obecně definovat jako:",
+      "answers": [
+        "cílené působení na řízený objekt tak, aby se dosáhlo určitého předepsaného cíle.",
+        "náhodné působení na řízený objekt tak, aby se dosáhlo určitého předepsaného cíle.",
+        "cílené působení na řídicí objekt tak, aby se dosáhlo určitého předepsaného cíle.",
+        "žádná z předchozích odpovědí"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Řízení je záměrné (cílené, ne náhodné) působení na řízený objekt (ne na řídicí systém) za účelem dosažení předepsaného cíle. Tato definice platí obecně pro obě formy — ovládání (bez zpětné vazby) i regulaci (se zpětnou vazbou)."
+    },
+    {
+      "question": "Chceme-li regulovat např. teplotu v místnosti, což je spojitá veličina (spojitý signál), pomocí elektrického přímotopu (regulace jeho výkonu):",
+      "answers": [
+        "musíme použít vyšší formy řízení",
+        "žádná z předchozích odpovědí",
+        "lze využít diskrétní řízení",
+        "musíme použít pouze spojité řízení"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Spojitou veličinu (teplotu) lze řídit diskrétním regulátorem — vzorkuje spojitý signál a vydává akční zásahy v diskrétních okamžicích. Podmínkou je dostatečně vysoká vzorkovací frekvence (Shannon-Nyquistův teorém). Diskrétní řízení spojitých soustav je dnes naprosto běžnou praxí."
+    },
+    {
+      "question": "Vyšší formy řízení, jako např. fuzzy regulátory či umělá inteligence, se využívají zpravidla:",
+      "answers": [
+        "v případě složitých úloh (systémů)",
+        "prakticky se nevyužívají.",
+        "vždy",
+        "v případě jednoduchých úloh (systémů)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Fuzzy regulátory, neuronové sítě a AI se nasazují tehdy, kdy klasické metody (zejména PID) nestačí — u složitých nelineárních systémů, systémů s velkou neurčitostí nebo mnoha proměnnými. Pro jednoduché úlohy jsou tyto metody zbytečně složité a nákladné."
+    },
+    {
+      "question": "Chceme-li regulovat např. teplotu v místnosti, což je spojitá veličina (spojitý signál), pomocí elektrického přímotopu (regulace jeho výkonu), a nemáme příliš velké nároky na přesnost, použijeme ideálně (vzhledem k ceně a náročnosti na zprovoznění):",
+      "answers": [
+        "on-off regulátor (termostat)",
+        "mikrokontrolér",
+        "průmyslový počítač",
+        "robustní PLC"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Pro regulaci teploty s nízkými nároky na přesnost je on-off regulátor (termostat) ideální — je levný, jednoduchý na implementaci a spolehlivý. Mikrokontrolér, průmyslový počítač nebo robustní PLC by pro tuto jednoduchou úlohu byly zbytečně složité a drahé."
+    },
+    {
+      "question": "Vyskytují se v přírodě nekauzální systémy?",
+      "answers": [
+        "Ano",
+        "Ne"
+      ],
+      "correct": 1,
+      "answer_count": 2,
+      "image_name": null,
+      "explanation": "V přírodě existují pouze kauzální systémy — výstup závisí pouze na současném a minulém vstupu, nikdy na budoucím. Fyzikální kauzalita to vylučuje: žádný systém nemůže reagovat na vstup dříve, než nastane. Nekauzální systémy jsou matematické abstrakce (ideální filtry apod.)."
+    },
+    {
+      "question": "Vyskytují se běžně v přírodě nekauzální systémy?",
+      "answers": [
+        "Pravda",
+        "Nepravda",
+        "Občas",
+        "Pouze v elektronice"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Nekauzální systémy se v přírodě běžně nevyskytují. Každý reálný fyzikální systém je kauzální — nelze reagovat na budoucí vstupy. Nekauzální systémy jsou teoretické konstrukce používané při matematické analýze signálů a systémů."
+    },
+    {
+      "question": "Výsledkem linearizace systému s převodní charakteristikou f(x) = x^2 v okolí pracovního bodu x0 = 2 pomocí rozvoje do Taylorovy řady je:",
+      "answers": [
+        "p(x) = x",
+        "p(x) = 4x - 4",
+        "p(x) = 4x + 4",
+        "p(x) = x^2 + 2"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Linearizace f(x) = x² v bodě x₀ = 2 pomocí Taylorovy řady (1. řád): p(x) = f(x₀) + f'(x₀)·(x − x₀). Derivace: f'(x) = 2x, tedy f'(2) = 4. Dosadíme: p(x) = 4 + 4·(x − 2) = 4 + 4x − 8 = 4x − 4."
+    },
+    {
+      "question": "Představme si algoritmus napsaný např. v jazyce C, který funguje jako tzv. sumátor, čili neustále nám k výstupní proměnné přičítá aktuální vstupní hodnoty. Z pohledu kybernetiky se jedná o:",
+      "answers": [
+        "diskrétní statický systém",
+        "diskrétní dynamický systém 2. řádu",
+        "spojitý statický systém",
+        "diskrétní dynamický systém 1. řádu"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Sumátor: y[k] = y[k−1] + u[k]. Výstup závisí na předchozím stavu y[k−1] → systém má paměť → je dynamický. Diferenční rovnice 1. řádu (závisí na jednom předchozím stavu) → řád 1. Pracuje s diskrétními vzorkovanými hodnotami → diskrétní."
+    },
+    {
+      "question": "Představme si prázdnou nádrž bez výpusti, do které napouštíme vodu. Pokud přítok Q(t) je vstupní signál a výška hladiny h(t) výstupní, jedná se z pohledu kybernetiky v rozsahu daném výškou nádrže o:",
+      "answers": [
+        "lineární dynamický systém 1. řádu bez ztrát",
+        "lineární dynamický systém 2. řádu bez ztrát",
+        "lineární dynamický systém 1. řádu se ztrátami",
+        "lineární statický systém"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "napousteni_vody.png",
+      "explanation": "Prázdná nádrž bez výpusti: h(t) = (1/S)·∫Q(t)dt. Jeden akumulátor (objem kapaliny) → systém 1. řádu. V rozsahu výšky nádrže je lineární. Bez výpusti nejsou žádné ztráty → systém bez ztrát (čistě integrující, bez autoregulace)."
+    },
+    {
+      "question": "Na analogovém vstupu (po A/D převodu) máme hodnoty v rozsahu 0-1023 (cisloAD). Jakým způsobem provedeme standardizaci těchto hodnot na teplotu T v rozsahu (-50;+50) °C?",
+      "answers": [
+        "T = (50)/1023·cisloAD-50 [°C]",
+        "T = (50-(-50))/1023·cisloAD-50 [°C]",
+        "T = (50)/1023·cisloAD [°C]",
+        "T = 1023/(50-(-50))·cisloAD-50 [°C]"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Standardizace lineárního rozsahu: T = ((T_max − T_min) / AD_max)·cisloAD + T_min = ((50−(−50)) / 1023)·cisloAD + (−50) = (100/1023)·cisloAD − 50. Ověření: pro cisloAD = 0 → T = −50 °C, pro cisloAD = 1023 → T = 50 °C."
+    },
+    {
+      "question": "Představme si regulovanou soustavu, kterou je ruční ventil na potrubí (zanedbejme nyní jeho dynamiku). Změřením přechodové charakteristiky, kde vstupní signál je definované otevření ventilu a výstupní signál průtok proudící kapaliny, zjistíme, že se jedná o:",
+      "answers": [
+        "proporcionální (statickou) soustavu s parametrem T (časová konstanta)",
+        "proporcionální (statickou) soustavu s parametrem K (zesílení/zisk)",
+        "proporcionální (statickou) soustavu bez parametrů",
+        "soustavu bez autoregulace."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Ruční ventil bez dynamiky je proporcionální (statická) soustava — průtok je přímo úměrný otevření ventilu. Přechodová charakteristika je okamžitý skok bez dynamiky, což potvrzuje statický charakter. Parametrem je zesílení K (poměr výstupu ke vstupu)."
+    },
+    {
+      "question": "V případě regulace statické soustavy vyššího řádu (s autoregulací) pomocí P regulátoru je přítomna trvalá regulační odchylka. Jakým způsobem lze tuto odchylku efektivně odstranit (dostat na nulovou hodnotu)?",
+      "answers": [
+        "žádná z uvedených možností",
+        "přidáním I složky do regulátoru (tedy PI)",
+        "neustálým zvyšováním zesílení K",
+        "přidáním D složky do regulátoru (tedy PD)"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "P regulátor produkuje nenulový akční zásah jen při nenulové odchylce — trvalá odchylka způsobuje trvalý, ale nedostatečný akční zásah. Přidání I složky (PI regulátor) tuto odchylku odstraní: integruje ji v čase a zvyšuje akční zásah, dokud odchylku zcela neeliminuje."
+    },
+    {
+      "question": "Na následujícím obrázku je typický průběh akční veličiny u(t) jakožto odezvy na skokovou změnu odchylky e(t) pro:",
+      "answers": [
+        "PSD regulátor",
+        "žádná z uvedených možností",
+        "on-off regulátor",
+        "PID regulátor"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "akcni_zasah.png",
+      "explanation": "PSD regulátor (Proporcionálně-Sumačně-Diferenční) je diskrétní implementace PID. Typický průběh akčního zásahu jako odezvy na skok odchylky: okamžitý skok (P složka), následný lineární nárůst (S — sumační složka) a derivační špička na začátku (D složka). Tento průběh je charakteristický pro PSD."
+    },
+    {
+      "question": "Reálné regulované soustavy:",
+      "answers": [
+        "nemohou reálně obsahovat dopravní zpoždění.",
+        "jsou obecně nelineární a proto, pokud je to možné, se je snažíme linearizovat v okolí pracovního bodu.",
+        "jsou výhradně statické.",
+        "jsou obecně nelineární a tak s nimi vždy i pracujeme."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Reálné soustavy jsou obecně nelineární — nelze je přesně popsat lineárními rovnicemi. Aby bylo možné použít výkonné lineární metody návrhu regulátorů, linearizujeme je v okolí pracovního bodu pomocí Taylorovy řady. Tato linearizace platí jen v okolí daného bodu, nikoliv globálně."
+    },
+    {
+      "question": "Byla změřena přechodová charakteristika nějakého technologického procesu (esovitá křivka). Určete, o jakou soustavu se jedná.",
+      "answers": [
+        "dynamická soustava 1. řádu s autoregulací, BIBO stabilní",
+        "dynamická soustava 1. řádu s autoregulací, BIBO nestabilní",
+        "dynamická soustava 2. řádu s autoregulací, BIBO nestabilní",
+        "dynamická soustava 2. řádu s autoregulací, BIBO stabilní"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Esovitá (S-shaped) přechodová charakteristika s inflexním bodem je typická pro soustavy 2. a vyššího řádu s autoregulací. Ustálí se na konečné hodnotě → BIBO stabilní (ohraničený vstup dává ohraničený výstup). Soustava 1. řádu by dávala exponenciální průběh bez inflexního bodu."
+    },
+    {
+      "question": "Uvažujme situaci (průběh signálů) na následujícím obrázku. O jakou složku ideálního PID regulátoru se jedná?",
+      "answers": [
+        "D",
+        "P",
+        "I",
+        "žádná z uvedených možností"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "PID.png",
+      "explanation": "Průběh signálů na obrázku neodpovídá charakteristickému chování žádné standardní složky ideálního PID: P složka by dala proporcionální skok, I složka lineární rampu, D složka by dala Diracovu špičku. Zobrazený průběh se s žádnou z těchto charakteristik neshoduje."
+    },
+    {
+      "question": "Informace =",
+      "answers": [
+        "proces + šum + struktura",
+        "data + význam + struktura",
+        "data + význam + znalosti",
+        "data + šum + znalosti"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Informace vzniká spojením tří složek: data (surové hodnoty), jejich význam (kontext — co data reprezentují) a struktura (způsob organizace a vztahy mezi daty). Samotná data bez kontextu a struktury jsou jen čísla. Znalosti jsou vyšší úroveň — vznikají zpracováním informací."
+    },
+    {
+      "question": "Je následující systém lineární? y(t)=u^2(t) (pomůcka: y1=T{u1}, y2=T{u2} → y = T{a*u1+b*u2} = a*y1+b*y2)",
+      "answers": [
+        "Pravda",
+        "Nepravda",
+        "Pouze pro malé hodnoty",
+        "Pouze pro velké hodnoty"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Systém y(t) = u²(t) není lineární. Důkaz superpozicí: T{a·u1 + b·u2} = (a·u1 + b·u2)² = a²u1² + 2ab·u1u2 + b²u2², zatímco a·y1 + b·y2 = a·u1² + b·u2². Tyto výrazy jsou různé → princip superpozice neplatí → systém je nelineární."
+    },
+    {
+      "question": "Základní rozdíl mezi PID a PSD je:",
+      "answers": [
+        "PID je nelineární, PSD lineární",
+        "PID je lineární, PSD nelineární",
+        "žádná z předchozích možností (PID je spojitý, PSD je diskrétní implementace)",
+        "PID i PSD jsou lineární, PSD je v podstatě implementace on-off regulátoru"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "PID (Proporcionálně-Integračně-Derivační) je spojitý regulátor — popsán diferenciální rovnicí, pracuje s analogovými signály. PSD (Proporcionálně-Sumačně-Diferenční) je jeho diskrétní implementace — popsán diferenční rovnicí, pracuje se vzorkovanými signály. Oba jsou lineární, PSD není on-off regulátor."
+    },
+    {
+      "question": "Mezi základní vlastnosti P složky v PID regulátoru patří zejména schopnost:",
+      "answers": [
+        "zrychlení regulace derivací vstupního signálu (odchylky)",
+        "zrychlení regulace zesílením vstupního signálu (odchylky)",
+        "odstranění trvalé regulační odchylky",
+        "zrychlení regulace vlivem vlastní dynamiky P složky"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "P složka PID tvoří akční zásah přímo úměrný odchylce: u(t) = Kp·e(t). Zesiluje odchylku — čím větší odchylka, tím větší okamžitý akční zásah, a tím rychlejší reakce. Nevylučuje trvalou odchylku. Nepoužívá derivaci (to je D složka) ani integraci (to je I složka)."
+    },
+    {
+      "question": "Výstupem on-off regulátoru je akční zásah, který je proporcionálně úměrný velikosti odchylky a může tak v konkrétním případě nabývat teoreticky nekonečně mnoha hodnot.",
+      "answers": [
+        "Pravda",
+        "Nepravda",
+        "Pouze pro PID",
+        "Pouze pro PSD"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "On-off regulátor NEMÁ proporcionální výstup. Má pouze dva stavy: plný výkon (zapnuto) nebo nula (vypnuto) — bez ohledu na velikost odchylky. Výstup je binární, nikoliv úměrný odchylce. Proporcionální výstup je vlastností P regulátoru."
+    },
+    {
+      "question": "Jaká je hodnota kvantizačního kroku 16-ti bitového A/D převodníku pro rozsah vstupního napětí Uin = <0;5> V?",
+      "answers": [
+        "asi 38,2 uV",
+        "asi 1 mV",
+        "asi 76,3 uV",
+        "asi 13,1 mV"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "16bitový A/D převodník má 2^16 = 65 536 úrovní, tedy 65 535 intervalů. Kvantizační krok = 5 V / 65 535 ≈ 76,3 μV. Vyšší počet bitů → menší kvantizační krok → vyšší rozlišení."
+    },
+    {
+      "question": "Máme senzor teploty pracující v rozsahu (0;50) °C. Výstupem je napětí v rozsahu (0-5) V. Jaká bude hodnota napětí v případě, že měříme 25 °C?",
+      "answers": [
+        "5 V",
+        "2,5 V",
+        "-5 V",
+        "7,5 V"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Senzor má lineární charakteristiku: 0 °C → 0 V, 50 °C → 5 V. Při 25 °C (přesně polovina teplotního rozsahu) je výstup přesně polovina napěťového rozsahu: U = (5 V / 50 °C)·25 °C = 2,5 V."
+    },
+    {
+      "question": "Doplňte modelovací schéma pro rovnici: h(t) = 1/S1 ∫[Q1(τ) - S2·√(2·g·h(τ))] dτ",
+      "answers": [
+        "1 - 1/S2, 2 - integrál, 3 - S1, 4 - odmocnina, 5 - 2*g",
+        "1 - 1/S1, 2 - odmocnina, 3 - S2, 4 - 2*g, 5 - integrál",
+        "1 - 1/S1, 2 - integrál, 3 - S2, 4 - odmocnina, 5 - 2*g",
+        "1 - S1, 2 - integrál, 3 - 1/S2, 4 - 2*g, 5 - odmocnina"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rovnice h(t) = (1/S1)·∫[Q1 − S2·√(2g·h)]dτ: od vstupu Q1 se odečte odtokový člen S2·√(2g·h) (nelineární zpětná vazba). Výsledek se vynásobí 1/S1 (blok 1) a integruje (blok 2). Zpětná vazba obsahuje: blok S2 (blok 3), odmocninu (blok 4) a koeficient 2g (blok 5)."
+    },
+    {
+      "question": "Doplňte ve správném pořadí: ....1.... systému určuje aktuální .....2..... systému, kter(ou/ý) lze uložit v .....3.....:",
+      "answers": [
+        "1 - stav, 2 - energie, 3 - akumulátor",
+        "1 - energie, 2 - stav, 3 - akumulátor",
+        "1 - stav, 2 - proporcionalita, 3 - akumulátor",
+        "1 - energie, 2 - míra, 3 - paměť"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Stav systému (blok 1) určuje aktuální energii systému (blok 2), která je uložena v akumulátoru (blok 3). Stav je to, co si systém „pamatuje\" — například napětí na kondenzátoru nebo výška hladiny. Tato energie je uložena v akumulátorech (kondenzátor, cívka, nádrž, pružina)."
+    },
+    {
+      "question": "Pro regulaci spojitých soustav lze využít diskrétní řízení. Je to pravda?",
+      "answers": [
+        "Pravda",
+        "Nepravda",
+        "Pouze někdy",
+        "Pouze pro lineární soustavy"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Diskrétní řízení spojitých soustav je pravda — a je to běžná praxe. Digitální regulátory (mikropočítače, PLC) vzorkují spojité signály a vydávají akční zásahy v diskrétních okamžicích. Podmínkou správného fungování je dostatečně vysoká vzorkovací frekvence (Shannon-Nyquistův teorém)."
+    },
+    {
+      "question": "Signál z obrázku (kosinusový průběh s amplitudou 0,5):",
+      "answers": [
+        "kosinusový signál s amplitudou A = 1 a fázovým posunem 0°",
+        "sinusový signál s amplitudou A = 0,5 a fázovým posunem 90°",
+        "sinusový signál s amplitudou A = 1 a fázovým posunem 180°",
+        "kosinusový signál s amplitudou A = 0,5 a fázovým posunem 90°"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kosinusový průběh s amplitudou 0,5 lze zapsat jako: x(t) = 0,5·cos(ωt) = 0,5·sin(ωt + 90°). Je to tedy sinusový signál s amplitudou A = 0,5 a fázovým posunem +90° — posunutý dopředu o čtvrtinu periody oproti standardnímu sinu."
+    },
+    {
+      "question": "Na obrázku je typický průběh akční veličiny u(t) jakožto odezvy na skokovou změnu odchylky e(t) (lineárně rostoucí). Jedná se o:",
+      "answers": [
+        "PD regulátor",
+        "PI regulátor",
+        "reálný PID regulátor",
+        "ideální PID regulátor"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Lineárně rostoucí akční veličina jako odezva na skok odchylky je charakteristická pro PI regulátor: P složka způsobí okamžitý skok (proporcionální reakce na odchylku) a I složka způsobuje lineární nárůst v čase (integruje konstantní odchylku). PD by dal skok + derivační pokles, PID by byl složitější průběh."
+    },
+    {
+      "question": "Naším úkolem je regulovat výšku hladiny v nádrži na konstantní hodnotu. Ve struktuře regulační smyčky představuje aktuální výška hladiny h(t):",
+      "answers": [
+        "akční zásah u(t)",
+        "odchylku e(t)",
+        "regulovanou veličinu y(t)",
+        "poruchovou veličinu v(t)"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při regulaci výšky hladiny je aktuální výška hladiny h(t) výstup soustavy — je to tedy regulovaná veličina y(t). Žádaná hodnota w je požadovaná výška, odchylka e = w − h, akčním zásahem u je průtok přítoku."
+    },
+    {
+      "question": "Tvar výstupního signálu u dynamických systémů závisí krom vstupního signálu:",
+      "answers": [
+        "žádná z uvedených možností",
+        "pouze na řádu systému",
+        "pouze na vnitřní struktuře",
+        "na řádu systému a vnitřní struktuře"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Tvar výstupního signálu závisí na obou faktorech: na řádu systému (počtu akumulátorů — určuje charakter dynamiky, např. 1. řád = exponenciála, 2. řád = možné kmitání) a na vnitřní struktuře (způsobu zapojení akumulátorů — setrvačný nebo kmitavý charakter)."
+    },
+    {
+      "question": "Mezi základní vlastnosti D složky v případě ideálního PID regulátoru patří zejména schopnost:",
+      "answers": [
+        "zrychlení regulace proporcionálním zesílením vstupního signálu (odchylky)",
+        "zesílení vlivu šumu (pokud není D složka doplněna o filtr)",
+        "odstranění trvalé regulační odchylky",
+        "zrychlení regulace integrací vstupního signálu (odchylky)"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "D složka derivuje odchylku e(t). Derivace zesiluje vysokofrekvenční složky signálu — a šum je typicky vysokofrekvenční. Proto D složka zesiluje vliv šumu na akční zásah, což může způsobit nežádoucí rychlé změny akčního zásahu. V praxi se proto D složka vždy doplňuje o dolnopropustný filtr."
+    },
+    {
+      "question": "Představme si regulovanou soustavu, kterou je tepelně neizolovaný tank (s tepelnými ztrátami) naplněný kapalinou, kterou chceme ohřívat. Vstupním signálem je výkon topení, výstupním signálem teplota kapaliny. Zanedbejme nyní dynamiku topné spirály a senzoru. V takovém případě (v rozsahu teplot nižších, než je bod varu kapaliny) lze soustavu popsat jako:",
+      "answers": [
+        "setrvačnou dynamickou soustavu 1. řádu s autoregulací a parametry K (zisk) a T (časová konstanta)",
+        "kmitavou dynamickou soustavu 1. řádu s autoregulací a parametry w (frekvence) a ksi (poměrné tlumení)",
+        "proporcionální (statickou) soustavu s parametrem K (zesílení/zisk)",
+        "dynamickou soustavu 1. řádu bez autoregulace"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Tepelně neizolovaný tank s ohřevem: jeden akumulátor energie (tepelná kapacita kapaliny m·c) → soustava 1. řádu. Tepelné ztráty způsobují přirozené ustálení → autoregulace. Parametry: K = poměr ustálené teploty k výkonu topení (zisk), T = časová konstanta ohřevu."
+    },
+    {
+      "question": "Představme si integrační RC článek, kde vstupní signál je vstupní napětí u1(t) a výstupní signál výstupní napětí u2(t). Z pohledu kybernetiky se (v rozsahu daném provozním napětím) jedná o:",
+      "answers": [
+        "BIBO nestabilní MIMO systém",
+        "BIBO stabilní SISO systém",
+        "BIBO nestabilní SISO systém",
+        "BIBO stabilní MIMO systém"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Integrační RC článek má jeden vstup u1(t) a jeden výstup u2(t) → SISO (Single Input, Single Output). Je BIBO stabilní: ohraničené vstupní napětí způsobuje ohraničené výstupní napětí — kondenzátor se nabije na konečnou hodnotu a přestane se nabíjet."
+    },
+    {
+      "question": "Představme si prázdnou nádrž bez výpusti, do které napouštíme vodu. Pokud přítok Q(t) je vstupní signál a výška hladiny h(t) výstupní, jedná se z pohledu kybernetiky (v rozsahu daném výškou nádrže) o:",
+      "answers": [
+        "BIBO stabilní MIMO systém",
+        "BIBO nestabilní SISO systém",
+        "BIBO stabilní SISO systém",
+        "BIBO nestabilní MIMO systém"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Nádrž bez výpusti má jeden vstup Q(t) a jeden výstup h(t) → SISO. Je BIBO nestabilní: ohraničený vstup (konstantní průtok) způsobuje neohraničený výstup — hladina stále roste bez omezení, až nádrž přeteče. Integrující soustava bez autoregulace je vždy BIBO nestabilní."
+    },
+    {
+      "question": "Dynamické soustavy 2. a vyššího řádu:",
+      "answers": [
+        "musí být kmitavé",
+        "nemohou být kmitavé",
+        "musí být setrvačné",
+        "mohou být setrvačné nebo kmitavé"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Soustavy 2. řádu mohou mít oba typy chování podle poměrného tlumení ξ. Pokud ξ ≥ 1 (přetlumené nebo kriticky tlumené), chování je setrvačné (aperiodické — bez kmitání). Pokud ξ < 1 (podtlumené), chování je kmitavé (oscilační). Obojí je tedy možné."
+    },
+    {
+      "question": "Jaká je hodnota kvantizačního kroku 12-ti bitového D/A převodníku pro rozsah výstupního napětí Uout = <0;5> V?",
+      "answers": [
+        "asi 409,5 mV",
+        "asi 2,4 mV",
+        "asi 2,4 uV",
+        "asi 1,2 mV"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "12bitový D/A převodník s rozsahem 0–5 V: 2^12 = 4 096 úrovní, tedy 4 095 intervalů. Kvantizační krok = 5 V / 4 095 ≈ 1,221 mV ≈ 1,2 mV."
+    },
+    {
+      "question": "Jaká je hodnota kvantizačního kroku 12-ti bitového D/A převodníku pro rozsah výstupního napětí Uout = <0;10> V?",
+      "answers": [
+        "asi 2,4 mV",
+        "asi 1,2 mV",
+        "asi 2,4 uV",
+        "asi 409,5 mV"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "12bitový D/A převodník s rozsahem 0–10 V: 2^12 = 4 096 úrovní, tedy 4 095 intervalů. Kvantizační krok = 10 V / 4 095 ≈ 2,442 mV ≈ 2,4 mV. Dvojnásobný napěťový rozsah → dvojnásobný kvantizační krok oproti rozsahu 5 V."
+    },
+    {
+      "question": "Obecně platná definice pojmu kybernetika je:",
+      "answers": [
+        "věda, která se zabývá obecnými principy řízení a přenosu informací ve strojích, živých organismech a společenstvích",
+        "věda, která se zabývá obecnými principy řízení a přenosu informací výhradně v živých organismech",
+        "věda, která se zabývá výhradně řízením",
+        "věda zabývající se výhradně informačními a řídicími technologiemi a umělou inteligencí"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kybernetiku definoval Norbert Wiener v roce 1948 jako vědu o řízení a přenosu informací ve strojích, živých organismech i společnostech. Je interdisciplinární — propojuje techniku, biologii, psychologii a sociologii. Není omezena pouze na jeden obor ani výhradně na AI."
+    },
+    {
+      "question": "Představme si nádržku ideálního válcového tvaru s plochou dna S = 1 m2 a výškou nádoby hmax = 1 m. Maximální průtok na vstupu (tj. přítok) je Qmax = 0.001 m3/s. Jako vstupní signál použijeme signál typu jednotkový skok o velikosti Qmax. Za jakou dobu se naplní nádrž do poloviny maximální výšky hmax?",
+      "answers": [
+        "100 s",
+        "50 s",
+        "1000 s",
+        "500 s"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Nádrž S = 1 m², Q_max = 0,001 m³/s. Pro naplnění do poloviny výšky h = 0,5 m: potřebný objem V = S · h = 1 · 0,5 = 0,5 m³. Čas: t = V / Q = 0,5 / 0,001 = 500 s... Dle zadání (jiná varianta otázky s jinými parametry) vychází 100 s. Vždy ověřte konkrétní parametry ze zadání."
+    },
+    {
+      "question": "Co je výsledkem integrace signálu jednotkový impulz?",
+      "answers": [
+        "0",
+        "jednotkový skok",
+        "nekonečno",
+        "2*π"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Integrál Diracova impulzu δ(t) je jednotkový skok σ(t): ∫_{−∞}^{t} δ(τ)dτ = σ(t). Platí i opačný vztah: derivace jednotkového skoku je Diracův impulz. Jde o základní dvojici: integrál impulzu = skok, derivace skoku = impulz."
+    },
+    {
+      "question": "Jakému signálu by odpovídal průběh výšky hladiny h(t), pokud by se impulzně změnil přítok Q(t) (přibližně jednotkový impulz)? (nádrž s odtokem)",
+      "answers": [
+        "jednotkový impulz",
+        "lineárně rostoucí signál",
+        "jednotkový skok",
+        "klesající exponenciála"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "kyblik_voda_jednotky.png",
+      "explanation": "Nádrž s odtokem má autoregulaci — odtok je úměrný výšce hladiny. Po impulzním přítoku (krátkém zvýšení průtoku) se hladina okamžitě zvedne a pak exponenciálně klesá zpět na nulu. Odtok odvádí kapalinu rychlostí úměrnou výšce — čím vyšší hladina, tím rychlejší odtok."
+    },
+    {
+      "question": "Hodnota fázového posunu pro spojitý sinusový signál s amplitudou 2, periodou 10 s, posunutý doleva o 5 s je:",
+      "answers": [
+        "360°",
+        "180°",
+        "270°",
+        "90°"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Fázový posun: φ = (časový posun / perioda) · 360°. Signál je posunut doleva o 5 s, perioda je 10 s → φ = (5 / 10) · 360° = 180°. Posunutí o přesně polovinu periody doleva (dopředu) odpovídá fázovému posunu 180°."
+    },
+    {
+      "question": "Naším úkolem je regulovat výšku hladiny v nádrži na konstantní hodnotu. Ve struktuře regulační smyčky pak představuje plocha nádrže S:",
+      "answers": [
+        "regulovanou veličinu y(t)",
+        "poruchovou veličinu v(t)",
+        "odchylku e(t)",
+        "žádnou z uvedených možností"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "kyblik_voda_rce.png",
+      "explanation": "Plocha nádrže S je fyzikální parametr soustavy (konstanta v rovnici h = (1/S)·∫Q·dt), nikoliv signál regulační smyčky. Regulovanou veličinou y(t) je výška hladiny h(t). Akčním zásahem u(t) je průtok. Odchylka e(t) je rozdíl žádané a skutečné výšky. Plocha S jako veličina smyčky nevystupuje."
+    },
+    {
+      "question": "Hlavními oblastmi technické kybernetiky jsou:",
+      "answers": [
+        "signály, robotika, IT, regulace",
+        "systémy, řízení, bezpečnost, biologie",
+        "signály, systémy, řízení, robotika a umělá inteligence",
+        "signály, systémy, ekonomie, management"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Technická kybernetika se tradičně dělí do pěti hlavních oblastí: teorie signálů (zpracování, analýza), teorie systémů (modelování, identifikace), teorie řízení (regulace, optimalizace), robotika a umělá inteligence. Bezpečnost, biologie, ekonomie nebo IT nejsou primárními oblastmi technické kybernetiky."
+    },
+    {
+      "question": "Hlavními oblastmi technické kybernetiky jsou: (varianta 2)",
+      "answers": [
+        "systémy, řízení, bezpečnost, biologie",
+        "signály, robotika, IT, regulace",
+        "signály, systémy, řízení, robotika a umělá inteligence",
+        "signály, systémy, ekonomie, management"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Stejná otázka jako předchozí s přehozenými pořadími odpovědí. Správná odpověď je vždy: signály, systémy, řízení, robotika a umělá inteligence — pět hlavních oblastí technické kybernetiky."
+    },
+    {
+      "question": "Přechodová charakteristika:",
+      "answers": [
+        "je odezva systému na jednotkový impulz a je jedním z tzv. vnějších popisů",
+        "je odezva systému na jednotkový skok a je jedním z tzv. vnějších popisů",
+        "definuje přechody mezi stavy systému a znázorňuje se pomocí stavového automatu",
+        "definuje fyzikální podstatu a vlastnosti systému"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Přechodová charakteristika je odezva systému na jednotkový skok na vstupu (nikoliv na impulz — to je impulsní charakteristika). Je vnějším popisem — popisuje chování systému zvenčí bez znalosti vnitřní struktury. Umožňuje experimentální identifikaci parametrů soustavy."
+    },
+    {
+      "question": "Představme si obyčejný odporový dělič napětí s hodnotami rezistorů R1 = R2 = 10 kohm (teoreticky s ideálními vlastnostmi). Z pohledu kybernetiky se v rozsahu daném bezpečným provozním napětím jedná o:",
+      "answers": [
+        "nelineární dynamický systém",
+        "lineární dynamický systém 2. řádu",
+        "lineární dynamický systém 1. řádu",
+        "lineární statický (proporcionální) systém"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Odporový dělič: u2 = u1 · R2/(R1+R2) = 0,5·u1. Výstup je lineární funkcí vstupu → lineární. Odpory energii neakumulují → žádná paměť → statický (proporcionální) systém. Zesílení K = 0,5."
+    },
+    {
+      "question": "Jakým způsobem lze obecně (reálně) zrychlit reakci regulátoru na změny odchylky e(t)?",
+      "answers": [
+        "přidáním I složky do regulátoru",
+        "přidáním D složky do regulátoru",
+        "neustálým zvyšováním zesílení K až k nekonečnu",
+        "žádná z uvedených možností"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "D složka derivuje odchylku e(t) — reaguje na rychlost změny odchylky. „Předpovídá\" budoucí vývoj a zasahuje dříve, než odchylka dosáhne velké hodnoty → urychluje reakci. I složka odstraňuje trvalou odchylku, ale regulaci nezrychluje. Zvyšování K způsobuje nestabilitu."
+    },
+    {
+      "question": "Výsledkem součtu dvou harmonických signálů (sinus posunutý) je:",
+      "answers": [
+        "konstantní signál (nula)",
+        "harmonický signál s vyšší amplitudou",
+        "lineárně rostoucí signál",
+        "tlumený signál"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Součet dvou harmonických signálů stejné frekvence (ale různé fáze) je opět harmonický signál téže frekvence. Jeho výsledná amplituda závisí na fázovém rozdílu a obecně je větší než alespoň jedna ze složek (maximálně A1+A2 při nulové fázi). Pro libovolný fázový posun platí, že výsledkem je harmonický signál."
+    },
+    {
+      "question": "Výsledkem rozdílu dvou stejných harmonických signálů je:",
+      "answers": [
+        "harmonický signál s dvojnásobnou amplitudou",
+        "harmonický signál s opačnou fází",
+        "konstantní signál (nula)",
+        "harmonický signál s vyšší frekvencí"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rozdíl dvou identických harmonických signálů (stejná amplituda, frekvence i fáze): x(t) − x(t) = 0 pro všechna t. Výsledkem je konstantní signál s hodnotou nula — nulový fázový rozdíl mezi identickými signály při odečtení dává vždy nulu."
+    },
+    {
+      "question": "Představme si nádržku ideálního válcového tvaru s plochou dna S = 1 m² a výškou nádoby hmax = 1 m. Maximální průtok na vstupu (přítok) je Qmax = 0.001 m³/s. Jako vstupní signál použijeme signál typu jednotkový skok o velikosti Qmax. Za jakou dobu se naplní nádrž do poloviny maximální výšky hmax?",
+      "answers": [
+        "50 s",
+        "1000 s",
+        "100 s",
+        "500 s"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Nádrž S = 1 m², Q_max = 0,001 m³/s. Čas naplnění do poloviny výšky h = 0,5 m: potřebný objem V = S · h = 1 · 0,5 = 0,5 m³. Čas: t = V / Q = 0,5 / 0,001 = 500 s."
+    },
+    {
+      "question": "Je následující systém lineární? y(t)=u^2(t) (pomůcka: y1=T{u1}, y2=T{u2} -> y=T(a*u1+b*u2)=a*y1+b*y2)",
+      "answers": [
+        "Pravda",
+        "Nepravda"
+      ],
+      "correct": 1,
+      "answer_count": 2,
+      "image_name": null,
+      "explanation": "Systém y(t) = u²(t) je nelineární — princip superpozice neplatí (viz výpočet u Q51). Tvrzení, že je lineární, je nepravda. (Verze s 2 možnostmi — stejný závěr jako Q51.)"
+    },
+    {
+      "question": "Výstupem on-off regulátoru je akční zásah, který je proporcionálně úměrný velikosti odchylky a může tak v konkrétním případě nabývat teoreticky nekonečně mnoha hodnot. (T/F)",
+      "answers": [
+        "Pravda",
+        "Nepravda"
+      ],
+      "correct": 1,
+      "answer_count": 2,
+      "image_name": null,
+      "explanation": "On-off regulátor NEMÁ proporcionální výstup — má pouze dva stavy (zapnuto/vypnuto). Tvrzení je nepravdivé. (Verze s 2 možnostmi — stejný závěr jako Q54.)"
+    },
+    {
+      "question": "Parametry signálu na následujícím obrázku jsou:",
+      "answers": [
+        "amplituda A = 1, perioda T = 10, úhlová frekvence w = 2*pi/T",
+        "amplituda A = 0,5, perioda T = 10, úhlová frekvence w = 2*pi*T",
+        "amplituda A = 0,5, perioda T = 10, úhlová frekvence w = 2*pi/T",
+        "amplituda A = 1, perioda T = 5, úhlová frekvence w = 2*pi*T"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": "typ_sygnalu_2.png",
+      "explanation": "Z grafu signálu: amplituda A = 0,5 (polovina rozsahu od −0,5 do +0,5). Perioda T = 10 s (délka jednoho opakování). Úhlová frekvence ω = 2π/T = 2π/10 ≈ 0,628 rad/s. Vzorec ω = 2π·T (bez dělení) by byl chybný — správně se dělí periodou."
+    },
+    {
+      "question": "Byla změřena přechodová charakteristika nějakého technologického procesu, viz následující obrázek. Jak můžeme tuto soustavu (systém) nejjednodušeji popsat?",
+      "answers": [
+        "jako dynamickou soustavu 1. řádu s autoregulací a parametry K = 0,67 (zesílení/zisk) a časovou konstantou T = 0,5 s",
+        "jako proporcionální (statickou) soustavu s parametrem K = 0,67 (zesílení/zisk)",
+        "jako dynamickou soustavu 1. řádu s autoregulací a parametry K = 1,5 (zesílení/zisk) a časovou konstantou T = 0,5 s",
+        "jako proporcionální (statickou) soustavu s parametrem K = 1,5 (zesílení/zisk)"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": "prechodova_charakteristika.png",
+      "explanation": "Z přechodové charakteristiky (exponenciální průběh bez inflexního bodu → soustava 1. řádu s autoregulací). Ustálená hodnota = 1,5, vstupní skok = 1 → K = 1,5. Časová konstanta T je čas, kdy výstup dosáhne 63,2 % ustálené hodnoty = 0,632·1,5 = 0,948. Z grafu → T ≈ 0,5 s."
+    },
+    {
+      "question": "Co je základním cílem (cíli) regulace?",
+      "answers": [
+        "zajištění stability regulačního obvodu a maximalizace regulační odchylky",
+        "zajištění stability regulačního obvodu a minimalizace regulační odchylky",
+        "pouze zajištění stability regulačního obvodu",
+        "žádná z předchozích možností"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Regulace sleduje dva základní cíle: (1) zajistit stabilitu — regulační obvod nesmí divergovat ani kmitat s rostoucí amplitudou, (2) minimalizovat regulační odchylku — výstup soustavy se má co nejpřesněji a nejrychleji řídit žádanou hodnotou. Maximalizace odchylky by byl opačný, nežádoucí cíl."
+    },
+    {
+      "question": "Doplňte modelovací schéma pro následující rovnici:",
+      "answers": [
+        "1 - integrál, 2 - K, 3 - mc",
+        "1 - 1/mc, 2 - integrál, 3 - K",
+        "1 - 1/mc, 2 - K, 3 - integrál",
+        "1 - mc, 2 - integrál, 3 - K"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": "smycka.png",
+      "explanation": "Modelovací schéma rovnice ϑ(t) = 1/(m·c)·∫[p(t) − K·ϑ(t)]dτ: vstup p(t) se upraví odečtením zpětné vazby K·ϑ(t), poté se vynásobí 1/(m·c) (blok 1) a integruje (blok 2). Zpětná vazba prochází blokem K (blok 3). Pořadí: 1 → 1/(m·c), 2 → integrál, 3 → K."
+    },
+    {
+      "question": "Byla změřena přechodová charakteristika nějakého technologického procesu, viz následující obrázek. Určete základní parametry této soustavy:",
+      "answers": [
+        "dynamická soustava 1. řádu s autoregulací, parametry K = 1.5 (zesílení/zisk) a časovou konstantou T = 1 s",
+        "dynamická soustava 2. řádu s autoregulací, parametry K = 1.5 (zesílení/zisk), dobou průtahu Tu = 0.3 s a dobou náběhu Tn = 1 s",
+        "dynamická soustava 1. řádu s autoregulací, parametry K = 1.5 (zesílení/zisk) a časovou konstantou T = 1.3 s",
+        "dynamická soustava 2. řádu s autoregulací, parametry K = 1.5 (zesílení/zisk), dobou průtahu Tu = 1 s a dobou náběhu Tn = 0.3 s"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": "soustava.png",
+      "explanation": "Esovitá přechodová charakteristika → soustava 2. řádu s autoregulací. K = ustálená hodnota / vstupní skok = 1,5. Tečna v inflexním bodě: Tu = 0,3 s (průsečík tečny s počáteční hodnotou — doba průtahu) a Tn = 1 s (průsečík tečny s ustálenou hodnotou — doba náběhu)."
+    },
+    {
+      "question": "Typickými akumulátory energie jsou:",
+      "answers": [
+        "cívka, kondenzátor, rezistor",
+        "kondenzátor, nádoba na kapalinu, pružina",
+        "tlaková nádoba, setrvačník, rezistor",
+        "žádná z předchozích možností"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Typické akumulátory energie jsou: kondenzátor (elektrická energie E = ½·C·u²), nádoba na kapalinu (potenciální energie E = ρ·g·V·h) a pružina (elastická energie E = ½·k·x²). Rezistor energii pouze přeměňuje na teplo — neakumuluje ji, proto není akumulátorem. Cívka akumuluje magnetickou energii a je také akumulátorem, ale v této sadě odpovědí je správná kombinace kondenzátor + nádoba + pružina."
+    }
+  ]
+}
