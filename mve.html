@@ -104,8 +104,8 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
     <div class="cards" id="testCards">
       <a class="card" href="#" onclick="startTest('t1');return false;">
         <div class="card-tag">// Test 1</div>
-        <div class="card-name">Chyby a nejistoty měření</div>
-        <div class="card-desc" id="t1Desc">otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B</div>
+        <div class="card-name">Osciloskopy</div>
+        <div class="card-desc" id="t1Desc">otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze</div>
         <div class="arrow">→</div>
       </a>
       <a class="card" href="#" onclick="startTest('t2');return false;">
@@ -116,14 +116,38 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
       </a>
       <a class="card" href="#" onclick="startTest('t3');return false;">
         <div class="card-tag">// Test 3</div>
-        <div class="card-name">Osciloskopy</div>
-        <div class="card-desc" id="t3Desc">otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze</div>
+        <div class="card-name">Chyby a nejistoty měření</div>
+        <div class="card-desc" id="t3Desc">otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B</div>
         <div class="arrow">→</div>
       </a>
       <a class="card" href="#" onclick="startTest('t4');return false;">
         <div class="card-tag">// Test 4</div>
         <div class="card-name">Osciloskopy II</div>
         <div class="card-desc" id="t4Desc">otázek — vzorkování, spouštění, čítače, Lissajousovy obrazce</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t5');return false;">
+        <div class="card-tag">// Test 5</div>
+        <div class="card-name">Nejistoty a kmitočet</div>
+        <div class="card-desc" id="t5Desc">otázek — nejistoty A/B, kompatibilita měření, číslicové metody měření kmitočtu, modulace</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t6');return false;">
+        <div class="card-tag">// Test 6</div>
+        <div class="card-name">Impedance, C, L</div>
+        <div class="card-desc" id="t6Desc">otázek — ztrátový úhel, náhradní schémata, měření kapacity a vzájemné indukčnosti</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t7');return false;">
+        <div class="card-tag">// Test 7</div>
+        <div class="card-name">Modulace a rušení</div>
+        <div class="card-desc" id="t7Desc">otázek — modulace, spektrální analyzátory, harmonické zkreslení, Hallův jev, potlačení rušení</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t8');return false;">
+        <div class="card-tag">// Test 8</div>
+        <div class="card-name">Měření výkonu</div>
+        <div class="card-desc" id="t8Desc">otázek — činný/jalový/zdánlivý výkon, účiník, wattmetry, induktivní a kapacitní zátěž</div>
         <div class="arrow">→</div>
       </a>
     </div>
@@ -166,258 +190,691 @@ function toggleTheme(){
 // ── MVE test data ──────────────────────────────────────────────
 // Test 1 embedded directly so the page works from file:// too.
 const MVE_TESTS = {
-  t4: {
-  "subject": "MVE - Test 4: Osciloskopy II — vzorkování, spouštění, čítače a Lissajousovy obrazce",
+  t8: {
+  "subject": "MVE - Test 8: Měření jednofázového výkonu",
   "questions": [
     {
-      "question": "Co umožňuje funkce pretrigger?",
+      "question": "Jaká je jednotka činného výkonu?",
       "answers": [
-        "Umožňuje zobrazit sledovaný průběh bez požadavku na synchronizaci.",
-        "Umožňuje zobrazit sledovaný průběh po začátku synchronizace.",
-        "Umožňuje zobrazit sledovaný průběh před začátkem synchronizace.",
-        "Umožňuje zobrazit sledovaný průběh po ukončení synchronizace."
+        "bez jednotky",
+        "VAr",
+        "W/hod",
+        "W.hod",
+        "VA",
+        "W"
       ],
-      "correct": 2,
-      "answer_count": 4,
+      "correct": 5,
+      "answer_count": 6,
       "image_name": null,
-      "explanation": "Pretrigger umožňuje zobrazit i tu část průběhu signálu, která nastala ještě před okamžikem spuštění (synchronizace) — číslicový osciloskop průběžně ukládá vzorky do kruhové paměti, takže po příchodu spouštěcího impulzu může zobrazit i data z doby před ním."
+      "explanation": "Jednotkou činného výkonu je watt (W)."
     },
     {
-      "question": "Čím je udávána přesnost, neboli rozlišovací schopnost osciloskopu?",
+      "question": "Jaké přístroje se používají pro přímé měření činného výkonu střídavého proudu?",
       "answers": [
-        "Počtem bitů na jeden získaný vzorek",
-        "Velikostí napětí na vstupu osciloskopu",
-        "Maximální vzorkovací frekvencí osciloskopu"
+        "Elektromechanické nebo elektronické wattmetry",
+        "Feromagnetické nebo magnetoelektrické wattmetry",
+        "Pouze magnetoelektrické wattmetry",
+        "Pouze feromagnetické wattmetry",
+        "Magnetoelektrické nebo elektronické wattmetry"
       ],
       "correct": 0,
-      "answer_count": 3,
-      "image_name": null,
-      "explanation": "Rozlišovací schopnost (vertikální rozlišení) číslicového osciloskopu je dána počtem bitů A/D převodníku připadajících na jeden získaný vzorek — čím vyšší bitové rozlišení, tím jemněji lze rozlišit amplitudu signálu."
-    },
-    {
-      "question": "K čemu dojde při nedodržení vzorkovacího teorému?",
-      "answers": [
-        "K aliasing chybě",
-        "Ke změně amplitudy rekonstruovaného signálu oproti původnímu signálu",
-        "Nenastane žádná změna v rekonstruovaném signálu, jenom je delší zpracování osciloskopem"
-      ],
-      "correct": 0,
-      "answer_count": 3,
-      "image_name": null,
-      "explanation": "Vzorkovací (Shannonův/Nyquistův) teorém vyžaduje, aby vzorkovací kmitočet byl alespoň dvojnásobkem nejvyšší kmitočtové složky signálu. Při jeho nedodržení dochází k aliasing chybě — v rekonstruovaném signálu se objeví falešné, nižší kmitočtové složky, které v původním signálu nebyly."
-    },
-    {
-      "question": "Pro jaký účel slouží u digitálního osciloskopu měření s maskou?",
-      "answers": [
-        "Slouží pro kontrolu, zda se signál vždy nachází mimo vyznačenou oblast definovanou maskou signálu.",
-        "Slouží pro ověření správného průchodu měřeného signálu maskou, což je oblast v okolí definovaného signálu určená limity od uživatele.",
-        "Slouží pro měření velikosti signálu."
-      ],
-      "correct": 1,
-      "answer_count": 3,
-      "image_name": null,
-      "explanation": "Měření s maskou (mask testing) ověřuje, zda naměřený signál po celou dobu prochází uvnitř tolerančního pásma (masky) definovaného kolem etalonového průběhu s limity nastavenými uživatelem — používá se např. pro automatickou kontrolu shody signálu se specifikací."
-    },
-    {
-      "question": "Co umožňuje měřit číslicový čítač?",
-      "answers": [
-        "Měření časových intervalů a zkreslení signálu.",
-        "Měření časových intervalů, periody, kmitočtu signálu.",
-        "Měření amplitudy, efektivní hodnoty a střední hodnoty signálu.",
-        "Měření amplitudy, fáze a zkreslení signálu.",
-        "Měření časových intervalů a překmitů signálu."
-      ],
-      "correct": 1,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Číslicový (univerzální) čítač umožňuje měřit časové intervaly, periodu a kmitočet signálu — principem čítání impulsů referenčního oscilátoru mezi start a stop impulsy odvozenými z měřeného signálu."
+      "explanation": "Pro přímé měření činného výkonu střídavého proudu se používají elektromechanické (elektrodynamické, indukční) nebo elektronické wattmetry."
     },
     {
-      "question": "Z jakých údajů se určí délka časového intervalu měřená číslicovým čítačem?",
+      "question": "Jaký vztah platí pro jalový výkon?",
       "answers": [
-        "Z rozdílu času mezi náběžnou a sestupnou hranou měřeného signálu.",
-        "Z rozdílu času mezi start a stop impulsem.",
-        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich periody.",
-        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich amplitudy."
-      ],
-      "correct": 2,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Číslicový čítač určuje délku časového intervalu ze součinu počtu napočítaných impulsů referenčního (etalonového) oscilátoru mezi start a stop impulsem a periody tohoto referenčního signálu: t = N × T_ref."
-    },
-    {
-      "question": "Jaká je základní jednotka frekvence signálu?",
-      "answers": [
-        "sekunda",
-        "MHz",
-        "Hz",
-        "bezrozměrná veličina"
-      ],
-      "correct": 2,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Základní jednotkou kmitočtu (frekvence) v soustavě SI je hertz (Hz), definovaný jako počet period děje za sekundu (1 Hz = 1/s)."
-    },
-    {
-      "question": "Jak se odvozují start a stop impulsy při měření časového intervalu pomocí číslicového čítače?",
-      "answers": [
-        "Impulsy start a stop se odvozují vždy pouze od sestupných hran měřeného průběhu.",
-        "Impulsy start a stop se odvozují od náběžných a sestupných hran měřeného průběhu.",
-        "Impulsy start a stop jsou pevně nadefinovány v univerzálním číslicovém čítači.",
-        "Impulsy start a stop se odvozují vždy pouze od náběžných hran měřeného průběhu."
-      ],
-      "correct": 1,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Start a stop impulsy pro měření časového intervalu se u číslicového čítače mohou odvozovat jak od náběžných, tak od sestupných hran měřeného průběhu, podle nastavení přístroje a definice měřeného intervalu (např. šířka pulzu, perioda)."
-    },
-    {
-      "question": "Pro zobrazení jakých signálů je vhodné použít funkci Hold-off pro zpoždění spouštěcího pulsu?",
-      "answers": [
-        "Pro signály harmonické",
-        "Pro obdélníkové a pilové průběhy signálu",
-        "Pro zachycení jednorázového děje",
-        "Pro signály tvořené opakujícími se skupinami nepravidelně rozložených pulsů, které obsahují řadu potenciálních okamžiků spouštění"
-      ],
-      "correct": 3,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Funkce Hold-off (zpoždění spouštěcího pulzu) je vhodná pro zobrazení signálů tvořených opakujícími se skupinami nepravidelně rozložených pulzů s řadou potenciálních okamžiků spouštění — bez hold-off by docházelo k nestabilnímu spouštění na různých místech skupiny; hold-off zajistí spouštění vždy na stejném místě."
-    },
-    {
-      "question": "Od čeho může být odvozen spouštěcí signál u číslicového osciloskopu?",
-      "answers": [
-        "Pouze od externího signálu",
-        "Od měřeného signálu i od externího signálu",
-        "Pouze od měřeného signálu"
-      ],
-      "correct": 1,
-      "answer_count": 3,
-      "image_name": null,
-      "explanation": "Spouštěcí (trigger) signál u číslicového osciloskopu může být odvozen jak přímo od měřeného (vstupního) signálu, tak od externího signálu přivedeného na samostatný vstup pro externí trigger."
-    },
-    {
-      "question": "Jak vypadá Lissajousův obrazec pro signály se stejnou fází a stejnou frekvencí?",
-      "answers": [
-        "Položená osmička",
-        "Elipsa",
-        "Kruh",
-        "Úsečka"
-      ],
-      "correct": 3,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Mají-li oba signály stejnou frekvenci a jsou přesně ve fázi (fázový posun 0°), výsledný Lissajousův obrazec degeneruje na přímku (úsečku)."
-    },
-    {
-      "question": "Jaké metody lze použít pro měření fázového rozdílu dvou signálů pomocí osciloskopu?",
-      "answers": [
-        "Přímé měření z časového průběhu a měření pomocí Lissajousových obrazců",
-        "Pouze přímé měření z časového průběhu",
-        "Osciloskopem nelze měřit fázový posun mezi signály",
-        "Pouze pomocí Lissajousových obrazců"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Osciloskopem lze fázový rozdíl dvou signálů měřit dvěma základními způsoby: přímým měřením časového posunu z časového průběhu obou signálů (úhel = (t0/T)×360°), nebo pomocí Lissajousových obrazců (XY zobrazení)."
-    },
-    {
-      "question": "Který typ vzorkování u číslicových osciloskopů neumožňuje pretriggering?",
-      "answers": [
-        "Sekvenční vzorkování",
-        "Náhodné vzorkování",
-        "Vzorkování v reálném čase"
-      ],
-      "correct": 0,
-      "answer_count": 3,
-      "image_name": null,
-      "explanation": "Sekvenční (ekvivalentní) vzorkování skládá výsledný průběh postupně z několika period opakujícího se signálu a vzorky odebírá až po příchodu spouštěcího impulzu — neumožňuje proto zobrazit část signálu před okamžikem spuštění (pretrigger), na rozdíl od vzorkování v reálném čase."
-    },
-    {
-      "question": "Jaké jsou metody měření fázového posuvu?",
-      "answers": [
-        "Osciloskopické metody, srovnávací metoda, nepřímá metoda.",
-        "Přímé a nepřímé.",
-        "Měření fázového rozdílu pomocí měření časového intervalu.",
-        "Měření fázového rozdílu měřením napětí, pomocí fázového detektoru, osciloskopické metody.",
-        "Měření pomocí čítače"
+        "Q = (U/I)·cosφ",
+        "Q = (U/I)·sinφ",
+        "Q = U·I·cosφ",
+        "Q = U·I·sinφ",
+        "Q = U·I"
       ],
       "correct": 3,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Fázový posuv lze měřit několika způsoby: měřením napětí (např. detekcí průchodu nulou a přepočtem), pomocí fázového detektoru (fázový diskriminátor), nebo osciloskopickými metodami (přímé měření z časového průběhu či Lissajousovy obrazce)."
+      "explanation": "Jalový výkon Q se počítá jako Q = U·I·sinφ, kde φ je fázový posun mezi napětím a proudem."
     },
     {
-      "question": "U číslicového měření časového intervalu s frekvencí oscilátoru f = 100 kHz byl zaznamenán počet impulsů při otevření hradla po dobu měřeného časového intervalu N = 10⁵. Jak dlouhý byl měřený časový interval?",
+      "question": "Kolik je možných zapojení při měření střídavého výkonu v jednofázové síti s použitím wattmetru?",
       "answers": [
-        "10 s",
-        "0,1 s",
-        "1 s",
-        "1 ms"
-      ],
-      "correct": 2,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Perioda referenčního oscilátoru T = 1/f = 1/100 000 Hz = 10 µs. Měřený časový interval t = N × T = 10⁵ × 10 µs = 1 000 000 µs = 1 s."
-    },
-    {
-      "question": "Jaký je fázový posun mezi dvěma signály, pokud na osciloskopu získáte tento Lissajousův obrazec (kruh)?",
-      "answers": [
-        "60 stupňů",
-        "90 stupňů",
-        "180 stupňů",
-        "0 stupňů"
-      ],
-      "correct": 1,
-      "answer_count": 4,
-      "image_name": "mve_lissajous_kruh.png",
-      "explanation": "Kruhový Lissajousův obrazec vzniká, mají-li oba signály stejnou amplitudu a frekvenci a jejich vzájemný fázový posun je 90° (čtvrtina periody) — jde o zvláštní případ elipsy s rovnými poloosami."
-    },
-    {
-      "question": "Jaký mód je nastaven na osciloskopu při měření fáze pomocí Lissajousových obrazců?",
-      "answers": [
-        "Zoom mode",
-        "Samostatné zobrazení X a Y kanálu",
-        "XY mode",
-        "Single mode"
-      ],
-      "correct": 2,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Pro zobrazení Lissajousova obrazce se osciloskop musí přepnout do režimu XY mode, kdy jeden kanál vychyluje bod ve směru X a druhý ve směru Y, místo běžného zobrazení napětí v závislosti na čase."
-    },
-    {
-      "question": "V jakém poměru jsou frekvence dvou signálů, pokud se na osciloskopu zobrazí tento Lissajousův obrazec?",
-      "answers": [
-        "1:4",
-        "1:8",
-        "1:1",
-        "1:2"
+        "4",
+        "1",
+        "3",
+        "2",
+        "Žádné, je nutno měřit pouze voltmetrem a ampérmetrem."
       ],
       "correct": 3,
-      "answer_count": 4,
-      "image_name": "mve_lissajous_1_2.png",
-      "explanation": "Poměr frekvencí dvou signálů lze z Lissajousova obrazce odečíst jako poměr počtu dotyků (tečen) obrazce se svislou a vodorovnou osou. Zobrazený obrazec se dvěma smyčkami (protínajícími se uprostřed) odpovídá poměru kmitočtů fx : fy = 1 : 2."
-    },
-    {
-      "question": "Jak se vypočte fázový posuv ve stupních u měření fáze pomocí čítače? (ta je časový interval změřený čítačem odpovídající fázovému posuvu, T je perioda impulsů)",
-      "answers": [
-        "Fázový posuv = ta/T",
-        "Fázový posuv = 360·(ta/T)",
-        "Fázový posuv = 180·(ta/T)",
-        "Fázový posuv = cos(ta/T)",
-        "Fázový posuv = 360·(T/ta)"
-      ],
-      "correct": 1,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Jedna celá perioda T odpovídá fázovému úhlu 360°. Fázový posuv se proto vypočte jako podíl časového intervalu ta (odpovídajícího fázovému posunu) a periody T, vynásobený 360°: Fázový posuv = 360° × (ta/T)."
+      "explanation": "Při měření výkonu wattmetrem v jednofázové síti existují dvě možná zapojení — lišící se tím, zda je do měření zahrnut úbytek napětí na proudové cívce, nebo úbytek proudu (spotřeba) na napěťové cívce wattmetru."
+    },
+    {
+      "question": "Pokud je induktivní zátěž při měření výkonu, jakých hodnot nabývá fázový posuv?",
+      "answers": [
+        "Nekonečno",
+        "-90 stupňů",
+        "Kladných",
+        "Záporných",
+        "+180 stupňů",
+        "0"
+      ],
+      "correct": 2,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "U induktivní zátěže proud zpožďuje za napětím, takže fázový posuv φ nabývá kladných hodnot (0° až +90°)."
+    },
+    {
+      "question": "Pokud je kapacitní zátěž při měření výkonu, jakých hodnot nabývá fázový posuv?",
+      "answers": [
+        "+90 stupňů",
+        "+180 stupňů",
+        "Kladných",
+        "Záporných",
+        "0"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "U kapacitní zátěže proud předbíhá napětí, takže fázový posuv φ nabývá záporných hodnot (0° až -90°)."
+    },
+    {
+      "question": "Jak se vypočte účiník z činného a zdánlivého výkonu při harmonických průbězích napětí a proudu?",
+      "answers": [
+        "cosφ = P/S",
+        "sinφ = P/S",
+        "sinφ = S/P",
+        "cosφ = S/P",
+        "φ = S/P",
+        "φ = P/S"
+      ],
+      "correct": 0,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Účiník cosφ je definován jako poměr činného výkonu P ke zdánlivému výkonu S: cosφ = P/S."
+    },
+    {
+      "question": "Jak se vypočte činný výkon při sinusovém průběhu napětí a proudu?",
+      "answers": [
+        "P = (U/I)·cosφ",
+        "P = U·I·sinφ",
+        "P = (U/I)·sinφ",
+        "P = U·I·cosφ",
+        "P = U·I"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Činný výkon P při sinusovém (harmonickém) průběhu napětí a proudu se počítá jako P = U·I·cosφ."
+    },
+    {
+      "question": "Při měření výkonu střídavého proudu v jednofázové soustavě byly zjištěny následující hodnoty: U = 100 V, I = 1 A, cos φ = 0,5. Jaká je hodnota činného výkonu?",
+      "answers": [
+        "100 VA",
+        "50 W",
+        "100 W",
+        "50 VA"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "P = U·I·cosφ = 100 V × 1 A × 0,5 = 50 W."
+    },
+    {
+      "question": "Jaká je jednotka zdánlivého výkonu?",
+      "answers": [
+        "VAr",
+        "W",
+        "VA",
+        "bez jednotky"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Jednotkou zdánlivého výkonu je voltampér (VA)."
+    },
+    {
+      "question": "Jaký vztah platí pro zdánlivý výkon?",
+      "answers": [
+        "S = U·I·cosφ",
+        "S = U·I·sinφ",
+        "S = (U/I)·cosφ",
+        "S = (U/I)·sinφ",
+        "S = U·I"
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Zdánlivý výkon S se počítá jako součin efektivních hodnot napětí a proudu, bez ohledu na fázový posun mezi nimi: S = U·I."
+    },
+    {
+      "question": "Čím je tvořeno spektrum amplitudově modulovaného signálu?",
+      "answers": [
+        "Třemi složkami — nosným kmitočtem a dvěma postranními pásmy.",
+        "Pouze složkou na nosném kmitočtu",
+        "Nekonečným počtem složek ve spektru."
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Spektrum amplitudově modulovaného (AM) signálu je tvořeno třemi složkami: nosným kmitočtem a dvěma postranními pásmy (součtovým a rozdílovým kmitočtem), které vznikají součinem nosného a modulačního signálu."
     }
   ]
 },
-  t3: {
-  "subject": "MVE - Test 3: Osciloskopy",
+  t7: {
+  "subject": "MVE - Test 7: Modulace, spektrální analyzátory a rušivé vlivy",
+  "questions": [
+    {
+      "question": "Jaké jsou základní parametry spektrálních analyzátorů?",
+      "answers": [
+        "Vzorkovací kmitočet a amplitudový rozsah",
+        "Frekvenční rozsah, dynamický rozsah, typ frekvenční stupnice",
+        "Amplitudový rozsah, typ frekvenční stupnice"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Základními parametry spektrálních analyzátorů jsou frekvenční rozsah (jaké kmitočty lze měřit), dynamický rozsah (poměr mezi nejvyšší a nejnižší měřitelnou úrovní signálu) a typ frekvenční stupnice (lineární nebo logaritmická)."
+    },
+    {
+      "question": "K čemu slouží modulace?",
+      "answers": [
+        "Modulace slouží ke \"kódování\" signálu nesoucího informaci.",
+        "Modulace nijak neovlivňuje přenášený signál.",
+        "Modulace slouží ke snížení množství informací, které signál přenáší."
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Modulace slouží k \"vtištění\" (kódování) informačního signálu do vlastností nosného signálu (amplitudy, kmitočtu nebo fáze), aby ho bylo možné efektivně přenášet na dálku, typicky vysokofrekvenčním kanálem."
+    },
+    {
+      "question": "Jak se nazývá modulace, u které je jako nosný signál použit harmonický signál?",
+      "answers": [
+        "Analogová modulace",
+        "Polohová modulace",
+        "Pulsní modulace",
+        "Impulsová modulace"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Modulace, u které je nosným signálem harmonický (sinusový) signál, se nazývá analogová modulace (např. AM, FM, PM) — na rozdíl od impulsové (pulzní) modulace, kde je nosným signálem impulsní signál."
+    },
+    {
+      "question": "V jakých jednotkách se obvykle vyjadřuje dynamický rozsah spektrálního analyzátoru?",
+      "answers": [
+        "dB",
+        "Hz",
+        "%"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Dynamický rozsah spektrálního analyzátoru vyjadřuje poměr mezi nejvyšší a nejnižší měřitelnou úrovní signálu. Protože jde o poměr výkonů/napětí ve velmi širokém rozsahu, udává se v decibelech (dB)."
+    },
+    {
+      "question": "Jaký parametr ovlivňuje amplitudová modulace?",
+      "answers": [
+        "Amplitudu nosného signálu a kmitočet nosného signálu",
+        "Amplitudu modulačního signálu a kmitočet nosného signálu",
+        "Amplitudu nosného signálu",
+        "Amplitudu modulačního signálu"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Amplitudová modulace (AM) mění amplitudu nosného signálu úměrně okamžité hodnotě modulačního signálu — kmitočet nosného signálu zůstává konstantní, mění se pouze jeho amplituda (obálka)."
+    },
+    {
+      "question": "Co je to hloubka modulace?",
+      "answers": [
+        "Hloubka modulace je měřítkem působení modulačního signálu na nosný signál.",
+        "Hloubka modulace je měřítkem působení nosného signálu na modulovaný signál.",
+        "Hloubka modulace je měřítkem změny kmitočtu u modulace"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hloubka modulace je měřítkem toho, jak silně modulační signál ovlivňuje (moduluje) nosný signál — u amplitudové modulace udává poměr amplitudy modulačního signálu k amplitudě nosného signálu."
+    },
+    {
+      "question": "Jakým parametrem se hodnotí zkreslení vyššími harmonickými složkami?",
+      "answers": [
+        "Činitelem harmonického zkreslení",
+        "Elektromagnetickým rušením",
+        "Zkreslením",
+        "Amplitudou napětí",
+        "Frekvencí"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Zkreslení signálu vyššími harmonickými složkami se hodnotí činitelem harmonického zkreslení (THD – Total Harmonic Distortion), který vyjadřuje poměr obsahu vyšších harmonických složek k základní harmonické."
+    },
+    {
+      "question": "Jaká je hodnota magnetické indukce pro cívku s N kruhovými závity, když známe hodnotu magnetické indukce pro danou cívku s jedním závitem?",
+      "answers": [
+        "N krát menší",
+        "Stejná, na počtu závitů magnetická indukce nezávisí.",
+        "N krát větší"
+      ],
+      "correct": 2,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Magnetická indukce vytvořená cívkou je přímo úměrná počtu závitů — cívka s N závity vytváří při stejném proudu N krát větší magnetickou indukci než cívka s jedním závitem, protože se příspěvky jednotlivých závitů sčítají."
+    },
+    {
+      "question": "Jakou jednotku má koeficient k harmonického zkreslení?",
+      "answers": [
+        "dB",
+        "Je to bezrozměrný koeficient nebo jej lze vyjádřit v %",
+        "V"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Koeficient (činitel) harmonického zkreslení k je definován jako poměr dvou napětí (efektivních hodnot), je tedy bezrozměrná veličina — často se vyjadřuje i v procentech."
+    },
+    {
+      "question": "Čemu je úměrné Hallovo napětí?",
+      "answers": [
+        "Hallovo napětí je nepřímo úměrné proudu I, magnetické indukci B a přímo úměrné tloušťce destičky d.",
+        "Hallovo napětí je úměrné proudu I, magnetické indukci B a nepřímo úměrné tloušťce destičky d z kovu nebo polovodiče a permitivitě daného materiálu.",
+        "Hallovo napětí je úměrné proudu I, magnetické indukci B a nepřímo úměrné tloušťce destičky d z kovu nebo polovodiče.",
+        "Hallovo napětí je úměrné proudu I, magnetické intenzitě H a nepřímo úměrné tloušťce destičky d."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Hallovo napětí je přímo úměrné procházejícímu proudu I a magnetické indukci B a nepřímo úměrné tloušťce destičky d (z kovu nebo polovodiče), na kterou magnetické pole působí: UH = (R_H · I · B) / d, kde R_H je Hallova konstanta materiálu."
+    },
+    {
+      "question": "Jak je definován činitel potlačení sériového rušení (Urm — amplituda střídavého rušivého napětí, ΔUch — chyba měření vyvolaná rušivým napětím)?",
+      "answers": [
+        "H = 10·(Urm/ΔUch)",
+        "H = 20·(ΔUch/Urm)",
+        "H = 10·log(Urm/ΔUch)",
+        "H = 20·log(Urm/ΔUch)",
+        "H = 10·log(ΔUch/Urm)",
+        "H = 20·log(ΔUch/Urm)",
+        "H = 20·(Urm/ΔUch)"
+      ],
+      "correct": 3,
+      "answer_count": 7,
+      "image_name": null,
+      "explanation": "Činitel potlačení sériového (normálního) rušení H se definuje v decibelech jako H = 20·log(Urm/ΔUch), kde Urm je amplituda rušivého napětí a ΔUch je jím vyvolaná chyba měření — čím vyšší je H, tím lépe přístroj rušení potlačuje."
+    },
+    {
+      "question": "Jak lze vyjádřit elektromagnetické rušení?",
+      "answers": [
+        "Frekvencí",
+        "Vyššími harmonickými složkami",
+        "Napětím, které se indukuje v jednom závitu cívky o ploše S",
+        "Činitelem zkreslení",
+        "Proudem, který protéká jedním závitem cívky o ploše S"
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Elektromagnetické (indukované) rušení lze vyjádřit napětím, které se indukuje v jednom závitu testovací cívky o ploše S umístěné v rušivém elektromagnetickém poli — toto napětí je úměrné časové změně magnetické indukce a ploše cívky (Faradayův indukční zákon)."
+    },
+    {
+      "question": "Jakých hodnot dosahuje činitel potlačení sériového rušení v nejhorším případě?",
+      "answers": [
+        "Minima",
+        "0",
+        "100",
+        "Maxima",
+        "Nekonečno"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "V nejhorším případě, kdy má rušení na výsledek měření největší vliv, dosahuje činitel potlačení sériového rušení svého minima — čím menší je hodnota H, tím hůře přístroj rušení potlačuje."
+    },
+    {
+      "question": "V jakých měřicích přístrojích se Hallův jev využívá?",
+      "answers": [
+        "Zkresloměry",
+        "Teslametry",
+        "Luxmetry",
+        "Wattmetry"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Hallův jev se využívá především v teslametrech — přístrojích pro měření magnetické indukce (v teslech) — protože Hallovo napětí je přímo úměrné magnetické indukci."
+    },
+    {
+      "question": "Čím je charakterizována průmyslová síť?",
+      "answers": [
+        "Kmitočtem, vyššími harmonickými složkami, periodou",
+        "Hodnotou napětí, kmitočtu, zkreslením a stabilitou těchto parametrů.",
+        "Amplitudou napětí, typem sítě",
+        "Pouze velikostí napětí a kmitočtem",
+        "Zkreslením"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Průmyslová (napájecí) síť je charakterizována hodnotou napětí, kmitočtu, zkreslením (obsahem harmonických) a stabilitou (konstantností) těchto parametrů v čase."
+    }
+  ]
+},
+  t6: {
+  "subject": "MVE - Test 6: Měření impedance, kapacity a vzájemné indukčnosti",
+  "questions": [
+    {
+      "question": "Jaký je vztah mezi ztrátovým úhlem δ a fází φ u pasivních prvků?",
+      "answers": [
+        "δ = (−φ)",
+        "δ = 1/φ",
+        "δ = π − φ",
+        "δ = π/2 − |φ|"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Ztrátový úhel δ je definován jako doplněk fázového úhlu φ do 90° (π/2): δ = π/2 − |φ|. U ideálního, bezztrátového prvku je |φ| = 90°, takže δ = 0."
+    },
+    {
+      "question": "Kde se setkáváme se vzájemnou indukčností?",
+      "answers": [
+        "V generátorech signálů",
+        "U elektrických strojů (motorů, magneticky vázaných cívek, transformátorů)",
+        "V měřicích přístrojích"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vzájemná indukčnost se vyskytuje tam, kde jsou dvě nebo více cívek magneticky vázány společným magnetickým polem — typicky u transformátorů, elektrických strojů a obecně magneticky vázaných cívek."
+    },
+    {
+      "question": "Jaké typy náhradních schémat se používají pro popis reálných elektrických vlastností pasivních prvků při napájení střídavým napětím?",
+      "answers": [
+        "Pouze sériové náhradní schéma",
+        "Pouze paralelní náhradní schéma",
+        "Sério-paralelní náhradní schéma",
+        "Sériové nebo paralelní náhradní schéma"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Reálné vlastnosti pasivních prvků (rezistorů, kondenzátorů, cívek) při napájení střídavým napětím se popisují buď sériovým, nebo paralelním náhradním schématem (kombinace ideálního prvku se ztrátovým odporem) — volba závisí na charakteru prvku a účelu měření."
+    },
+    {
+      "question": "Jaké napájení se používá při měření kapacity pomocí Wheatstoneova mostu?",
+      "answers": [
+        "Stejnosměrné napětí.",
+        "Střídavé napětí",
+        "Wheatstoneův most nepotřebuje napájení.",
+        "Střídavé i stejnosměrné napětí."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Měření kapacity (a obecně reaktančních prvků) mostovou metodou vyžaduje střídavé napájecí napětí — kapacita a indukčnost se totiž projevují jen při proměnném proudu/napětí. Při stejnosměrném napájení by kondenzátor po nabití nevedl proud a most by nebylo možné vyvážit."
+    },
+    {
+      "question": "Jaké jsou metody pro měření kapacity?",
+      "answers": [
+        "Porovnávací metoda, můstkové metody, metoda tří napětí",
+        "Přímá metoda, nepřímá metoda tří napětí, nepřímá můstková metoda.",
+        "Přímá a nepřímá můstková metoda",
+        "Substituční metoda, srovnávací metoda a můstková metoda",
+        "Přímá metoda, srovnávací metoda"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Kapacitu lze měřit přímou metodou (přímé odečtení z RLC měřiče), nepřímou metodou tří napětí, nebo nepřímou můstkovou metodou (výpočtem z vyváženého střídavého mostu)."
+    },
+    {
+      "question": "Jaké metody se používají pro měření impedance prvku nebo obvodu?",
+      "answers": [
+        "Metoda tří napětí, rezonanční metody",
+        "Můstkové metody, výchylkové metody, rezonanční metody",
+        "Metody založené na Ohmově zákonu"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Impedanci prvku nebo obvodu lze měřit můstkovými metodami (vyvážené střídavé můstky), výchylkovými metodami (přístroje s výchylkou úměrnou impedanci) nebo rezonančními metodami (využívajícími rezonanci LC obvodu)."
+    },
+    {
+      "question": "Na jakém zákoně jsou založeny přímoukazující přístroje pro měření elektrického odporu?",
+      "answers": [
+        "Na aplikaci 1. Kirchhoffova zákona",
+        "Na použití přístroje měřícího přímo elektrický odpor.",
+        "Na aplikaci 2. Kirchhoffova zákona",
+        "Na použití můstkové metody měření elektrického odporu.",
+        "Na aplikaci Ohmova zákona"
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Přímoukazující přístroje pro měření elektrického odporu (ohmmetry) jsou založeny na aplikaci Ohmova zákona — měří napětí a/nebo proud a z jejich poměru (při znalosti druhé veličiny) přímo vypočtou a zobrazí hodnotu odporu."
+    },
+    {
+      "question": "Jak musí být vybaven přístroj pro měření impedance u přímé metody měření vzájemné indukčnosti?",
+      "answers": [
+        "Musí mít dlouhé propojovací vodiče.",
+        "Musí měřit pouze na nízkých kmitočtech.",
+        "Musí být vybaven dvousvorkovým připojením měřené imitance.",
+        "Musí být vybaven čtyřsvorkovým nebo třísvorkovým připojením měřené imitance",
+        "Musí mít krátké propojovací vodiče."
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Pro přesné měření vzájemné indukčnosti přímou metodou musí být přístroj vybaven čtyřsvorkovým (nebo třísvorkovým) připojením měřené imitance — to eliminuje vliv odporu a indukčnosti přívodních vodičů a přechodových odporů kontaktů na výsledek měření."
+    },
+    {
+      "question": "Jaké metody se používají pro měření vzájemné indukčnosti?",
+      "answers": [
+        "Přímá můstková metoda a metoda tří napětí",
+        "Srovnávací metoda a diferenční metoda měření indukčnosti",
+        "Nepřímá metoda měření indukčnosti a přímá můstková metoda",
+        "Metoda přímá, diferenční metoda a určení vzájemné indukčnosti z měření naprázdno a nakrátko",
+        "Přímou metodou měření indukčnosti a nepřímou můstkovou metodou"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Vzájemnou indukčnost lze měřit přímou metodou, diferenční metodou, nebo ji určit výpočtem z měření naprázdno a nakrátko — analogicky k určování parametrů transformátoru."
+    }
+  ]
+},
+  t5: {
+  "subject": "MVE - Test 5: Nejistoty měření a číslicové metody měření kmitočtu",
+  "questions": [
+    {
+      "question": "Jaké typy nejistot znáte?",
+      "answers": [
+        "Nejistotu typu A, typu B, rozšířenou a kombinovanou",
+        "Nejistotu rozšířenou a absolutní",
+        "Absolutní a relativní",
+        "Nejistotu typu A a typu B, absolutní nejistota"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základní typy nejistot měření jsou nejistota typu A (stanovená staticky z opakovaných měření), typu B (stanovená jinými způsoby, např. z dokumentace přístroje), kombinovaná nejistota (kombinace nejistot A a B) a rozšířená nejistota (kombinovaná nejistota vynásobená koeficientem rozšíření)."
+    },
+    {
+      "question": "Jak se určí nejistota typu B?",
+      "answers": [
+        "Stanoví se jako odchylka správné hodnoty měřené veličiny od měřené hodnoty měřené veličiny.",
+        "Vychází z kvantifikace možných zdrojů, kterou mohou způsobovat nejistotu tohoto typu.",
+        "Stanoví se jako odchylka měřené hodnoty měřené veličiny od správné hodnoty měřené veličiny.",
+        "Stanoví se výpočtem jako průměr z naměřených hodnot zjištěných experimentálně opakovanými měřeními.",
+        "Zjišťuje se experimentálně opakovanými měřeními a představuje rozptyl hodnot opakovaných měření."
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Nejistota typu B se nezískává statistickým zpracováním opakovaných měření, ale vychází z kvantifikace (odhadu) možných zdrojů nejistoty — např. z údajů výrobce, kalibračních listů nebo zkušeností s měřicí metodou."
+    },
+    {
+      "question": "Jak se určí nejistota typu A?",
+      "answers": [
+        "Stanoví se výpočtem jako průměr z naměřených hodnot zjištěných experimentálně opakovanými měřeními.",
+        "Vychází z kvantifikace možných zdrojů, kterou mohou způsobovat nejistotu tohoto typu.",
+        "Zjišťuje se experimentálně opakovanými měřeními a představuje rozptyl hodnot opakovaných měření.",
+        "Stanoví se jako odchylka správné hodnoty měřené veličiny od měřené hodnoty měřené veličiny.",
+        "Stanoví se jako odchylka měřené hodnoty měřené veličiny od správné hodnoty měřené veličiny."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Nejistota typu A se zjišťuje statistickým zpracováním (experimentálně) opakovaných měření a představuje rozptyl (variabilitu) naměřených hodnot — typicky vyjádřený výběrovou směrodatnou odchylkou výběrového průměru."
+    },
+    {
+      "question": "Co je to nejistota měření?",
+      "answers": [
+        "Je to odchylka měřené hodnoty měřené veličiny XM od správné hodnoty měřené veličiny XS.",
+        "Je to odchylka správné hodnoty měřené veličiny XS od měřené hodnoty měřené veličiny XM.",
+        "Nejistota charakterizuje přesnost měření.",
+        "Charakterizuje rozptyl hodnot, které by mohly být důvodně přisuzovány k měřené veličině s určitou pravděpodobností a které lze pokládat za hodnotu měřené veličiny.",
+        "Charakterizuje rozptyl hodnot opakovaných měření zkoumané měřené veličiny."
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Podle formální definice (VIM/GUM) nejistota měření charakterizuje rozptyl hodnot, které by mohly být důvodně přisuzovány měřené veličině s určitou pravděpodobností a které lze pokládat za její hodnotu. Zjednodušeně se také říká, že nejistota charakterizuje přesnost měření — na rozdíl od chyby měření, která je definována jako konkrétní odchylka XM od XS."
+    },
+    {
+      "question": "Jaká je pravděpodobnost, že se měřená hodnota nachází v pásmu, jehož šířku udává rozšířená nejistota, pokud je koeficient rozšíření kr = 2?",
+      "answers": [
+        "99%",
+        "95%",
+        "63%",
+        "90%"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Koeficient rozšíření kr = 2 odpovídá pro normální (Gaussovo) rozdělení přibližně 95% intervalu spolehlivosti — což je nejčastěji používaná hodnota pro udávání rozšířené nejistoty výsledku měření."
+    },
+    {
+      "question": "V jakém poměru budou frekvence dvou signálů a jaká je mezi nimi fáze, pokud se na osciloskopu zobrazí Lissajousův obrazec ve tvaru kruhu (viz obrázek)?",
+      "answers": [
+        "Poměr frekvencí 1:1, fáze 90 stupňů",
+        "Poměr frekvencí 2:1, fáze 0 stupňů",
+        "Poměr frekvencí 1:1, fáze 0 stupňů",
+        "Poměr frekvencí 2:1, fáze 90 stupňů"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_kruh.png",
+      "explanation": "Kruhový Lissajousův obrazec vzniká, když mají oba signály stejnou frekvenci (poměr 1:1) a jejich vzájemný fázový posun je přesně 90° (čtvrtina periody) — jde o speciální případ elipsy s rovnými poloosami."
+    },
+    {
+      "question": "Jaké jsou číslicové metody měření kmitočtu?",
+      "answers": [
+        "Metody s přímým údajem.",
+        "Metoda srovnávací a porovnávací.",
+        "Metoda využívající selektivní LC nebo RC obvody.",
+        "Metoda porovnávací.",
+        "Metoda ze stanovení počtu period měřeného signálu ve zvoleného časového intervalu nebo z měřené délky periody a následným přepočtem."
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Číslicové metody měření kmitočtu jsou založeny buď na stanovení počtu period měřeného signálu ve zvoleném, přesně definovaném časovém intervalu, nebo na měření délky jedné periody signálu a následném přepočtu na kmitočet podle vztahu f = 1/T."
+    },
+    {
+      "question": "Na čem závisí přesnost měření frekvence pomocí univerzálního čítače?",
+      "answers": [
+        "Na přesnosti intervalu, který určuje časovou jednotku, na chybě kvantování a na velikosti měřeného signálu (čím je hodnota amplitudy měřeného signálu menší, tím je menší chyba).",
+        "Na přesnosti intervalu, který určuje časovou jednotku, na chybě kvantování, na vlastnostech obvodů čítače a na parametrech měřeného signálu.",
+        "Pouze na chybě kvantování."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Přesnost měření kmitočtu univerzálním čítačem závisí na přesnosti časové základny (referenčního oscilátoru určujícího časovou jednotku), na chybě kvantování (chyba ±1 impuls), na vlastnostech obvodů čítače (např. komparátorů) a na parametrech měřeného signálu (strmost hran, úroveň šumu apod.)."
+    },
+    {
+      "question": "Jak se nazývá modulace, u které je jako nosný signál použit impulsní signál?",
+      "answers": [
+        "Analogová modulace",
+        "Kódová modulace",
+        "Impulsová modulace"
+      ],
+      "correct": 2,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Modulace, u které je nosným signálem impulsní (pulzní) signál, se nazývá impulsová modulace (např. PAM, PWM, PPM, PCM) — na rozdíl od analogové modulace, kde je nosnou vlnou spojitý harmonický signál."
+    },
+    {
+      "question": "Z jakých hodnot napětí jednotlivých harmonických složek daného periodického signálu se vypočte činitel zkreslení?",
+      "answers": [
+        "Z efektivních hodnot napětí",
+        "Ze střední hodnoty napětí",
+        "Pouze z amplitudy napětí",
+        "Z hodnot peak-peak napětí"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Činitel (harmonického) zkreslení se počítá z poměru efektivních hodnot napětí jednotlivých vyšších harmonických složek k efektivní hodnotě napětí základní harmonické (případně celého signálu)."
+    },
+    {
+      "question": "Jaké typy signálu jsou využívány pro nosný signál?",
+      "answers": [
+        "Harmonický signál a impulsní signál",
+        "Pouze impulsní signál",
+        "Pouze harmonický signál",
+        "Harmonický signál a pilovitý signál"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Jako nosný signál při modulaci se využívá buď harmonický (sinusový) signál — u klasických analogových modulací AM, FM, PM — nebo impulsní signál — u impulsových modulací PAM, PWM, PCM apod."
+    },
+    {
+      "question": "Jaké metody lze použít pro měření hloubky modulace u číslicového osciloskopu?",
+      "answers": [
+        "Hloubku modulace lze určit z časového průběhu amplitudově modulovaného signálu nebo pomocí lichoběžníkové metody.",
+        "Hloubku modulace lze určit pouze z časového průběhu amplitudově modulovaného signálu.",
+        "Hloubku modulace lze určit pouze pomocí lichoběžníkové metody."
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hloubku amplitudové modulace lze u číslicového osciloskopu určit buď přímo z časového průběhu modulovaného signálu (odečtením maximální a minimální amplitudy obálky), nebo pomocí lichoběžníkové metody (XY zobrazení modulovaného a modulačního signálu)."
+    },
+    {
+      "question": "Jak je definována kompatibilita měření?",
+      "answers": [
+        "Kompatibilita měření je definována jako vlastnost prokázaná při všech výsledcích měření stejné veličiny. Vyhodnocuje se překrýváním intervalů, jejichž velikost je dána hodnotou nejistoty výsledku měření.",
+        "Kompatibilita měření je definována jako vlastnost prokázaná při některých výsledcích měření různých veličin.",
+        "Kompatibilita měření je definována jako vlastnost prokázaná při všech výsledcích měření stejné veličiny. Vyhodnocuje se nepřekrýváním intervalů, jejichž velikost je dána hodnotou nejistoty výsledku měření."
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Kompatibilita měření je vlastnost prokázaná, pokud se u všech výsledků měření téže veličiny vzájemně překrývají intervaly (dané nejistotou výsledku) kolem jednotlivých naměřených hodnot — to znamená, že různá měření dávají v rámci svých nejistot shodný (kompatibilní) výsledek."
+    },
+    {
+      "question": "Při měření efektivní hodnoty napětí harmonického signálu byly stanoveny intervaly, ve kterých se s 95% pravděpodobností nachází měřená efektivní hodnota napětí, pro dva typy multimetru. Pro multimetr Agilent 34401A byl stanoven interval (8,15 V; 8,16 V) a pro multimetr METEX M-3850 byl stanoven interval (8,17 V; 8,20 V). Jsou měření oběma multimetry kompatibilní?",
+      "answers": [
+        "Ano, protože se intervaly výskytu nepřekrývají.",
+        "Nelze určit, je potřeba znát ještě naměřenou efektivní hodnotu napětí a frekvenci měřeného signálu.",
+        "Ne, protože se intervaly výskytu nepřekrývají."
+      ],
+      "correct": 2,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Interval prvního multimetru (8,15–8,16 V) a interval druhého multimetru (8,17–8,20 V) se vzájemně nepřekrývají (mezi 8,16 V a 8,17 V je mezera) — měření proto NEJSOU kompatibilní, protože podmínkou kompatibility je právě vzájemné překrytí intervalů daných nejistotou obou měření."
+    }
+  ]
+},
+  t1: {
+  "subject": "MVE - Test 1: Osciloskopy",
   "questions": [
     {
       "question": "K jakému účelu slouží dvojí časová základna u analogových osciloskopů?",
@@ -889,8 +1346,8 @@ const MVE_TESTS = {
     }
   ]
 },
-  t1: {
-  "subject": "MVE - Test 1: Chyby a nejistoty měření",
+  t3: {
+  "subject": "MVE - Test 3: Chyby a nejistoty měření",
   "questions": [
     {
       "question": "Co je to nepřímé měření DC výkonu?",
@@ -1182,17 +1639,274 @@ const MVE_TESTS = {
       "explanation": "Základní chyba číslicového (digitálního) přístroje se udává jako součet dvou složek: mezní chyby vztažené k měřené hodnotě a mezní chyby vztažené k největší hodnotě rozsahu."
     }
   ]
+},
+  t4: {
+  "subject": "MVE - Test 4: Osciloskopy II — vzorkování, spouštění, čítače a Lissajousovy obrazce",
+  "questions": [
+    {
+      "question": "Co umožňuje funkce pretrigger?",
+      "answers": [
+        "Umožňuje zobrazit sledovaný průběh bez požadavku na synchronizaci.",
+        "Umožňuje zobrazit sledovaný průběh po začátku synchronizace.",
+        "Umožňuje zobrazit sledovaný průběh před začátkem synchronizace.",
+        "Umožňuje zobrazit sledovaný průběh po ukončení synchronizace."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Pretrigger umožňuje zobrazit i tu část průběhu signálu, která nastala ještě před okamžikem spuštění (synchronizace) — číslicový osciloskop průběžně ukládá vzorky do kruhové paměti, takže po příchodu spouštěcího impulzu může zobrazit i data z doby před ním."
+    },
+    {
+      "question": "Čím je udávána přesnost, neboli rozlišovací schopnost osciloskopu?",
+      "answers": [
+        "Počtem bitů na jeden získaný vzorek",
+        "Velikostí napětí na vstupu osciloskopu",
+        "Maximální vzorkovací frekvencí osciloskopu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Rozlišovací schopnost (vertikální rozlišení) číslicového osciloskopu je dána počtem bitů A/D převodníku připadajících na jeden získaný vzorek — čím vyšší bitové rozlišení, tím jemněji lze rozlišit amplitudu signálu."
+    },
+    {
+      "question": "K čemu dojde při nedodržení vzorkovacího teorému?",
+      "answers": [
+        "K aliasing chybě",
+        "Ke změně amplitudy rekonstruovaného signálu oproti původnímu signálu",
+        "Nenastane žádná změna v rekonstruovaném signálu, jenom je delší zpracování osciloskopem"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vzorkovací (Shannonův/Nyquistův) teorém vyžaduje, aby vzorkovací kmitočet byl alespoň dvojnásobkem nejvyšší kmitočtové složky signálu. Při jeho nedodržení dochází k aliasing chybě — v rekonstruovaném signálu se objeví falešné, nižší kmitočtové složky, které v původním signálu nebyly."
+    },
+    {
+      "question": "Pro jaký účel slouží u digitálního osciloskopu měření s maskou?",
+      "answers": [
+        "Slouží pro kontrolu, zda se signál vždy nachází mimo vyznačenou oblast definovanou maskou signálu.",
+        "Slouží pro ověření správného průchodu měřeného signálu maskou, což je oblast v okolí definovaného signálu určená limity od uživatele.",
+        "Slouží pro měření velikosti signálu."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Měření s maskou (mask testing) ověřuje, zda naměřený signál po celou dobu prochází uvnitř tolerančního pásma (masky) definovaného kolem etalonového průběhu s limity nastavenými uživatelem — používá se např. pro automatickou kontrolu shody signálu se specifikací."
+    },
+    {
+      "question": "Co umožňuje měřit číslicový čítač?",
+      "answers": [
+        "Měření časových intervalů a zkreslení signálu.",
+        "Měření časových intervalů, periody, kmitočtu signálu.",
+        "Měření amplitudy, efektivní hodnoty a střední hodnoty signálu.",
+        "Měření amplitudy, fáze a zkreslení signálu.",
+        "Měření časových intervalů a překmitů signálu."
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Číslicový (univerzální) čítač umožňuje měřit časové intervaly, periodu a kmitočet signálu — principem čítání impulsů referenčního oscilátoru mezi start a stop impulsy odvozenými z měřeného signálu."
+    },
+    {
+      "question": "Z jakých údajů se určí délka časového intervalu měřená číslicovým čítačem?",
+      "answers": [
+        "Z rozdílu času mezi náběžnou a sestupnou hranou měřeného signálu.",
+        "Z rozdílu času mezi start a stop impulsem.",
+        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich periody.",
+        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich amplitudy."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Číslicový čítač určuje délku časového intervalu ze součinu počtu napočítaných impulsů referenčního (etalonového) oscilátoru mezi start a stop impulsem a periody tohoto referenčního signálu: t = N × T_ref."
+    },
+    {
+      "question": "Jaká je základní jednotka frekvence signálu?",
+      "answers": [
+        "sekunda",
+        "MHz",
+        "Hz",
+        "bezrozměrná veličina"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základní jednotkou kmitočtu (frekvence) v soustavě SI je hertz (Hz), definovaný jako počet period děje za sekundu (1 Hz = 1/s)."
+    },
+    {
+      "question": "Jak se odvozují start a stop impulsy při měření časového intervalu pomocí číslicového čítače?",
+      "answers": [
+        "Impulsy start a stop se odvozují vždy pouze od sestupných hran měřeného průběhu.",
+        "Impulsy start a stop se odvozují od náběžných a sestupných hran měřeného průběhu.",
+        "Impulsy start a stop jsou pevně nadefinovány v univerzálním číslicovém čítači.",
+        "Impulsy start a stop se odvozují vždy pouze od náběžných hran měřeného průběhu."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Start a stop impulsy pro měření časového intervalu se u číslicového čítače mohou odvozovat jak od náběžných, tak od sestupných hran měřeného průběhu, podle nastavení přístroje a definice měřeného intervalu (např. šířka pulzu, perioda)."
+    },
+    {
+      "question": "Pro zobrazení jakých signálů je vhodné použít funkci Hold-off pro zpoždění spouštěcího pulsu?",
+      "answers": [
+        "Pro signály harmonické",
+        "Pro obdélníkové a pilové průběhy signálu",
+        "Pro zachycení jednorázového děje",
+        "Pro signály tvořené opakujícími se skupinami nepravidelně rozložených pulsů, které obsahují řadu potenciálních okamžiků spouštění"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Funkce Hold-off (zpoždění spouštěcího pulzu) je vhodná pro zobrazení signálů tvořených opakujícími se skupinami nepravidelně rozložených pulzů s řadou potenciálních okamžiků spouštění — bez hold-off by docházelo k nestabilnímu spouštění na různých místech skupiny; hold-off zajistí spouštění vždy na stejném místě."
+    },
+    {
+      "question": "Od čeho může být odvozen spouštěcí signál u číslicového osciloskopu?",
+      "answers": [
+        "Pouze od externího signálu",
+        "Od měřeného signálu i od externího signálu",
+        "Pouze od měřeného signálu"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Spouštěcí (trigger) signál u číslicového osciloskopu může být odvozen jak přímo od měřeného (vstupního) signálu, tak od externího signálu přivedeného na samostatný vstup pro externí trigger."
+    },
+    {
+      "question": "Jak vypadá Lissajousův obrazec pro signály se stejnou fází a stejnou frekvencí?",
+      "answers": [
+        "Položená osmička",
+        "Elipsa",
+        "Kruh",
+        "Úsečka"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mají-li oba signály stejnou frekvenci a jsou přesně ve fázi (fázový posun 0°), výsledný Lissajousův obrazec degeneruje na přímku (úsečku)."
+    },
+    {
+      "question": "Jaké metody lze použít pro měření fázového rozdílu dvou signálů pomocí osciloskopu?",
+      "answers": [
+        "Přímé měření z časového průběhu a měření pomocí Lissajousových obrazců",
+        "Pouze přímé měření z časového průběhu",
+        "Osciloskopem nelze měřit fázový posun mezi signály",
+        "Pouze pomocí Lissajousových obrazců"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Osciloskopem lze fázový rozdíl dvou signálů měřit dvěma základními způsoby: přímým měřením časového posunu z časového průběhu obou signálů (úhel = (t0/T)×360°), nebo pomocí Lissajousových obrazců (XY zobrazení)."
+    },
+    {
+      "question": "Který typ vzorkování u číslicových osciloskopů neumožňuje pretriggering?",
+      "answers": [
+        "Sekvenční vzorkování",
+        "Náhodné vzorkování",
+        "Vzorkování v reálném čase"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Sekvenční (ekvivalentní) vzorkování skládá výsledný průběh postupně z několika period opakujícího se signálu a vzorky odebírá až po příchodu spouštěcího impulzu — neumožňuje proto zobrazit část signálu před okamžikem spuštění (pretrigger), na rozdíl od vzorkování v reálném čase."
+    },
+    {
+      "question": "Jaké jsou metody měření fázového posuvu?",
+      "answers": [
+        "Osciloskopické metody, srovnávací metoda, nepřímá metoda.",
+        "Přímé a nepřímé.",
+        "Měření fázového rozdílu pomocí měření časového intervalu.",
+        "Měření fázového rozdílu měřením napětí, pomocí fázového detektoru, osciloskopické metody.",
+        "Měření pomocí čítače"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Fázový posuv lze měřit několika způsoby: měřením napětí (např. detekcí průchodu nulou a přepočtem), pomocí fázového detektoru (fázový diskriminátor), nebo osciloskopickými metodami (přímé měření z časového průběhu či Lissajousovy obrazce)."
+    },
+    {
+      "question": "U číslicového měření časového intervalu s frekvencí oscilátoru f = 100 kHz byl zaznamenán počet impulsů při otevření hradla po dobu měřeného časového intervalu N = 10⁵. Jak dlouhý byl měřený časový interval?",
+      "answers": [
+        "10 s",
+        "0,1 s",
+        "1 s",
+        "1 ms"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Perioda referenčního oscilátoru T = 1/f = 1/100 000 Hz = 10 µs. Měřený časový interval t = N × T = 10⁵ × 10 µs = 1 000 000 µs = 1 s."
+    },
+    {
+      "question": "Jaký je fázový posun mezi dvěma signály, pokud na osciloskopu získáte tento Lissajousův obrazec (kruh)?",
+      "answers": [
+        "60 stupňů",
+        "90 stupňů",
+        "180 stupňů",
+        "0 stupňů"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_kruh.png",
+      "explanation": "Kruhový Lissajousův obrazec vzniká, mají-li oba signály stejnou amplitudu a frekvenci a jejich vzájemný fázový posun je 90° (čtvrtina periody) — jde o zvláštní případ elipsy s rovnými poloosami."
+    },
+    {
+      "question": "Jaký mód je nastaven na osciloskopu při měření fáze pomocí Lissajousových obrazců?",
+      "answers": [
+        "Zoom mode",
+        "Samostatné zobrazení X a Y kanálu",
+        "XY mode",
+        "Single mode"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Pro zobrazení Lissajousova obrazce se osciloskop musí přepnout do režimu XY mode, kdy jeden kanál vychyluje bod ve směru X a druhý ve směru Y, místo běžného zobrazení napětí v závislosti na čase."
+    },
+    {
+      "question": "V jakém poměru jsou frekvence dvou signálů, pokud se na osciloskopu zobrazí tento Lissajousův obrazec?",
+      "answers": [
+        "1:4",
+        "1:8",
+        "1:1",
+        "1:2"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_1_2.png",
+      "explanation": "Poměr frekvencí dvou signálů lze z Lissajousova obrazce odečíst jako poměr počtu dotyků (tečen) obrazce se svislou a vodorovnou osou. Zobrazený obrazec se dvěma smyčkami (protínajícími se uprostřed) odpovídá poměru kmitočtů fx : fy = 1 : 2."
+    },
+    {
+      "question": "Jak se vypočte fázový posuv ve stupních u měření fáze pomocí čítače? (ta je časový interval změřený čítačem odpovídající fázovému posuvu, T je perioda impulsů)",
+      "answers": [
+        "Fázový posuv = ta/T",
+        "Fázový posuv = 360·(ta/T)",
+        "Fázový posuv = 180·(ta/T)",
+        "Fázový posuv = cos(ta/T)",
+        "Fázový posuv = 360·(T/ta)"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Jedna celá perioda T odpovídá fázovému úhlu 360°. Fázový posuv se proto vypočte jako podíl časového intervalu ta (odpovídajícího fázovému posunu) a periody T, vynásobený 360°: Fázový posuv = 360° × (ta/T)."
+    }
+  ]
 }
 };
-
 document.getElementById('t1Desc').textContent =
-  MVE_TESTS.t1.questions.length + ' otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B';
+  MVE_TESTS.t1.questions.length + ' otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze';
 document.getElementById('t2Desc').textContent =
   MVE_TESTS.t2.questions.length + ' otázek — číslicové/analogové voltmetry, digity, A/D převodníky';
 document.getElementById('t3Desc').textContent =
-  MVE_TESTS.t3.questions.length + ' otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze';
+  MVE_TESTS.t3.questions.length + ' otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B';
 document.getElementById('t4Desc').textContent =
   MVE_TESTS.t4.questions.length + ' otázek — vzorkování, spouštění, čítače, Lissajousovy obrazce';
+document.getElementById('t5Desc').textContent =
+  MVE_TESTS.t5.questions.length + ' otázek — nejistoty A/B, kompatibilita měření, číslicové metody měření kmitočtu, modulace';
+document.getElementById('t6Desc').textContent =
+  MVE_TESTS.t6.questions.length + ' otázek — ztrátový úhel, náhradní schémata, měření kapacity a vzájemné indukčnosti';
+document.getElementById('t7Desc').textContent =
+  MVE_TESTS.t7.questions.length + ' otázek — modulace, spektrální analyzátory, harmonické zkreslení, Hallův jev, potlačení rušení';
+document.getElementById('t8Desc').textContent =
+  MVE_TESTS.t8.questions.length + ' otázek — činný/jalový/zdánlivý výkon, účiník, wattmetry, induktivní a kapacitní zátěž';
 
 function startTest(id){
   const data = MVE_TESTS[id];
