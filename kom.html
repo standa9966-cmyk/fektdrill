@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — BPC-KOM online testy a procvičování otázek zdarma">
+<title>BPC-KOM — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<script>
+if (window.location.protocol !== 'file:') {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
+  --accent:#0f6cbd;--accent-h:#115ea3;--text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--r:10px;
+}
+[data-theme="dark"]{
+  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
+  --accent:#5b8cff;--accent-h:#7aa5ff;--text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
+.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
+.top-panel a{color:#fff;text-decoration:none;font-weight:600;}
+.top-panel a:hover{text-decoration:underline;}
+.top-panel-text{color:rgba(255,255,255,.8);}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-shrink:0;}
+.topbar-brand{font-size:18px;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:-.3px;}
+.topbar-brand:hover{color:var(--accent-h);}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.btn-home{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-family:inherit;text-decoration:none;transition:all .15s;}
+.btn-home:hover{border-color:var(--accent);color:var(--accent);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
+.ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
+.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
+.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
+@media(max-width:960px){.ad-col{display:none;}}
+.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+.subject-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
+h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing:-1px;text-align:center;margin-bottom:10px;}
+.sub{font-size:14px;color:var(--muted);margin-bottom:40px;text-align:center;max-width:600px;}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:900px;width:100%;margin-bottom:32px;}
+.card{flex:1 1 240px;max-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px 22px;cursor:pointer;transition:all .18s;text-decoration:none;color:var(--text);display:block;position:relative;box-shadow:var(--shadow);}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.card.disabled{cursor:not-allowed;opacity:.55;}
+.card.disabled:hover{border-color:var(--border);transform:none;}
+.card-tag{font-size:10px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.card.disabled .card-tag{color:var(--subtle);}
+.card-name{font-size:18px;font-weight:700;margin-bottom:5px;}
+.card-desc{font-size:13px;color:var(--muted);}
+.arrow{position:absolute;bottom:18px;right:20px;font-size:18px;color:var(--accent);opacity:0;transition:all .18s;transform:translateX(-4px);}
+.card:hover .arrow{opacity:1;transform:translateX(0);}
+.back-link{max-width:900px;width:100%;margin-bottom:8px;}
+.back-link a{color:var(--muted);text-decoration:none;font-size:13px;}
+.back-link a:hover{color:var(--accent);}
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.footer-links a:hover{color:var(--accent);}
+@media(max-width:640px){.main-col{padding:24px 14px;}.footer-inner{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+<body>
+
+<div class="top-panel">
+  <span class="top-panel-text">🔗 Také nás zajímá:</span>
+  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
+</div>
+
+<div class="topbar">
+  <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
+  <div class="topbar-right">
+    <a class="btn-home" href="index.html">← Domů</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="page-outer">
+  <aside class="ad-col left">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+
+  <div class="main-col">
+    <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
+    <div class="subject-logo">TechQuizz</div>
+    <h1>BPC-KOM</h1>
+    <p class="sub">Počítačové sítě a komunikace. Vyberte si test, který chcete procvičit.</p>
+
+    <div class="cards" id="testCards">
+      <a class="card" href="#" onclick="startTest('t1');return false;">
+        <div class="card-tag">// Test 1</div>
+        <div class="card-name">Zápočtový test</div>
+        <div class="card-desc" id="t1Desc">otázek — model ISO/OSI, TCP/IP, směrování, přepínání, komutace, IPv4/IPv6</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <aside class="ad-col right">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="privacy.html">Ochrana soukromí</a>
+      <a href="cookies.html">Nastavení cookies</a>
+      <a href="about_us.html">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=localStorage.getItem('ql-theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'light';
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=n==='dark'?'☀️':'🌙';
+  localStorage.setItem('ql-theme',n);
+}
+
+const MVE_TESTS = {
+  t1: {
+  "subject": "BPC-KOM - Test 1: Zápočtový test — počítačové sítě",
+  "questions": [
+    {
+      "question": "Bude přenos 8 kB dat pomocí komutace buněk (buňka velikosti 140 B) časově náročnější než přenos pomocí komutace paketů?",
+      "answers": [
+        "Ano",
+        "Metoda komutace nemá vliv na čas přenosu dat",
+        "Ne",
+        "Tento objem dat není možné přenést pomocí komutace buňek"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Menší, pevně dané buňky (140 B) přinášejí u komutace buněk vyšší procentuální režii záhlaví oproti větším, proměnným paketům, takže přenos stejného objemu dat trvá u komutace buněk déle."
+    },
+    {
+      "question": "Data ve zprávě posílaná od zdrojové aplikace k cílové aplikaci musí být opatřena postupně těmito údaji, (uplatní se protokoly TCP/IP od aplikační vrstvy až po vrstvu fyzického rozhraní):",
+      "answers": [
+        "data - port - IP adresa - MAC adresa",
+        "data - MAC adresa - port - IP adresa",
+        "data - IP adresa - MAC adresa - port",
+        "data - port - MAC adresa -IP"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při postupu od aplikační vrstvy k vrstvě síťového rozhraní se k datům postupně přidává port (transportní vrstva), IP adresa (síťová vrstva) a nakonec MAC adresa (vrstva síťového rozhraní): data – port – IP adresa – MAC adresa."
+    },
+    {
+      "question": "Při použití filtru \"ip.addr==192.168.0.1\" v programu Wireshark se",
+      "answers": [
+        "nezobrazí pouze pakety, u nichž je zdrojová IP adresa 192.168.0.1",
+        "zobrazí pouze pakety, u nichž je zdrojová IP adresa 192.168.0.1",
+        "nezobrazí pouze pakety, u nichž je cílová nebo zdrojová IP adresa 192.168.0.1",
+        "zobrazí se pouze pakety, u nichž je cílová IP adresa 192.168.0.1"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Filtr ip.addr zobrazí pakety, u nichž je zdrojová NEBO cílová IP adresa rovna zadané hodnotě — je tedy nesprávné tvrdit, že se nezobrazí pakety se zdrojovou adresou 192.168.0.1, protože takové pakety filtr právě zobrazuje."
+    },
+    {
+      "question": "Jaké příznaky používá pro navazování a ukončování spojení transportní protokol UDP (User Datagram Protocol)",
+      "answers": [
+        "Protokol UDP nenavazuje a neukončuje spojení (není spojově orientovaný)",
+        "ARQ a FIN",
+        "SYN a FIN",
+        "PSH a ACK"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Protokol UDP je bezspojový (connectionless) — nenavazuje ani neukončuje spojení, a proto nepoužívá žádné řídicí příznaky jako SYN, FIN nebo ACK (na rozdíl od TCP)."
+    },
+    {
+      "question": "O směrovacích tabulkách lze říct:",
+      "answers": [
+        "Statické vytvoření směrovací tabulky provádí administrátor ručně",
+        "Dynamické vytváření směrovací tabulky není závislé na použitém směrovacím protokolu"
+      ],
+      "correct": 0,
+      "answer_count": 2,
+      "image_name": null,
+      "explanation": "Statické směrovací tabulky vytváří administrátor ručně, zatímco dynamické se aktualizují automaticky pomocí směrovacích protokolů; podle záznamů ve své tabulce se směrovač rozhoduje, kterým výstupním rozhraním paket odešle."
+    },
+    {
+      "question": "Úloha síťové vrstvy s IP protokolem z pohledu zpracovatele paketu (směrovače) je:",
+      "answers": [
+        "Zjištění IP adresy cíle paketu ze záhlaví paketu",
+        "Defragmentace jednotlivých částí přijatého paketu",
+        "Vyhledání logické a fyzické adresy dalšího skoku směrem k příjemci paketu",
+        "Nalezení DNS jména příjemce paketu"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Směrovač na síťové vrstvě zjišťuje cílovou IP adresu ze záhlaví přijatého paketu a při přeposílání vytváří nové záhlaví paketu (např. se sníženou hodnotou TTL)."
+    },
+    {
+      "question": "Deterministické přístupové metody spojové vrstvy jsou",
+      "answers": [
+        "Vhodné tam, kde je velké riziko kolizí vysílání na sdíleném přenosovém médiu",
+        "Vhodné především pro sítě s přímým a vyhrazeným přenosovým kanálem pro každý komunikující uzel",
+        "Založeny na principu, že pakety není nutné doručit",
+        "Založeny na nízkém stupni kontroly toho, co se na přenosovém médiu odehrává z hlediska vysílání rámců"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Deterministické přístupové metody jsou vhodné tam, kde hrozí vysoké riziko kolizí na sdíleném médiu, protože jsou založeny na vysokém stupni řízení (kontroly) toho, kdy který uzel smí vysílat."
+    },
+    {
+      "question": "Rámce spojové vrstvy založené na časové synchronizaci",
+      "answers": [
+        "Mají typicky fixní délku",
+        "Mohou být přenášeny pouze přes opitcké přenosové trasy",
+        "Nevyžadují žádnou synchronizaci v systému komunikace",
+        "Nelze použít pro přenos paketů síťové vrstvy",
+        "Jsou vhodné pro přenos na velmi malé vzdálenosti"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Rámce založené na časové synchronizaci (typicky u TDM technologií) mívají fixní (pevnou) délku, protože musí přesně zapadat do přiděleného časového slotu."
+    },
+    {
+      "question": "Adresa 172.0.0.0 obecně spadá do:",
+      "answers": [
+        "Třídy B",
+        "Třídy A",
+        "Třídy C",
+        "Třídy D",
+        "Třídy E"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Adresní rozsah 172.0.0.0–172.255.255.255 leží v obecném rozdělení IPv4 tříd v třídě B (adresy 128.0.0.0–191.255.255.255)."
+    },
+    {
+      "question": "Šířka pásma v počítačových sítích",
+      "answers": [
+        "Souvisí typicky s technickými parametry dané technologie",
+        "Má návasznost na transportní protokoly TCP a UDP",
+        "Udává způsob komutace přenášených jednotek v dané síti",
+        "Lze ji přímo vypočítat z hodnoty RTT (Round Trip Time)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Šířka pásma souvisí s technickými parametry dané technologie (kabeláž, kódování apod.) a udává, kolik bitů za sekundu lze v ideálních podmínkách přenést."
+    },
+    {
+      "question": "Mezi propojující (mezilehlé) síťové prvky počítačových sítí patří",
+      "answers": [
+        "Přepínač",
+        "WiFi",
+        "Ethernet"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Mezi mezilehlé (propojující) síťové prvky patří přepínač, směrovač a opakovač — na rozdíl od koncových technologií jako Ethernet nebo WiFi, které samy o sobě nejsou fyzickým propojovacím prvkem."
+    },
+    {
+      "question": "Kolik kroků je potřeba pro ukončení spojení při použití transportního protokolu TCP (Transmission Control Protocol)?",
+      "answers": [
+        "4 kroky (tzv. four-way handshake)",
+        "2 kroky (tzv. two-way handshake)",
+        "1,5 kroků (tzv. one-and-half-way handshake)",
+        "0 kroků (no handshake)",
+        "2,5 kroků (tzv. two-and-half-way handshake)"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Ukončení TCP spojení probíhá klasicky pomocí tzv. four-way handshake — čtyř kroků výměny FIN/ACK zpráv mezi oběma stranami."
+    },
+    {
+      "question": "Protokol UDP (User Datagram Protocol)",
+      "answers": [
+        "Je vhodný pro přenos multimediálních dat",
+        "Zajišťuje, že data budou na přijímací straně poskládána do správného pořadí, v jakém byla vyslána",
+        "Slouží pro dojednání kodeků a šifrování před prenosem hlasové aplikace"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "UDP je jednodušší a má menší záhlaví než TCP, je vhodný pro přenos multimediálních dat (kde záleží na rychlosti víc než na spolehlivosti) a nezajišťuje spolehlivý přenos dat."
+    },
+    {
+      "question": "Pro zabezpečený přenos webové stránky bychom měli použít protokol:",
+      "answers": [
+        "QUIC (Quick UDP Internet Connections)",
+        "TCP (Transmission Control Protocol)",
+        "UDP (User Datagram Protocol)",
+        "FTP (File Transfer Protocol)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Pro zabezpečený přenos webu se používá TLS nad TCP (HTTPS), případně novější protokol QUIC běžící nad UDP a poskytující vlastní šifrování."
+    },
+    {
+      "question": "Které/které vrstva/vrstvy nepatří do síťového modelu ISO/OSI?",
+      "answers": [
+        "Relativní",
+        "Transportní",
+        "Síťová",
+        "Spojová",
+        "Prezentační"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Model ISO/OSI má sedm vrstev: fyzickou, spojovou, síťovou, transportní, relační, prezentační a aplikační — vrstvy „relativní“, „fyzikální“ a „aplikovaná“ v tomto modelu neexistují (jde o záměrně podobně znějící, ale nesprávné názvy)."
+    },
+    {
+      "question": "Které z následujících tvrzení je pravdivé?",
+      "answers": [
+        "Šířka pásma závisí na fyzikálních vlastnostech daného přenosového média",
+        "Útlum představuje postupné zesilování amplitudy signálu na přenosovém médiu",
+        "Analogový signál je výtvorem člověka a je nespojitý v čase",
+        "Digitální signál je výtvorem člověka a je spojitý v čase",
+        "AMI kód (Alternate Mark Inversion) je unipolární kód"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Šířka pásma závisí na fyzikálních vlastnostech přenosového média (např. typu kabelu, jeho délce a kvalitě) — na rozdíl od nesprávných tvrzení o útlumu (ten signál zeslabuje, nikoli zesiluje) nebo o analogovém/digitálním signálu."
+    },
+    {
+      "question": "O technice Stop-and-Wait ARQ (Automatic Repeat Request) platí:",
+      "answers": [
+        "Rámce musí být číslovány",
+        "Příjemce nemusí každý rámec samostatně potvrdit",
+        "Vysílač může vyslad hned za sebou jakékoliv množství rámců (více než 2) bez potvrzení",
+        "Vysílač může odeslat hned za sebou vždy poouze dva rámce"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "U Stop-and-Wait ARQ musí být rámce číslovány (stačí 2 sekvenční čísla, 0 a 1) a systém dokáže vyřešit ztrátu rámce mezi vysílačem a přijímačem pomocí opakovaného vyslání po vypršení časovače."
+    },
+    {
+      "question": "Součástí standardního IPv4 záhlaví není",
+      "answers": [
+        "Adresa portu odesílatele",
+        "Adresa IP příjemce",
+        "Adresa IP odesílatele",
+        "Hodnota TTL (Time To Live)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Standardní IPv4 záhlaví neobsahuje čísla portů (ta patří do záhlaví transportní vrstvy, TCP/UDP) — obsahuje ale IP adresy odesílatele a příjemce i hodnotu TTL."
+    },
+    {
+      "question": "Prezentační vrstva ISO/OSI se stará o",
+      "answers": [
+        "Kompresi přenášených dat",
+        "Navázání koncového spojení čtvrté vrstvy před přenosem dat",
+        "Překlad adres u přenášených dat"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Prezentační vrstva zajišťuje kompresi, šifrování a kódování (prezentaci) aplikačních dat — nikoli navazování spojení (to dělá transportní vrstva) ani překlad adres (síťová vrstva)."
+    },
+    {
+      "question": "K čemu slouží technika klouzavého okna?",
+      "answers": [
+        "k efektivnějšímu využití přenosového kanálu",
+        "k rezervaci komunikačního pásma",
+        "umožňuje detekovat rámce přijaté s bitovou chybou",
+        "slouží ke stanovení počtu bitových chyb v komunikačním kanálu"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Technika klouzavého okna umožňuje vysílači odeslat omezený počet rámců za sebou bez čekání na potvrzení každého z nich, čímž se efektivněji využívá přenosový kanál."
+    },
+    {
+      "question": "Jakým způsobem se dá zapisovat maska sítě v případě IPv4",
+      "answers": [
+        "V binární podobě",
+        "V desetiné podobě",
+        "Maska sítě se u adres IPv4 nepoužívá"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Masku sítě IPv4 lze zapsat v binární podobě, v dekadické (tečkované) podobě nebo pomocí délky prefixu (např. /24)."
+    },
+    {
+      "question": "ICMP (Internet Control Message Protocol) slouží k oznamování chyb na",
+      "answers": [
+        "síťové vrstvě",
+        "transportní vrstvě",
+        "aplikační vrstvě",
+        "fyzické vrstvě",
+        "spojové vrstvě"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Protokol ICMP slouží k oznamování chyb a diagnostických zpráv na síťové vrstvě (např. nedosažitelnost cíle, vypršení TTL)."
+    },
+    {
+      "question": "Vyberte pravdivé tvrzení o kořenových serverech DNS (Domain Name System)",
+      "answers": [
+        "Odkazují dotazující se rekurzivní DNS servery na další doménové servery",
+        "Obsahují ve své databázi DNS záznamy všech domén v Internetu",
+        "Jsou umístěny v každé lokální počítačové síti",
+        "Jejich použití je volitelné"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kořenové servery DNS odkazují dotazující se rekurzivní servery na další (autoritativní) doménové servery a jsou nezbytnou součástí hierarchie DNS — neobsahují ale záznamy všech domén v Internetu."
+    },
+    {
+      "question": "Překlad adres - NAT (Network Address Translation) v kombinaci s PAT (Port Address Translation) se používá",
+      "answers": [
+        "Ke změně adres síťové a transportní vrstvy v předávaných paketech",
+        "Pouze k překladu adres portů v paketech",
+        "Ke kontrole portů a IP adres v paketech",
+        "K podsíťování adresních rozsahů u tzv. major networks"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "NAT/PAT se používá ke změně adres síťové a transportní vrstvy v procházejících paketech a k překladu privátních IP adres na veřejné (a naopak)."
+    },
+    {
+      "question": "V jakém přenosovém prsotředí je ve většině případů nejmenší bitová chybovost BER (Bit Error Rate)?",
+      "answers": [
+        "V optickém vlákně",
+        "Na přenosovém prostředí nezáleží",
+        "V bezdrátovém prostředí",
+        "U všech přenosových médií je chybovost vždy stejná",
+        "V metalickém vodiči"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Optické vlákno má díky imunitě vůči elektromagnetickému rušení obvykle nejnižší bitovou chybovost (BER) ze všech běžných přenosových médií."
+    },
+    {
+      "question": "Pomocí protokolů VoIP (Voice over Internet Protocol) lze mezi dvěma účastníky realizovat hovor",
+      "answers": [
+        "v rámci lokální sítě",
+        "ze zařízení bez IP adresy"
+      ],
+      "correct": 0,
+      "answer_count": 2,
+      "image_name": null,
+      "explanation": "Pomocí VoIP lze realizovat hovor v rámci lokální sítě, přes internet, v rámci jednoho zařízení nebo pomocí mobilního telefonu se SIP klientem — vždy je ale potřeba zařízení s IP adresou."
+    },
+    {
+      "question": "Router (směrovač):",
+      "answers": [
+        "Směrování probíhá pouze na úrovni síťové vrstvy",
+        "Směruje pakety na základě MAC adresy",
+        "Pracuje na úrovni aplikační vrstvy",
+        "Automaticky směřuje pakety do všech výstupních portů směrovače"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Směrovač pracuje na síťové vrstvě a směruje pakety na základě jejich cílové IP adresy (nikoli MAC adresy)."
+    },
+    {
+      "question": "Čím je charakteristický časový multiplex?",
+      "answers": [
+        "Rychlé střídání provozů v čase.",
+        "Odlišnou vlnovou délkou provozů.",
+        "Více plně časově souběžných paralelních provozů v jednom vedení.",
+        "Každý z provozů opoužívá jinou část kmitočtového pásma.",
+        "Různé provozy využívají různé frekvence."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Časový multiplex (TDM) je charakteristický rychlým střídáním jednotlivých provozů (kanálů) v čase na společném přenosovém médiu."
+    },
+    {
+      "question": "Které z následujících metod přenosu dat rezervuje prostředky a kapacity komunikace po celou dobu sestaveného spojení i když se neposílají žádná data?",
+      "answers": [
+        "Komutace okruhů",
+        "Komutace buňek",
+        "Komutace zpráv",
+        "Komutace paketů",
+        "Komutace cest"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Komutace okruhů (např. klasická telefonní síť) rezervuje přenosovou kapacitu po celou dobu spojení bez ohledu na to, zda se právě přenášejí data."
+    },
+    {
+      "question": "Vyberte pravdivé tvrzení o spojové vrstvě",
+      "answers": [
+        "Pracuje s rámci či buňkami",
+        "Může se starat o řízení spoje v rámci dané síťě (technologie)",
+        "Používá maximálně 65536 portů"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Spojová vrstva pracuje s rámci (případně buňkami), může využívat různé přístupové metody ke sdílenému médiu a často opravuje/detekuje chyby vzniklé na fyzické vrstvě."
+    },
+    {
+      "question": "Vyberte nepravdivé tvrzení",
+      "answers": [
+        "Opakovač pracuje na první vrstvě ISO/OSI",
+        "Opakovač a rozbočovač pracují na různých vrstvách modelu ISO/OSI",
+        "Směrovač a router jsou funkčně shodná zařízení pracujících na různých vrstvách"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Opakovač pracuje na 1. (fyzické) vrstvě, přepínač na 2. (spojové) vrstvě a směrovač na 3. (síťové) vrstvě modelu ISO/OSI — jde tedy o pravdivá tvrzení, zatímco tvrzení, že „směrovač a router jsou funkčně shodná zařízení pracující na různých vrstvách“ je nepravdivé (jsou to synonyma pro totéž zařízení na téže vrstvě)."
+    },
+    {
+      "question": "Mezi zprávy DHCP (Dynamic Host Configuration Protocol) protokolu nepatří",
+      "answers": [
+        "DHCP Selective Reject",
+        "DHCP Discover",
+        "DHCP Offer",
+        "DHCP Request",
+        "DHCP ACK"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Standardní zprávy DHCP jsou Discover, Offer, Request a ACK (tzv. DORA) — zpráva „DHCP Selective Reject“ mezi ně nepatří."
+    },
+    {
+      "question": "Jaké adresy jsou používány pro zpracování (obdoba technik přepínání, směrování) jednotek na úrovni fyzické vrstvy ISO/OSI.",
+      "answers": [
+        "Žádná adresace na této vrstvě není",
+        "Ani jedna z těchto možností není správná",
+        "Čísla portů",
+        "IP adresy",
+        "MAC adresy"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Na fyzické vrstvě se žádná adresace nepoužívá — adresy (MAC, IP, porty) se objevují až od spojové vrstvy výše."
+    },
+    {
+      "question": "Dynamické distribuované směrování",
+      "answers": [
+        "Je považováno za dynamickou směrovací strategii",
+        "Není možné pužít v případě IPv6 sítí"
+      ],
+      "correct": 0,
+      "answer_count": 2,
+      "image_name": null,
+      "explanation": "Dynamické distribuované směrování je běžnou praxí, je považováno za dynamickou strategii, umožňuje reagovat na výpadky linek a vyžaduje interní nebo externí směrovací protokoly — lze jej použít i v IPv6 sítích."
+    },
+    {
+      "question": "O fragmentaci IPv4 paketů na síťové vrstvě platí",
+      "answers": [
+        "Může k ní dojít při přenosu paketu přes směrovače v případě, že hodnota MTU (Maximum Transmission Unit) následující linky je menší, než velikost přenáčeného paketu",
+        "Fragmentaci nelze použít, je-li využit transportní protokol UDP",
+        "Fragmentace snižuje zatížení procesoru směrovače",
+        "Z jednotlivých fragmentů lze poskládat původní paket pouze tehdy, dorazí-li jednotlivé fragmenty v původním pořadí, v jakém byly vyslány při fragmentaci"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Fragmentace může nastat, pokud je hodnota MTU následující linky menší než velikost přenášeného paketu, a odesílatel ji může zakázat nastavením příznaku „Don't Fragment“."
+    },
+    {
+      "question": "Protokolová sada TCP/IP nebo její část je typicky implementována alespoň částečně v",
+      "answers": [
+        "Operačním systému koncového zařízení",
+        "Jako součást každého standardu globálních sítí, např. SDH",
+        "Jako součást každého standardu lokálních sítí, např. Ethernetu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Sada TCP/IP je typicky implementována v operačním systému koncového zařízení, v mezilehlých síťových prvcích (směrovačích) i přímo v koncových aplikacích."
+    },
+    {
+      "question": "Vyberte nepravdivé tvrzení o výchozí bráně sítě",
+      "answers": [
+        "Jedná se o zařízení pracující na druhé vrstvě ISO/OSI",
+        "Toto zařízení slouží pro propojení lokální sítě s ostatními sítěmi",
+        "Toto zařízení je funkcně směrovač třetí vrstvy ISO/OSI",
+        "Toto zařízení funguje jako zprostředkovatel IP komunikace ze sítě ven a i dovnitř"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Výchozí brána pracuje na 3. (síťové) vrstvě jako směrovač (nikoli na 2. vrstvě) a vždy musí mít vlastní IP adresu, aby k ní mohla lokální síť směrovat provoz — tato dvě tvrzení jsou proto nepravdivá."
+    },
+    {
+      "question": "Stejnosměrnou složku z principu fungování odstraňuje linkový kód",
+      "answers": [
+        "Rozdílový Manchester",
+        "Bipolární Return to Zero (RZ)",
+        "Unipolární Return to Zero (RZ)",
+        "Stop and Zero (SZ)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kódy jako rozdílový Manchester nebo NRZI (Non-Return to Zero Inverted) jsou navrženy tak, aby průměrná stejnosměrná složka signálu byla nulová, což usnadňuje přenos a synchronizaci."
+    },
+    {
+      "question": "O rámci na úrovni spojové vrstvy založeném na časové synchronizaci zpravidla platí:",
+      "answers": [
+        "má fixní délku",
+        "je možné jej na přenosové médium vyslat v libovolný časový okamžik",
+        "má proměnnou délku",
+        "nenese žádná data"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Rámec založený na časové synchronizaci má typicky fixní délku a nese i vlastní datovou část, protože musí přesně zapadnout do vyhrazeného časového slotu."
+    },
+    {
+      "question": "Fyzická vrstva modelu ISO/OSI nikdy nedefinuje:",
+      "answers": [
+        "formát rámců",
+        "konektory",
+        "elektrické vlastnosti kabelů",
+        "přenosovou rychlost",
+        "Napěťové úrovně"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Fyzická vrstva definuje konektory, elektrické vlastnosti kabelů, přenosovou rychlost a napěťové úrovně, ale nikdy nedefinuje formát rámců — to je úkolem spojové vrstvy."
+    },
+    {
+      "question": "Cílem směrovacích protokolů v sítích s TCP/IP by mělo být",
+      "answers": [
+        "Minimalizace velikosti vytvořených směrovacích tabulek",
+        "Maximalizace velikosti přenáčených kontrolních a řídících zpráv mezi směrovači",
+        "Vytvoření směrovacích smyček",
+        "Co nejvyšší náhodnost směrování"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Cílem směrovacích protokolů je minimalizovat velikost směrovacích tabulek a získávat aktuální informace o dostupných sítích od sousedních směrovačů."
+    },
+    {
+      "question": "Protokol ARP (Address Resolution Protocol)",
+      "answers": [
+        "Slouží v IPv4 sítích k dynamickémuu převodu známé IPv4 adresy adresáta na fyzickou adresu",
+        "Umožňuje pouze práci se statickou tabulkou překladů v rámci operačního systému",
+        "Je považován za směrovací protokol",
+        "Odesílá veškeré pakety unicastově"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "ARP slouží k dynamickému zjištění fyzické (MAC) adresy k dané IPv4 adrese, včetně adresy výchozí brány."
+    },
+    {
+      "question": "Systém přenosu elektronické pošty je založen na",
+      "answers": [
+        "Na nepřímém doručování zpráv mezi klienty přes servery elektronické pošty",
+        "Nutnosti znát IP adresu konkrétního adresáta, ktrému chceme email odeslat",
+        "Protokolech pro komunikaci mezi klienty a servery, jako je např. SMTP (Simple Mail Transfer Protocol)",
+        "Pravidelném přepínání mezi TCP a UDP transportním protokolem",
+        "Na periodickém obměňování DNS názvů jednotlivým emeilovým serverům"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "E-mail funguje na principu nepřímého doručování zpráv mezi klienty přes servery elektronické pošty (odesílatel → odchozí server → doručovací server → příjemce)."
+    },
+    {
+      "question": "Rámec spojové vrstvy se typicky skládá z",
+      "answers": [
+        "Záhlaví",
+        "Identifikace použitého linkového kódu",
+        "Adresa portu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Rámec spojové vrstvy se typicky skládá ze záhlaví, datové části a zápatí (např. s kontrolním součtem CRC)."
+    },
+    {
+      "question": "Jaká zpráva se posílá v případě detekování chyby v přenosu dat pomocí mechanizmu Go-Back-N?",
+      "answers": [
+        "REJ (Reject)",
+        "ACK (Acknowledgement)",
+        "RTT (Round-Trip Time)",
+        "REP (Report)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při detekci chyby v mechanismu Go-Back-N se posílá zpráva REJ (Reject) nebo NACK (Negative Acknowledgement), která vyžádá opětovné vyslání rámců od chybného místa."
+    },
+    {
+      "question": "Vyberte pravdivá tvrzení:",
+      "answers": [
+        "IPv6 adresy jsou 4 krát delší než adresy IPv4",
+        "IPv4 a IPv6 josu vzájemně kompatibilní",
+        "IPv4 a IPv6 adresy mají stejnou délku"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "IPv6 adresy jsou čtyřikrát delší než IPv4 (128 vs. 32 bitů), IPv6 vznikl kvůli vyčerpání adresního prostoru IPv4 a IPv4 adresy se zapisují v dekadické podobě po osmicích bitů (oktetech)."
+    },
+    {
+      "question": "Jakým způsobem přepíná rámce přepínač (switch)?",
+      "answers": [
+        "Přepíná rámce na základě MAC adresy",
+        "Přepíná pakety na základě MAC adresy",
+        "Přepíná rámce na základě čísla portu",
+        "Přepíná pakety na základě IP adresy",
+        "Přepíná rámce na základě IP adresy"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Přepínač (switch) pracuje na spojové vrstvě a přepíná rámce na základě jejich cílové MAC adresy."
+    },
+    {
+      "question": "Protokol TCP (Transmission Control Protocol)",
+      "answers": [
+        "posílá zpět potvrzení pro pakety, které byly úspěšně přijaty",
+        "pracuje na úrovni síťové vrstvy",
+        "je jednodušší a má menší záhlaví než protokol UDP (User Datagram Protocol)",
+        "není spojově orientovaný"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "TCP posílá potvrzení (ACK) pro úspěšně přijaté pakety a explicitně navazuje i ukončuje spojení (na rozdíl od bezspojového UDP)."
+    },
+    {
+      "question": "Délka prefixu udává:",
+      "answers": [
+        "Počet hostů v podsíti",
+        "Počet nul v masce sítě",
+        "Počet subnetů",
+        "Počet oktetů IP adresy"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Délka prefixu udává počet jedniček v masce sítě, čímž nepřímo určuje i počet dostupných hostitelských adres v dané podsíti."
+    },
+    {
+      "question": "Tzv. výsledkové kódy, jakožto odpovědi na zadané příkazy se používají",
+      "answers": [
+        "U protokolu HTTP (HyperText Transfer Protocol)",
+        "Jako odpovědi klienta na zprávu ze strany serveru",
+        "Jako příkazy od serveru nutící klienta vykonat určitou činnost"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Výsledkové (stavové) kódy jako odpovědi na příkazy se používají u protokolů HTTP, SMTP a FTP."
+    },
+    {
+      "question": "Při délce rámce 1250 bajtů a pravděpodobnosti bitové chyby při ptenosu rovn (10 na mínus 3) lze v jednom rámci při přijetí očekávat průměrně",
+      "answers": [
+        "10 bitových chyb",
+        "1000 bitových chyb",
+        "1250 bitových chyb",
+        "12.5 bitových chyb",
+        "1 bitovou chybu"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "1250 B = 10 000 bitů; při pravděpodobnosti chyby 10⁻³ na bit vychází očekávaný počet chyb v rámci 10 000 × 10⁻³ = 10 bitových chyb."
+    },
+    {
+      "question": "Pro detekci bitových chyb vzniklých při přenosu rámců se na straně příjemce nejčasteěji z důvodu vysoké spolehlivosti a efektivity používá technik",
+      "answers": [
+        "Cyklické redundantní kódy (CRC)",
+        "Technika výcenásobného přenosu",
+        "Technika opakovaného přenosu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Pro detekci chyb se nejčastěji používají cyklické redundantní kódy (CRC), paritní bity a kontrolní součty jednotlivých bajtů rámce."
+    },
+    {
+      "question": "Mezi způsoby komutace používané v současných počítačových sítích patří",
+      "answers": [
+        "Komutace buňek",
+        "Komutace segmentů",
+        "Komutace fragmentů",
+        "Komutace soustav"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mezi hlavní způsoby komutace v počítačových sítích patří komutace okruhů, zpráv, paketů a buněk — mezi ně nepatří „komutace segmentů“ ani „komutace fragmentů“."
+    },
+    {
+      "question": "Která z těchto zařízení pracuje primárně na linkové (spojové) vrstvě:",
+      "answers": [
+        "Přepínač (switch)",
+        "Router",
+        "Opakovač (repeater)",
+        "Rozbočovač (hub)",
+        "Směrovač"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Přepínač (switch) pracuje primárně na spojové (2.) vrstvě modelu ISO/OSI, na rozdíl od směrovače (3. vrstva) nebo opakovače a rozbočovače (1. vrstva)."
+    },
+    {
+      "question": "Mezi koncová zařízení počítačových sítí nepatří",
+      "answers": [
+        "Přístupové body",
+        "VoIP telefony",
+        "Notebooky",
+        "Servery",
+        "Chytré telefony"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Přístupové body (access pointy) jsou aktivní síťové prvky zprostředkovávající připojení, nikoli koncová zařízení jako notebooky, servery nebo telefony."
+    },
+    {
+      "question": "Který z následujících systémů (či technik přenosu) nevyužívá techniku klouzavého okna?",
+      "answers": [
+        "Stop-and-Wait ARQ (Automatic Repeat Request)",
+        "Go-back-N ARQ (Automatic Repeat Request)",
+        "Selective repeat ARQ (Automatic Repeat Request)"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Stop-and-Wait ARQ, TDMA a CSMA klouzavé okno nevyužívají — klouzavé okno je typické až pro pokročilejší mechanismy jako Go-Back-N nebo Selective Repeat ARQ."
+    },
+    {
+      "question": "Úprava hodnoty TTL (Time to live) se při použiží s ICMP (Internet Control Message Protocol) může použít pro",
+      "answers": [
+        "Zjištění směrovačů přítomných na trase k adresátovi paketu",
+        "Stanovení minimálního počtu skoků, které daný paket bude schopen absolvovat",
+        "Stanovení minimálního času (doby ve vteřinách) života paketu, který bude paket existovat v síti",
+        "Stanovení maximálního času (doby ve vteřinách) života paketu, který bude paket existovat v síti"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Postupné zvyšování hodnoty TTL v kombinaci s ICMP se využívá (např. u nástroje traceroute) ke zjištění směrovačů na trase a k omezení maximálního počtu skoků paketu."
+    },
+    {
+      "question": "Při kterém ze základních způsobů přenosu informace se vytváří fyzické spojení mezi koncovými účastníky komunikace?",
+      "answers": [
+        "Komutace okruhů",
+        "Komutace buněk",
+        "Komutace zpráv",
+        "Komutace paketů"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Fyzické (vyhrazené) spojení mezi účastníky vzniká při komutaci okruhů — typicky u klasické telefonní sítě."
+    },
+    {
+      "question": "Kombinace fázového a amplitudováho klíčování",
+      "answers": [
+        "Zvyšuje počet bitů, které je možné přenést pomocí jendnoho symbolu",
+        "Není možná",
+        "Je možná, ale nepoužívá se",
+        "Představuje kombinovanou změnu kmitočtu a amplitudy signálu"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Kombinace fázového a amplitudového klíčování (např. QAM) zvyšuje počet bitů přenášených jedním symbolem, protože kombinuje více rozlišitelných stavů signálu."
+    },
+    {
+      "question": "Jakým způsobem není možné zvýšit celkovou přenosovou kapacitu konkrétního kanálu (vedení)?",
+      "answers": [
+        "Čistě časovým dělením",
+        "Čistě kmitočtovým dělením",
+        "Čistě vlnovým dělením",
+        "Čistě frekvenčním dělením"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Čistě časovým dělením (TDM) nelze zvýšit celkovou fyzickou kapacitu vedení — pouze efektivněji sdílet již existující kapacitu mezi více provozy; kmitočtové nebo vlnové dělení naproti tomu umožňuje využít širší část spektra."
+    },
+    {
+      "question": "Co je hlavní úlohou spojové vrstvy?",
+      "answers": [
+        "Mění prostý tok bitů na spolehlivou cestu přenosu datových bloků - rámců",
+        "Spojuje vzájemně fyzickou a transportní vrstvu",
+        "Spojuje fyzické vrstvy adresáta a odesílatele",
+        "Spojuje koncové procesy (aplikace), které jsou rozptýleny po internetu"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Hlavní úlohou spojové vrstvy je proměnit prostý (nespolehlivý) tok bitů z fyzické vrstvy na spolehlivější přenos organizovaný do datových bloků — rámců."
+    },
+    {
+      "question": "Mezi metody zabezpečení proti chybám při přenosu na linkové vrstvě nepatří",
+      "answers": [
+        "Návěští",
+        "Cyklické redundantní kontroly",
+        "Paritní bity",
+        "Kontrolní součty"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mezi metody detekce chyb patří cyklické redundantní kódy, paritní bity a kontrolní součty — „návěští“ mezi tyto metody nepatří."
+    },
+    {
+      "question": "Délka prefixu podsítě /17 odpovídá masce sítě",
+      "answers": [
+        "255.255.128.0",
+        "255.255.0.0",
+        "255.255.255.0",
+        "255.255.255.255"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Prefix /17 znamená 17 jedniček v masce, což v dekadickém zápisu odpovídá masce 255.255.128.0."
+    },
+    {
+      "question": "Který z následujících výroků o logických adresách síťové vrstvy je pravdivý?",
+      "answers": [
+        "Slouží ke globální identifikaci daného uzlu",
+        "Může jich být nekonečně mnoho",
+        "Jsou označované i jako MAC adresy",
+        "Definují koncové aplikace dané komunikace"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Logické (IP) adresy síťové vrstvy slouží ke globální identifikaci daného síťového uzlu v rámci celé sítě/internetu."
+    },
+    {
+      "question": "Co není pravda o tzv. lavinovém směrování?",
+      "answers": [
+        "Tento způsob směrování zatěžuje síť minimálně.",
+        "Je to takový způsob sm+rování, kdy každý paket v každém uzlu je nakopírován a odeslán všemi linkami kromě příchozí.",
+        "Je to systém dobře odolný vůči poruchám linek.",
+        "Tento způsob směrování není hojně využíván v internetu"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Lavinové (záplavové) směrování naopak síť zatěžuje maximálně, protože každý uzel přeposílá paket všemi linkami kromě příchozí — tvrzení o „minimální zátěži“ je proto nepravdivé."
+    },
+    {
+      "question": "Které z následujících tvrzení o protokolu TCP není pravdivé:",
+      "answers": [
+        "Přenesená data (bajty) se nepotvrzují",
+        "Komunikace má koncový charakter",
+        "TCP vytváří dojem propojení komunikujících procesů okruhem, kterým je možné přenášet proud bajtů",
+        "Strany mohou komunikovat oběma směry zároveň"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "TCP naopak explicitně potvrzuje přijetí každého bloku přenesených dat (bajtů) pomocí ACK — tvrzení, že se data nepotvrzují, je nepravdivé."
+    },
+    {
+      "question": "Jaký je hlavní důvod vytvoření IPv6 protokolu?",
+      "answers": [
+        "Rozšíření adresního prostoru vzhledem k IPv4.",
+        "Zvýšení stability fungování internetové sítě",
+        "Podpora moderních 64 bitových procesorů",
+        "Zrušení rozlišování síťových rozhraní připojených k počítačové síti"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Hlavním důvodem vzniku IPv6 bylo rozšíření adresního prostoru vzhledem k postupně se vyčerpávajícímu prostoru IPv4."
+    },
+    {
+      "question": "Ozačte pravdivé tvrzení o protokolu FTP (File Transfer Protokol).",
+      "answers": [
+        "Protokol využívá pro přenos dvě transportní spojení",
+        "Je to protokol transportní vrstvy",
+        "Protokol žádnám způsobem nerozlišuje komunikující strany",
+        "Protokol nevyužívá pro řízení přenosu předem definovaných příkaů a odpovědí"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Protokol FTP využívá pro přenos dvě samostatná transportní (TCP) spojení — řídicí (příkazy) a datové (přenos souborů)."
+    }
+  ]
+}
+};
+
+document.getElementById('t1Desc').textContent =
+  MVE_TESTS.t1.questions.length + ' otázek — model ISO/OSI, TCP/IP, směrování, přepínání, komutace, IPv4/IPv6';
+
+function startTest(id){
+  const data = MVE_TESTS[id];
+  if(!data) return;
+  sessionStorage.setItem('ql-data', JSON.stringify({subject: data.subject, questions: data.questions}));
+  window.location.href = 'quiz.html';
+}
+
+if(window.location.protocol==='file:'){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.ad-col').forEach(function(el){el.style.display='none';});
+  });
+}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
+  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
+  if(e.key==='F12'){e.preventDefault();return false;}
+});
+</script>
+</body>
+</html>

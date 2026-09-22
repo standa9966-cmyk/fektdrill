@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — bezplatné online testy a kvízy. Procvičuj z připravených sad otázek nebo si nahraj vlastní materiály a otestuj se z čehokoliv.">
+<title>TechQuizz — Online Quizzes &amp; Tests</title>
+<link rel="icon" href="techtestzone.jpg">
+<script>
+if (window.location.protocol !== 'file:') {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+</script>
+<!-- auto ads disabled -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
+  --accent:#0f6cbd;--accent-h:#115ea3;--text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--r:10px;
+}
+[data-theme="dark"]{
+  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
+  --accent:#5b8cff;--accent-h:#7aa5ff;--text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
+.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
+.top-panel a{color:#fff;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px;}
+.top-panel a:hover{text-decoration:underline;}
+.top-panel-text{color:rgba(255,255,255,.8);}
+.top-right-theme{position:fixed;top:46px;right:16px;z-index:99;}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
+.ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
+.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
+.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
+.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+@media(max-width:960px){.ad-col{display:none;}}
+.home-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
+h1{font-size:clamp(48px,7vw,88px);font-weight:900;line-height:.95;letter-spacing:-2px;text-align:center;margin-bottom:10px;}
+h1 span{color:var(--accent);}
+.home-sub{font-size:14px;color:var(--muted);margin-bottom:44px;text-align:center;}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:820px;width:100%;margin-bottom:24px;}
+.card{flex:1 1 220px;max-width:340px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 24px;cursor:pointer;transition:all .18s;text-decoration:none;color:var(--text);display:block;position:relative;box-shadow:var(--shadow);}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.card-tag{font-size:10px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.card-name{font-size:20px;font-weight:700;margin-bottom:5px;}
+.card-desc{font-size:13px;color:var(--muted);}
+.arrow{position:absolute;bottom:20px;right:22px;font-size:18px;color:var(--accent);opacity:0;transition:all .18s;transform:translateX(-4px);}
+.card:hover .arrow{opacity:1;transform:translateX(0);}
+.upload{max-width:820px;width:100%;border:2px dashed var(--border);border-radius:12px;padding:26px;text-align:center;cursor:pointer;transition:all .18s;position:relative;background:var(--surface);box-shadow:var(--shadow);margin-bottom:28px;}
+.upload:hover,.upload.over{border-color:var(--accent);}
+.upload input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.upload-icon{font-size:26px;margin-bottom:7px;}
+.upload-text{font-size:14px;color:var(--muted);}
+.upload-text span{color:var(--accent);font-weight:600;}
+.upload-hint{font-size:11px;color:var(--subtle);margin-top:5px;}
+.guide{max-width:820px;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 28px 24px;box-shadow:var(--shadow);margin-bottom:28px;}
+.guide-title{font-size:18px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.guide-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.guide-steps{display:flex;flex-direction:column;gap:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;}
+.step-num{background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body{flex:1;}
+.step-title{font-weight:700;font-size:14px;margin-bottom:3px;}
+.step-text{font-size:13px;color:var(--muted);line-height:1.55;}
+.guide-divider{border:none;border-top:1px solid var(--border);margin:20px 0;}
+.prompt-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:12px;font-family:monospace;color:var(--text);line-height:1.6;white-space:pre-wrap;word-break:break-word;margin-top:10px;position:relative;}
+.copy-btn{position:absolute;top:8px;right:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:inherit;transition:background .15s;}
+.copy-btn:hover{background:var(--accent-h);}
+.json-example{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:12px;font-family:monospace;color:var(--text);line-height:1.6;white-space:pre;overflow-x:auto;margin-top:8px;}
+.json-key{color:#0f6cbd;}.json-str{color:#107c41;}.json-num{color:#c4262e;}
+.ai-providers{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.ai-badge{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px;text-decoration:none;cursor:pointer;transition:all .15s;}
+.ai-badge:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+.donate-wrap{max-width:820px;width:100%;margin-bottom:28px;}
+.donate-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;box-shadow:var(--shadow);}
+.donate-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+.donate-sub{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.donate-qr{width:180px;height:180px;border-radius:8px;border:1px solid var(--border);display:block;margin:0 auto 10px;}
+.donate-amount{font-size:12px;color:var(--subtle);font-family:monospace;}
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.footer-links a:hover{color:var(--accent);}
+@media(max-width:640px){.main-col{padding:24px 14px;}.guide{padding:20px 16px;}.footer-inner{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+@media(max-width:480px){h1{font-size:42px;}.card{max-width:100%;}}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+.lang-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;line-height:1;transition:all .15s;flex-shrink:0;}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent);}
+
+</style>
+</head>
+<body>
+
+<div class="top-panel">
+  <span class="top-panel-text" data-i18n="topPanel">🔗 Také nás zajímá:</span>
+  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener" data-i18n="topLink">🌐 Cisco CCNA testy →</a>
+</div>
+
+<div class="top-right-theme">
+  <button class="lang-btn" id="langBtn" onclick="toggleLang()" title="Change language"></button>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" data-i18n-title="themeTitle" title="Přepnout motiv">🌙</button>
+</div>
+
+<div class="page-outer">
+  <aside class="ad-col left">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+
+  <div class="main-col">
+    <div class="home-logo" data-i18n="logo">TechQuizz</div>
+    <h1>Tech<span>Quizz</span></h1>
+    <p class="home-sub" data-i18n="subtitle">Vyberte předmět nebo nahrajte vlastní soubor</p>
+
+    <div class="cards">
+      <a class="card" href="bpc-ukb.html">
+        <div class="card-tag" data-i18n="cardTag">// Vestavěný</div>
+        <div class="card-name">BPC-UKB</div>
+        <div class="card-desc" data-i18n="cardDesc">97 otázek — Základy kybernetiky</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="fy1.html">
+        <div class="card-tag">// Vestavěný</div>
+        <div class="card-name">BPC-FY1</div>
+        <div class="card-desc" id="fy1Desc">83 otázek — FY1 zkouška teorie</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="mve.html">
+        <div class="card-tag" data-i18n="cardTag">// Vestavěný</div>
+        <div class="card-name">BPC-MVE</div>
+        <div class="card-desc" data-i18n="mveDesc">Elektrická měření — více testů na výběr</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="fy2.html">
+        <div class="card-tag">// Vestavěný</div>
+        <div class="card-name">BPC-FY2</div>
+        <div class="card-desc">40 otázek — optika, polarizace, lom a ohyb světla</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="el1.html">
+        <div class="card-tag">// Vestavěný</div>
+        <div class="card-name">BPC-EL1</div>
+        <div class="card-desc">Elektrotechnika 1 — obvodové věty, bezpečnost práce — 2 testy</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="kom.html">
+        <div class="card-tag">// Vestavěný</div>
+        <div class="card-name">BPC-KOM</div>
+        <div class="card-desc">68 otázek — počítačové sítě, model ISO/OSI, TCP/IP</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="mpe.html">
+        <div class="card-tag">// Vestavěný</div>
+        <div class="card-name">BPC-MPE</div>
+        <div class="card-desc">119 otázek — materiály pro elektrotechniku</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+
+    <div class="upload" id="drop">
+      <input type="file" id="fi" accept=".json">
+      <div class="upload-icon">📂</div>
+      <div class="upload-text"><span data-i18n="uploadSpan">Vyberte JSON soubor</span><span data-i18n="uploadOr"> nebo sem přetáhněte</span></div>
+      <div class="upload-hint" data-i18n="uploadHint">Formát: {"questions":[{"question","answers":[],"correct"}]}</div>
+    </div>
+
+    <div class="guide">
+      <div class="guide-title" data-i18n="guideTitle">📖 Jak vytvořit vlastní kvíz?</div>
+      <p class="guide-sub" data-i18n="guideSub">Máš PDF, Word nebo zápisky a chceš si z nich udělat test? Stačí 3 kroky.</p>
+      <div class="guide-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title" data-i18n="step1title">Připrav si studijní materiály</div>
+            <div class="step-text" data-i18n="step1text">Otevři si PDF, Word dokument, poznámky nebo screenshoty z přednášek.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title" data-i18n="step2title">Dej materiály AI a požádej ji o vytvoření kvízu</div>
+            <div class="step-text" data-i18n="step2text">Otevři si libovolnou AI a vlož do ní obsah svých materiálů spolu s tímto příkazem:</div>
+            <div class="ai-providers">
+              <a class="ai-badge" href="https://chat.openai.com" target="_blank" rel="noopener">💬 ChatGPT</a>
+              <a class="ai-badge" href="https://claude.ai" target="_blank" rel="noopener">🤖 Claude</a>
+              <a class="ai-badge" href="https://gemini.google.com" target="_blank" rel="noopener">✨ Gemini</a>
+              <a class="ai-badge" href="https://copilot.microsoft.com" target="_blank" rel="noopener">🔵 Copilot</a>
+            </div>
+            <div style="position:relative;margin-top:10px;">
+              <div class="prompt-box" id="aiPrompt"></div>
+              <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">📋 <span data-i18n="copyBtn">Kopírovat</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title" data-i18n="step3title">Ulož JSON a nahraj ho sem</div>
+            <div class="step-text" data-i18n="step3text">AI ti vrátí soubor ke stažení. Ulož ho a přetáhni do pole výše.</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="guide-divider">
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px;" data-i18n="jsonLabel">📄 Jak vypadá správný JSON soubor</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;" data-i18n="jsonHint">Příklad otázky s vysvětlením:</div>
+      <pre class="json-example"><span class="json-key">{</span>
+  <span class="json-key">"subject"</span>: <span class="json-str">"Název předmětu"</span>,
+  <span class="json-key">"questions"</span>: [
+    <span class="json-key">{</span>
+      <span class="json-key">"question"</span>: <span class="json-str">"Kolik bitů má 1 byte?"</span>,
+      <span class="json-key">"answers"</span>: [<span class="json-str">"4"</span>, <span class="json-str">"8"</span>, <span class="json-str">"16"</span>, <span class="json-str">"32"</span>],
+      <span class="json-key">"correct"</span>: <span class="json-num">1</span>,
+      <span class="json-key">"answer_count"</span>: <span class="json-num">4</span>,
+      <span class="json-key">"image_name"</span>: <span class="json-num">null</span>,
+      <span class="json-key">"explanation"</span>: <span class="json-str">"1 byte = 8 bits."</span>
+    <span class="json-key">}</span>
+  ]
+<span class="json-key">}</span></pre>
+      <div style="font-size:12px;color:var(--muted);margin-top:10px;" data-i18n="jsonNote">💡 <strong>correct: 1</strong> znamená druhá odpověď (0=první, 1=druhá, 2=třetí…)</div>
+    </div>
+
+    <div class="donate-wrap">
+      <div class="donate-card">
+        <div class="donate-title" data-i18n="donateTitle">☕ Podpora projektu</div>
+        <div class="donate-sub" data-i18n="donateSub">Líbí se ti TechQuizz? Podpoř provoz projektu.</div>
+        <img src="images/qr_support.png" alt="QR" class="donate-qr">
+        <div class="donate-amount" data-i18n="donateAmount">50,00 CZK — MojeID</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="ad-col right">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com </span>
+    <div class="footer-links">
+      <a href="privacy.html" data-i18n="footerPrivacy">Ochrana soukromí</a>
+      <a href="cookies.html" data-i18n="footerCookies">Nastavení cookies</a>
+      <a href="about_us.html" data-i18n="footerAbout">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── i18n — Czech / English ──────────────────────────────────────
+var LANG = localStorage.getItem('ql-lang') || ((navigator.language || navigator.userLanguage || 'en').startsWith('cs') ? 'cs' : 'en');
+if (LANG !== 'cs' && LANG !== 'en') LANG = 'en';
+document.documentElement.setAttribute('lang', LANG);
+
+function toggleLang() {
+  localStorage.setItem('ql-lang', LANG === 'cs' ? 'en' : 'cs');
+  location.reload();
+}
+
+
+
+const T = {
+  cs: {
+    topPanel:        '🔗 Také nás zajímá:',
+    topLink:         '🌐 Cisco CCNA testy →',
+    themeTitle:      'Přepnout motiv',
+    logo:            'TechQuizz',
+    subtitle:        'Vyberte předmět nebo nahrajte vlastní soubor',
+    cardTag:         '// Vestavěný',
+    cardDesc:        '92 otázek — Základy kybernetiky',
+    mveDesc:         'Elektrická měření — více testů na výběr',
+    uploadSpan:      'Vyberte JSON soubor',
+    uploadOr:        ' nebo sem přetáhněte',
+    uploadHint:      'Formát: {"questions":[{"question","answers":[],"correct"}]}',
+    guideTitle:      '📖 Jak vytvořit vlastní kvíz?',
+    guideSub:        'Máš PDF, Word nebo zápisky a chceš si z nich udělat test? Stačí 3 kroky — nepotřebuješ žádné technické znalosti.',
+    step1title:      'Připrav si studijní materiály',
+    step1text:       'Otevři si PDF, Word dokument, poznámky nebo screenshoty z přednášek. Cokoliv, z čeho chceš vytvořit testové otázky.',
+    step2title:      'Dej materiály AI a požádej ji o vytvoření kvízu',
+    step2text:       'Otevři si libovolnou AI (ChatGPT, Claude, Gemini…) a vlož do ní obsah svých materiálů spolu s tímto příkazem:',
+    step3title:      'Ulož JSON a nahraj ho sem',
+    step3text:       'AI ti vrátí soubor ke stažení. Ulož ho a přetáhni do pole výše nebo klikni na „Vyberte JSON soubor".',
+    copyBtn:         '📋 Kopírovat',
+    copiedBtn:       '✅ Zkopírováno',
+    jsonLabel:       '📄 Jak vypadá správný JSON soubor',
+    jsonHint:        'Příklad otázky s vysvětlením:',
+    jsonNote:        '💡 <strong>correct: 1</strong> znamená druhá odpověď (indexujeme od 0, takže 0=první, 1=druhá, 2=třetí…)',
+    donateTitle:     '☕ Podpora projektu',
+    donateSub:       'Líbí se ti TechQuizz? Podpoř provoz projektu.',
+    donateAmount:    '50,00 CZK — MojeID',
+    footerBy:        'Vytvořil',
+    footerPrivacy:   'Ochrana soukromí',
+    footerCookies:   'Nastavení cookies',
+    footerAbout:     'O nás',
+    uploadError:     'Neplatný JSON soubor. Zkontroluj, zda AI vygenerovala správný formát.',
+    browseMode:      '📖 Procházet',
+    drillMode:       '🎯 Drill',
+    filterAll:       'Vše',
+    filter2:         '2 možnosti',
+    filter3:         '3 možnosti',
+    filter4:         '4 možnosti',
+    searchPlaceholder: '🔍 Hledat…',
+    backBtn:         '← Zpět',
+    progressOf:      ' / ',
+    questionOf:      'Otázka ',
+    correct:         '✓ Správně!',
+    wrong:           '✗ Špatně! Správná: ',
+    nextBtn:         'Další otázka →',
+    againBtn:        '🔄 Znovu',
+    homeBtn:         '← Domů',
+    scoreCorrect:    'SPRÁVNĚ',
+    scoreWrong:      'ŠPATNĚ',
+    scoreRate:       'ÚSPĚŠNOST',
+    resultGreat:     'Skvělé!',
+    resultGood:      'Dobrá práce!',
+    resultStudy:     'Procvičuj dál!',
+    resultSub:       ' správně z ',
+    resultSub2:      ' — ',
+    resultSub3:      '% úspěšnost',
+    correct_badge:   '✓ správně',
+    expl_title:      '📚 Vysvětlení',
+    noData:          'Žádná data. <a href="index.html" style="color:var(--accent)">← Zpět</a>',
+    noResults:       'Žádné výsledky.',
+    donateCard:      'Obrázek k otázce',
+    imgNotFound:     'Obrázek nenalezen',
+    aiPrompt: `Zde jsou moje studijní materiály:\n\n[VLOŽ SEM OBSAH SVÝCH MATERIÁLŮ — text z PDF, Word, poznámky atd.]\n\nVytvoř z těchto materiálů testové otázky ve formátu JSON pro web TechQuizz. Použij přesně tuto strukturu:\n\n{\n  "subject": "Název předmětu",\n  "questions": [\n    {\n      "question": "Text otázky?",\n      "answers": [\n        "Možnost A",\n        "Možnost B",\n        "Možnost C",\n        "Možnost D"\n      ],\n      "correct": 0,\n      "answer_count": 4,\n      "image_name": null,\n      "explanation": "Vysvětli PROČ je odpověď A správná — konkrétně a věcně. Uveď klíčový fakt, vzorec nebo princip. Nezačínej slovy jako \'Správná odpověď je...\' — rovnou vysvětli podstatu."\n    }\n  ]\n}\n\nPravidla pro tvorbu otázek:\n- Pole "correct" je INDEX správné odpovědi (0 = první, 1 = druhá atd.)\n- Každá otázka má 2–4 možnosti odpovědí\n- Špatné odpovědi musí být věrohodné — ne náhodné nesmysly, ale časté chyby nebo podobné pojmy\n- Otázky pokrývají rovnoměrně celý obsah materiálů\n- Vygeneruj co nejvíce otázek (ideálně 30+)\n\nPravidla pro "explanation":\n- Vysvětli konkrétně PROČ je správná odpověď správná\n- Uveď klíčový fakt, definici, vzorec nebo příklad\n- Piš v češtině, stručně (2–4 věty), ale věcně\n- Nezačínej frází "Správná odpověď je..." — rovnou k věci\n- Pokud existuje vzorec nebo číslo, uveď ho\n\nVýstup:\n- Musí být validní JSON — žádný jiný text před ani za ním\n- Výsledek ulož jako soubor s příponou .json a nabídni mi ho ke stažení`,
+  },
+  en: {
+    topPanel:        '🔗 Also check out:',
+    topLink:         '🌐 Cisco CCNA Tests →',
+    themeTitle:      'Toggle theme',
+    logo:            'TechQuizz',
+    subtitle:        'Choose a subject or upload your own file',
+    cardTag:         '// Built-in',
+    cardDesc:        '92 questions — Fundamentals of Cybernetics',
+    mveDesc:         'Electrical measurement — several tests to choose from',
+    uploadSpan:      'Select a JSON file',
+    uploadOr:        ' or drag & drop here',
+    uploadHint:      'Format: {"questions":[{"question","answers":[],"correct"}]}',
+    guideTitle:      '📖 How to create your own quiz?',
+    guideSub:        'Got a PDF, Word doc or notes and want to turn them into a quiz? Just 3 steps — no technical knowledge needed.',
+    step1title:      'Prepare your study materials',
+    step1text:       'Open your PDF, Word document, notes or lecture screenshots. Anything you want to create test questions from.',
+    step2title:      'Give materials to AI and ask it to create a quiz',
+    step2text:       'Open any AI assistant (ChatGPT, Claude, Gemini…) and paste your material content along with this prompt:',
+    step3title:      'Save the JSON and upload it here',
+    step3text:       'The AI will offer a file for download. Save it and drag it into the field above or click "Select a JSON file".',
+    copyBtn:         '📋 Copy',
+    copiedBtn:       '✅ Copied',
+    jsonLabel:       '📄 What a correct JSON file looks like',
+    jsonHint:        'Example question with explanation:',
+    jsonNote:        '💡 <strong>correct: 1</strong> means the second answer (we index from 0: 0=first, 1=second, 2=third…)',
+    donateTitle:     '☕ Support the project',
+    donateSub:       'Enjoying TechQuizz? Help keep it running.',
+    donateAmount:    '50,00 CZK — MojeID',
+    footerBy:        'Created by',
+    footerPrivacy:   'Privacy Policy',
+    footerCookies:   'Cookie Settings',
+    footerAbout:     'About',
+    uploadError:     'Invalid JSON file. Check that the AI generated the correct format.',
+    browseMode:      '📖 Browse',
+    drillMode:       '🎯 Drill',
+    filterAll:       'All',
+    filter2:         '2 options',
+    filter3:         '3 options',
+    filter4:         '4 options',
+    searchPlaceholder: '🔍 Search…',
+    backBtn:         '← Back',
+    progressOf:      ' / ',
+    questionOf:      'Question ',
+    correct:         '✓ Correct!',
+    wrong:           '✗ Wrong! Correct: ',
+    nextBtn:         'Next question →',
+    againBtn:        '🔄 Try again',
+    homeBtn:         '← Home',
+    scoreCorrect:    'CORRECT',
+    scoreWrong:      'WRONG',
+    scoreRate:       'ACCURACY',
+    resultGreat:     'Excellent!',
+    resultGood:      'Good job!',
+    resultStudy:     'Keep studying!',
+    resultSub:       ' correct out of ',
+    resultSub2:      ' — ',
+    resultSub3:      '% accuracy',
+    correct_badge:   '✓ correct',
+    expl_title:      '📚 Explanation',
+    noData:          'No data. <a href="index.html" style="color:var(--accent)">← Back</a>',
+    noResults:       'No results.',
+    donateCard:      'Image for question',
+    imgNotFound:     'Image not found',
+    aiPrompt: `Here are my study materials:\n\n[PASTE YOUR MATERIAL CONTENT HERE — text from PDF, Word, notes etc.]\n\nCreate test questions from these materials in JSON format for TechQuizz. Use exactly this structure:\n\n{\n  "subject": "Subject name",\n  "questions": [\n    {\n      "question": "Question text?",\n      "answers": [\n        "Option A",\n        "Option B",\n        "Option C",\n        "Option D"\n      ],\n      "correct": 0,\n      "answer_count": 4,\n      "image_name": null,\n      "explanation": "Explain WHY answer A is correct — specifically and factually. State the key fact, formula or principle. Do not start with \'The correct answer is...\' — get straight to the point."\n    }\n  ]\n}\n\nRules for questions:\n- "correct" is the INDEX of the correct answer (0 = first, 1 = second etc.)\n- Each question has 2–4 answer options\n- Wrong answers must be plausible — not random nonsense, but common mistakes or similar concepts\n- Questions should cover the material evenly\n- Generate as many questions as possible (ideally 30+)\n\nRules for "explanation":\n- Explain specifically WHY the correct answer is correct\n- State the key fact, definition, formula or example\n- Write in English, concisely (2–4 sentences), but informatively\n- Do not start with "The correct answer is..." — straight to the point\n- If there is a formula or number, include it\n\nOutput:\n- Must be valid JSON — no other text before or after\n- Save the result as a .json file and offer it for download`,
+  }
+};
+
+// Apply translations to DOM elements that have data-i18n attribute
+
+
+
+
+
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'light';
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=n==='dark'?'☀️':'🌙';
+  localStorage.setItem('ql-theme',n);
+}
+
+// Fill AI prompt box after lang detected
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('aiPrompt').textContent = T[LANG].aiPrompt;
+});
+
+function copyPrompt(){
+  var txt = T[LANG].aiPrompt;
+  navigator.clipboard.writeText(txt).then(function(){
+    var btn=document.getElementById('copyBtn');
+    btn.innerHTML='✅ ' + T[LANG].copiedBtn;
+    setTimeout(function(){btn.innerHTML='📋 ' + T[LANG].copyBtn;},2000);
+  });
+}
+
+// Upload
+const drop=document.getElementById('drop'),fi=document.getElementById('fi');
+fi.addEventListener('change',e=>{if(e.target.files[0])load(e.target.files[0]);});
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('over');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('over'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('over');if(e.dataTransfer.files[0])load(e.dataTransfer.files[0]);});
+function load(file){
+  const r=new FileReader();
+  r.onload=e=>{
+    try{
+      const data=JSON.parse(e.target.result);
+      const qs=Array.isArray(data)?data:(data.questions||[]);
+      if(!qs.length)throw 0;
+      sessionStorage.setItem('ql-data',JSON.stringify({subject:data.subject||file.name.replace('.json',''),questions:qs}));
+      window.location.href='quiz.html';
+    }catch{alert(T[LANG].uploadError);}
+  };
+  r.readAsText(file);
+}
+
+if(window.location.protocol==='file:'){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.ad-col').forEach(function(el){el.style.display='none';});
+  });
+}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
+  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
+  if(e.key==='F12'){e.preventDefault();return false;}
+});
+</script>
+</body>
+</html>

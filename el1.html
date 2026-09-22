@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — BPC-EL1 online testy a procvičování otázek zdarma">
+<title>BPC-EL1 — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<script>
+if (window.location.protocol !== 'file:') {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
+  --accent:#0f6cbd;--accent-h:#115ea3;--text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--r:10px;
+}
+[data-theme="dark"]{
+  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
+  --accent:#5b8cff;--accent-h:#7aa5ff;--text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
+.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
+.top-panel a{color:#fff;text-decoration:none;font-weight:600;}
+.top-panel a:hover{text-decoration:underline;}
+.top-panel-text{color:rgba(255,255,255,.8);}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-shrink:0;}
+.topbar-brand{font-size:18px;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:-.3px;}
+.topbar-brand:hover{color:var(--accent-h);}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.btn-home{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-family:inherit;text-decoration:none;transition:all .15s;}
+.btn-home:hover{border-color:var(--accent);color:var(--accent);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
+.ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
+.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
+.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
+@media(max-width:960px){.ad-col{display:none;}}
+.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+.subject-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
+h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing:-1px;text-align:center;margin-bottom:10px;}
+.sub{font-size:14px;color:var(--muted);margin-bottom:40px;text-align:center;max-width:600px;}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:900px;width:100%;margin-bottom:32px;}
+.card{flex:1 1 240px;max-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px 22px;cursor:pointer;transition:all .18s;text-decoration:none;color:var(--text);display:block;position:relative;box-shadow:var(--shadow);}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.card.disabled{cursor:not-allowed;opacity:.55;}
+.card.disabled:hover{border-color:var(--border);transform:none;}
+.card-tag{font-size:10px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.card.disabled .card-tag{color:var(--subtle);}
+.card-name{font-size:18px;font-weight:700;margin-bottom:5px;}
+.card-desc{font-size:13px;color:var(--muted);}
+.arrow{position:absolute;bottom:18px;right:20px;font-size:18px;color:var(--accent);opacity:0;transition:all .18s;transform:translateX(-4px);}
+.card:hover .arrow{opacity:1;transform:translateX(0);}
+.back-link{max-width:900px;width:100%;margin-bottom:8px;}
+.back-link a{color:var(--muted);text-decoration:none;font-size:13px;}
+.back-link a:hover{color:var(--accent);}
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.footer-links a:hover{color:var(--accent);}
+@media(max-width:640px){.main-col{padding:24px 14px;}.footer-inner{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+<body>
+
+<div class="top-panel">
+  <span class="top-panel-text">🔗 Také nás zajímá:</span>
+  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
+</div>
+
+<div class="topbar">
+  <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
+  <div class="topbar-right">
+    <a class="btn-home" href="index.html">← Domů</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="page-outer">
+  <aside class="ad-col left">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+
+  <div class="main-col">
+    <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
+    <div class="subject-logo">TechQuizz</div>
+    <h1>BPC-EL1</h1>
+    <p class="sub">Elektrotechnika 1 — obvodové věty, metody analýzy, bezpečnost práce. Vyberte si test, který chcete procvičit.</p>
+
+    <div class="cards" id="testCards">
+      <a class="card" href="#" onclick="startTest('t1');return false;">
+        <div class="card-tag">// Test 1</div>
+        <div class="card-name">Obvodové věty a analýza</div>
+        <div class="card-desc" id="t1Desc">otázek — Thévenin, Norton, metody uzlových napětí a smyčkových proudů, magnetické obvody</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t2');return false;">
+        <div class="card-tag">// Test 2</div>
+        <div class="card-name">Bezpečnost a první pomoc</div>
+        <div class="card-desc" id="t2Desc">otázek — ochrana před úrazem el. proudem, třídy ochrany, kvalifikace osob, první pomoc</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <aside class="ad-col right">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="privacy.html">Ochrana soukromí</a>
+      <a href="cookies.html">Nastavení cookies</a>
+      <a href="about_us.html">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=localStorage.getItem('ql-theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'light';
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=n==='dark'?'☀️':'🌙';
+  localStorage.setItem('ql-theme',n);
+}
+
+const MVE_TESTS = {
+  t1: {
+  "subject": "BPC-EL1 - Test 1: Obvodové věty, metody analýzy a magnetické obvody",
+  "questions": [
+    {
+      "question": "Podle Nortonovy věty je proud ekvivalentního zdroje proudu určen",
+      "answers": [
+        "proudem analyzovanou větví nakrátko",
+        "proudem analyzovanou větví, jsou-li všechny zdroje nahrazeny vnitřním odporem",
+        "proudem rezistoru v analyzované větvi"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Nortonův ekvivalentní zdroj proudu je definován proudem, který by protékal analyzovanou větví, kdyby byla nahrazena zkratem (proud nakrátko)."
+    },
+    {
+      "question": "Podle Nortonovy věty je vodivost ekvivalentního zdroje proudu určena",
+      "answers": [
+        "vodivostí mezi svorkami analyzované větve naprázdno, jsou-li všechny zdroje obvodu nahrazeny jejich vnitřními vodivostmi",
+        "vodivostí mezi svorkami analyzované větve naprázdno, při spojení všech zdrojů obvodu nakrátko",
+        "odporem mezi svorkami analyzované větve naprázdno"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vnitřní vodivost Nortonova ekvivalentu je vodivost naměřená mezi svorkami analyzované větve naprázdno, přičemž všechny nezávislé zdroje v obvodu jsou nahrazeny svými vnitřními vodivostmi (proudové zdroje rozpojeny, napěťové zkratovány)."
+    },
+    {
+      "question": "Podle Nortonovy věty je možno vnitřní vodivost ekvivalentního zdroje napětí určit",
+      "answers": [
+        "jako podíl proudu analyzovanou větví nakrátko a napětí mezi svorkami analyzované větve naprázdno",
+        "jako podíl napětí mezi svorkami analyzované větve naprázdno a proudu analyzovanou větví",
+        "jako podíl proudu analyzovanou větví a napětí mezi svorkami analyzované větve"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vnitřní vodivost lze také určit jako podíl proudu nakrátko analyzovanou větví a napětí naprázdno na jejích svorkách: G_i = I_k/U_0."
+    },
+    {
+      "question": "Podle Théveninovy věty je napětí ekvivalentního zdroje napětí určeno",
+      "answers": [
+        "napětím naprázdno na svorkách analyzované větve",
+        "napětím nakrátko na svorkách analyzované větve",
+        "napětím na rezistoru v analyzované větvi"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Théveninovo napětí ekvivalentního zdroje je rovno napětí naprázdno na svorkách analyzované větve (tj. napětí bez připojené zátěže)."
+    },
+    {
+      "question": "Podle Théveninovy věty je vnitřní odpor ekvivalentního zdroje napětí určen",
+      "answers": [
+        "odporem mezi svorkami analyzované větve naprázdno, jsou-li všechny zdroje obvodu nahrazeny jejich vnitřními odpory",
+        "odporem na svorkách analyzované větve při rozpojení všech zdrojů obvodu",
+        "odporem analyzované větve"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vnitřní odpor Théveninova ekvivalentu se určí jako odpor mezi svorkami analyzované větve naprázdno, jsou-li všechny zdroje obvodu nahrazeny svými vnitřními odpory (napěťové zdroje zkratovány, proudové rozpojeny)."
+    },
+    {
+      "question": "Podle Théveninovy věty je možno vnitřní odpor ekvivalentního zdroje napětí určit",
+      "answers": [
+        "jako podíl napětí mezi svorkami analyzované větve naprázdno a proudu analyzovanou větví nakrátko",
+        "jako podíl proudu analyzovanou větví a napětí mezi svorkami analyzované větve naprázdno",
+        "jako podíl napětí mezi svorkami analyzované větve a proudu analyzovanou větví"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vnitřní odpor lze také vypočítat jako podíl napětí naprázdno na svorkách a proudu nakrátko touto větví: R_i = U_0/I_k."
+    },
+    {
+      "question": "Metoda analýzy pomocí uzlových napětí (MUN) je založena na aplikaci",
+      "answers": [
+        "prvního (proudového) Kirchhoffova zákona a principu superpozice",
+        "prvního a druhého Kirchhoffova zákona",
+        "druhého (napěťového) Kirchhoffova zákona"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Metoda uzlových napětí vychází z prvního (proudového) Kirchhoffova zákona aplikovaného na jednotlivé uzly obvodu, spolu s principem superpozice vodivostí připojených k uzlům."
+    },
+    {
+      "question": "Nelineární obvod je takový, který obsahuje",
+      "answers": [
+        "alespoň jeden nelineární prvek",
+        "neharmonický napájecí zdroj",
+        "alespoň jeden řízený zdroj"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Obvod je nelineární, obsahuje-li alespoň jeden prvek s nelineární voltampérovou charakteristikou (např. diodu) — nezávisí na tvaru napájecího signálu ani na přítomnosti řízených zdrojů (ty mohou být i lineární)."
+    },
+    {
+      "question": "Modelu reálného zdroje napětí s parametry: U_i=20V a R_i=10Ω je ekvivalentní proudový zdroj s parametry",
+      "answers": [
+        "I_i = 2 A a G_i = 0,1 S",
+        "I_i = 0,5 A a G_i = 0,1 S",
+        "I_i = 2 A a G_i = 0,5 S"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Ekvivalentní proudový zdroj má I_i = U_i/R_i = 20/10 = 2 A a vodivost G_i = 1/R_i = 0,1 S."
+    },
+    {
+      "question": "Pro přímou aplikaci metody uzlových napětí mohou být v analyzovaném obvodu",
+      "answers": [
+        "výhradně proudové zdroje, nezávislé i řízené",
+        "proudové i napěťové zdroje",
+        "výhradně nezávislé proudové zdroje"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Přímá aplikace metody uzlových napětí vyžaduje, aby v obvodu byly výhradně proudové zdroje (nezávislé i řízené) — napěťové zdroje je nutné nejprve převést na ekvivalentní proudové."
+    },
+    {
+      "question": "Linearizovaný model nelineárního rezistoru tvoří",
+      "answers": [
+        "sériová kombinace lineárního rezistoru a zdroje napětí",
+        "sériová kombinace lineárního rezistoru a zdroje proudu",
+        "paralelní kombinace lineárního rezistoru a zdroje napětí"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Linearizovaný (malosignálový) model nelineárního rezistoru v okolí pracovního bodu tvoří sériová kombinace lineárního rezistoru (dynamického odporu) a napěťového zdroje představujícího posun charakteristiky."
+    },
+    {
+      "question": "Hopkinsův zákon vyjadřuje vztah",
+      "answers": [
+        "mezi magnetickým napětím U_m a magnetickým indukčním tokem Φ, U_m = R_m · Φ",
+        "mezi magnetickou indukcí B a magnetickým indukčním tokem Φ, Φ = B · S",
+        "mezi magnetickou induckí B a intenzitou magnetického pole H, B = μ · H"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hopkinsův zákon je magnetickou obdobou Ohmova zákona a vyjadřuje vztah mezi magnetickým napětím U_m a magnetickým indukčním tokem Φ přes magnetický odpor R_m: U_m = R_m·Φ."
+    },
+    {
+      "question": "V případě aplikace Nortonovy věty nahrazujeme celý lineární obvod (mimo zkoumanou větev)",
+      "answers": [
+        "paralelním spojením ideálního zdroje proudu a vnitřní vodivosti",
+        "paralelním spojením ideálního zdroje napětí a vnitřního odporu",
+        "seriovým spojením ideálního zdroje napětí a vnitřního odporu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při aplikaci Nortonovy věty se celý zbytek lineárního obvodu (mimo zkoumanou větev) nahrazuje paralelní kombinací ideálního zdroje proudu a vnitřní vodivosti."
+    },
+    {
+      "question": "V případě obvodů složených pouze z pasivních prvků a neřízených zdrojů mohou být u metody smyčkových proudů na hlavní diagonále odporové matice R",
+      "answers": [
+        "pouze kladné hodnoty",
+        "pouze kladné nebo nulové hodnoty",
+        "kladné i záporné hodnoty"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V obvodech tvořených jen pasivními prvky a neřízenými zdroji jsou u metody smyčkových proudů prvky na hlavní diagonále odporové matice R (součty odporů v jednotlivých smyčkách) vždy kladné, protože reprezentují součet fyzicky kladných odporů."
+    },
+    {
+      "question": "Princip superpozice se používá k analýze takových obvodů, kde",
+      "answers": [
+        "působí více budících zdrojů současně",
+        "působí výhradně napěťové budicí zdroje",
+        "působí jen více řízených zdrojů"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Princip superpozice se používá k analýze lineárních obvodů, ve kterých působí více budicích zdrojů (napěťových i proudových, nezávislých i řízených) současně — výsledná odezva je součtem odezev od jednotlivých zdrojů působících samostatně."
+    },
+    {
+      "question": "U metody smyčkových proudů",
+      "answers": [
+        "může být volena libovolná orientace smyčkových proudů",
+        "musí být volena pravotočivá orientace smyčkových proudů",
+        "musí být volena orientace smyčkových shodně s proudy napájecích zdrojů"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "U metody smyčkových proudů lze zvolit libovolnou (i vzájemně nekonzistentní) orientaci jednotlivých smyčkových proudů — výsledek řešení soustavy rovnic na volbě orientace nezávisí."
+    },
+    {
+      "question": "Při výkonovém přizpůsobení zdroje a zátěže je účinnost přenosu výkonu",
+      "answers": [
+        "50 %",
+        "100 %",
+        "dána poměrem vnitřního odporu zdroje R_i a odporu zátěže R_Z"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při výkonovém přizpůsobení (R_Z = R_i) je poloviny výkonu generovaného zdrojem spotřebována na jeho vlastním vnitřním odporu, takže účinnost přenosu výkonu do zátěže je 50 %."
+    },
+    {
+      "question": "U metody uzlových napětí jsou u obvodů složených z pasivních prvků a nezávislých zdrojů",
+      "answers": [
+        "všechny prvky matice G mimo hlavní diagonálu záporné nebo nulové",
+        "všechny prvky na vedlejší diagonále matice G záporné",
+        "věechny prvky matice G mimo hlavní diagonálu kladné nebo nulové"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "U obvodů s pasivními prvky a nezávislými zdroji jsou v matici vodivosti G metody uzlových napětí všechny mimodiagonální prvky záporné nebo nulové (reprezentují záporně vzaté vodivosti spojující dvojice uzlů)."
+    },
+    {
+      "question": "Svorkové napětí U_Z reálného zdroje s vnitřním odporem R_i a a npětím naprázdno U_i se mění s odebíraným proudem I_Z na hodnotu",
+      "answers": [
+        "U_Z = U_i - R_i · I_Z",
+        "U_Z = U_i + R_i · I_Z",
+        "U_Z = R_i · I_Z - U_i"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Svorkové napětí reálného zdroje klesá s odebíraným proudem podle vztahu U_Z = U_i − R_i·I_Z, tj. o úbytek napětí na vnitřním odporu zdroje."
+    },
+    {
+      "question": "Dynamický odpor lze určit podle vztahu",
+      "answers": [
+        "R_d = (du)/(di)",
+        "R_d = (u)/(i)",
+        "R_d = (di)/(du)"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Dynamický (diferenciální) odpor je definován jako derivace napětí podle proudu v daném pracovním bodě: R_d = du/di, na rozdíl od statického odporu R = u/i."
+    },
+    {
+      "question": "Při výkonovém přizpůsobení zdroje a zátěže je výkon dodávaný do zátěže",
+      "answers": [
+        "frac{U_i^2}{4 · R_i}",
+        "frac{U_i^2}{R_i}",
+        "frac{U_i^2}{2 · R_i}"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při výkonovém přizpůsobení (R_Z = R_i) je výkon dodávaný do zátěže maximální a roven P_max = U_i²/(4·R_i)."
+    },
+    {
+      "question": "Kirchhoffovy zákony platí",
+      "answers": [
+        "v lineárních i nelineárních obvodech",
+        "pouze v lineárních obvodech",
+        "v lineárních obvodech, v nelineárních obvodech platí pouze 1. K.z."
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Kirchhoffovy zákony (proudový i napěťový) vyjadřují obecné zákony zachování náboje a energie a platí univerzálně jak v lineárních, tak v nelineárních elektrických obvodech."
+    },
+    {
+      "question": "Princip superpozice platí",
+      "answers": [
+        "pouze v lineárních obvodech",
+        "pouze v lineárních a nelineárních obvodech s pasivními prvky a zdroji",
+        "jen v lineárních i nelineárních obvodech s jediným zdrojem"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Princip superpozice je založen na linearitě obvodu (platnosti principu přímé úměrnosti), a proto platí výhradně v lineárních obvodech — v nelineárních obvodech obecně neplatí."
+    },
+    {
+      "question": "Soustavu výchozích rovnic obvodu analyzovaného metodou smyčkových proudů zapisujeme v maticovém tvaru:",
+      "answers": [
+        "R · I = U",
+        "G · U = I",
+        "I = U / R"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Soustava výchozích rovnic metody smyčkových proudů se v maticovém tvaru zapisuje jako R·I = U, kde R je matice odporů, I vektor smyčkových proudů a U vektor zdrojových napětí."
+    },
+    {
+      "question": "V případě aplikace Théveninovy věty nahrazujeme celý obvod (mimo zkoumanou větev)",
+      "answers": [
+        "sériovým spojením ideálního zdroje napětí a vnitřního odporu",
+        "paralelním spojením ideálního zdroje proudu a vnitřní vodivosti",
+        "paralelním spojením ideálního zdroje napětí a vnitřního odporu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při aplikaci Théveninovy věty se celý zbytek obvodu (mimo zkoumanou větev) nahrazuje sériovým spojením ideálního zdroje napětí (napětí naprázdno) a vnitřního odporu."
+    },
+    {
+      "question": "Maximum výkonu ze zdroje o vnitřním odporu R_i se do zátěže o odporu R_Z přenáší při podmínce",
+      "answers": [
+        "R_Z=R_i",
+        "R_Z=2R_i",
+        "R_Z=-R_i"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Maximum výkonu se ze zdroje s vnitřním odporem R_i přenáší do zátěže při podmínce výkonového přizpůsobení R_Z = R_i."
+    },
+    {
+      "question": "U lineárního rezistoru platí pro statický odpor R_s a dynamický odpor R_d:",
+      "answers": [
+        "R_d = R_s",
+        "R_d = 0",
+        "R_d < R_s"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "U lineárního rezistoru je voltampérová charakteristika přímka procházející počátkem, takže její směrnice (a tedy i statický a dynamický odpor) je v každém bodě stejná: R_d = R_s."
+    },
+    {
+      "question": "Analýza obvodů metodou postupného zjednodušování je vhodná jen pro řešení:",
+      "answers": [
+        "lineárních a nelineárních obvodů s jedním zdrojem",
+        "lineárních obvodů s jedním nebo více zdroji",
+        "jednoduchých obvodů jen s napěťovými zdroji"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Metoda postupného zjednodušování (sériovo-paralelních kombinací) je použitelná jen pro obvody s jedním zdrojem, ať už lineární nebo nelineární — u více zdrojů je nutné použít obecnější metody (superpozice, MUN, MSP)."
+    },
+    {
+      "question": "Při popisu obvodu pomocí MUN jsou prvky matice G mimo hlavní diagonálu tvořeny",
+      "answers": [
+        "záporně vzatým součtem všech vodivostí připojených přímou cestou mezi příslušné uzly",
+        "součtem všech vodivostí připojených k příslušnému uzlu",
+        "rozdílem všech vodivostí připojených mezi příslušné uzly"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Mimodiagonální prvky matice G v metodě uzlových napětí jsou tvořeny záporně vzatým součtem všech vodivostí větví spojujících přímou cestou příslušnou dvojici uzlů."
+    },
+    {
+      "question": "Magnetizační křivka udává závislost",
+      "answers": [
+        "magnetické indukce B na intenzitě magnetického pole H, tj. B = f(H)",
+        "magnetického napětí U_m na magnetickém toku Φ, tj. U_m = f(Φ)",
+        "intenzity magnetického pole H, tj. H = f(B)"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Magnetizační křivka udává závislost magnetické indukce B na intenzitě magnetického pole H, tedy B = f(H) — typicky nelineární u feromagnetických materiálů."
+    },
+    {
+      "question": "Pro přímou aplikaci metody smyčkových proudů mohou být v analyzovaném obvodu",
+      "answers": [
+        "výhradně napěťové zdroje, nezávislé i řízené",
+        "proudové i napěťové zdroje",
+        "výhradně nezávislé napěťové zdroje"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Přímá aplikace metody smyčkových proudů vyžaduje, aby byly v obvodu výhradně napěťové zdroje (nezávislé i řízené) — proudové zdroje je nutné nejprve převést na ekvivalentní napěťové."
+    },
+    {
+      "question": "Na nelineárním prvku bylo při proudu 0,1 A naměřen úbytek napětí 0,5 V a při 0,6 A úbytek 0,6 V. Jaký je dynamický odpor platný pro okolí těchto bodů?",
+      "answers": [
+        "0,2 Ω",
+        "1 Ω",
+        "5 Ω"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Dynamický odpor v okolí daných bodů se určí jako podíl přírůstku napětí a přírůstku proudu: R_d = ΔU/ΔI = (0,6−0,5)/(0,6−0,1) = 0,1/0,5 = 0,2 Ω."
+    },
+    {
+      "question": "Při aplikaci napěťového Kirchhoffova zákona platí pro uzavřenou smyčku, že",
+      "answers": [
+        "cesta uzavřené smyčky nemusí být celá vodivě (galvanicky) propojena",
+        "cesta uzavřené smyčky musí být shodná se smyčkovým proudem",
+        "cesta uzavřené smyčky musí být celá vodivě (galvanicky) propojena"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při aplikaci druhého (napěťového) Kirchhoffova zákona nemusí cesta uvažované uzavřené smyčky odpovídat skutečnému fyzickému (galvanickému) propojení prvků — smyčka může být zvolena i jako pomyslná uzavřená cesta grafem obvodu."
+    },
+    {
+      "question": "Magnetický R_m odpor lze modelovat",
+      "answers": [
+        "jako nelineární u feromagnetik a lineární u vzduchové mezery",
+        "jako lineární u feromagnetik i u vzduchové mezery",
+        "jako nelineární u feromagnetik i u vzduchové mezery"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Magnetický odpor R_m se modeluje jako lineární u vzduchové mezery (kde B a H jsou přímo úměrné) a jako nelineární u feromagnetik (kvůli nelineární magnetizační křivce a nasycení)."
+    },
+    {
+      "question": "Metoda analýzy pomocí smyčkových proudů (MSP) je založena na aplikaci",
+      "answers": [
+        "druhého (napěťového) Kirchhoffova zákona a principu superpozice",
+        "prvního a druhého Kirchhoffova zákona",
+        "prvního (proudového) Kirchhoffova zákona"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Metoda smyčkových proudů vychází z druhého (napěťového) Kirchhoffova zákona aplikovaného na jednotlivé nezávislé smyčky obvodu, spolu s principem superpozice."
+    },
+    {
+      "question": "Závislost magnetického odporu na délce siločáry L, průřezu S a permeabilitě materiálu μ je dána vztahem",
+      "answers": [
+        "R_m = (L)/(μ · S)",
+        "R_m = (μ)/(S · L)",
+        "R_m = (S)/(μ · L)"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Magnetický odpor R_m siločáry o délce L, průřezu S a permeabilitě materiálu μ je dán vztahem R_m = L/(μ·S), analogicky k elektrickému odporu vodiče."
+    },
+    {
+      "question": "Ideální zdroje mají vnitřní odpor/vodivost",
+      "answers": [
+        "zdroj napětí R_i = 0 a zdroj proudu G_i = 0",
+        "zdroj napětí R_i = ∞ a zdroj proudu G_i = ∞",
+        "zdroj napětí R_i = 0 a zdroj proudu G_i = ∞"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Ideální zdroj napětí má nulový vnitřní odpor (R_i = 0), zatímco ideální zdroj proudu má nulovou vnitřní vodivost (G_i = 0), tedy nekonečný vnitřní odpor."
+    },
+    {
+      "question": "Základními parametry modelu reálného zdroje proudu jsou",
+      "answers": [
+        "vnitřní proud a vnitřní elektrická vodivost",
+        "vnitřní proud a proud nakrátko",
+        "svorkový proud a vnitřní elektrická vodivost"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Základními parametry modelu reálného zdroje proudu jsou vnitřní proud (zkratový proud) a vnitřní elektrická vodivost zdroje."
+    },
+    {
+      "question": "Soustavu výchozích rovnic obvodu analyzovaného metodou uzlových napětí zapisujeme v maticovém tvaru",
+      "answers": [
+        "G · U = I",
+        "U / R = I",
+        "R · I = U"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Soustava výchozích rovnic metody uzlových napětí se v maticovém tvaru zapisuje jako G·U = I, kde G je matice vodivostí, U vektor uzlových napětí a I vektor zdrojových proudů."
+    },
+    {
+      "question": "Základními parametry modelu reálného zdroje napětí jsou",
+      "answers": [
+        "vnitřní napětí a vnitřní elektrický odpor",
+        "svorkové napětí a proud nakrátko",
+        "svorkové napětí a vnitřní elektrický odpor"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Základními parametry modelu reálného zdroje napětí jsou vnitřní napětí (napětí naprázdno) a vnitřní elektrický odpor zdroje."
+    },
+    {
+      "question": "Zatěžovací charakteristika zdroje napětí je závislost",
+      "answers": [
+        "výstupního napětí na zatěžovacím proudu",
+        "výstupního proudu na zatěžovacím odporu",
+        "výstupního napětí na zatěžovacím odporu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zatěžovací (výstupní) charakteristika zdroje napětí vyjadřuje závislost výstupního (svorkového) napětí na odebíraném zatěžovacím proudu."
+    },
+    {
+      "question": "Relativní odchylka δ_X hodnoty měřené od teoretické se určí",
+      "answers": [
+        "δ_X = frac{X_mer. - X_teor.}{X_teor.} · 100",
+        "δ_X = frac{X_mer. - X_teor.}{X_teor. · 100}",
+        "δ_X = frac{X_mer.}{X_teor.} · 100"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Relativní odchylka měřené hodnoty od teoretické (očekávané) hodnoty se vypočítá jako δ_X = ((X_měř − X_teor)/X_teor)·100 [%]."
+    },
+    {
+      "question": "Hodnota měřené veličiny se u analogového přístroje uřcí jako",
+      "answers": [
+        "Součin výchylky a konstanty přístroje X_m = α · k",
+        "Podíl výchylky a počtu dílků stupnice X_m = frac{α}{α_max}",
+        "Podíl výchylky a konstanty přístroje X_m = (α)/(k)"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hodnota měřené veličiny u analogového (výchylkového) přístroje se určí jako součin výchylky ukazatele α a konstanty přístroje k: X_m = α·k."
+    },
+    {
+      "question": "Hallova sonda slouží k měření",
+      "answers": [
+        "magnetická indukce B",
+        "magnetického indukčního toku Φ",
+        "magnetického odporu R_m"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hallova sonda využívá Hallova jevu k přímému měření magnetické indukce B."
+    }
+  ]
+},
+  t2: {
+  "subject": "BPC-EL1 - Test 2: Bezpečnost práce v elektrotechnice a první pomoc (§4 NV 194/2022 Sb.)",
+  "questions": [
+    {
+      "question": "Rozdělení EZ podle napětí mezi vodiči v uzemněné střídavé soustavě je:",
+      "answers": [
+        "mn do 50 V; nn do 1000 V; vn do 52 kV",
+        "mn do 25 V; nn do 500 V; vn do 52 kV",
+        "mn do 230V; nn do 24 kV; vn do 52 kV"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Elektrická zařízení (EZ) se podle napětí mezi vodiči dělí na malé napětí (mn) do 50 V, nízké napětí (nn) do 1000 V a vysoké napětí (vn) do 52 kV."
+    },
+    {
+      "question": "Jmenovité napětí střídavých rozvodných sítí v ČR je:",
+      "answers": [
+        "230/400 V",
+        "120/300 V",
+        "12/24 V"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Standardní jmenovité napětí veřejné distribuční sítě v ČR je 230 V (fáze–nula) / 400 V (fáze–fáze)."
+    },
+    {
+      "question": "Mez bezpečných jmenovitých napětí při předpokládaném dotyku neživých částí v prostorech normálních je:",
+      "answers": [
+        "50 V~ a 120 V=",
+        "25 V~ a 120 V=",
+        "60 V~ a 60 V="
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V prostorech normálních je mez bezpečného napětí 50 V pro střídavé (~) a 120 V pro stejnosměrné (=) napětí."
+    },
+    {
+      "question": "Dovolené meze trvalého dotykového napětí v prostředí suchém pro EZ do 1000 V jsou:",
+      "answers": [
+        "25 V~ a 60 V=",
+        "50 V~ a 120 V=",
+        "12 V~ a 24 V="
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V suchém prostředí je dovolená mez trvalého dotykového napětí 25 V~ a 60 V=."
+    },
+    {
+      "question": "Odpor uzemnění uzlu zdroje nemá být větší než:",
+      "answers": [
+        "5 Ω, ve ztížených podmínkách nejvýše 15 Ω",
+        "10 Ω, ve ztížených podmínkách nejvýše 15 Ω",
+        "15 Ω, ve ztížených podmínkách nejvýše 5 Ω"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Odpor uzemnění uzlu zdroje má být nejvýše 5 Ω, ve ztížených podmínkách (např. skalnaté podloží) nejvýše 15 Ω."
+    },
+    {
+      "question": "Plynové potrubí se jako náhodný ochranný vodič:",
+      "answers": [
+        "Nesmí použít",
+        "Musí použít",
+        "Může použít"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Plynové potrubí se nesmí použít jako náhodný ochranný vodič kvůli riziku výbuchu a korozi způsobené svodovými proudy."
+    },
+    {
+      "question": "Silnoproudá zařízení jsou zařízení:",
+      "answers": [
+        "U nichž mohou vzniknout proudy nebezpečné osobám, zvířatům a věcem",
+        "Kde proud protékající přesahuje 2,5A~ a 5A=",
+        "Kde proud protékající přesahuje 5A~ a 10A="
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Silnoproudá zařízení jsou definována jako zařízení, u nichž mohou vznikat proudy nebezpečné osobám, zvířatům nebo věcem."
+    },
+    {
+      "question": "Barva bezpečnostních tabulek výstrahy je:",
+      "answers": [
+        "Žlutá",
+        "Červená",
+        "Oranžová"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Bezpečnostní tabulky výstrahy mají žlutou barvu (typicky s černým trojúhelníkovým symbolem)."
+    },
+    {
+      "question": "Barva bezpečnostních tabulek zákazu je:",
+      "answers": [
+        "Červená",
+        "Černá",
+        "Žlutá"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Bezpečnostní tabulky zákazu mají červenou barvu."
+    },
+    {
+      "question": "Bezpečnostní značka v provedení modrý kruh, bílý symbol je značka:",
+      "answers": [
+        "Příkazu",
+        "Zákazu",
+        "Výstrahy"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Modrý kruh s bílým symbolem označuje značku příkazu (co je nutno udělat)."
+    },
+    {
+      "question": "Bezpečnostní značky v provedení na zeleném podkladu jsou značky:",
+      "answers": [
+        "Informační",
+        "Příkazu",
+        "Zákazu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zelený podklad se používá u informačních značek (např. únikové cesty, první pomoc)."
+    },
+    {
+      "question": "V označení stupně krytí IP udává první číslice:",
+      "answers": [
+        "Stupeň ochrany osob před nebezpečným dotykem živých částí a stupeň ochrany zařízení před vniknutím cizích pevných těles",
+        "Stupeň ochrany před vniknutí bez kíče či nástroje",
+        "Stupeň ochrany před vlhkostí, vody a korozí"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "První číslice krytí IP udává stupeň ochrany osob před nebezpečným dotykem živých částí a stupeň ochrany zařízení před vniknutím cizích pevných těles."
+    },
+    {
+      "question": "Prostředky základní ochrany (před přímým dotykem) EZ zajišťují ochranu:",
+      "answers": [
+        "Jen při normálním provozu",
+        "Vždy",
+        "Základní i při poruše"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Prostředky základní ochrany chrání pouze při normálním (bezporuchovém) provozu zařízení."
+    },
+    {
+      "question": "Prostředky zvýšené ochrany (před přímým i nepřímým dotykem) EZ zajišťují ochranu:",
+      "answers": [
+        "Základní i při poruše",
+        "Základní i pokročilou",
+        "Vždy"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Prostředky zvýšené ochrany zajišťují ochranu jak při normálním provozu (základní), tak i při poruše (např. dvojitá izolace)."
+    },
+    {
+      "question": "Při ochraně automatickým odpojením se pro střídavé rozvodné sítě do 1000 V dovoluje doba odpojení:",
+      "answers": [
+        "nepřesahující 5 s",
+        "nepřesahující 0.5 s",
+        "nepřesahující 2 s"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Maximální dovolená doba automatického odpojení od zdroje ve střídavých sítích do 1000 V je 5 s."
+    },
+    {
+      "question": "Pro automatické odpojení od zdroje v síti TT 230 V AC, zajišťující ochranu před nepřímým dotykem koncového obvodu do 32 A, musí ochranný prvek vypnout v čase do:",
+      "answers": [
+        "0.2 s",
+        "1 s",
+        "2 s"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V síti TT musí ochranný prvek pro koncové obvody do 32 A vypnout do 0,2 s — sítě TT vyžadují kratší vypínací čas kvůli vyššímu odporu zemní smyčky."
+    },
+    {
+      "question": "Pro automatické odpojení od zdroje v síti TN 230 V AC, zajišťující ochranu před nepřímým dotykem koncového obvodu do 32 A, musí ochranný prvek vypnout v čase do:",
+      "answers": [
+        "0.4 s",
+        "0.2 s",
+        "1 s"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V síti TN musí ochranný prvek pro koncové obvody do 32 A vypnout do 0,4 s."
+    },
+    {
+      "question": "Při základní ochraně krytím musí kryty:",
+      "answers": [
+        "Být dostatečně odolné, vyhovující alespoň IPxxB (IP2X), horní vodorovné kryty pak IPxxD (IP4X), odstranitelné jen klíčem či nástrojem",
+        "Být voděodolné, odstranitelné jen klíčem či nástrojem",
+        "Být dostatečně odolné, vyhovující alespoň IPxxB (IP4X), horní vodorovné kryty pak IPxxD (IP2X), odstranitelné jen klíčem či nástrojem"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Kryty musí odpovídat alespoň krytí IPxxB (IP2X), horní vodorovné plochy krytí IPxxD (IP4X), a musí být odstranitelné pouze pomocí klíče či nástroje."
+    },
+    {
+      "question": "Ochranu zábranou v prostorech volně přístupných laikům:",
+      "answers": [
+        "Nelze použít",
+        "V ČR lze použít",
+        "Musí se použít"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Ochranu zábranou (na rozdíl od krytí) nelze v prostorech volně přístupných laikům použít, protože zábranu lze bez nástroje odstranit nebo obejít."
+    },
+    {
+      "question": "Napětí obvodů při ochranně elektrickým oddělením nesmí přesáhnout hodnotu:",
+      "answers": [
+        "500 V",
+        "230 V",
+        "400 V"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při ochraně elektrickým oddělením (transformátorem s oddělenými vinutími) nesmí napětí obvodu přesáhnout 500 V."
+    },
+    {
+      "question": "Základní ochrana polohou spočívá:",
+      "answers": [
+        "V umístění živých částí mimo dosah",
+        "V umístění živých částí do prostorů přístupným pouze pracovníků znalých",
+        "V umístění živých částí více než 2,5 m od sebe"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Ochrana polohou spočívá v umístění živých částí mimo dosah (mimo tzv. dosah rukou) osob."
+    },
+    {
+      "question": "Doplňkovou ochranu proudovým chráničem lze realizovat:",
+      "answers": [
+        "chráničem se jmenovitým rozdílovým proudem nejvýše 30 mA",
+        "chráničem s napětím nejvýše 230V",
+        "chráničem se jmenovitým rozdílovým proudem nejvýše 10 mA"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Doplňkovou ochranu lze realizovat proudovým chráničem se jmenovitým rozdílovým (reziduálním) proudem nejvýše 30 mA."
+    },
+    {
+      "question": "Pro ochranu omezením ustáleného dotykového proudu a náboje nesmí proud tekoucí odporem 2000 Ohmů mezi částmi současně přístupnými dotyku překročit hodnoty:",
+      "answers": [
+        "3,5 mA~ nebo 10 mA=",
+        "10 mA~ nebo 3,5 mA=",
+        "10 mA~ nebo 20 mA="
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Limitní hodnoty ustáleného dotykového proudu jsou 3,5 mA pro střídavý (~) a 10 mA pro stejnosměrný (=) proud."
+    },
+    {
+      "question": "Pro ochranu omezením ustáleného proudu a energie nesmí nahromaděná energie mezi částmi současně přístupnými dotyku překročit hodnotu:",
+      "answers": [
+        "0,5 mJ",
+        "5 mJ",
+        "50 mJ"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Limitní hodnota nahromaděné energie mezi současně dotykově přístupnými částmi je 0,5 mJ."
+    },
+    {
+      "question": "Proudovým chráničem musí procházet:",
+      "answers": [
+        "Všechny pracovní vodiče",
+        "Pouze ochranný vodič",
+        "Pouze zemnící vodič"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Proudovým chráničem musí procházet všechny pracovní (živé) vodiče chráněného obvodu, aby chránič mohl vyhodnotit součet vektorových proudů."
+    },
+    {
+      "question": "Vidlice a zásuvky pro obvody SELV musí splňovat tyto požadavky:",
+      "answers": [
+        "Nesmí být záměnné s vidlicemi a zásuvkami sítí jiných napětí a nesmí mít kontakt pro ochranný vodič",
+        "Nesmí být záměnné s vidlicemi a zásuvkami sítí jiných napětí a musí mít kontakt pro ochranný vodič",
+        "Nesmí být záměnné s vidlicemi a zásuvkami sítí jiných napětí a může mít kontakt pro ochranný vodič"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vidlice a zásuvky obvodů SELV nesmí být záměnné se zásuvkami sítí jiných napětí a nesmí mít kontakt pro ochranný vodič (obvod SELV se neuzemňuje)."
+    },
+    {
+      "question": "Živé části obvodů PELV s napětím nepřesahujícím 12V~ nebo 25V=:",
+      "answers": [
+        "Nemusí mít základní ochranu",
+        "Nemusí mít ochranný vodič",
+        "Musí mít základní ochranu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Živé části obvodů PELV s velmi nízkým napětím (do 12 V~ nebo 25 V=) nemusí mít základní ochranu, protože riziko úrazu je při tak nízkém napětí zanedbatelné."
+    },
+    {
+      "question": "Jako zdroje pro ochranu malým napětím lze použít:",
+      "answers": [
+        "Bezpečnostní ochranný transformátor, akumulátor",
+        "Základní ochranu",
+        "Ochranu polohou"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Jako bezpečné zdroje malého napětí (SELV/PELV) lze použít bezpečnostní ochranný transformátor nebo akumulátor (galvanicky oddělené zdroje)."
+    },
+    {
+      "question": "Obvody SELV:",
+      "answers": [
+        "Nesmí být spojeny se zemí",
+        "Jsou uzemněné",
+        "Musí být spojeny se zemí"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Obvody SELV (Safety Extra Low Voltage) nesmí být spojeny se zemí ani s ochranným vodičem jiných obvodů."
+    },
+    {
+      "question": "Z označení PELV vyplývá, že jde o obvody:",
+      "answers": [
+        "Uzemněné",
+        "Bezpečné",
+        "Neuzemněné"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Na rozdíl od SELV jsou obvody PELV (Protective Extra Low Voltage) uzemněné, i když pracují s velmi nízkým napětím."
+    },
+    {
+      "question": "Ochrana základní izolací znamená, že:",
+      "answers": [
+        "Živé části musí být úplně pokryty izolací, kterou lze odstranit pouze jejím zničením",
+        "Živé části musí být mimo dosah laiků",
+        "Živé části musí mít snadně odstranitelnou izolaci"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Základní izolace znamená, že živé části musí být zcela pokryty izolací, kterou lze odstranit pouze jejím zničením (ne běžným rozebráním)."
+    },
+    {
+      "question": "Zařízení mající dvojitou či zesílenou izolaci se označují jako:",
+      "answers": [
+        "EZ třídy ochrany II",
+        "EZ třídy ochrany I",
+        "EZ třídy ochrany III"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zařízení s dvojitou nebo zesílenou izolací spadají do třídy ochrany II (značené symbolem dvojitého čtverce)."
+    },
+    {
+      "question": "Elektrické zařízení třídy ochrany II:",
+      "answers": [
+        "Má dvojitou či zesílenou izolaci a nemá svorku pro připojení ochranného vodiče",
+        "Má pouze základní ochranu",
+        "Má ochranu základní i při poruše"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zařízení třídy ochrany II má dvojitou nebo zesílenou izolaci a nemá svorku pro připojení ochranného vodiče, protože ochranu při poruše zajišťuje samotná izolace."
+    },
+    {
+      "question": "Elektrické zařízení, u něhož je provedena jen pracovní izolace, se považuje z hlediska možného úrazu elektrickým proudem za zařízení:",
+      "answers": [
+        "Bez ochrany",
+        "Se základní ochranou",
+        "Bezpečné"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zařízení jen s pracovní (funkční) izolací se z hlediska bezpečnosti považuje za zařízení bez ochrany, protože pracovní izolace slouží jen k funkci zařízení, nikoli k ochraně před úrazem."
+    },
+    {
+      "question": "V sítích TT se neživé části EZ:",
+      "answers": [
+        "Nesmějí připojit na nulový vodič",
+        "Musí připojit na nulový vodič",
+        "Nesmějí připojit na ochranný vodič"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V sítích TT se neživé (kovové) části zařízení nesmí připojovat na nulový (pracovní) vodič, ale musí být uzemněny samostatně."
+    },
+    {
+      "question": "Elektrická zařízení třídy ochrany II musí mít připojovací vidlici:",
+      "answers": [
+        "Bez ochranného vodiče",
+        "S ochranného vodiče",
+        "Mimo dosah laiků"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zařízení třídy ochrany II musí mít vidlici bez ochranného kontaktu (vodiče), protože nepotřebují spojení s ochranným vodičem."
+    },
+    {
+      "question": "Elektrická zařízení třídy ochrany 0:",
+      "answers": [
+        "Nelze v ČR používat",
+        "Lze použít pouze na území VUT FEKT",
+        "Lze v ČR používat"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zařízení třídy ochrany 0 (bez jakékoli ochrany při poruše, jen se základní izolací) se v ČR nesmí používat."
+    },
+    {
+      "question": "Izolace, která slouží k ochraně při poruše (před nepřímým dotykem) se nazývá:",
+      "answers": [
+        "Přídavná",
+        "Základní",
+        "Vylepšená"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Izolace zajišťující ochranu při poruše (nikoli jen za normálního provozu) se nazývá přídavná izolace."
+    },
+    {
+      "question": "Pro připojení elektrických předmětů třídy ochrany I se dvouvodičový pohyblivý přívod s vidlicí bez ochranného kontaktu:",
+      "answers": [
+        "Nesmí použít",
+        "Může použít",
+        "Musí použít"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Pro zařízení třídy ochrany I (vyžadující ochranný vodič) se nesmí použít dvouvodičový přívod bez ochranného kontaktu, protože by chybělo připojení ochranného vodiče."
+    },
+    {
+      "question": "Jednofázový pohyblivý prodlužovací přívod pro obecné použití se provede jako:",
+      "answers": [
+        "Třížilový, přičemž ochranný vodič je veden samostatně a nesmí být spojen s nulovým vodičem",
+        "Třížilový, přičemž ochranný vodič je veden s ostatními",
+        "Třížilový, přičemž ochranný vodič je veden samostatně a musí být spojen s nulovým vodičem"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Jednofázový prodlužovací přívod se provádí jako třížilový se samostatně vedeným ochranným vodičem, který nesmí být spojen s nulovým (pracovním) vodičem."
+    },
+    {
+      "question": "Barva izolovaných krajních (fázových) vodičů může být:",
+      "answers": [
+        "Černá, hnědá nebo šedá",
+        "Černá, červená nebo modrá",
+        "Černá, zelená nebo modrá"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Izolace krajních (fázových) vodičů může být černá, hnědá nebo šedá — tyto barvy jsou vyhrazeny pro fázové vodiče, nikoli pro N nebo PE."
+    },
+    {
+      "question": "Fázové svorky elektrických předmětů a zařízení se ve střídavé rozvodné soustavě označují písmeny:",
+      "answers": [
+        "U, V, W",
+        "I, U, R",
+        "K, L, M"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Fázové svorky se ve střídavé soustavě označují písmeny U, V, W (podle norem pro točivé stroje a rozvody)."
+    },
+    {
+      "question": "Nulový (střední) vodič střídavé soustavy se označuje:",
+      "answers": [
+        "N",
+        "L",
+        "S"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Nulový (střední, pracovní) vodič se označuje písmenem N."
+    },
+    {
+      "question": "Svorka ochranného vodiče se na elektrickém předmětu značí:",
+      "answers": [
+        "PE",
+        "N",
+        "PEN"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Svorka ochranného vodiče se značí písmeny PE (Protective Earth)."
+    },
+    {
+      "question": "Vodič PEN je:",
+      "answers": [
+        "Vodič slučující funkci ochranného vodič a nulového vodiče",
+        "Vodič slučující funkci pracovních vodičů a ochranného vodiče",
+        "Vodič slučující funkci pracovních vodičů a nulového vodiče"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vodič PEN slučuje funkci ochranného vodiče (PE) a nulového vodiče (N) v jednom společném vodiči — používá se v některých částech distribuční soustavy."
+    },
+    {
+      "question": "Jištění vodičů PE a PEN:",
+      "answers": [
+        "Je zakázáno",
+        "Je nutností",
+        "Je povoleno"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Jištění (např. pojistkami nebo jističi) vodičů PE a PEN je zakázáno, protože by jejich přerušením mohla vzniknout nebezpečná ztráta ochranného spojení."
+    },
+    {
+      "question": "Obsluha je taková činnost na EZ, kdy:",
+      "answers": [
+        "Pracovník nepoužívá nástrojů a nemůže přijít do styku s živými částmi",
+        "Pracovník nepoužívá nástrojů, ale může přijít do styku s živými částmi",
+        "Pracovník používá nástrojů a nemůže přijít do styku s živými částmi"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Obsluha je činnost, při které pracovník nepoužívá žádné nástroje a nemůže přijít do styku s živými částmi (např. zapínání/vypínání spínačem)."
+    },
+    {
+      "question": "Práce je taková činnost na EZ, kdy:",
+      "answers": [
+        "Pracovník používá nástrojů a může přijít do styku s živými částmi",
+        "Pracovník nepoužívá nástrojů, ale může přijít do styku s živými částmi",
+        "Pracovník nepoužívá nástrojů a může přijít do styku s živými částmi"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Práce je činnost, při které pracovník používá nástroje a může přijít do styku s živými částmi zařízení."
+    },
+    {
+      "question": "§4 NV 194/2022 Sb. stanovuje požadavky pro kvalifikaci:",
+      "answers": [
+        "osob poučených",
+        "osob znalých",
+        "osob znalých pro samostatnou činnost"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "§4 nařízení vlády č. 194/2022 Sb. stanovuje požadavky na kvalifikaci osob poučených."
+    },
+    {
+      "question": "§6 NV 194/2022 Sb. stanovuje požadavky pro kvalifikaci:",
+      "answers": [
+        "osob znalých pro samostatnou činnost",
+        "osob znalých",
+        "osob poučených"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "§6 nařízení vlády č. 194/2022 Sb. stanovuje požadavky na kvalifikaci osob znalých pro samostatnou činnost."
+    },
+    {
+      "question": "Při práci pod dozorem odpovídá za dodržování bezpečnostních předpisů:",
+      "answers": [
+        "Pracovník dozírající",
+        "Pracovník provádějící činnost",
+        "Pracovník znalý"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při práci pod dozorem nese odpovědnost za dodržování bezpečnostních předpisů pracovník dozírající (nikoli pracovník provádějící činnost)."
+    },
+    {
+      "question": "Při práci s dohledem odpovídá za dodržování bezpečnostních předpisů:",
+      "answers": [
+        "Pracovník provádějící činnost",
+        "Pracovník dozírající",
+        "Pracovník znalý"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při práci s dohledem (méně přísný dozor než „pod dozorem“) odpovídá za dodržování předpisů sám pracovník provádějící činnost."
+    },
+    {
+      "question": "Pro následky úrazu elektrickým proudem je rozhodující:",
+      "answers": [
+        "Velikost proudu, který protéká tělem zasaženého",
+        "Čas, po který proud protékal tělem zasaženého",
+        "Velikost napětí, který protéká tělem zasaženého"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Rozhodujícím faktorem pro závažnost následků úrazu elektrickým proudem je velikost proudu, který protéká tělem zasaženého (nikoli přímo napětí)."
+    },
+    {
+      "question": "Za současně přístupné dotyku se považují části navzájem vzdálené:",
+      "answers": [
+        "Méně než 2,5 m",
+        "Méně než 1,5 m",
+        "Méně než 2 m"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Za současně přístupné dotyku se považují části vzdálené od sebe méně než 2,5 m (typický dosah rukou dvou osob)."
+    },
+    {
+      "question": "Před použitím ochranných pomůcek je pracovník povinen:",
+      "answers": [
+        "Přesvědčit se o jejich řádném stavu",
+        "Přesvědčit se o jejich původu",
+        "Přesvědčit se o jejich stáří"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Před použitím ochranných pomůcek se musí pracovník přesvědčit o jejich řádném (nepoškozeném) stavu."
+    },
+    {
+      "question": "Nepřímá srdeční masáž má být prováděna s frekvencí asi:",
+      "answers": [
+        "100 stlačení za minutu",
+        "80 stlačení za minutu",
+        "50 stlačení za minutu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Doporučená frekvence nepřímé srdeční masáže je přibližně 100 stlačení za minutu."
+    },
+    {
+      "question": "Před započetím nepřímé srdeční masáže je potřeba:",
+      "answers": [
+        "Uložit postiženého rovně na záda na rovnou a pevnou podložku",
+        "Uložit postiženého rovně na záda na rovnou a měkkou podložku",
+        "Uložit postiženého rovně na záda na nerovnou a pevnou podložku"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Postiženého je nutné uložit rovně na záda na rovnou a pevnou podložku, aby byla masáž účinná."
+    },
+    {
+      "question": "Při provádění nepřímé srdeční masáže musí mít zachránce:",
+      "answers": [
+        "Obě ruce napnuté v loktech",
+        "Pokrčené ruce v loktech",
+        "Čistý trestní rejstřík"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zachránce musí mít při masáži obě ruce napnuté v loktech, aby síla stlačení šla přímo z ramen a byla dostatečně účinná."
+    },
+    {
+      "question": "Při provádění nepřímé srdeční masáže je nutno stlačovat hrudní kost u dospělého člověka:",
+      "answers": [
+        "Do hloubky 4-5 cm",
+        "Do hloubky 8-10 cm",
+        "Do hloubky 1-2 cm"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hrudní kost dospělého se při masáži stlačuje do hloubky přibližně 4–5 cm."
+    },
+    {
+      "question": "Poměr stlačení srdce a umělého dýchání při resuscitaci má být:",
+      "answers": [
+        "30 stlačení a 2 vdechy",
+        "30 stlačení a 3 vdechy",
+        "20 stlačení a 2 vdechy"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Standardní poměr při kardiopulmonální resuscitaci je 30 stlačení hrudníku a 2 umělé vdechy."
+    },
+    {
+      "question": "Automatický externí defibrilátor použijeme v případě:",
+      "answers": [
+        "Zástavy dechu postiženého",
+        "Když postižený neodpovídá",
+        "Omdlení postiženého"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Automatický externí defibrilátor (AED) se použije v případě zástavy dechu a srdeční činnosti (bezvědomí s nepřítomností normálního dýchání)."
+    },
+    {
+      "question": "Pokud postižený po úrazu elektrickým proudem dýchá a má hmatný tep, zůstává při vědomí a není viditelně zraněn:",
+      "answers": [
+        "Je nutno přesto zavolat lékařskou pomoc",
+        "Není nutno zavolat lékařskou pomoc",
+        "Může a nemusí být přivolaná lékařskou pomoc"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "I když se postižený jeví v pořádku, po zásahu elektrickým proudem je nutné vždy přivolat lékařskou pomoc kvůli riziku skrytých (např. srdečních) následků."
+    },
+    {
+      "question": "Zdravotnickou záchrannou službu je možné přivolat tísňovým telefonním číslem:",
+      "answers": [
+        "155",
+        "150",
+        "158"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Zdravotnickou záchrannou službu lze v ČR přivolat na telefonním čísle 155."
+    },
+    {
+      "question": "Jestliže postižený nabyl po resuscitaci vědomí:",
+      "answers": [
+        "Musí být nadále sledován a musí zůstat vleže",
+        "Nesmí být sledován a může sám odejít",
+        "Musí být nadále sledován, ale může se postavit na nohy"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "I po nabytí vědomí musí být postižený nadále sledován a zůstat vleže, protože stav se může znovu zhoršit."
+    },
+    {
+      "question": "Resuscitace se musí provádět:",
+      "answers": [
+        "Dokud se neobnoví životní funkce nebo do předání postiženého do péče záchranářů",
+        "Po dobu 10 minut",
+        "Po dobu 5 minut"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Resuscitace se provádí nepřetržitě, dokud se neobnoví životní funkce postiženého nebo dokud není předán do péče záchranářů."
+    },
+    {
+      "question": "Obecná charakteristika prostorů nebezpečných říká, že:",
+      "answers": [
+        "Vlivem prostředí je zde stálé nebo přechodné nebezpečí úrazu elektrickým proudem",
+        "Živé části jsou volně přístupné laikům",
+        "Jsou zde tabulky zákazu a výstrahy"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "V prostorech nebezpečných existuje vlivem prostředí stálé nebo přechodné zvýšené nebezpečí úrazu elektrickým proudem (podle starší vyhlášky 50/1978 Sb.)."
+    },
+    {
+      "question": "Z hlediska možného zvýšení rizika úrazu elektrickým proudem působením vnějších vlivů se prostory člení na:",
+      "answers": [
+        "normální, nebezpečné a zvlášť nebezpečné",
+        "normální a nebezpečné",
+        "bezpečné a nebezpečné"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Podle staré vyhlášky 50/1978 Sb. se prostory dělí na normální, nebezpečné a zvlášť nebezpečné."
+    },
+    {
+      "question": "§4 Vyhlášky 50/1978 Sb. stanovuje požadavky pro kvalifikaci:",
+      "answers": [
+        "Pracovníků poučených",
+        "Pracovníků znalých",
+        "Pracovníků pro samostatnou činnost"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "§4 staré vyhlášky č. 50/1978 Sb. stanovoval požadavky na kvalifikaci pracovníků poučených (obdoba dnešního §4 NV 194/2022 Sb.)."
+    },
+    {
+      "question": "§5 Vyhlášky 50/1978 Sb. stanovuje požadavky pro kvalifikaci:",
+      "answers": [
+        "Pracovníků znalých",
+        "Pracovníků poučených",
+        "Pracovníků pro samostatnou činnost"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "§5 staré vyhlášky č. 50/1978 Sb. stanovoval požadavky na kvalifikaci pracovníků znalých."
+    },
+    {
+      "question": "Pracovníci poučení mohou na EZ pracovat:",
+      "answers": [
+        "V blízkosti nekrytých částí EZ nn pod napětím ve vzdálenosti větší než 20 cm s dohledem",
+        "V blízkosti nekrytých částí EZ nn pod napětím ve vzdálenosti větší než 20 cm pod dozorem",
+        "V blízkosti nekrytých částí EZ nn pod napětím ve vzdálenosti větší než 80 cm s dohledem"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Podle staré vyhlášky mohli pracovníci poučení pracovat v blízkosti nekrytých částí EZ nízkého napětí pod napětím ve vzdálenosti větší než 20 cm, a to s dohledem osoby znalé."
+    },
+    {
+      "question": "Pracovními pomůckami jsou například:",
+      "answers": [
+        "Měřicí přístroje, zkoušečky napětí a další předměty potřebné k práci či obsluze EZ",
+        "Ochranné izolační rukavice, izolační koberce a plošiny, ochranné brýle apod.",
+        "Suché oblečení"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Pracovními pomůckami jsou měřicí přístroje, zkoušečky napětí a další předměty potřebné přímo k práci či obsluze elektrického zařízení."
+    },
+    {
+      "question": "Ochrannými pomůckami jsou například:",
+      "answers": [
+        "Ochranné izolační rukavice, izolační koberce a plošiny, ochranné brýle apod.",
+        "Měřicí přístroje, zkoušečky napětí a další předměty potřebné k práci či obsluze EZ",
+        "Náhradní pojistky"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Ochrannými pomůckami jsou izolační rukavice, izolační koberce a plošiny, ochranné brýle apod. — slouží k ochraně pracovníka, nikoli k samotné práci na zařízení."
+    },
+    {
+      "question": "Proudové chrániče s rozdílovým proudem do 30 mA se musí požít na:",
+      "answers": [
+        "Zásuvky se jmenovitým proudem do 32 A, které jsou používány laiky",
+        "Zásuvky se jmenovitým proudem do 64 A, které jsou používány laiky",
+        "Zásuvky se jmenovitým proudem do 16 A, které jsou používány laiky"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Proudové chrániče s reziduálním proudem do 30 mA se musí použít na zásuvky se jmenovitým proudem do 32 A, které jsou používány laiky."
+    }
+  ]
+}
+};
+
+document.getElementById('t1Desc').textContent =
+  MVE_TESTS.t1.questions.length + ' otázek — Thévenin, Norton, metody uzlových napětí a smyčkových proudů, magnetické obvody';
+document.getElementById('t2Desc').textContent =
+  MVE_TESTS.t2.questions.length + ' otázek — ochrana před úrazem el. proudem, třídy ochrany, kvalifikace osob, první pomoc';
+
+function startTest(id){
+  const data = MVE_TESTS[id];
+  if(!data) return;
+  sessionStorage.setItem('ql-data', JSON.stringify({subject: data.subject, questions: data.questions}));
+  window.location.href = 'quiz.html';
+}
+
+if(window.location.protocol==='file:'){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.ad-col').forEach(function(el){el.style.display='none';});
+  });
+}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
+  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
+  if(e.key==='F12'){e.preventDefault();return false;}
+});
+</script>
+</body>
+</html>

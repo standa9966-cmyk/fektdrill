@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — BPC-FY2 online testy a procvičování otázek zdarma">
+<title>BPC-FY2 — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<script>
+if (window.location.protocol !== 'file:') {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
+  --accent:#0f6cbd;--accent-h:#115ea3;--text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--r:10px;
+}
+[data-theme="dark"]{
+  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
+  --accent:#5b8cff;--accent-h:#7aa5ff;--text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
+.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
+.top-panel a{color:#fff;text-decoration:none;font-weight:600;}
+.top-panel a:hover{text-decoration:underline;}
+.top-panel-text{color:rgba(255,255,255,.8);}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-shrink:0;}
+.topbar-brand{font-size:18px;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:-.3px;}
+.topbar-brand:hover{color:var(--accent-h);}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.btn-home{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-family:inherit;text-decoration:none;transition:all .15s;}
+.btn-home:hover{border-color:var(--accent);color:var(--accent);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
+.ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
+.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
+.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
+@media(max-width:960px){.ad-col{display:none;}}
+.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+.subject-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
+h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing:-1px;text-align:center;margin-bottom:10px;}
+.sub{font-size:14px;color:var(--muted);margin-bottom:40px;text-align:center;max-width:600px;}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:900px;width:100%;margin-bottom:32px;}
+.card{flex:1 1 240px;max-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px 22px;cursor:pointer;transition:all .18s;text-decoration:none;color:var(--text);display:block;position:relative;box-shadow:var(--shadow);}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.card.disabled{cursor:not-allowed;opacity:.55;}
+.card.disabled:hover{border-color:var(--border);transform:none;}
+.card-tag{font-size:10px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.card.disabled .card-tag{color:var(--subtle);}
+.card-name{font-size:18px;font-weight:700;margin-bottom:5px;}
+.card-desc{font-size:13px;color:var(--muted);}
+.arrow{position:absolute;bottom:18px;right:20px;font-size:18px;color:var(--accent);opacity:0;transition:all .18s;transform:translateX(-4px);}
+.card:hover .arrow{opacity:1;transform:translateX(0);}
+.back-link{max-width:900px;width:100%;margin-bottom:8px;}
+.back-link a{color:var(--muted);text-decoration:none;font-size:13px;}
+.back-link a:hover{color:var(--accent);}
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.footer-links a:hover{color:var(--accent);}
+@media(max-width:640px){.main-col{padding:24px 14px;}.footer-inner{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+<body>
+
+<div class="top-panel">
+  <span class="top-panel-text">🔗 Také nás zajímá:</span>
+  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
+</div>
+
+<div class="topbar">
+  <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
+  <div class="topbar-right">
+    <a class="btn-home" href="index.html">← Domů</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="page-outer">
+  <aside class="ad-col left">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+
+  <div class="main-col">
+    <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
+    <div class="subject-logo">TechQuizz</div>
+    <h1>BPC-FY2</h1>
+    <p class="sub">Fyzika 2 — optika, polarizace, lom a ohyb světla. Vyberte si test, který chcete procvičit.</p>
+
+    <div class="cards" id="testCards">
+      <a class="card" href="#" onclick="startTest('t1');return false;">
+        <div class="card-tag">// Test 1</div>
+        <div class="card-name">Optika — polarizace a lom</div>
+        <div class="card-desc" id="t1Desc">otázek — polarizace, Brewsterův úhel, lom a ohyb světla, difrakční mřížka</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <aside class="ad-col right">
+    <span class="ad-label">Ad</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="privacy.html">Ochrana soukromí</a>
+      <a href="cookies.html">Nastavení cookies</a>
+      <a href="about_us.html">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=localStorage.getItem('ql-theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
+})();
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'light';
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('themeBtn');
+  if(b)b.textContent=n==='dark'?'☀️':'🌙';
+  localStorage.setItem('ql-theme',n);
+}
+
+const MVE_TESTS = {
+  t1: {
+  "subject": "BPC-FY2 - Test 1: Optika — polarizace, lom a ohyb světla",
+  "questions": [
+    {
+      "question": "Malusův zákon slouží k",
+      "answers": [
+        "žádná uvedená odpověď nění správná",
+        "určení nejmenší vzdálenosti mezi maximy interference",
+        "určení směru interference světla",
+        "určení velikosti otvoru, kterým prochází světlo",
+        "urční velikosti difrakce světla"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Malusův zákon (I = I₀·cos²θ) popisuje závislost intenzity světla procházejícího analyzátorem na úhlu mezi polarizátorem a analyzátorem — neslouží k určování interference, difrakce ani velikosti otvoru, proto je zde uvedena tato speciální odpověď."
+    },
+    {
+      "question": "K čemu sloučí analyzátor?",
+      "answers": [
+        "k určení polarizační roviny lineárně polarizovaného světla",
+        "k určení polarizační roviny kruhově polarizovaného světla",
+        "žádná uvedená odpověď není správná",
+        "k určení polarizační roviny elipticky polarizovaného světla",
+        "k určení absorpce světla"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Analyzátor je v podstatě druhý polarizační filtr, který se používá k určení (ověření) roviny lineárně polarizovaného světla procházejícího z polarizátoru — otáčením analyzátoru lze najít směr, kdy světlo prochází maximálně nebo je zcela zatemněno."
+    },
+    {
+      "question": "Určete úhel dopadu na skleněnou destičku o indexu lomu n = 1,503 ve vzduchu o indexu lomu n_0 = 1, aby odražený paprsek byl lineárně polarizovaný. Jaký je úhel lomu odpovídající tomuto paprsku?",
+      "answers": [
+        "33,63˚",
+        "45˚",
+        "90˚",
+        "0˚",
+        "21,62˚"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Úhel, při kterém je odražený paprsek úplně lineárně polarizovaný, je Brewsterův úhel: tg α_B = n. Pro n = 1,503 je α_B = arctg(1,503) ≈ 56,4°... (dosazením a výpočtem dle zadání vychází hodnota 33,63° pro úhel lomu, který je doplňkový k úhlu dopadu, neboť odražený a lomený paprsek jsou v Brewsterově případě navzájem kolmé)."
+    },
+    {
+      "question": "Která složka elektrického pole se při polarizaci odrazem odrazí?",
+      "answers": [
+        "kolmá na rovinu dopadu",
+        "rovnoběžná s rovinou odrazu",
+        "žádná uvedená odpověď není správná",
+        "kolmá na rozhraní",
+        "rovnoběžná s rovinou dopadu"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Při polarizaci odrazem (pod Brewsterovým úhlem) se odráží především složka elektrického pole kolmá na rovinu dopadu, zatímco složka rovnoběžná s rovinou dopadu láme se beze zbytku do druhého prostředí."
+    },
+    {
+      "question": "Paprsek nepolarizovaného světla (vlnová délka λ = 546,072 nm) dopadá na skleněnou destičku pod úhlem 58˚01’ ležící v prostředí o indexu lomu n_1 = 1,18. Odražený paprsek je lineárně polarizovaný v rovině destičky.",
+      "answers": [
+        "1,88",
+        "1",
+        "0",
+        "1,01",
+        "0,62"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Řešením Brewsterovy podmínky (tg α = n₂₁) pro dané úhly dopadu a index lomu prvního prostředí lze dopočítat index lomu druhého prostředí (skla) — vychází hodnota přibližně 1,88."
+    },
+    {
+      "question": "Co je to mřížková konstanta?",
+      "answers": [
+        "vzdálenost středů dvou sousedních štěrbin",
+        "šířka štěrbiny na optické mřížce",
+        "počet štěrbin na mřížce",
+        "velikost (šířka) mřížky v mm",
+        "počet vrypů připadajících na 1 cm mřížky"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Mřížková konstanta d optické (difrakční) mřížky je definována jako vzdálenost středů dvou sousedních štěrbin (vrypů) mřížky; souvisí s hustotou vrypů vztahem d = 1/N, kde N je počet vrypů na jednotku délky."
+    },
+    {
+      "question": "Který z uvedených jevů je důkazem toho, že světlo je příčné vlnění?",
+      "answers": [
+        "polarizace",
+        "interference",
+        "ohyb světla",
+        "fotoelektrický jev",
+        "nelze rozhodnout"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Polarizace světla dokazuje, že světlo je příčné vlnění — pouze u příčného vlnění může docházet k omezení kmitů na určitou rovinu (na rozdíl od podélného vlnění, které polarizovat nelze)."
+    },
+    {
+      "question": "Intenzita světla v přímém směru od jedné odkryte štěrbiny je J_o. Má-li mřížka n štěrbin, je intenzita hlavního (nultého) maxima J_p",
+      "answers": [
+        "n^2 -krát větší než J_o",
+        "n^2 -krát menší než J_o",
+        "sqrt(n) -krát větší než J_o",
+        "n -krát větší než J_o",
+        "sqrt(n) -krát menší než J_o"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Intenzita hlavního (nultého) maxima za mřížkou s n štěrbinami je n² krát větší než intenzita od jedné odkryté štěrbiny, protože amplitudy z jednotlivých štěrbin se v tomto směru sčítají fázově shodně (amplituda n-krát větší, intenzita úměrná druhé mocnině amplitudy)."
+    },
+    {
+      "question": "Jak daleko musíme umístit stínítko za mřížku, aby vzdálenost 0. a 3. maxima na stínítku byla 21,5 cm? Na mřížku, která má 100 vrypů na 1 mm, dopadá kolmo rovnoběžný svazek červeného světla (λ = 700 nm).",
+      "answers": [
+        "1 m",
+        "80 cm",
+        "1,5 cm",
+        "50 cm",
+        "2 000 mm"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Ze vztahu pro polohu k-tého maxima (x_k = k·λ·L/d, kde d je mřížková konstanta) lze při znalosti mřížkové konstanty, vlnové délky a požadované vzdálenosti maxim dopočítat vzdálenost stínítka L; výpočtem vychází L = 1 m."
+    },
+    {
+      "question": "Kolik měřitelných interferenčních maaxim utvoří mřížka, která má 5000 vrypů na 1 m a šířku štěrbiny 4.10^-5 m, dopadá-li na ni kolmo světlo vlnové délky 600 nm?",
+      "answers": [
+        "9",
+        "5",
+        "neomezeně",
+        "nelze jednoznačně určit, záleží to na vzdálenosti stínítka od mřížky",
+        "3"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Maximální řád difrakčního maxima je omezen podmínkou d·sinθ = kλ s |sinθ|≤1. Pro danou mřížkovou konstantu a vlnovou délku lze spočítat maximální možný řád k, a tedy i celkový počet pozorovatelných maxim (včetně 0. řádu a obou stran) — vychází 9 měřitelných maxim."
+    },
+    {
+      "question": "Na rovinnou ohybovou mřížku, která má 100 vrypů na 1 mm, dopadá kolmo rovnoběžný svazek červeného světla (λ = 700 nm). Jak daleko od sebe bude 3. maximum od nultého na stínítku, které je ve vzdálenosti 1 m od mřížky?",
+      "answers": [
+        "21,5 cm",
+        "10 cm",
+        "7 mm",
+        "0,14 m",
+        "7 cm"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Poloha k-tého maxima na stínítku ve vzdálenosti L od mřížky je dána vztahem x_k ≈ k·λ·L/d. Dosazením zadaných hodnot (100 vrypů/mm, λ=700 nm, L=1 m, k=3) vychází vzdálenost 3. maxima od nultého 21,5 cm."
+    },
+    {
+      "question": "Při pokusech na optické mřížce, která je osvětlena červeným světlem (λ = 700 nm), vzniklo na stínítku, umístěném 1 m za mřížkou, 3. maximum ve vzdálenosti 21,5 cm od 0. maxima. Určete počet vrypů na mřížce připadajících na 1mm.",
+      "answers": [
+        "100 vrypů na 1 mm",
+        "500 vrypů na 1 mm",
+        "4000 vrypů na 1 mm",
+        "400 vrypů na 1 mm",
+        "700 vrypů na 1 mm"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Ze změřené vzdálenosti k-tého maxima od nultého lze pomocí vztahu x_k = k·λ·L/d zpětně dopočítat mřížkovou konstantu d, a tedy i počet vrypů na jednotku délky mřížky — vychází 100 vrypů na 1 mm."
+    },
+    {
+      "question": "Ohybová mřížka je osvětlena kolmo rovnoběžným svazkem bílého světla. Určete, zda a za jakých podmínek se může některá barva ze spektra 1. řádu překrývat s některou barvou spektra 2. řádu. (Lidské oko vnímá vlnové délky světla v rozmezí 400 nm - 480 nm.)",
+      "answers": [
+        "nemůže",
+        "může vždy",
+        "může, pokud je mřížková konstanta dostatečně malá",
+        "může, pokud stínítko bude velmi daleko",
+        "může, pokud stínítko bude velmi blízko"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Spektra vyšších řádů se s rostoucím řádem rozšiřují, takže při dostatečně velkém úhlovém rozestupu řádů (a v rámci viditelného spektra) se překryv spekter 1. a 2. řádu při běžných mřížkových konstantách a viditelném světle nevyskytuje — odpověď je tedy „nemůže“."
+    },
+    {
+      "question": "Při interferenci světla dochází k zeslabení intenzity světla v těch místech, ve kterých je dráhový rozdíl interferujících světelných vln roven:",
+      "answers": [
+        "lichému počtu půlvln (λ/2)",
+        "sudému počtu půlvln (λ/2)",
+        "lichému počtu celých vln (λ)",
+        "sudému počtu celých vln (λ)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Interferenční minimum (zeslabení) nastává tam, kde je dráhový rozdíl interferujících vln roven lichému počtu půlvln (λ/2, 3λ/2, 5λ/2, ...), protože se vlny v tomto místě setkávají v protifázi."
+    },
+    {
+      "question": "Základní podmínkou k pozorování interference světla je",
+      "answers": [
+        "konstantní fázový rozdíl světelného vlnění",
+        "stejná amplituda světelného vlnění",
+        "stejná intenzita světelného vlnění"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Aby mohla nastat pozorovatelná interference, musí mít interferující vlny konstantní (časově neproměnný) fázový rozdíl — tedy musí být koherentní; stejná amplituda ani stejná intenzita nejsou nutnou podmínkou."
+    },
+    {
+      "question": "Koherentní zdroje v optice lze získat",
+      "answers": [
+        "pouze použitím svěla jednoho zdroje",
+        "libovolnými zdroji",
+        "vhodně upravenými dvěma reálnými zdroji"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Dva skutečně nezávislé zdroje světla (např. dvě různé žárovky) nejsou nikdy dokonale koherentní kvůli náhodným fázovým fluktuacím při emisi fotonů. Koherentní zdroje se proto v optice získávají rozdělením světla z jediného zdroje (např. clonou se dvěma štěrbinami, jako u Youngova pokusu)."
+    },
+    {
+      "question": "Kterou fyzikální veličinu lze určit pomocí difrakční mřížky?",
+      "answers": [
+        "Vlnovou délku světla libovolné barvy.",
+        "Index lomu skla pro světlo libovolné barvy.",
+        "Rychlost světla ve skle.",
+        "Rychlost světla ve vzduchu.",
+        "Disperzi světla."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Pomocí difrakční mřížky lze z naměřeného úhlu (polohy) difrakčního maxima daného řádu určit vlnovou délku dopadajícího světla libovolné barvy — mřížka se tak používá jako spektrální přístroj."
+    },
+    {
+      "question": "Říkáme, že paprsek laseru je gaussovským svazkem, když",
+      "answers": [
+        "hustota toku klesá exponenciálně s kvadrátem vzdálenosti od osy",
+        "je přísně homogenní",
+        "ho lze rozšířit cylindrickou čočkou",
+        "hustota zářivého toku lineárně klesá od středu paprsků k okrajům",
+        "rozložení hustoty zářivého toku se změní, když ho rozšíříme"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Gaussovský svazek je typický pro laserové záření a je charakterizován tím, že hustota zářivého toku (intenzita) klesá směrem od osy svazku exponenciálně s druhou mocninou vzdálenosti od osy (Gaussovo rozložení intenzity)."
+    },
+    {
+      "question": "V lineárně polarizované světle (E a B jsou intenzita elektrického pole a indukce magnetického pole)",
+      "answers": [
+        "kmitá vektor E stále v jedné rovině",
+        "kmitají vektory E a B ve stejné rovině",
+        "je vektor E rovnoběžný se směrem šíření",
+        "je vektor B rovnoběžný se směrem šíření"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "V lineárně polarizovaném světle kmitá vektor intenzity elektrického pole E stále v jedné (pevné) rovině obsahující směr šíření vlny — vektory E a B jsou navzájem kolmé, nikoli ve stejné rovině, a žádný z nich není rovnoběžný se směrem šíření (světlo je příčné vlnění)."
+    },
+    {
+      "question": "Dopadá-li bílé nepolarizované světlo na rozhraní pod Brewsterovým úhlem, pak po odrazu",
+      "answers": [
+        "je úplně polarizováno",
+        "je částečně polarizováno",
+        "nastane úplný odraz světla",
+        "světelná stopa na stínítku vymizí",
+        "dojde k rozkladu světla na barevné spektrum"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Dopadá-li nepolarizované světlo na rozhraní právě pod Brewsterovým úhlem, je odražený paprsek úplně (lineárně) polarizován — kolmo na rovinu dopadu; lomený paprsek zůstává jen částečně polarizovaný."
+    },
+    {
+      "question": "Vztah pro Brewsterův úhel zní (α je úhel dopadu, n_21 je relativní index lomu prostředí, do kterého se světlo láme",
+      "answers": [
+        "tg α = n_21",
+        "tg α = 1/n_21",
+        "tg α = 1 + n_21",
+        "1/tg α = n_21"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Brewsterův úhel α je definován vztahem tg α = n₂₁, kde n₂₁ je relativní index lomu prostředí, do kterého se světlo láme, vzhledem k prostředí dopadu."
+    },
+    {
+      "question": "Světelný paprsek dopadající na povrch skleněné desky pod úhlem π/3 rad se v důsledku odrazu úplně polarizuje. Index lomu skla, z něhož je deska vyrobena, je",
+      "answers": [
+        "sqrt(3)",
+        "3/2",
+        "sqrt(3) / 2",
+        "sqrt(2) / 2",
+        "sqrt(2)"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Z podmínky pro úplnou polarizaci odrazem (Brewsterův zákon) tg α = n platí pro α = π/3 (60°): n = tg 60° = √3."
+    },
+    {
+      "question": "Šíří-li se světelný paprsek z prostředí opticky řidšího do hustšího, láme se při šikmém dopadu na rozhraní obou prostředí",
+      "answers": [
+        "ke kolmici",
+        "od kolmice",
+        "neláme se",
+        "nastává úplný odraz"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Šíří-li se paprsek z opticky řidšího prostředí do opticky hustšího, láme se při šikmém dopadu ke kolmici (přibližuje se ke kolmici dopadu), protože ve hustším prostředí se snižuje rychlost šíření a tedy i úhel lomu je menší než úhel dopadu."
+    },
+    {
+      "question": "Projde-li světelná vlna z vakua do látkového prostředí, pak rychlost jejího šíření",
+      "answers": [
+        "klesne",
+        "vzroste",
+        "nezmění se",
+        "nelze obecně určit"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při přechodu světla z vakua do libovolného látkového prostředí (které má index lomu n > 1) se rychlost šíření světla vždy sníží, protože platí v = c/n."
+    },
+    {
+      "question": "Úplný odraz světla je jev, který může nastat jen",
+      "answers": [
+        "při přechodu světla z prostředí opticky hustšího do opticky řidšího",
+        "při kolmém dopadu světla na rozhraní dvou prostředí",
+        "při přechodu světla z prostředí opticky řidšího do opticky hustšího",
+        "u světla monochromatického",
+        "při dopadu světla pod Brewsterovým úhlem"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Úplný odraz může nastat pouze při přechodu světla z opticky hustšího prostředí (vyšší index lomu) do opticky řidšího prostředí (nižší index lomu), a to při úhlu dopadu větším než mezní úhel."
+    },
+    {
+      "question": "Index lomu světla pro vakuum je",
+      "answers": [
+        "1",
+        "0",
+        "větší než 1",
+        "menší než 0",
+        "nekonečno"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Index lomu vakua je definičně roven 1, protože rychlost světla ve vakuu odpovídá základní rychlostní konstantě c, vzhledem ke které se index lomu jiných prostředí definuje jako n = c/v."
+    },
+    {
+      "question": "Sklo má index lomu n_s = 1,5 a voda n_v = 1,3. Úhel lomu světla bude větší než úhel jeho dopadu, šíří-li se světlo",
+      "answers": [
+        "ze skla do vody",
+        "ze vzduchu do skla",
+        "z vody do skla",
+        "ze vzduchu do vody",
+        "úhel lomu nebude větší v žádném z uvedených případů"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Podle Snellova zákona platí n₁sinα₁ = n₂sinα₂. Šíří-li se světlo z opticky hustšího prostředí (sklo, n=1,5) do opticky řidšího prostředí (voda, n=1,3), bude úhel lomu větší než úhel dopadu."
+    },
+    {
+      "question": "Světlo dopadá ze vzduchu na rozhraní o indexu lomu n pod mezním úhlem α_m. Pod jakým úhlem α by mělo světlo dopadat, aby doělo k úplnému odrazu?",
+      "answers": [
+        "a_m < α < 90˚",
+        "0° < α < α_m",
+        "α = α_m"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Úplný odraz nastává pro úhly dopadu větší než mezní úhel α_m (a menší než 90°), tedy v intervalu α_m < α < 90°."
+    },
+    {
+      "question": "Světlo prochází skleněnou destičkou o indexu lomu n_s = 1,5 a lomí se do vzduchu. Jaký je mezní úhel pro toto rozhraní?",
+      "answers": [
+        "41,8˚",
+        "56,3˚",
+        "48,2˚",
+        "90˚"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mezní úhel α_m pro rozhraní sklo–vzduch se určí ze vztahu sinα_m = 1/n_s = 1/1,5, odkud α_m ≈ 41,8°."
+    },
+    {
+      "question": "Světlo dopadá ze vzduchu na vodní hladinu. Změní se jeho vlnová délka a frekvence ve vodě?",
+      "answers": [
+        "Změní se vlnová délka, ale frekvence se nezmění.",
+        "Změní se frekvence, ale vlnová délka se nezmění.",
+        "Změní se vlnová délka a současně s ní i frekvence.",
+        "Nezmění se žádná z těchto veličin."
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při přechodu světla mezi prostředími s různým indexem lomu se mění jeho rychlost šíření a tím i vlnová délka (λ = v/f), zatímco kmitočet (frekvence) zůstává zachován, protože je dán zdrojem světla."
+    },
+    {
+      "question": "Jestliže vlnová délka monofrekvenčního světla ve vakuu je λ , pak po přechodu tohoto světla do prostředí o indexu lomu n je vlnová délka v tomto prostředí",
+      "answers": [
+        "(1/n)λ",
+        "λ",
+        "nλ",
+        "(n - 1)λ"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Vlnová délka světla v prostředí s indexem lomu n je dána vztahem λ_n = λ/n, kde λ je vlnová délka téhož světla ve vakuu."
+    },
+    {
+      "question": "Je-li s dráha světla v prostředí o indexu lomu n , pak optická dráha l je definována vztahem",
+      "answers": [
+        "l = ns",
+        "l = n/s",
+        "l = s/n",
+        "l = 1/(ns)"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Optická dráha l je definována jako součin geometrické dráhy s, kterou světlo urazí v prostředí, a indexu lomu n tohoto prostředí: l = n·s."
+    },
+    {
+      "question": "Vlnová délka světla se při přechodu ze vzduchu do vody změní o 25%. Z toho můžeme vyvodit, že index lomu vody vzhledem ke vzduchu je",
+      "answers": [
+        "4/3",
+        "1,25",
+        "0,75",
+        "2,5"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Ze vztahu λ_n = λ/n a dané relativní změny vlnové délky (o 25 %, tedy λ_n = 0,75λ) vyplývá index lomu vody n = λ/λ_n = 1/0,75 = 4/3."
+    },
+    {
+      "question": "Šíří-li se světelný paprsek z prostředí opticky hustšího do prostředí řidšího, pak při šikmém dopadu na rozhraní obou prostředí",
+      "answers": [
+        "se paprsek láme od kolmice.",
+        "nastává pouze úplný odraz paprsku.",
+        "nelze obecně určit další směr číření paprsku.",
+        "neplatí žádný z uvedených případů.",
+        "se paprsek láme ke kolmici."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Šíří-li se paprsek z opticky hustšího prostředí do opticky řidšího, láme se při šikmém dopadu od kolmice (vzdaluje se od kolmice dopadu), protože v řidším prostředí se zvyšuje rychlost šíření, a tedy i úhel lomu je větší než úhel dopadu."
+    },
+    {
+      "question": "Je-li ε_r a µ_r relativní permitivita a permeabilita prostředí a ε_0 a µ_0 permitivita a permeabilita vakua, pak z Maxwellových rovnic plyne pro rychlost šíření světla vztah",
+      "answers": [
+        "v = 1 / sqrt(ε_rε_0µ_rµ_0)",
+        "v = 1 / (ε_rε_0sqrt(µ_rµ_0))",
+        "v = sqrt(ε_rε_0µ_rµ_0)",
+        "v = (µ_0ε_0) / sqrt(µ_rε_r)",
+        "v = sqrt((ε_0ε_r) / (µ_0µ_r))"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Z Maxwellových rovnic vyplývá pro rychlost šíření elektromagnetického vlnění (světla) v prostředí vztah v = 1/√(ε_rε_0·µ_rµ_0), kde součin εμ určuje, jak rychle se pole v daném prostředí šíří."
+    },
+    {
+      "question": "Jak se změní úhel mezi světelným paprskem dopadajícím na rovinné zrcadlo a paprskem odraženým od zrcadla, jestliže úhel dopadu paprsku zvětšíme o 15˚ ?",
+      "answers": [
+        "úhel se zvětší o 30˚.",
+        "úhel se nezmění.",
+        "úhel se zvětší o 10˚.",
+        "úhel se zmenší o 30˚.",
+        "úhel se zmenší o 15˚."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Úhel mezi dopadajícím a odraženým paprskem od rovinného zrcadla je roven dvojnásobku úhlu dopadu (měřeného od kolmice). Zvětší-li se úhel dopadu o 15°, zvětší se úhel mezi paprsky o dvojnásobek, tedy o 30°."
+    },
+    {
+      "question": "Změní se vlnová délka světla a jeho frekvence při průchodu ze vzduchu do skla?",
+      "answers": [
+        "Změní se vlnová délka, ale frekvence se nezmění",
+        "-",
+        "Změní se vlnová délka a současně s ní i frekvence.",
+        "Nezmění se ani jedna z těchto veličin.",
+        "Změní se frekvence, ale vlnová délka se nezmění."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Při přechodu ze vzduchu do skla dochází ke změně vlnové délky (λ_n = λ/n), zatímco frekvence světla zůstává při přechodu mezi prostředími zachována — je určena pouze zdrojem záření."
+    },
+    {
+      "question": "Index lomu vody je 4 / 3. Velikost rychlosti šíření světla vodou je",
+      "answers": [
+        "9 / 4 . 10^8 m.s^-1",
+        "3 / 12 . 10^5 m.s^-1",
+        "12 / 3 . 10^7 m.s^-1",
+        "3 / 4 . 10^8 m.s^-1",
+        "4 / 9 . 10^6 m.s^-1"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Rychlost šíření světla v prostředí s indexem lomu n se určí ze vztahu v = c/n. Pro vodu (n = 4/3) vychází v = (3/4)·c = (3/4)·3·10⁸ = 9/4 · 10⁸ m·s⁻¹."
+    },
+    {
+      "question": "Elipsa, jedna z Lissajousových křivek, degeneruje na úsečky, které jsou od svislého směru odkláněny střídavě napravo a ...",
+      "answers": [
+        "celistvým násobkům π (tj. 0, ±π , ±2π , ±3π, .....).",
+        "celistvým násobkům π/4 (tj. ±π/4 , ±3π/4 , ±5π/4 , .....).",
+        "pouze 0.",
+        "celistvým sudým násobkům 2π (tj. ±2π , ±4π , ±6π , .....).",
+        "celistvým násobkům π/2 (tj. ±π/2 , ±3π/2 , ±5π/2 , .....)."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Je-li fázový posun mezi dvěma kolmými harmonickými kmity celistvým násobkem π (0, ±π, ±2π, ...), degeneruje obecně eliptický Lissajousův obrazec na úsečku (přímku), odkloněnou od svislého směru střídavě napravo a nalevo podle konkrétní hodnoty fázového posunu a poměru amplitud."
+    },
+    {
+      "question": "Jaký je vztah mezi indexem lomu n, rychlostí světla c a relativní permeabilitou prostředí µ_r? (ε_r je relativní perme ...",
+      "answers": [
+        "n = c / v = sqrt(ε_rµ_r)",
+        "c = v / n = sqrt(ε_rµ_r)",
+        "n = c / v = 1 / sqrt(ε_rµ_r)",
+        "c = vn = 1 / ε_rµ_r",
+        "n = c / v = 1 ε_rµ_r"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Index lomu n souvisí s rychlostí světla ve vakuu c a rychlostí v daném prostředí v vztahem n = c/v, a z Maxwellových rovnic zároveň platí n = √(ε_rµ_r) — pro většinu běžných (nemagnetických) prostředí s µ_r ≈ 1 tak index lomu závisí především na relativní permitivitě."
+    }
+  ]
+}
+};
+
+document.getElementById('t1Desc').textContent =
+  MVE_TESTS.t1.questions.length + ' otázek — polarizace, Brewsterův úhel, lom a ohyb světla, difrakční mřížka';
+
+function startTest(id){
+  const data = MVE_TESTS[id];
+  if(!data) return;
+  sessionStorage.setItem('ql-data', JSON.stringify({subject: data.subject, questions: data.questions}));
+  window.location.href = 'quiz.html';
+}
+
+if(window.location.protocol==='file:'){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.ad-col').forEach(function(el){el.style.display='none';});
+  });
+}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
+  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
+  if(e.key==='F12'){e.preventDefault();return false;}
+});
+</script>
+</body>
+</html>
