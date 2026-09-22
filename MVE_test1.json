@@ -1,241 +1,184 @@
 {
-  "subject": "MVE - Test 1: Chyby a nejistoty měření",
+  "subject": "MVE - Test 1: Osciloskopy",
   "questions": [
     {
-      "question": "Co je to nepřímé měření DC výkonu?",
+      "question": "K jakému účelu slouží dvojí časová základna u analogových osciloskopů?",
       "answers": [
-        "Měření pomocí ampérmetru elektrického proudu na zátěži a pomocí matematického vztahu výpočet výkonu.",
-        "Měření pomocí voltmetru elektrického napětí na zátěži a pomocí matematického vztahu výpočet výkonu.",
-        "Měření pomocí ampérmetru a voltmetru, kdy změříme elektrický proud a napětí na zátěži a pomocí matematického vztahu vypočteme výkon.",
-        "Měření pomocí wattmetru.",
-        "Měření pomocí dvou wattmetrů."
+        "K zobrazení dvou časových signálů v jednom časovém úseku",
+        "K detailnímu prohlížení zobrazovaného průběhu v čase",
+        "K zobrazení dvou časových signálů",
+        "Ke kompenzaci vstupní napěťové sondy"
       ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Dvojí časová základna umožňuje zobrazit zároveň celý průběh signálu i jeho zvětšený detail (výřez) s jinou, rychlejší časovou základnou – slouží tedy k detailnímu prohlížení zobrazovaného průběhu v čase."
+    },
+    {
+      "question": "Určete kmitočet průběhu zobrazeného na osciloskopu s vertikální citlivostí 5 voltů na dílek a měřítkem časové základny po 0,2 milisekundy na dílek (viz obrázek).",
+      "answers": ["25 Hz", "1000 Hz", "1 Hz", "1 ms", "100 Hz"],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": "mve_osc_frekvence.png",
+      "explanation": "Jedna perioda průběhu odpovídá 5 dílkům časové základny, tedy T = 5 × 0,2 ms = 1 ms = 0,001 s. Kmitočet f = 1/T = 1/0,001 s = 1000 Hz."
+    },
+    {
+      "question": "V jakých jednotkách se vyjadřuje rychlost vzorkování A/D převodníku?",
+      "answers": ["s/MS", "MS/rok", "MS/s (případně S/s)", "MS/hod", "V/s"],
       "correct": 2,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Nepřímé měření výkonu spočívá ve změření dvou veličin – proudu a napětí – a výpočtu výkonu z matematického vztahu P = U·I. Přímé měření výkonu by naopak proběhlo přímo wattmetrem."
+      "explanation": "Rychlost vzorkování A/D převodníku udává počet vzorků odebraných za sekundu, proto se vyjadřuje v S/s (samples per second), u rychlejších převodníků typicky v MS/s (megavzorky za sekundu)."
     },
     {
-      "question": "Jaký vnitřní odpor má mít kvalitní voltmetr?",
-      "answers": ["Co nejmenší", "Co největší", "Nulový", "Nekonečný"],
-      "correct": 1,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Kvalitní voltmetr má mít co největší vnitřní odpor, aby při připojení k obvodu (paralelně) odebíral minimální proud a co nejméně tak ovlivňoval měřené napětí."
-    },
-    {
-      "question": "Jaký vnitřní odpor má mít kvalitní ampérmetr?",
-      "answers": ["Nulový", "Co nejmenší", "Nekonečný", "Co největší"],
-      "correct": 1,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Kvalitní ampérmetr má mít co nejmenší vnitřní odpor, protože se do obvodu zapojuje sériově – malý odpor zajistí, že přístroj co nejméně ovlivní proud tekoucí obvodem."
-    },
-    {
-      "question": "Jak se stanoví celková nejistota typu B pro více zdrojů?",
+      "question": "Jaké je dělení osciloskopů podle způsobu zpracování měřeného signálu?",
       "answers": [
-        "Celková nejistota typu B je dána průměrem nejistot jednotlivých zdrojů",
-        "Celková nejistota typu B je dána geometrickým součtem nejistot jednotlivých zdrojů.",
-        "Celková nejistota typu B je dána aritmetickým součinem nejistot jednotlivých zdrojů",
-        "Celková nejistota typu B je dána aritmetickým součtem nejistot jednotlivých zdrojů"
+        "S jednou a se dvojí časovou základnou.",
+        "Analogové a číslicové",
+        "Střídavé a stejnosměrné",
+        "Jednokanálové a dvoukanálové."
       ],
       "correct": 1,
       "answer_count": 4,
       "image_name": null,
-      "explanation": "Celková nejistota typu B se skládá jako geometrický součet (odmocnina součtu čtverců) dílčích nejistot typu B z jednotlivých zdrojů, obdobně jako standardní kombinovaná nejistota."
+      "explanation": "Podle způsobu zpracování měřeného signálu se osciloskopy dělí na analogové (signál zpracovávají a zobrazují spojitě) a číslicové (signál nejprve vzorkují a digitalizují A/D převodníkem, pak zpracovávají a zobrazují)."
     },
     {
-      "question": "Co je to rozšířená nejistota?",
+      "question": "Jaké jsou základní části číslicového osciloskopu?",
       "answers": [
-        "Získá se aritmetickým součtem standardních nejistot typu A a typu B.",
-        "Získá se geometrickým součtem standardních nejistot typu A a typu B.",
-        "Získá se jako součin standardní kombinované nejistoty a koeficientu rozšíření.",
-        "Získá se jako součin standardních nejistot typu A a typu B.",
-        "Získá se jako součin standardních nejistot typu A a typu B a koeficientu rozšíření.",
-        "Získá se jako rozdíl standardních nejistot typu A a typu B."
+        "Krystalem řízený oscilátor, dělič, bistabilní klopný obvod, čítač, paměť, zobrazovač",
+        "Zobrazovač, krystalem řízený oscilátor, paměť, A/D převodník",
+        "Zobrazovač, vstupní kanály, vstupní dělič, časová základna, předzesilovače",
+        "Zobrazovač, paměť, procesor, A/D převodník",
+        "Zobrazovač, čítač, časová základna, A/D převodník"
       ],
-      "correct": 2,
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Základní části číslicového osciloskopu jsou zobrazovač (displej), paměť (uchovává vzorkovaná data), procesor (řízení a zpracování) a A/D převodník (digitalizace vstupního analogového signálu)."
+    },
+    {
+      "question": "K čemu slouží pasivní vstupní sonda?",
+      "answers": [
+        "K zeslabení vstupního signálu 10×.",
+        "K zeslabení vstupního signálu a k potlačení vlivu parazitních kapacit na měřený průběh napětí.",
+        "K zesílení vstupního signálu 10×.",
+        "K zesílení vstupního signálu a k potlačení vlivu parazitních kapacit na měřený průběh napětí.",
+        "Ke zvýšení vstupního odporu osciloskopu.",
+        "K odstranění zašumění vstupního signálu."
+      ],
+      "correct": 1,
       "answer_count": 6,
       "image_name": null,
-      "explanation": "Rozšířená nejistota U se získá vynásobením standardní kombinované nejistoty uc koeficientem rozšíření k (typicky k = 2 pro interval spolehlivosti cca 95 %): U = k·uc."
+      "explanation": "Pasivní sonda (nejčastěji v poměru 10:1) zeslabuje vstupní signál a zároveň svým sériovým odporem a kompenzačním kondenzátorem potlačuje vliv parazitní kapacity připojovacího kabelu na měřený průběh napětí, čímž rozšiřuje použitelné frekvenční pásmo měření."
     },
     {
-      "question": "Čemu odpovídá míra nejistoty typu A?",
-      "answers": [
-        "Výběrové směrodatné odchylce výběrového průměru",
-        "Geometrickému součtu nejistot jednotlivých zdrojů.",
-        "Hodnotě výběrového průměru z naměřených hodnot.",
-        "Hodnotě aritmetického průměru z naměřených hodnot."
-      ],
+      "question": "Jaké je náhradní schéma vstupní sondy osciloskopu?",
+      "answers": ["Paralelní spojení rezistoru a kondenzátoru", "Pouze rezistor", "Pouze kondenzátor", "Sériové spojení rezistoru a cívky", "Sériové spojení rezistoru a kondenzátoru"],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 5,
       "image_name": null,
-      "explanation": "Nejistota typu A se stanovuje statistickým zpracováním opakovaných měření a odpovídá výběrové směrodatné odchylce výběrového průměru (směrodatná odchylka dělená odmocninou z počtu měření)."
+      "explanation": "Vstupní sonda (podobně jako vstup samotného osciloskopu) se z hlediska náhradního schématu modeluje jako paralelní kombinace rezistoru (vstupní odpor) a kondenzátoru (vstupní/parazitní kapacita)."
     },
     {
-      "question": "Co je to třída přesnosti u analogového měřicího přístroje?",
-      "answers": [
-        "Maximální dovolená absolutní chyba měřicího přístroje vyjádřena v jednotkách měřené veličiny při dodržení referenčních podmínek.",
-        "Maximální dovolená poměrná chyba měřicího přístroje vyjádřena v % z největší hodnoty měřicího rozsahu při dodržení referenčních podmínek.",
-        "Je to součet mezní chyby z měřicího rozsahu a mezní chyby z měřené hodnoty.",
-        "Maximální dovolená relativní chyba měřicího přístroje vyjádřena v % při dodržení referenčních podmínek."
-      ],
-      "correct": 1,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Třída přesnosti analogového přístroje udává maximální dovolenou poměrnou (procentuální) chybu vztaženou k největší hodnotě měřicího rozsahu – nikoli k okamžité měřené hodnotě – a to při dodržení referenčních podmínek."
-    },
-    {
-      "question": "V případě, že je funkce neznámé veličiny dána součinem vstupních veličin, jaká je hodnota relativní chyby neznámé veličiny?",
-      "answers": [
-        "Výsledná relativní chyba neznámé veličiny je dána součtem relativních chyb jednotlivých vstupních veličin.",
-        "Výsledná relativní chyba neznámé veličiny je dána součtem absolutních chyb jednotlivých vstupních veličin.",
-        "Výsledná relativní chyba neznámé veličiny je dána součinem relativních chyb jednotlivých vstupních veličin.",
-        "Výsledná relativní chyba neznámé veličiny je dána rozdílem relativních chyb jednotlivých vstupních veličin."
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Je-li výsledná veličina součinem (nebo podílem) vstupních veličin, její relativní chyba je dána součtem relativních chyb jednotlivých vstupních veličin – vyplývá to z pravidel přenosu chyb při násobení/dělení."
-    },
-    {
-      "question": "V jakých jednotkách se uvádí relativní chyba měření?",
-      "answers": ["Ampér", "Je to bezrozměrné číslo nebo se vyjadřuje v procentech.", "Promile", "V jednotkách měřené fyzikální veličiny.", "Volt"],
+      "question": "Jakou hodnotu odporu má standardní vstup osciloskopu?",
+      "answers": ["100 MΩ", "1 MΩ", "100 Ω", "1 Ω", "1 kΩ"],
       "correct": 1,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Relativní chyba je poměr absolutní chyby k měřené (správné) hodnotě, je tedy bezrozměrná veličina – obvykle se vyjadřuje v procentech."
+      "explanation": "Standardní vstupní odpor osciloskopu je 1 MΩ (běžně paralelně s kapacitou řádově desítek pF)."
     },
     {
-      "question": "Mezi jaké chyby patří vypočtené chyby metody u nepřímého měření výkonu?",
-      "answers": ["Přímé", "Absolutní", "Statické", "Soustavné", "Náhodné", "Nepřímé", "Relativní"],
-      "correct": 3,
-      "answer_count": 7,
+      "question": "Jaké typy interpolace se používají pro zobrazení průběhu signálu u číslicových osciloskopů?",
+      "answers": ["Nelineární a exponenciální", "Lineární a kvadratická", "Lineární a exponenciální", "Lineární a nelineární", "Lineární a kosinusová", "Lineární a sinusová"],
+      "correct": 5,
+      "answer_count": 6,
       "image_name": null,
-      "explanation": "Chyby metody u nepřímého měření výkonu (např. vliv vnitřního odporu ampérmetru či voltmetru na výsledek) jsou systematické (soustavné) povahy – opakují se stejným způsobem a lze je částečně korigovat."
+      "explanation": "Číslicové osciloskopy dopočítávají průběh mezi jednotlivými vzorky buď lineární interpolací (spojení sousedních bodů úsečkami), nebo sinusovou (sin x/x) interpolací, která lépe rekonstruuje hladké harmonické signály."
     },
     {
-      "question": "Jaké je dělení chyb, které se projevují při opakovaných měřeních?",
-      "answers": [
-        "Chyba nastavení nuly a chyba nelinearity",
-        "Chyby absolutní a relativní",
-        "Chyba absolutní, relativní, chyba nelinearity a chyby náhodné",
-        "Chyba zaokrouhlování výsledku, chyba nastavení nuly, chyba zesílení",
-        "Chyby systematické a náhodné"
-      ],
+      "question": "Jak se vypočte hodnota fázového rozdílu ve stupních u přímého měření z časového průběhu, pokud jsou na osciloskopu zobrazeny průběhy signálu u1(t) a u2(t) s časovým posunem t0 a periodou T (viz obrázek)?",
+      "answers": ["úhel = (t0 / T) . 180", "úhel = (T / t0) . 360", "úhel = t0 / T", "úhel = (t0 / T) . 360"],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "mve_fazovy_rozdil.png",
+      "explanation": "Jedna celá perioda T odpovídá fázovému úhlu 360°. Časový posun t0 mezi odpovídajícími průchody obou signálů proto tvoří úhlový posun úhel = (t0 / T) × 360°."
+    },
+    {
+      "question": "Určete hodnotu doby náběžné hrany, když na obrazovce osciloskopu je v rastru zobrazen následující průběh. Na ose y jsou zobrazeny procenta z rozsahu signálu (viz obrázek).",
+      "answers": ["6 ms", "12 ms", "8 ms", "10 ms"],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "mve_nabezna_hrana.png",
+      "explanation": "Doba náběžné hrany se definuje jako čas potřebný k nárůstu signálu z 10 % na 90 % jeho ustálené hodnoty. Z grafu tento interval odpovídá 6 ms."
+    },
+    {
+      "question": "Pro jaké typy signálů lze použít srovnávací metodu měření kmitočtu pomocí osciloskopu?",
+      "answers": ["Pouze pro obdélníkový průběh signálu", "Pouze pro harmonické signály", "Pouze pro neharmonické signály", "Pouze pro stejnosměrné signály", "Pro harmonické i neharmonické signály"],
       "correct": 4,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Chyby, které se projevují při opakovaných měřeních téže veličiny, se dělí na systematické (soustavné, stále stejný směr a velikost) a náhodné (nepředvídatelně kolísají kolem střední hodnoty)."
+      "explanation": "Srovnávací metoda měření kmitočtu (porovnání s etalonovým signálem na druhém kanálu osciloskopu) je univerzální a lze ji použít jak pro harmonické, tak pro neharmonické periodické signály."
     },
     {
-      "question": "Jak je zakreslena korekční křivka v grafu?",
-      "answers": [
-        "Body odpovídající korekcím pro jednotlivé díly stupnice vykreslíme do grafu a nepropojujeme.",
-        "Korekční křivka se do grafu nevynáší, hodnoty odpovídající korekcím se zapisují pouze do tabulky.",
-        "Body odpovídající korekcím pro jednotlivé díly stupnice spojíme úsečkami.",
-        "Body odpovídající korekcím pro jednotlivé díly stupnice proložíme pomocí nelineární regrese.",
-        "Body odpovídající korekcím pro jednotlivé díly stupnice proložíme pomocí exponenciální regrese."
-      ],
+      "question": "Určete hodnotu doby sestupné hrany, když na obrazovce osciloskopu je v rastru zobrazen následující průběh. Na ose y jsou zobrazeny procenta z rozsahu signálu (viz obrázek).",
+      "answers": ["0,5 ms", "0,3 ms", "0,6 ms", "0,4 ms"],
       "correct": 2,
+      "answer_count": 4,
+      "image_name": "mve_sestupna_hrana.png",
+      "explanation": "Doba sestupné hrany se definuje jako čas potřebný k poklesu signálu z 90 % na 10 % jeho hodnoty. Z grafu tento interval odpovídá 0,6 ms."
+    },
+    {
+      "question": "Jaký průběh má obvykle kalibrační napětí osciloskopu?",
+      "answers": ["Obdélníkový průběh se zvlášť strmými hranami.", "Trojúhelníkový průběh", "Pilovitý průběh", "Obdélníkový průběh se zaoblenými hranami.", "Sinusový průběh"],
+      "correct": 0,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Korekční křivka se sestrojuje tak, že se jednotlivé body (korekce pro dané dílky stupnice) spojí přímými úsečkami (lomená čára), nikoliv vyhlazenou křivkou nebo regresí."
+      "explanation": "Kalibrační napětí osciloskopu má obvykle obdélníkový průběh se zvlášť strmými (rychlými) hranami – díky tomu lze snadno a přesně zkontrolovat/kompenzovat vstupní sondu a ověřit funkci vertikálního zesilovače."
     },
     {
-      "question": "Jak správně zapíšete, že byl naměřen proud 0,89 A s chybou 0,2 A?",
-      "answers": ["0,89 ± 0,2 A", "0,8 ± 0,2 A", "0,9 ± 0,2 A", "0,890 ± 0,200 A", "0,89 ± 0,20 A"],
-      "correct": 2,
-      "answer_count": 5,
-      "image_name": null,
-      "explanation": "Chyba měření se udává na jednu platnou číslici a naměřená hodnota se zaokrouhlí na stejný řád desetinného místa jako chyba. Chyba 0,2 A má přesnost na desetiny, proto se 0,89 A zaokrouhlí na 0,9 A → zápis 0,9 ± 0,2 A."
-    },
-    {
-      "question": "Analogový voltmetr měří hodnotu U = 10 V na rozsahu 100 V a jeho třída přesnosti je 1. Jaká je hodnota relativní chyby údaje tohoto analogového voltmetru?",
-      "answers": ["0,1 %", "10 %", "0,1 V", "1 %", "1 V"],
-      "correct": 1,
-      "answer_count": 5,
-      "image_name": null,
-      "explanation": "Absolutní chyba = třída přesnosti × rozsah / 100 = 1 % × 100 V = 1 V. Relativní chyba vzhledem k měřené hodnotě = 1 V / 10 V × 100 % = 10 %."
-    },
-    {
-      "question": "Stejnosměrné napětí 20 V je měřeno analogovým voltmetrem na rozsahu 25 V, který má třídu přesnosti 2. Jaké je hodnota relativní chyby údaje?",
-      "answers": ["2 V", "2,5 %", "4 %", "2,5 V", "2 %", "4 V"],
-      "correct": 1,
-      "answer_count": 6,
-      "image_name": null,
-      "explanation": "Absolutní chyba = 2 % × 25 V = 0,5 V. Relativní chyba vzhledem k naměřené hodnotě = 0,5 V / 20 V × 100 % = 2,5 %."
-    },
-    {
-      "question": "Jak správně zapíšete, že byl naměřen elektrický výkon 125,41 W s chybou 0,5 W?",
-      "answers": ["125,41 ± 0,50 W", "125,410 ± 0,500 W", "125,5 ± 0,5 W", "125,4 ± 0,5 W", "125,41 ± 0,5 W"],
-      "correct": 3,
-      "answer_count": 5,
-      "image_name": null,
-      "explanation": "Chyba 0,5 W se udává na desetiny, proto se i naměřená hodnota zaokrouhlí na stejný řád: 125,41 → 125,4. Zápis je tedy 125,4 ± 0,5 W."
-    },
-    {
-      "question": "Jak je definována absolutní chyba měření?",
-      "answers": ["ΔX = XM – XS", "ΔX = XS – XM", "ΔX = |XM – XS|"],
+      "question": "Jaká je typická hodnota výstupní impedance generátoru signálu?",
+      "answers": ["50 Ω", "0 Ω", "1 MΩ"],
       "correct": 0,
       "answer_count": 3,
       "image_name": null,
-      "explanation": "Absolutní chyba měření je definována jako rozdíl naměřené hodnoty XM a správné (skutečné) hodnoty XS: ΔX = XM − XS (může vyjít kladná i záporná)."
+      "explanation": "Laboratorní generátory signálu mají typickou výstupní impedanci 50 Ω – standardizovaná hodnota shodná s impedancí běžných vysokofrekvenčních koaxiálních kabelů a konektorů (např. BNC), díky čemuž je zajištěno impedanční přizpůsobení a minimalizovány odrazy signálu."
     },
     {
-      "question": "Co je to chyba měření?",
-      "answers": [
-        "Je to odchylka měřené hodnoty měřené veličiny XM od hodnoty získané linearizací z naměřených hodnot měřené veličiny XL.",
-        "Je to odchylka správné hodnoty měřené veličiny XS od měřené hodnoty měřené veličiny XM.",
-        "Je to odchylka měřené hodnoty měřené veličiny XM od správné hodnoty měřené veličiny XS.",
-        "Je to odchylka správné hodnoty měřené veličiny XS od hodnoty získané linearizací z naměřených hodnot měřené veličiny XL.",
-        "Je to odchylka hodnoty získané linearizací z naměřených hodnot měřené veličiny XL od měřené hodnoty měřené veličiny XM.",
-        "Je to odchylka hodnoty získané linearizací z naměřených hodnot měřené veličiny XL od správné hodnoty měřené veličiny XS."
-      ],
-      "correct": 2,
-      "answer_count": 6,
-      "image_name": null,
-      "explanation": "Chyba měření je definována jako odchylka (rozdíl) naměřené hodnoty měřené veličiny XM od její správné (skutečné) hodnoty XS."
+      "question": "O jaký typ kompenzace u sondy osciloskopu se jedná, když je při měření kalibračního obdélníkového signálu zachycen průběh se zaoblenou, klesající (podkmitávající) náběžnou hranou, jako na obrázku?",
+      "answers": ["Sonda je překompenzovaná.", "Sonda je nedokompenzovaná.", "Sonda je kompenzovaná."],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": "mve_sonda_nedokompenzovana.png",
+      "explanation": "Zaoblený, klesající (podkmitávající) tvar hrany obdélníkového kalibračního signálu znamená, že kompenzační kondenzátor sondy má příliš malou kapacitu — sonda je nedokompenzovaná. (Naopak překompenzovaná sonda by na hraně vykazovala překmit nad ustálenou úrovní.)"
     },
     {
-      "question": "Jak se určí kombinovaná nejistota?",
-      "answers": [
-        "Získá se jako rozdíl standardních nejistot typu A a typu B.",
-        "Získá se jako součin standardních nejistot typu A a typu B a koeficientu rozšíření.",
-        "Získá se geometrickým součtem standardních nejistot typu A a typu B.",
-        "Získá se jako součin standardních nejistot typu A a typu B.",
-        "Získá se aritmetickým součtem standardních nejistot typu A a typu B."
-      ],
-      "correct": 2,
+      "question": "Pro jaké typy signálů lze použít metodu měření kmitočtu pomocí Lissajousových obrazců?",
+      "answers": ["Pouze pro obdélníkový průběh signálu", "Pouze pro stejnosměrné signály", "Pro harmonické i neharmonické signály", "Pouze pro neharmonické signály", "Pouze pro harmonické signály"],
+      "correct": 4,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Kombinovaná standardní nejistota uc se stanoví jako geometrický součet (odmocnina součtu čtverců) standardních nejistot typu A a typu B: uc = √(uA² + uB²)."
+      "explanation": "Lissajousovy obrazce vznikají přivedením dvou harmonických (sinusových) signálů na osy X a Y osciloskopu. Metoda je založena na tvaru vznikající elipsy/křivky, a je proto použitelná pouze pro harmonické signály – na rozdíl od obecné srovnávací metody, kterou lze použít i pro neharmonické signály."
     },
     {
-      "question": "Jaké jsou zdroje nejistot typu B?",
+      "question": "Jakým způsobem je možné uvádět hodnotu střídy u obdélníkových signálů?",
       "answers": [
-        "Zdroje nejistot typu B jsou dány výrobcem a lze je najít v dokumentaci.",
-        "Zdroje nejistot typu B jsou různého původu, mohou to být například vlivy vázané na použité přístroje, vlivy okolního prostředí, vlivy metody, vlivy operátora, atd.",
-        "Zdroje nejistot typu B jsou dány rozptylem hodnot při opakovaném měření a jejich mírou je výběrová směrodatná odchylka výběrového průměru."
+        "Pouze jako hodnotu v procentech",
+        "Jako poměr kladné části délky pulzu k celkové délce periody nebo jako hodnotu v procentech.",
+        "Pouze jako poměr kladné části délky pulzu k celkové délce periody"
       ],
       "correct": 1,
       "answer_count": 3,
       "image_name": null,
-      "explanation": "Nejistoty typu B se nezískávají statistickým zpracováním opakovaných měření, ale z jiných zdrojů – údajů výrobce, kalibračních listů, vlivu prostředí, metody měření, zkušenosti operátora apod."
+      "explanation": "Střída (duty cycle) obdélníkového signálu lze uvádět buď jako bezrozměrný poměr kladné části pulzu k celkové periodě, nebo tentýž poměr vyjádřený v procentech – oba způsoby jsou rovnocenné a platné."
     },
     {
-      "question": "Jak je udávána základní chyba číslicového přístroje?",
-      "answers": [
-        "Jako součet dvou chyb - mezní chyby z měřené hodnoty a chyby z největší hodnoty měřicího rozsahu.",
-        "Je dána chybou z největší hodnoty měřicího rozsahu přístroje.",
-        "Je dána součtem chyby metody a maximální chyby měřeného údaje.",
-        "Je dána třídou přesnosti přístroje.",
-        "Je dána mezní chybou z měřené hodnoty, která je způsobená nedokonalým nastavením přístroje."
-      ],
-      "correct": 0,
+      "question": "Jaké jsou typy vzorkování u číslicových osciloskopů?",
+      "answers": ["V reálném čase a normální", "Periodické a sekvenční", "V reálném čase a periodické", "Periodické a normální", "Zpožděné a periodické"],
+      "correct": 2,
       "answer_count": 5,
       "image_name": null,
-      "explanation": "Základní chyba číslicového (digitálního) přístroje se udává jako součet dvou složek: mezní chyby vztažené k měřené hodnotě a mezní chyby vztažené k největší hodnotě rozsahu."
+      "explanation": "Číslicové osciloskopy využívají vzorkování v reálném čase (real-time, vhodné pro jednorázové/neopakující se děje) a periodické (ekvivalentní/sekvenční) vzorkování, při kterém se vzorky odebírají postupně z více period opakujícího se signálu a skládají do jednoho výsledného průběhu."
     }
   ]
 }

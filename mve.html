@@ -108,16 +108,18 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
         <div class="card-desc" id="t1Desc">otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B</div>
         <div class="arrow">→</div>
       </a>
-      <div class="card disabled" title="Připravujeme">
+      <a class="card" href="#" onclick="startTest('t2');return false;">
         <div class="card-tag">// Test 2</div>
-        <div class="card-name">Připravujeme</div>
-        <div class="card-desc">Další sada otázek bude brzy doplněna</div>
-      </div>
-      <div class="card disabled" title="Připravujeme">
+        <div class="card-name">Měření napětí — voltmetry</div>
+        <div class="card-desc" id="t2Desc">otázek — číslicové/analogové voltmetry, digity, A/D převodníky</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t3');return false;">
         <div class="card-tag">// Test 3</div>
-        <div class="card-name">Připravujeme</div>
-        <div class="card-desc">Další sada otázek bude brzy doplněna</div>
-      </div>
+        <div class="card-name">Osciloskopy</div>
+        <div class="card-desc" id="t3Desc">otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze</div>
+        <div class="arrow">→</div>
+      </a>
     </div>
   </div>
 
@@ -158,6 +160,479 @@ function toggleTheme(){
 // ── MVE test data ──────────────────────────────────────────────
 // Test 1 embedded directly so the page works from file:// too.
 const MVE_TESTS = {
+  t3: {
+  "subject": "MVE - Test 3: Osciloskopy",
+  "questions": [
+    {
+      "question": "K jakému účelu slouží dvojí časová základna u analogových osciloskopů?",
+      "answers": [
+        "K zobrazení dvou časových signálů v jednom časovém úseku",
+        "K detailnímu prohlížení zobrazovaného průběhu v čase",
+        "K zobrazení dvou časových signálů",
+        "Ke kompenzaci vstupní napěťové sondy"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Dvojí časová základna umožňuje zobrazit zároveň celý průběh signálu i jeho zvětšený detail (výřez) s jinou, rychlejší časovou základnou – slouží tedy k detailnímu prohlížení zobrazovaného průběhu v čase."
+    },
+    {
+      "question": "Určete kmitočet průběhu zobrazeného na osciloskopu s vertikální citlivostí 5 voltů na dílek a měřítkem časové základny po 0,2 milisekundy na dílek (viz obrázek).",
+      "answers": [
+        "25 Hz",
+        "1000 Hz",
+        "1 Hz",
+        "1 ms",
+        "100 Hz"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": "mve_osc_frekvence.png",
+      "explanation": "Jedna perioda průběhu odpovídá 5 dílkům časové základny, tedy T = 5 × 0,2 ms = 1 ms = 0,001 s. Kmitočet f = 1/T = 1/0,001 s = 1000 Hz."
+    },
+    {
+      "question": "V jakých jednotkách se vyjadřuje rychlost vzorkování A/D převodníku?",
+      "answers": [
+        "s/MS",
+        "MS/rok",
+        "MS/s (případně S/s)",
+        "MS/hod",
+        "V/s"
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Rychlost vzorkování A/D převodníku udává počet vzorků odebraných za sekundu, proto se vyjadřuje v S/s (samples per second), u rychlejších převodníků typicky v MS/s (megavzorky za sekundu)."
+    },
+    {
+      "question": "Jaké je dělení osciloskopů podle způsobu zpracování měřeného signálu?",
+      "answers": [
+        "S jednou a se dvojí časovou základnou.",
+        "Analogové a číslicové",
+        "Střídavé a stejnosměrné",
+        "Jednokanálové a dvoukanálové."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Podle způsobu zpracování měřeného signálu se osciloskopy dělí na analogové (signál zpracovávají a zobrazují spojitě) a číslicové (signál nejprve vzorkují a digitalizují A/D převodníkem, pak zpracovávají a zobrazují)."
+    },
+    {
+      "question": "Jaké jsou základní části číslicového osciloskopu?",
+      "answers": [
+        "Krystalem řízený oscilátor, dělič, bistabilní klopný obvod, čítač, paměť, zobrazovač",
+        "Zobrazovač, krystalem řízený oscilátor, paměť, A/D převodník",
+        "Zobrazovač, vstupní kanály, vstupní dělič, časová základna, předzesilovače",
+        "Zobrazovač, paměť, procesor, A/D převodník",
+        "Zobrazovač, čítač, časová základna, A/D převodník"
+      ],
+      "correct": 3,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Základní části číslicového osciloskopu jsou zobrazovač (displej), paměť (uchovává vzorkovaná data), procesor (řízení a zpracování) a A/D převodník (digitalizace vstupního analogového signálu)."
+    },
+    {
+      "question": "K čemu slouží pasivní vstupní sonda?",
+      "answers": [
+        "K zeslabení vstupního signálu 10×.",
+        "K zeslabení vstupního signálu a k potlačení vlivu parazitních kapacit na měřený průběh napětí.",
+        "K zesílení vstupního signálu 10×.",
+        "K zesílení vstupního signálu a k potlačení vlivu parazitních kapacit na měřený průběh napětí.",
+        "Ke zvýšení vstupního odporu osciloskopu.",
+        "K odstranění zašumění vstupního signálu."
+      ],
+      "correct": 1,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Pasivní sonda (nejčastěji v poměru 10:1) zeslabuje vstupní signál a zároveň svým sériovým odporem a kompenzačním kondenzátorem potlačuje vliv parazitní kapacity připojovacího kabelu na měřený průběh napětí, čímž rozšiřuje použitelné frekvenční pásmo měření."
+    },
+    {
+      "question": "Jaké je náhradní schéma vstupní sondy osciloskopu?",
+      "answers": [
+        "Paralelní spojení rezistoru a kondenzátoru",
+        "Pouze rezistor",
+        "Pouze kondenzátor",
+        "Sériové spojení rezistoru a cívky",
+        "Sériové spojení rezistoru a kondenzátoru"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Vstupní sonda (podobně jako vstup samotného osciloskopu) se z hlediska náhradního schématu modeluje jako paralelní kombinace rezistoru (vstupní odpor) a kondenzátoru (vstupní/parazitní kapacita)."
+    },
+    {
+      "question": "Jakou hodnotu odporu má standardní vstup osciloskopu?",
+      "answers": [
+        "100 MΩ",
+        "1 MΩ",
+        "100 Ω",
+        "1 Ω",
+        "1 kΩ"
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Standardní vstupní odpor osciloskopu je 1 MΩ (běžně paralelně s kapacitou řádově desítek pF)."
+    },
+    {
+      "question": "Jaké typy interpolace se používají pro zobrazení průběhu signálu u číslicových osciloskopů?",
+      "answers": [
+        "Nelineární a exponenciální",
+        "Lineární a kvadratická",
+        "Lineární a exponenciální",
+        "Lineární a nelineární",
+        "Lineární a kosinusová",
+        "Lineární a sinusová"
+      ],
+      "correct": 5,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Číslicové osciloskopy dopočítávají průběh mezi jednotlivými vzorky buď lineární interpolací (spojení sousedních bodů úsečkami), nebo sinusovou (sin x/x) interpolací, která lépe rekonstruuje hladké harmonické signály."
+    },
+    {
+      "question": "Jak se vypočte hodnota fázového rozdílu ve stupních u přímého měření z časového průběhu, pokud jsou na osciloskopu zobrazeny průběhy signálu u1(t) a u2(t) s časovým posunem t0 a periodou T (viz obrázek)?",
+      "answers": [
+        "úhel = (t0 / T) . 180",
+        "úhel = (T / t0) . 360",
+        "úhel = t0 / T",
+        "úhel = (t0 / T) . 360"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "mve_fazovy_rozdil.png",
+      "explanation": "Jedna celá perioda T odpovídá fázovému úhlu 360°. Časový posun t0 mezi odpovídajícími průchody obou signálů proto tvoří úhlový posun úhel = (t0 / T) × 360°."
+    },
+    {
+      "question": "Určete hodnotu doby náběžné hrany, když na obrazovce osciloskopu je v rastru zobrazen následující průběh. Na ose y jsou zobrazeny procenta z rozsahu signálu (viz obrázek).",
+      "answers": [
+        "6 ms",
+        "12 ms",
+        "8 ms",
+        "10 ms"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": "mve_nabezna_hrana.png",
+      "explanation": "Doba náběžné hrany se definuje jako čas potřebný k nárůstu signálu z 10 % na 90 % jeho ustálené hodnoty. Z grafu tento interval odpovídá 6 ms."
+    },
+    {
+      "question": "Pro jaké typy signálů lze použít srovnávací metodu měření kmitočtu pomocí osciloskopu?",
+      "answers": [
+        "Pouze pro obdélníkový průběh signálu",
+        "Pouze pro harmonické signály",
+        "Pouze pro neharmonické signály",
+        "Pouze pro stejnosměrné signály",
+        "Pro harmonické i neharmonické signály"
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Srovnávací metoda měření kmitočtu (porovnání s etalonovým signálem na druhém kanálu osciloskopu) je univerzální a lze ji použít jak pro harmonické, tak pro neharmonické periodické signály."
+    },
+    {
+      "question": "Určete hodnotu doby sestupné hrany, když na obrazovce osciloskopu je v rastru zobrazen následující průběh. Na ose y jsou zobrazeny procenta z rozsahu signálu (viz obrázek).",
+      "answers": [
+        "0,5 ms",
+        "0,3 ms",
+        "0,6 ms",
+        "0,4 ms"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": "mve_sestupna_hrana.png",
+      "explanation": "Doba sestupné hrany se definuje jako čas potřebný k poklesu signálu z 90 % na 10 % jeho hodnoty. Z grafu tento interval odpovídá 0,6 ms."
+    },
+    {
+      "question": "Jaký průběh má obvykle kalibrační napětí osciloskopu?",
+      "answers": [
+        "Obdélníkový průběh se zvlášť strmými hranami.",
+        "Trojúhelníkový průběh",
+        "Pilovitý průběh",
+        "Obdélníkový průběh se zaoblenými hranami.",
+        "Sinusový průběh"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Kalibrační napětí osciloskopu má obvykle obdélníkový průběh se zvlášť strmými (rychlými) hranami – díky tomu lze snadno a přesně zkontrolovat/kompenzovat vstupní sondu a ověřit funkci vertikálního zesilovače."
+    },
+    {
+      "question": "Jaká je typická hodnota výstupní impedance generátoru signálu?",
+      "answers": [
+        "50 Ω",
+        "0 Ω",
+        "1 MΩ"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Laboratorní generátory signálu mají typickou výstupní impedanci 50 Ω – standardizovaná hodnota shodná s impedancí běžných vysokofrekvenčních koaxiálních kabelů a konektorů (např. BNC), díky čemuž je zajištěno impedanční přizpůsobení a minimalizovány odrazy signálu."
+    },
+    {
+      "question": "O jaký typ kompenzace u sondy osciloskopu se jedná, když je při měření kalibračního obdélníkového signálu zachycen průběh se zaoblenou, klesající (podkmitávající) náběžnou hranou, jako na obrázku?",
+      "answers": [
+        "Sonda je překompenzovaná.",
+        "Sonda je nedokompenzovaná.",
+        "Sonda je kompenzovaná."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": "mve_sonda_nedokompenzovana.png",
+      "explanation": "Zaoblený, klesající (podkmitávající) tvar hrany obdélníkového kalibračního signálu znamená, že kompenzační kondenzátor sondy má příliš malou kapacitu — sonda je nedokompenzovaná. (Naopak překompenzovaná sonda by na hraně vykazovala překmit nad ustálenou úrovní.)"
+    },
+    {
+      "question": "Pro jaké typy signálů lze použít metodu měření kmitočtu pomocí Lissajousových obrazců?",
+      "answers": [
+        "Pouze pro obdélníkový průběh signálu",
+        "Pouze pro stejnosměrné signály",
+        "Pro harmonické i neharmonické signály",
+        "Pouze pro neharmonické signály",
+        "Pouze pro harmonické signály"
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Lissajousovy obrazce vznikají přivedením dvou harmonických (sinusových) signálů na osy X a Y osciloskopu. Metoda je založena na tvaru vznikající elipsy/křivky, a je proto použitelná pouze pro harmonické signály – na rozdíl od obecné srovnávací metody, kterou lze použít i pro neharmonické signály."
+    },
+    {
+      "question": "Jakým způsobem je možné uvádět hodnotu střídy u obdélníkových signálů?",
+      "answers": [
+        "Pouze jako hodnotu v procentech",
+        "Jako poměr kladné části délky pulzu k celkové délce periody nebo jako hodnotu v procentech.",
+        "Pouze jako poměr kladné části délky pulzu k celkové délce periody"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Střída (duty cycle) obdélníkového signálu lze uvádět buď jako bezrozměrný poměr kladné části pulzu k celkové periodě, nebo tentýž poměr vyjádřený v procentech – oba způsoby jsou rovnocenné a platné."
+    },
+    {
+      "question": "Jaké jsou typy vzorkování u číslicových osciloskopů?",
+      "answers": [
+        "V reálném čase a normální",
+        "Periodické a sekvenční",
+        "V reálném čase a periodické",
+        "Periodické a normální",
+        "Zpožděné a periodické"
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Číslicové osciloskopy využívají vzorkování v reálném čase (real-time, vhodné pro jednorázové/neopakující se děje) a periodické (ekvivalentní/sekvenční) vzorkování, při kterém se vzorky odebírají postupně z více period opakujícího se signálu a skládají do jednoho výsledného průběhu."
+    }
+  ]
+},
+  t2: {
+  "subject": "MVE - Test 2: Měření napětí – číslicové a analogové voltmetry",
+  "questions": [
+    {
+      "question": "Stejnosměrné napětí 20 V je měřeno číslicovým voltmetrem s rozlišením 3 1/2 digitů. Přístroj má přesnost ±0,6 % +1 digit na rozsahu 200 V. Jaká je relativní chyba údaje tohoto přístroje?",
+      "answers": [
+        "1,1 %",
+        "0,13 %",
+        "0,13 V",
+        "1,1 V",
+        "1,2 %"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Na rozsahu 200 V s rozlišením 3 1/2 digitu odpovídá 1 digit hodnotě 0,1 V (200 V / 1999). Absolutní chyba = 0,6 % z 20 V + 1 digit = 0,12 V + 0,1 V = 0,22 V. Relativní chyba vzhledem k měřené hodnotě = 0,22 V / 20 V × 100 % = 1,1 %."
+    },
+    {
+      "question": "V jakých jednotkách se udává činitel potlačení sériového rušení?",
+      "answers": [
+        "bez jednotky",
+        "V",
+        "%",
+        "VA",
+        "dB",
+        "A"
+      ],
+      "correct": 4,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Činitel potlačení sériového (normálního) rušení SMRR vyjadřuje útlum nežádoucího rušivého signálu v logaritmické míře, proto se udává v decibelech (dB)."
+    },
+    {
+      "question": "Co znamená označení „trueRMS“?",
+      "answers": [
+        "Je měřena správně efektivní hodnota šumu.",
+        "Je měřena správně efektivní hodnota pouze neharmonických signálů.",
+        "Je měřena správně efektivní hodnota harmonických i neharmonických periodických signálů.",
+        "Je měřena správně efektivní hodnota pouze harmonických signálů.",
+        "Je měřena správně efektivní hodnota pouze harmonických periodických signálů."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Přístroj s označením trueRMS (skutečná efektivní hodnota) měří správně efektivní hodnotu libovolného periodického signálu – harmonického i neharmonického – na rozdíl od běžných přístrojů kalibrovaných pouze pro čistě sinusový průběh."
+    },
+    {
+      "question": "Jaká je absolutní chyba číslicového měřicího přístroje při měření napětí 5 V (zobrazena hodnota 5,000 V) na rozsahu 10 V, pokud výrobce uvádí chybu měřicího přístroje: +/- (0,2 % ze čtené hodnoty + 1 digit)?",
+      "answers": [
+        "0,021 V",
+        "0,01 V",
+        "0,011 V",
+        "0,02 %",
+        "0,02 V"
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Zobrazená hodnota 5,000 V má rozlišení na 3 desetinná místa, tedy 1 digit = 0,001 V. Chyba = 0,2 % × 5 V + 1 digit = 0,01 V + 0,001 V = 0,011 V."
+    },
+    {
+      "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 3 3/4?",
+      "answers": [
+        "300.75",
+        "1999",
+        "999.75",
+        "375",
+        "3999",
+        "3750",
+        "3340"
+      ],
+      "correct": 4,
+      "answer_count": 7,
+      "image_name": null,
+      "explanation": "Počet zobrazovaných míst 3 3/4 znamená, že nejvýznamnější místo může nabývat hodnot 0 až 3 a zbylá tři místa 0 až 9. Maximální zobrazitelný údaj je proto 3999."
+    },
+    {
+      "question": "Jak je definována třída přesnosti u analogového přístroje?",
+      "answers": [
+        "U analogových měřicích přístrojů se třída přesnosti neudává. Používá se pouze u číslicových měřicích přístrojů.",
+        "Třída přesnosti je dána součtem dvou složek a to chyby z měřené hodnoty a chyby z rozsahu. Je udávána v %.",
+        "Reprezentuje přesnost měření digitálního měřicích přístroje a představuje největší možnou chybu údaje přístroje.",
+        "Třída přesnosti je definována jako maximální dovolená poměrná chyba měřicího přístroje vyjádřená v % z největší hodnoty měřicího rozsahu při dodržení referenčních podmínek. Je udávána v hodnotě z definované řady tříd přesnosti."
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Třída přesnosti analogového přístroje je maximální dovolená poměrná (procentuální) chyba vztažená k největší hodnotě rozsahu při dodržení referenčních podmínek a nabývá pouze hodnot z předepsané řady tříd přesnosti (např. 0,1; 0,2; 0,5; 1; 1,5; 2,5; 5)."
+    },
+    {
+      "question": "Jakými způsoby je možné zjistit hodnotu vstupního odporu stejnosměrného elektrického voltmetru?",
+      "answers": [
+        "Hodnotu vstupního odporu stejnosměrného elektrického voltmetru nelze zjistit. Je možné ji pouze odečíst z dokumentace.",
+        "Ohmovou metodou.",
+        "Výpočtem z hodnot napěťového děliče při známé hodnotě předřadného odporu nebo metodou polovičního napětí.",
+        "Pomocí Thomsnova můstku nebo metodou tří napětí."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Vstupní odpor stejnosměrného voltmetru lze určit výpočtem z napěťového děliče se známým předřadným odporem, nebo metodou polovičního napětí – nastaví-li se odporová dekáda tak, že voltmetr ukazuje polovinu napájecího napětí, je jeho vstupní odpor roven odporu dekády."
+    },
+    {
+      "question": "Pro měření vstupního odporu voltmetru byla použita metoda polovičního napětí. Jaká je hodnota vstupního odporu voltmetru, když odpor odporové dekády byl nastaven na hodnotu 1 MΩ a při napájecím napětí 10 V zobrazoval voltmetr hodnotu napětí 5 V?",
+      "answers": [
+        "2 MΩ",
+        "1 MΩ",
+        "0,5 MΩ",
+        "10 MΩ"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Voltmetr ukazuje přesně polovinu napájecího napětí (5 V z 10 V), což je podmínka metody polovičního napětí – vstupní odpor voltmetru se v tomto okamžiku rovná nastavenému odporu dekády, tedy 1 MΩ."
+    },
+    {
+      "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 3 1/2?",
+      "answers": [
+        "1999",
+        "199",
+        "300.5",
+        "999",
+        "399"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Počet zobrazovaných míst 3 1/2 znamená, že nejvýznamnější místo zobrazuje pouze 0 nebo 1 a zbylá tři místa 0 až 9. Maximální zobrazitelný údaj je proto 1999."
+    },
+    {
+      "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 4 1/2?",
+      "answers": [
+        "4150",
+        "19999",
+        "4500",
+        "4000,5",
+        "39999",
+        "49999",
+        "99999,5"
+      ],
+      "correct": 1,
+      "answer_count": 7,
+      "image_name": null,
+      "explanation": "Počet zobrazovaných míst 4 1/2 znamená, že nejvýznamnější místo zobrazuje pouze 0 nebo 1 a zbylá čtyři místa 0 až 9. Maximální zobrazitelný údaj je proto 19999."
+    },
+    {
+      "question": "Jak se měří elektrický proud protékající testovaným zařízením pomocí ampérmetru nebo digitálního multimetru umožňujícího měření proudu?",
+      "answers": [
+        "Ampérmetr se připojí k testovanému zařízení a ke kladnému pólu napájecího napětí.",
+        "Ampérmetr se připojí k testovanému zařízení a k zemi.",
+        "Ampérmetr se připojí k testovanému zařízení sériově.",
+        "Ampérmetr se připojí k testovanému zařízení paralelně."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Ampérmetr se do obvodu vždy zapojuje sériově, aby jím protékal stejný proud jako testovaným zařízením. Paralelní zapojení (typické pro voltmetr) by u ampérmetru s jeho nízkým vnitřním odporem vedlo ke zkratu."
+    },
+    {
+      "question": "Z jakých složek se skládá základní chyba číslicového měřicího přístroje?",
+      "answers": [
+        "Je dána rozdílem dvou složek a to chyby z měřené hodnoty a chyby z rozsahu.",
+        "Je dána součtem dvou složek a to chyby z měřené hodnoty a chyby z rozsahu.",
+        "Je dána pouze absolutní chybou údaje číslicového měřicího přístroje.",
+        "Je dána chybou z měřené hodnoty, chybou z rozsahu a třídou přesnosti."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základní chyba číslicového přístroje je součtem dvou složek: chyby vztažené k měřené (čtené) hodnotě a chyby vztažené k rozsahu přístroje (často vyjádřené i jako počet digitů)."
+    },
+    {
+      "question": "Jaká je absolutní chyba číslicového měřicího přístroje při měření napětí 5 V na rozsahu 10 V, pokud výrobce uvádí chybu měřicího přístroje: +/- (0,20 % ze čtené hodnoty + 0,05 % z rozsahu)?",
+      "answers": [
+        "0,015 V",
+        "0,005 V",
+        "0,25 %",
+        "0,01 V"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Chyba ze čtené hodnoty = 0,20 % × 5 V = 0,01 V. Chyba z rozsahu = 0,05 % × 10 V = 0,005 V. Celková absolutní chyba je jejich součet: 0,01 V + 0,005 V = 0,015 V."
+    },
+    {
+      "question": "Jaká je chyba z rozsahu při měření hodnoty 5 V na rozsahu 10 V, pokud výrobce udává chybu číslicového přístroje: +/- (0,20 % ze čtené hodnoty + 0,05 % z rozsahu)?",
+      "answers": [
+        "0,005 V",
+        "0,015 V",
+        "0,01 V"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Chyba z rozsahu je pouze ta složka chyby, která je vztažená k rozsahu přístroje: 0,05 % × 10 V = 0,005 V. (Druhá složka, chyba ze čtené hodnoty, by byla 0,20 % × 5 V = 0,01 V; jejich součet 0,015 V je celková absolutní chyba.)"
+    },
+    {
+      "question": "Jaké A/D převodníky se nejčastěji používají u digitálních voltmetrů?",
+      "answers": [
+        "S dvojí nebo trojí integrací nebo kompenzační převodníky s postupnou integrací",
+        "Derivační",
+        "Sigma-delta převodník",
+        "S dvojí nebo trojí derivací"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Digitální voltmetry nejčastěji využívají integrující A/D převodníky (s dvojí nebo trojí integrací) nebo kompenzační převodníky s postupnou integrací – tyto principy dobře potlačují vliv rušení a šumu a poskytují vysokou přesnost měření."
+    }
+  ]
+},
   t1: {
   "subject": "MVE - Test 1: Chyby a nejistoty měření",
   "questions": [
@@ -456,6 +931,10 @@ const MVE_TESTS = {
 
 document.getElementById('t1Desc').textContent =
   MVE_TESTS.t1.questions.length + ' otázek — přímé/nepřímé měření, třída přesnosti, nejistoty typu A/B';
+document.getElementById('t2Desc').textContent =
+  MVE_TESTS.t2.questions.length + ' otázek — číslicové/analogové voltmetry, digity, A/D převodníky';
+document.getElementById('t3Desc').textContent =
+  MVE_TESTS.t3.questions.length + ' otázek — analogové/číslicové osciloskopy, sondy, měření kmitočtu a fáze';
 
 function startTest(id){
   const data = MVE_TESTS[id];

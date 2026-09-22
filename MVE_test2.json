@@ -1,0 +1,156 @@
+{
+  "subject": "MVE - Test 2: Měření napětí – číslicové a analogové voltmetry",
+  "questions": [
+    {
+      "question": "Stejnosměrné napětí 20 V je měřeno číslicovým voltmetrem s rozlišením 3 1/2 digitů. Přístroj má přesnost ±0,6 % +1 digit na rozsahu 200 V. Jaká je relativní chyba údaje tohoto přístroje?",
+      "answers": ["1,1 %", "0,13 %", "0,13 V", "1,1 V", "1,2 %"],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Na rozsahu 200 V s rozlišením 3 1/2 digitu odpovídá 1 digit hodnotě 0,1 V (200 V / 1999). Absolutní chyba = 0,6 % z 20 V + 1 digit = 0,12 V + 0,1 V = 0,22 V. Relativní chyba vzhledem k měřené hodnotě = 0,22 V / 20 V × 100 % = 1,1 %."
+    },
+    {
+      "question": "V jakých jednotkách se udává činitel potlačení sériového rušení?",
+      "answers": ["bez jednotky", "V", "%", "VA", "dB", "A"],
+      "correct": 4,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Činitel potlačení sériového (normálního) rušení SMRR vyjadřuje útlum nežádoucího rušivého signálu v logaritmické míře, proto se udává v decibelech (dB)."
+    },
+    {
+      "question": "Co znamená označení „trueRMS“?",
+      "answers": [
+        "Je měřena správně efektivní hodnota šumu.",
+        "Je měřena správně efektivní hodnota pouze neharmonických signálů.",
+        "Je měřena správně efektivní hodnota harmonických i neharmonických periodických signálů.",
+        "Je měřena správně efektivní hodnota pouze harmonických signálů.",
+        "Je měřena správně efektivní hodnota pouze harmonických periodických signálů."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Přístroj s označením trueRMS (skutečná efektivní hodnota) měří správně efektivní hodnotu libovolného periodického signálu – harmonického i neharmonického – na rozdíl od běžných přístrojů kalibrovaných pouze pro čistě sinusový průběh."
+    },
+    {
+      "question": "Jaká je absolutní chyba číslicového měřicího přístroje při měření napětí 5 V (zobrazena hodnota 5,000 V) na rozsahu 10 V, pokud výrobce uvádí chybu měřicího přístroje: +/- (0,2 % ze čtené hodnoty + 1 digit)?",
+      "answers": ["0,021 V", "0,01 V", "0,011 V", "0,02 %", "0,02 V"],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Zobrazená hodnota 5,000 V má rozlišení na 3 desetinná místa, tedy 1 digit = 0,001 V. Chyba = 0,2 % × 5 V + 1 digit = 0,01 V + 0,001 V = 0,011 V."
+    },
+    {
+      "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 3 3/4?",
+      "answers": ["300.75", "1999", "999.75", "375", "3999", "3750", "3340"],
+      "correct": 4,
+      "answer_count": 7,
+      "image_name": null,
+      "explanation": "Počet zobrazovaných míst 3 3/4 znamená, že nejvýznamnější místo může nabývat hodnot 0 až 3 a zbylá tři místa 0 až 9. Maximální zobrazitelný údaj je proto 3999."
+    },
+    {
+      "question": "Jak je definována třída přesnosti u analogového přístroje?",
+      "answers": [
+        "U analogových měřicích přístrojů se třída přesnosti neudává. Používá se pouze u číslicových měřicích přístrojů.",
+        "Třída přesnosti je dána součtem dvou složek a to chyby z měřené hodnoty a chyby z rozsahu. Je udávána v %.",
+        "Reprezentuje přesnost měření digitálního měřicích přístroje a představuje největší možnou chybu údaje přístroje.",
+        "Třída přesnosti je definována jako maximální dovolená poměrná chyba měřicího přístroje vyjádřená v % z největší hodnoty měřicího rozsahu při dodržení referenčních podmínek. Je udávána v hodnotě z definované řady tříd přesnosti."
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Třída přesnosti analogového přístroje je maximální dovolená poměrná (procentuální) chyba vztažená k největší hodnotě rozsahu při dodržení referenčních podmínek a nabývá pouze hodnot z předepsané řady tříd přesnosti (např. 0,1; 0,2; 0,5; 1; 1,5; 2,5; 5)."
+    },
+    {
+      "question": "Jakými způsoby je možné zjistit hodnotu vstupního odporu stejnosměrného elektrického voltmetru?",
+      "answers": [
+        "Hodnotu vstupního odporu stejnosměrného elektrického voltmetru nelze zjistit. Je možné ji pouze odečíst z dokumentace.",
+        "Ohmovou metodou.",
+        "Výpočtem z hodnot napěťového děliče při známé hodnotě předřadného odporu nebo metodou polovičního napětí.",
+        "Pomocí Thomsnova můstku nebo metodou tří napětí."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Vstupní odpor stejnosměrného voltmetru lze určit výpočtem z napěťového děliče se známým předřadným odporem, nebo metodou polovičního napětí – nastaví-li se odporová dekáda tak, že voltmetr ukazuje polovinu napájecího napětí, je jeho vstupní odpor roven odporu dekády."
+    },
+    {
+      "question": "Pro měření vstupního odporu voltmetru byla použita metoda polovičního napětí. Jaká je hodnota vstupního odporu voltmetru, když odpor odporové dekády byl nastaven na hodnotu 1 MΩ a při napájecím napětí 10 V zobrazoval voltmetr hodnotu napětí 5 V?",
+      "answers": ["2 MΩ", "1 MΩ", "0,5 MΩ", "10 MΩ"],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Voltmetr ukazuje přesně polovinu napájecího napětí (5 V z 10 V), což je podmínka metody polovičního napětí – vstupní odpor voltmetru se v tomto okamžiku rovná nastavenému odporu dekády, tedy 1 MΩ."
+    },
+    {
+      "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 3 1/2?",
+      "answers": ["1999", "199", "300.5", "999", "399"],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Počet zobrazovaných míst 3 1/2 znamená, že nejvýznamnější místo zobrazuje pouze 0 nebo 1 a zbylá tři místa 0 až 9. Maximální zobrazitelný údaj je proto 1999."
+    },
+    {
+      "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 4 1/2?",
+      "answers": ["4150", "19999", "4500", "4000,5", "39999", "49999", "99999,5"],
+      "correct": 1,
+      "answer_count": 7,
+      "image_name": null,
+      "explanation": "Počet zobrazovaných míst 4 1/2 znamená, že nejvýznamnější místo zobrazuje pouze 0 nebo 1 a zbylá čtyři místa 0 až 9. Maximální zobrazitelný údaj je proto 19999."
+    },
+    {
+      "question": "Jak se měří elektrický proud protékající testovaným zařízením pomocí ampérmetru nebo digitálního multimetru umožňujícího měření proudu?",
+      "answers": [
+        "Ampérmetr se připojí k testovanému zařízení a ke kladnému pólu napájecího napětí.",
+        "Ampérmetr se připojí k testovanému zařízení a k zemi.",
+        "Ampérmetr se připojí k testovanému zařízení sériově.",
+        "Ampérmetr se připojí k testovanému zařízení paralelně."
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Ampérmetr se do obvodu vždy zapojuje sériově, aby jím protékal stejný proud jako testovaným zařízením. Paralelní zapojení (typické pro voltmetr) by u ampérmetru s jeho nízkým vnitřním odporem vedlo ke zkratu."
+    },
+    {
+      "question": "Z jakých složek se skládá základní chyba číslicového měřicího přístroje?",
+      "answers": [
+        "Je dána rozdílem dvou složek a to chyby z měřené hodnoty a chyby z rozsahu.",
+        "Je dána součtem dvou složek a to chyby z měřené hodnoty a chyby z rozsahu.",
+        "Je dána pouze absolutní chybou údaje číslicového měřicího přístroje.",
+        "Je dána chybou z měřené hodnoty, chybou z rozsahu a třídou přesnosti."
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Základní chyba číslicového přístroje je součtem dvou složek: chyby vztažené k měřené (čtené) hodnotě a chyby vztažené k rozsahu přístroje (často vyjádřené i jako počet digitů)."
+    },
+    {
+      "question": "Jaká je absolutní chyba číslicového měřicího přístroje při měření napětí 5 V na rozsahu 10 V, pokud výrobce uvádí chybu měřicího přístroje: +/- (0,20 % ze čtené hodnoty + 0,05 % z rozsahu)?",
+      "answers": ["0,015 V", "0,005 V", "0,25 %", "0,01 V"],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Chyba ze čtené hodnoty = 0,20 % × 5 V = 0,01 V. Chyba z rozsahu = 0,05 % × 10 V = 0,005 V. Celková absolutní chyba je jejich součet: 0,01 V + 0,005 V = 0,015 V."
+    },
+    {
+      "question": "Jaká je chyba z rozsahu při měření hodnoty 5 V na rozsahu 10 V, pokud výrobce udává chybu číslicového přístroje: +/- (0,20 % ze čtené hodnoty + 0,05 % z rozsahu)?",
+      "answers": ["0,005 V", "0,015 V", "0,01 V"],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Chyba z rozsahu je pouze ta složka chyby, která je vztažená k rozsahu přístroje: 0,05 % × 10 V = 0,005 V. (Druhá složka, chyba ze čtené hodnoty, by byla 0,20 % × 5 V = 0,01 V; jejich součet 0,015 V je celková absolutní chyba.)"
+    },
+    {
+      "question": "Jaké A/D převodníky se nejčastěji používají u digitálních voltmetrů?",
+      "answers": [
+        "S dvojí nebo trojí integrací nebo kompenzační převodníky s postupnou integrací",
+        "Derivační",
+        "Sigma-delta převodník",
+        "S dvojí nebo trojí derivací"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Digitální voltmetry nejčastěji využívají integrující A/D převodníky (s dvojí nebo trojí integrací) nebo kompenzační převodníky s postupnou integrací – tyto principy dobře potlačují vliv rušení a šumu a poskytují vysokou přesnost měření."
+    }
+  ]
+}
