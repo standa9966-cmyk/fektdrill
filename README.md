@@ -36,7 +36,7 @@ Nemusíš umět Git ani mít nainstalované žádné nástroje — stačí prohl
 5. GitHub automaticky vytvoří kopii (fork) a návrh změny (pull request) za tebe — nemusíš nic dalšího nastavovat.
 6. Návrh se odešle majiteli repa ke schválení. Po zkontrolování se změna promítne na web.
 
-**Přidání celého nového testu:** stejným postupem vytvoř nový `.html` soubor podle formátu níže (tlačítko "Add file" → "Create new file"), a přidej odkaz na kartu do `index.html`.
+**Přidání celého nového testu:** stejným postupem vytvoř nový `.html` soubor (tlačítko "Add file" → "Create new file"), zkopíruj formát z jiného souboru (např. bpc-kom), a jen uprav název souboru / testu a otázky. Nakonec přidej odkaz na kartu do `index.html`.
 
 **Pokud ani tohle nechceš řešit:** nahraj `.json` přímo na webu (upload na hlavní stránce, zůstane jen u tebe v prohlížeči), nebo pošli podklady (screenshoty, word dokumet) k ručnímu zpracování.
 
