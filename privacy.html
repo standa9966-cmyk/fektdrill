@@ -3,16 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Zásady ochrany soukromí webu TechQuizz.com">
+<title>Ochrana soukromí — TechQuizz</title>
 <link rel="icon" href="techtestzone.jpg">
-<script>
-if (window.location.protocol !== 'file:') {
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
-  s.crossOrigin = 'anonymous';
-  document.head.appendChild(s);
-}
-</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechQuizz">
+<meta property="og:title" content="Ochrana soukromí — TechQuizz">
+<meta property="og:description" content="Zásady ochrany soukromí webu TechQuizz.com">
+<meta property="og:url" content="https://techquizz.com/privacy.html">
+<meta property="og:image" content="https://techquizz.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TechQuizz – online testy a procvičování">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<script src="common.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -66,8 +71,6 @@ a.inline{color:var(--accent);}
 </style>
 </head>
 <body>
-<meta name="description" content="Zásady ochrany soukromí webu TechQuizz.com">
-<title>Ochrana soukromí — TechQuizz — TechQuizz</title>
 <div class="top-panel">
   <span class="top-panel-text">🔗 Také nás zajímá:</span>
   <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
@@ -126,27 +129,5 @@ a.inline{color:var(--accent);}
     </div>
   </div>
 </footer>
-<script>
-(function(){
-  var t=localStorage.getItem('ql-theme')||'light';
-  document.documentElement.setAttribute('data-theme',t);
-  var b=document.getElementById('themeBtn');
-  if(b)b.textContent=t==='dark'?'☀️':'🌙';
-})();
-function toggleTheme(){
-  var c=document.documentElement.getAttribute('data-theme')||'light';
-  var n=c==='dark'?'light':'dark';
-  document.documentElement.setAttribute('data-theme',n);
-  var b=document.getElementById('themeBtn');
-  if(b)b.textContent=n==='dark'?'☀️':'🌙';
-  localStorage.setItem('ql-theme',n);
-}
-document.addEventListener('contextmenu',e=>e.preventDefault());
-document.addEventListener('keydown',e=>{
-  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
-  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
-  if(e.key==='F12'){e.preventDefault();return false;}
-});
-</script>
 </body>
 </html>
