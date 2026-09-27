@@ -36,13 +36,13 @@ body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calib
 .top-right-theme{position:fixed;top:46px;right:16px;z-index:99;}
 .theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
 .theme-btn:hover{border-color:var(--accent);color:var(--accent);}
-.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
+.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;padding:0 180px;}
 .ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
 .ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
 .ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
 .adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
-.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
-@media(max-width:960px){.ad-col{display:none;}}
+.main-col{flex:1;width:100%;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+@media(max-width:960px){.page-outer{padding:0 14px;}.ad-col{display:none;}}
 .home-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
 h1{font-size:clamp(48px,7vw,88px);font-weight:900;line-height:.95;letter-spacing:-2px;text-align:center;margin-bottom:10px;}
 h1 span{color:var(--accent);}
@@ -113,12 +113,6 @@ h1 span{color:var(--accent);}
 </div>
 
 <div class="page-outer">
-  <aside class="ad-col left">
-    <span class="ad-label">Ad</span>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
-    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
-  </aside>
-
   <div class="main-col">
     <div class="home-logo" data-i18n="logo">TechQuizz</div>
     <h1>Tech<span>Quizz</span></h1>
@@ -248,11 +242,6 @@ h1 span{color:var(--accent);}
     </div>
   </div>
 
-  <aside class="ad-col right">
-    <span class="ad-label">Ad</span>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
-    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
-  </aside>
 </div>
 
 <footer class="site-footer">

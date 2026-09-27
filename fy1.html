@@ -6,72 +6,9 @@
 <meta name="description" content="TechQuizz — BPC-FY1 online testy a procvičování otázek zdarma">
 <title>BPC-FY1 — TechQuizz</title>
 <link rel="icon" href="techtestzone.jpg">
-<script>
-if (window.location.protocol !== 'file:') {
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1943080999913414';
-  s.crossOrigin = 'anonymous';
-  document.head.appendChild(s);
-}
-</script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#f5f5f3;--surface:#fff;--surface2:#f0f0ee;--border:#e0dedd;
-  --accent:#0f6cbd;--accent-h:#115ea3;--text:#1a1a1a;--muted:#616161;--subtle:#8a8a8a;
-  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--r:10px;
-}
-[data-theme="dark"]{
-  --bg:#0b0c0f;--surface:#13151a;--surface2:#1c1f28;--border:#2a2d38;
-  --accent:#5b8cff;--accent-h:#7aa5ff;--text:#e8eaf0;--muted:#a0a4b0;--subtle:#6b7080;
-  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
-}
-body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
-.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
-.top-panel a{color:#fff;text-decoration:none;font-weight:600;}
-.top-panel a:hover{text-decoration:underline;}
-.top-panel-text{color:rgba(255,255,255,.8);}
-.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-shrink:0;}
-.topbar-brand{font-size:18px;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:-.3px;}
-.topbar-brand:hover{color:var(--accent-h);}
-.topbar-right{display:flex;align-items:center;gap:12px;}
-.btn-home{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-family:inherit;text-decoration:none;transition:all .15s;}
-.btn-home:hover{border-color:var(--accent);color:var(--accent);}
-.theme-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:15px;line-height:1;transition:all .15s;}
-.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
-.page-outer{display:flex;flex:1;max-width:1400px;margin:0 auto;width:100%;}
-.ad-col{width:180px;flex-shrink:0;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
-.ad-col.left{padding-left:20px;}.ad-col.right{padding-right:20px;}
-.ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;text-align:center;}
-.adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
-@media(max-width:960px){.ad-col{display:none;}}
-.main-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
-.subject-logo{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;font-weight:700;}
-h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing:-1px;text-align:center;margin-bottom:10px;}
-.sub{font-size:14px;color:var(--muted);margin-bottom:40px;text-align:center;max-width:600px;}
-.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:900px;width:100%;margin-bottom:32px;}
-.card{flex:1 1 240px;max-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px 22px;cursor:pointer;transition:all .18s;text-decoration:none;color:var(--text);display:block;position:relative;box-shadow:var(--shadow);}
-.card:hover{border-color:var(--accent);transform:translateY(-3px);}
-.card.disabled{cursor:not-allowed;opacity:.55;}
-.card.disabled:hover{border-color:var(--border);transform:none;}
-.card-tag{font-size:10px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
-.card.disabled .card-tag{color:var(--subtle);}
-.card-name{font-size:18px;font-weight:700;margin-bottom:5px;}
-.card-desc{font-size:13px;color:var(--muted);}
-.arrow{position:absolute;bottom:18px;right:20px;font-size:18px;color:var(--accent);opacity:0;transition:all .18s;transform:translateX(-4px);}
-.card:hover .arrow{opacity:1;transform:translateX(0);}
-.back-link{max-width:900px;width:100%;margin-bottom:8px;}
-.back-link a{color:var(--muted);text-decoration:none;font-size:13px;}
-.back-link a:hover{color:var(--accent);}
-.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;flex-shrink:0;}
-.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);}
-.footer-links{display:flex;gap:16px;}
-.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .15s;}
-.footer-links a:hover{color:var(--accent);}
-@media(max-width:640px){.main-col{padding:24px 14px;}.footer-inner{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
-::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="common.js"></script>
+</head>
 <body>
 
 <div class="top-panel">
@@ -88,12 +25,6 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
 </div>
 
 <div class="page-outer">
-  <aside class="ad-col left">
-    <span class="ad-label">Ad</span>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
-    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
-  </aside>
-
   <div class="main-col">
     <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
     <div class="subject-logo">TechQuizz</div>
@@ -116,11 +47,6 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
     </div>
   </div>
 
-  <aside class="ad-col right">
-    <span class="ad-label">Ad</span>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="false"></ins>
-    <script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
-  </aside>
 </div>
 
 <footer class="site-footer">
@@ -135,22 +61,8 @@ h1{font-size:clamp(38px,6vw,60px);font-weight:900;line-height:.95;letter-spacing
 </footer>
 
 <script>
-(function(){
-  var t=localStorage.getItem('ql-theme')||'light';
-  document.documentElement.setAttribute('data-theme',t);
-  var b=document.getElementById('themeBtn');
-  if(b)b.textContent=t==='dark'?'☀️':'🌙';
-})();
-function toggleTheme(){
-  var c=document.documentElement.getAttribute('data-theme')||'light';
-  var n=c==='dark'?'light':'dark';
-  document.documentElement.setAttribute('data-theme',n);
-  var b=document.getElementById('themeBtn');
-  if(b)b.textContent=n==='dark'?'☀️':'🌙';
-  localStorage.setItem('ql-theme',n);
-}
-
-const MVE_TESTS = {
+// Data testů – logika stránky je v common.js
+const TESTS = {
   t1: {
   "subject": "BPC-FY1 - Test 1: Mechanika a elektrostatika",
   "questions": [
@@ -193,7 +105,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "elektro_img3.png",
+      "image_name": "FY1/elektro_img3.png",
       "explanation": "Odpor rezistoru je R = U/I, tedy převrácená hodnota směrnice VA charakteristiky (strměji = menší odpor). Z grafu: R₁ má strmější přímku (při U = 4 V teče I ≈ 0,8 A → R₁ = 5 Ω), R₂ má mírněji skloněnou přímku (při U = 6 V teče I ≈ 0,6 A → R₂ = 10 Ω). Poměr R₁ : R₂ = 5 : 10 = 1 : 2."
     },
     {
@@ -207,7 +119,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "elektro_img4.png",
+      "image_name": "FY1/elektro_img4.png",
       "explanation": "Z obrázku: náboj −Q leží nahoře a +Q dole, bod P je vpravo na ose symetrie. Elektrické pole směřuje od kladných k záporným nábojům. Složka pole od +Q (dole) v bodě P míří nahoru a doprava. Složka pole od −Q (nahoře) v bodě P míří také nahoru a doleva (k záporné částici). Horizontální složky se vyruší (symetrie), vertikální složky se sečtou – výsledné pole v bodě P míří nahoru (↑)."
     },
     {
@@ -221,7 +133,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "elektro_img5.png",
+      "image_name": "FY1/elektro_img5.png",
       "explanation": "Siločáry míří dolů (od horní kladné desky ke spodní záporné) – tedy horní deska je záporná a spodní kladná (siločáry míří od kladné ke záporné). Elektrické pole mezi deskami je homogenní (stejné v bodech X, Y, Z), proto c) a d) jsou špatně. Elektrický proton má náboj +e; elektrická síla na něj F = qE míří ve směru pole (dolů). Aby vykompenzovala tíhu (také dolů), musela by síla působit nahoru – to by nešlo pro proton. Pro bod Y: pole míří dolů, síla na proton dolů – nemůže vykompenzovat tíhu. Pro elektron v X: elektron má záporný náboj, elektrická síla je opačná ke směru pole (nahoru) a může kompenzovat tíhu – ale to je možnost e), nikoliv b). Správná je b): tíhu protonu v bodě Y lze vykompenzovat, pokud uvažujeme zápornou horní desku a siločáry mířící nahoru (od kladné spodní k záporné horní) – pak síla na proton míří nahoru."
     },
     {
@@ -245,7 +157,7 @@ const MVE_TESTS = {
       ],
       "correct": null,
       "answer_count": 0,
-      "image_name": "elektro_img7.png",
+      "image_name": "FY1/elektro_img7.png",
       "explanation": "Správná odpověď: −220,88 Vm. Protože kužel neobsahuje žádný náboj, platí Gaussův zákon: celkový tok uzavřenou plochou = 0. Tedy Φ_plášť + Φ_základna = 0. Tok základnou: Φ_základna = E · S_základna = E · π · R² = 86,8 · π · 0,81 = 86,8 · 2,5447 ≈ 220,88 Vm (kladný, protože pole vystupuje základnou). Tedy Φ_plášť = −220,88 Vm (záporný, protože pole vstupuje pláštěm).",
       "answer_text": "-220,88"
     },
@@ -271,7 +183,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "mech_img1.png",
+      "image_name": "FY1/mech_img1.png",
       "explanation": "Podle zákona zachování energie: počáteční kinetická energie musí být alespoň rovna přírůstku potenciální energie. Povrch je dokonale hladký (bez tření), takže E_k = ΔE_p = m·g·l. Minimální počáteční kinetická energie je tedy mgl."
     },
     {
@@ -285,7 +197,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "mech_img2.png",
+      "image_name": "FY1/mech_img2.png",
       "explanation": "Svislá složka rychlosti projektilu se mění lineárně: v_y(t) = v₀·sin(45°) − g·t. Začíná kladnou hodnotou A (vzhůru), lineárně klesá až do záporných hodnot (projektil klesá). Křivka AE začíná v kladném A, prochází nulou (vrchol trajektorie) a lineárně klesá do záporných hodnot E – to přesně popisuje lineární pokles svislé rychlosti vlivem gravitačního zrychlení."
     },
     {
@@ -299,7 +211,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "mech_img3.png",
+      "image_name": "FY1/mech_img3.png",
       "explanation": "V situaci (a) je síla F vodorovná. Normálová síla N = mg. V situaci (b) je síla F skloněna pod úhlem α nad vodorovnou rovinou (táhneme šikmo nahoru). Svislá složka síly F_y = F·sin(α) působí vzhůru a snižuje efektivní tíhu. Normálová síla: N = mg − F·sin(α) < mg. Tedy normálová síla v situaci (b) je menší než v situaci (a)."
     },
     {
@@ -313,7 +225,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "mech_img4.png",
+      "image_name": "FY1/mech_img4.png",
       "explanation": "Otáčivé účinky (momenty sil) se ruší, když součet momentů vzhledem k ose otáčení je nula (M₁ + M₂ = 0). Případ 2: F₁ na levém okraji (rameno r, dolů) a F₁' na pravém okraji (rameno r, dolů) – stejné momenty opačného znaménku → M = F·r − F·r = 0. Ruší se. Případ 3: F₁ na poloměru r/2 (rameno r/2, dolů) a F₂ = 2F na pravém okraji (rameno r, dolů) – M = F·(r/2) − 2F·r... Zde záleží na směrech; dle obrázku v případě 3 platí F₁·r = F₂·(r/2), tedy F·r = 2F·(r/2) = F·r → momenty se ruší. Správná odpověď: případy 2 a 3."
     },
     {
@@ -328,7 +240,7 @@ const MVE_TESTS = {
       ],
       "correct": 5,
       "answer_count": 6,
-      "image_name": "mech_img5.png",
+      "image_name": "FY1/mech_img5.png",
       "explanation": "Tíhová síla vždy působí svisle dolů (ve směru gravitačního zrychlení g). Z nabízených šipek odpovídá svislému směru dolů šipka ↓. Avšak z obrázku (odpovědi jsou graficky znázorněny) je správná šipka ukazující dolů – v tomto formátu odpovídá možnosti ↙ pokud jde o správnou odpověď č. 5 (index 5). Tíhová síla G vždy míří kolmo dolů k povrchu Země, bez ohledu na směr tažné síly."
     },
     {
@@ -363,7 +275,7 @@ const MVE_TESTS = {
       ],
       "correct": null,
       "answer_count": 0,
-      "image_name": "mech_img8.png",
+      "image_name": "FY1/mech_img8.png",
       "explanation": "Pohybová rovnice: T − mg = ma, kde a = g/5. Tedy T = m(g + a) = m(g + g/5) = m·(6g/5) = 80 · (6·9,81/5) = 80 · 11,772 = 941,76 N ≈ 941,8 N.",
       "answer_text": "T = m·(g + g/5) = 80·(6·9,81/5) ≈ 941,8 N"
     },
@@ -391,7 +303,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 4,
-      "image_name": "test_img3.png",
+      "image_name": "FY1/test_img3.png",
       "explanation": "Třetí Newtonův zákon (zákon akce a reakce) platí vždy: síla, jakou těleso A působí na těleso B, je stejně velká, ale opačně orientovaná než síla, jakou B působí na A. Coulombovská síla je symetrická — nezáleží na tom, který náboj je větší. Oba náboje na sebe působí stejně velkou silou."
     },
     {
@@ -405,7 +317,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img4.png",
+      "image_name": "FY1/test_img4.png",
       "explanation": "Z obrázku je patrné, že částice se pohybuje kolmo na směr elektrického pole Ē (úsečka svírá pravý úhel s vektorem E). Práce elektrické síly je W = F·s·cos(α) = EQ·s·cos(90°) = 0. Rychlost v̄ je na výsledek práce bez vlivu — práce závisí jen na síle, dráze a úhlu mezi nimi. Správná odpověď je 0."
     },
     {
@@ -433,7 +345,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img5.png",
+      "image_name": "FY1/test_img5.png",
       "explanation": "U nabité vodivé kulové plochy (duté) je náboj rozložen pouze na povrchu. Uvnitř dutiny (r < R) je elektrické pole nulové (Gaussův zákon: žádný náboj uvnitř → E = 0). Vně (r > R) se koule chová jako bodový náboj: E = Q/(4πε₀r²), tj. klesá jako 1/r². Graf d) zobrazuje právě toto chování: E = 0 pro r < R a E ~ 1/r² pro r > R."
     },
     {
@@ -447,7 +359,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "test_img6.png",
+      "image_name": "FY1/test_img6.png",
       "explanation": "Z obrázku: dva kondenzátory jsou zapojeny paralelně (C_par = C + C = 2C) a tato kombinace je v sérii s třetím kondenzátorem C. Celková kapacita série: 1/C_celk = 1/C + 1/(2C) = 2/(2C) + 1/(2C) = 3/(2C). Tedy C_celk = 2C/3 = 2/3 C. Správná odpověď je 2/3 C."
     },
     {
@@ -461,7 +373,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img7.png",
+      "image_name": "FY1/test_img7.png",
       "explanation": "U rovnoměrně nabité nevodivé plné koule: uvnitř (r < R) roste E lineárně se vzdáleností od středu: E = ρr/(3ε₀) ~ r. Vně (r > R) klesá jako u bodového náboje: E = Q/(4πε₀r²) ~ 1/r². Pole má maximum na povrchu (r = R) a graf c) zobrazuje právě tento průběh: lineární růst dovnitř a pokles 1/r² vně."
     },
     {
@@ -489,7 +401,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img10.png",
+      "image_name": "FY1/test_img10.png",
       "explanation": "Elektrická síla na náboj: F = qE. Elektron má záporný náboj (q = −e). Pole E směřuje vertikálně nahoru. Síla na elektron: F = −e·E → směřuje dolů (opačně než E). Elektron je tedy strhován dolů, čímž se zakřivuje jeho dráha směrem dolů."
     },
     {
@@ -502,7 +414,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 4,
-      "image_name": "test_img11.png",
+      "image_name": "FY1/test_img11.png",
       "explanation": "Z grafu: odpor je R = U/I (převrácená směrnice charakteristiky I = f(U)). Přímka R₁ má strmější sklon (větší proud při stejném napětí → menší odpor), přímka R₂ má menší sklon (větší odpor). Odečtením z grafu: při U = 6 V je I₁ ≈ 0,6 A → R₁ = 10 Ω; I₂ ≈ 0,15 A → R₂ = 40 Ω. Poměr R₁ : R₂ = 10 : 40 = 1 : 4."
     },
     {
@@ -558,7 +470,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img16.png",
+      "image_name": "FY1/test_img16.png",
       "explanation": "Coulombova síla F = k·|q_A·q_B|/L². Porovnáme absolutní hodnoty součinů všech kombinací: a) 1·7 = 7, b) 1·3 = 3, c) 1·4 = 4, d) 2·4 = 8, e) 2·4 = 8. Kombinace d) −2q a +4q dává součin 8 — největší sílu. Dle klíče je správná odpověď d)."
     },
     {
@@ -585,7 +497,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 4,
-      "image_name": "test_img19.png",
+      "image_name": "FY1/test_img19.png",
       "explanation": "Při vodorovném vrhu bez odporu vzduchu působí na kámen pouze tíhová síla. Tíhové zrychlení g ≈ 9,81 m/s² je konstantní v každém bodě dráhy — nezávisí na poloze, výšce ani rychlosti. V bodě A i v bodě B je tedy zrychlení stejně velké. Správná odpověď je c) zrychlení je v obou bodech stejné (ne nulové)."
     },
     {
@@ -599,7 +511,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img20.png",
+      "image_name": "FY1/test_img20.png",
       "explanation": "Odpor R = U/I. Z grafu: při U = 4 V je I₁ ≈ 0,4 A → R₁ = 10 Ω; při U = 4 V je I₂ ≈ 0,8 A → R₂ = 5 Ω. Poměr R₁ : R₂ = 10 : 5 = 2 : 1. R₁ má menší sklon křivky (menší proud → větší odpor), R₂ strmější sklon (větší proud → menší odpor)."
     },
     {
@@ -613,7 +525,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img22.png",
+      "image_name": "FY1/test_img22.png",
       "explanation": "Celý systém tří stejných těles má zrychlení a = F/(3M). Výsledná síla na kvádr B musí mu dát toto zrychlení: F_B = M·a = M·F/(3M) = F/3. Lano mezi C a B táhne silou 2F/3 (musí zrychlit A+B), lano mezi B a A táhne silou F/3 (musí zrychlit jen A). Výsledná síla na B = 2F/3 − F/3 = F/3."
     },
     {
@@ -669,7 +581,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "test_img24.png",
+      "image_name": "FY1/test_img24.png",
       "explanation": "Celkový tok uzavřenou plochou závisí dle Gaussova zákona pouze na náboji uvnitř: Φ = Q_uvnitř/ε₀. V homogenním poli bez nábojů uvnitř je celkový tok přes jakoukoli uzavřenou plochu nulový — kolik čar vstoupí, tolik vystoupí. Platí pro všechny čtyři plochy bez ohledu na jejich tvar."
     },
     {
@@ -683,7 +595,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img25.png",
+      "image_name": "FY1/test_img25.png",
       "explanation": "Aby kostka dosáhla výšky h, musí její počáteční kinetická energie pokrýt nárůst potenciální energie: E_k = ΔE_p = mgh. Na dokonale hladkém povrchu nejsou třecí ztráty, takže minimální počáteční kinetická energie je přesně mgh."
     },
     {
@@ -711,7 +623,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img26.png",
+      "image_name": "FY1/test_img26.png",
       "explanation": "Uvnitř duté vodivé kulové slupky (r < R) je elektrické pole nulové — Gaussův zákon: žádný náboj uvnitř. Na povrchu a vně (r > R) pole klesá jako E = Q/(4πε₀r²), tj. jako 1/r². Graf c) zobrazuje právě tento průběh: E = 0 pro r < R a E ~ 1/r² pro r > R se skokem na povrchu."
     },
     {
@@ -725,7 +637,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "test_img28.png",
+      "image_name": "FY1/test_img28.png",
       "explanation": "Protony jsou kladné — pole od nich míří vždy ven (od náboje). Bod 1 (vlevo od obou): pole od p₁ i p₂ míří doleva → výsledek ←. Bod 2 (mezi protony, blíže k p₂): pole od p₁ míří doprava, od p₂ doleva — p₂ je blíže, proto převládne → výsledek ←. Bod 3 (vpravo od obou): pole od p₁ i p₂ míří doprava → výsledek →. Správná kombinace: ←, ←, →."
     },
     {
@@ -739,7 +651,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "test_img30.png",
+      "image_name": "FY1/test_img30.png",
       "explanation": "Elektrická intenzita bodového náboje: E = kQ/r². V bodě A (r = L): E_A = kQ/L². V bodě B (r = 4L): E_B = kQ/(4L)² = kQ/(16L²). Podíl: E_B/E_A = (kQ/16L²)/(kQ/L²) = 1/16."
     },
     {
@@ -753,7 +665,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img31.png",
+      "image_name": "FY1/test_img31.png",
       "explanation": "Náboje mají opačná znaménka a různé velikosti (+4q a −2q). Pole se ruší tam, kde jsou intenzity od obou nábojů stejně velké a opačně orientované. Pro náboje opačného znaménka leží nulový bod na prodloužení úsečky za menším nábojem (vně). Tedy vpravo od −2q, protože větší náboj +4q musí být dále, aby se intenzity vyrovnaly."
     },
     {
@@ -823,7 +735,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "test_img34.png",
+      "image_name": "FY1/test_img34.png",
       "explanation": "Zákon zachování energie: ½mv₀² = ½mv² + mgh. Odtud v² = v₀² − 2gh = 20² − 2·10·15 = 400 − 300 = 100. Tedy v = 10 m/s."
     },
     {
@@ -837,7 +749,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img5.png",
+      "image_name": "FY1/test_img5.png",
       "explanation": ""
     },
     {
@@ -864,7 +776,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 4,
-      "image_name": "test_img36.png",
+      "image_name": "FY1/test_img36.png",
       "explanation": "Třetí Newtonův zákon platí vždy: síla, jakou těleso A působí na těleso B, je stejně velká a opačně orientovaná jako síla, jakou B působí na A. Coulombova síla je symetrická — nezáleží na tom, který náboj je větší. Oba náboje na sebe působí stejně velkou silou."
     }
   ]
@@ -897,7 +809,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "du3_img1.png",
+      "image_name": "FY1/du3_img1.png",
       "explanation": "Podle Faradayova zákona je indukované emf úměrné derivaci magnetického toku: emf = -dΦ/dt = -S·dB/dt. Indukované emf je tedy úměrné strmosti (sklonu) křivky B(t). Z grafu: úseky d a e mají stejný, nejmenší nenulový sklon (B klesá lineárně s nejmenší strmostí), zatímco úseky a (nárůst) a b (prudký nárůst) mají větší strmost. Úsek c je konstantní plato (dB/dt = 0), tedy emf = 0. Minimální nenulové emf nastává tedy v úsecích d a e."
     },
     {
@@ -911,7 +823,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "du3_img2.png",
+      "image_name": "FY1/du3_img2.png",
       "explanation": "Vodič s proudem I se nachází na pozici x = 2 a vodič s proudem 3I na pozici x = 6. Magnetické pole vodiče je B = μ₀I/(2πr). V místě nulového pole musí platit B₁ = B₂, tedy I/r₁ = 3I/r₂, odkud r₂ = 3·r₁. Nulový bod leží mezi vodiči (proudy tečou stejným směrem, pole se navzájem ruší). Označme pozici x: vzdálenost od prvního vodiče r₁ = x - 2, vzdálenost od druhého r₂ = 6 - x. Podmínka: (6-x) = 3(x-2) → 6-x = 3x-6 → 12 = 4x → x = 3."
     },
     {
@@ -939,7 +851,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "du3_img3.png",
+      "image_name": "FY1/du3_img3.png",
       "explanation": "Elektrony se pohybují proti směru hodinových ručiček, ale jejich náboj je záporný, takže konvenční proud teče ve směru hodinových ručiček (opačně než pohyb elektronů). Pravidlo pravé ruky pro kruhovou smyčku s proudem ve směru hodinových ručiček (při pohledu zepředu): palec ukazuje do roviny stránky (od pozorovatele), tj. magnetické pole ve středu je orientováno kolmo směrem DO roviny stránky (označeno ×)."
     },
     {
@@ -952,7 +864,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 4,
-      "image_name": "du3_imgX.png",
+      "image_name": "FY1/du3_imgX.png",
       "explanation": "Rovnice ΦD = ∮ D⃗·dS⃗ = Q je Gaussův zákon pro elektrické pole v integrálním tvaru. Říká, že tok vektoru elektrické indukce D uzavřenou plochou se rovná celkovému volnému náboji Q uzavřenému uvnitř plochy. Fyzikálně to znamená: zdrojem elektrického pole jsou elektrické náboje a elektrické siločáry začínají nebo končí na nábojích (nejsou uzavřené, na rozdíl od magnetických). Odpověď b) odpovídá Gaussovu zákonu pro magnetické pole. Odpovědi c) a d) popisují Faradayův a Ampérův-Maxwellův zákon."
     },
     {
@@ -962,7 +874,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 1,
-      "image_name": "du3_img4.png",
+      "image_name": "FY1/du3_img4.png",
       "explanation": "Správná odpověď: 7,62 A. Postup: Plocha smyčky S = 4² = 16 m², ale pole zasahuje pouze polovinu, takže efektivní plocha S_eff = 8 m². Derivace: dB/dt = -2 T/s. Indukované emf: ε = -dΦ/dt = -S_eff · dB/dt = -8 · (-2) = 16 V. Indukovaný proud: I = ε/R = 16/2,1 ≈ 7,62 A. Kladné znaménko → proud teče protisměru hodinových ručiček (Lenzův zákon: pole ubývá, proud ho snaží udržet).",
       "answer_text": "7,62"
     },
@@ -980,7 +892,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 8,
-      "image_name": "du3_img5.png",
+      "image_name": "FY1/du3_img5.png",
       "explanation": "Magnetická síla na vodič: F = i·L·B. Pro vyvážení tíhy: i·B = λ·g (kde λ = 45,9 g/m = 0,0459 kg/m). Tedy B = λ·g/i = 0,0459 × 9,81 / 16 ≈ 0,02814 T = 28,14 mT. Proud teče ve směru vektoru L (z obrázku – směr ze stránky). Tíha působí dolů. Aby magnetická síla F = i·L × B působila nahoru, musí dle pravidla pravé ruky platit: proud ve směru L (ze stránky) × B = nahoru → B musí být orientováno doprava. Správná odpověď: 28,14 mT, orientace vpravo."
     },
     {
@@ -994,7 +906,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img1.png",
+      "image_name": "FY1/test_img1.png",
       "explanation": "Z obrázku solenoidu plyne, že proud I vstupuje shora a vychází zdola (nebo naopak — dle nakreslení). Pomocí pravidla pravé ruky: prsty stočíme ve směru proudu v závitech, palec ukazuje směr indukčních čar uvnitř. Pro danou orientaci proudu na obrázku čáry směřují k dolní straně listu. Indukční čáry uvnitř solenoidu jsou přímky rovnoběžné s osou, nejsou to kruhy."
     },
     {
@@ -1008,7 +920,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "test_img2.png",
+      "image_name": "FY1/test_img2.png",
       "explanation": "Elementární magnetická indukce dB̄ se určuje Biotovým–Savartovým zákonem: dB̄ = (μ₀/4π) · (Idl̄ × r̂)/r². Směr je dán vektorovým součinem dl̄ × r̂. Pokud proudový element a bod P leží v rovině listu, pak dl̄ × r̂ je kolmý na tuto rovinu — tj. buď dovnitř nebo ven. Podle orientace proudu a polohy bodu P na obrázku vychází dB̄ dovnitř listu, kolmo k jeho rovině."
     },
     {
@@ -1036,7 +948,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 5,
-      "image_name": "test_img8.png",
+      "image_name": "FY1/test_img8.png",
       "explanation": "Magnetická síla na pohybující se náboj: F = qv × B. Pole B směřuje z nákresny k pozorovateli (ven z listu). Z obrázku se částice 1 zakřivuje doleva a částice 2 doprava — tedy opačnými směry, což znamená opačná znaménka nábojů. Pravidlem levé ruky (pro sílu na náboj v magnetickém poli): částice 1 zahýbá doleva → je kladná, částice 2 zahýbá doprava → je záporná."
     },
     {
@@ -1050,7 +962,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img9.png",
+      "image_name": "FY1/test_img9.png",
       "explanation": "Indukovaný proud vzniká pouze při změně magnetického toku Φ = B·S·cos(α). Zmenšení plochy S → Φ klesá → proud vzniká. Zvětšení nebo zmenšení B → Φ se mění → proud vzniká. Otočení smyčky o 90° kolem osy kolmé na rovinu smyčky (tj. osa rotace je rovnoběžná s B) smyčku pouze přemístí v rovině, ale úhel α mezi B a normálou smyčky zůstane stejný — tok Φ se nemění, indukovaný proud nevznikne. Ostatní změny tok mění, takže možnost e) „všechny výše uvedené\" je špatně."
     },
     {
@@ -1064,7 +976,7 @@ const MVE_TESTS = {
       ],
       "correct": 4,
       "answer_count": 5,
-      "image_name": "test_img12.png",
+      "image_name": "FY1/test_img12.png",
       "explanation": "Celkový tok magnetické indukce uzavřenou plochou je vždy nula: ∮ B⃗·dS⃗ = 0 (Gaussův zákon pro magnetické pole — neexistují magnetické monopóly). Kolik magnetických indukčních čar do krychle vstoupí, tolik z ní také vystoupí. Celkový tok je tedy 0,0 Nm²/C."
     },
     {
@@ -1078,7 +990,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "test_img13.png",
+      "image_name": "FY1/test_img13.png",
       "explanation": "Po sepnutí spínače S roste proud v cívce 1, roste magnetický tok a mění se i tok procházející cívkou 2 (vzájemná indukce). Lenzovým zákonem: indukovaný proud v cívce 2 musí vytvářet pole, které se staví proti narůstajícímu toku. Z geometrie obvodu a orientace cívek vychází, že indukovaný proud teče odporem R₂ zprava doleva."
     },
     {
@@ -1092,7 +1004,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "test_img15.png",
+      "image_name": "FY1/test_img15.png",
       "explanation": "Elektrická síla na elektron (q = −e): F_E = −e·E⃗. Pole E⃗ míří v záporném směru y, tedy F_E míří v kladném směru y (nahoru). Magnetická síla musí být F_M = −F_E, tedy v záporném směru y (dolů). F_M = q·v⃗ × B⃗ = (−e)·(v x̂) × B⃗. Aby výsledek mířil dolů (−y), musí v⃗ × B⃗ mířit nahoru (+y). Pro v⃗ = v x̂ platí: x̂ × ẑ = −ŷ a x̂ × (−ẑ) = +ŷ. B⃗ tedy musí mířit v záporném směru z, tj. dovnitř listu. Ale elektron má záporný náboj, takže výsledek je ven z listu."
     },
     {
@@ -1106,7 +1018,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img17.png",
+      "image_name": "FY1/test_img17.png",
       "explanation": "Proud ve směru hodinových ručiček vytváří magnetické pole směřující do stránky. Podle Lenzova zákona musí indukovaný proud reagovat na úbytek vnějšího pole (které také směřuje do stránky) — snaží se ho udržet. Úbytek toku nastane, když se smyčka vysouvá z pole, tj. pohybem v záporném směru osy x (doleva pryč z oblasti pole)."
     },
     {
@@ -1134,7 +1046,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img18.png",
+      "image_name": "FY1/test_img18.png",
       "explanation": "Magnetické pole uvnitř solenoidu je homogenní a rovnoběžné s jeho osou. Při pohledu na průřez cívky z boku se indukční čáry zobrazují jako tečky (pole k pozorovateli) nebo křížky (pole od pozorovatele). Dle směru proudu na obrázku a pravidla pravé ruky směřuje pole uvnitř cívky k pozorovateli — obrázek d) správně znázorňuje tečky v průřezu."
     },
     {
@@ -1148,7 +1060,7 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "test_img21.png",
+      "image_name": "FY1/test_img21.png",
       "explanation": "Elektrony se pohybují ve směru hodinových ručiček, ale konvenční proud teče opačně — proti směru hodinových ručiček. Pravidlem pravé ruky pro proudovou smyčku: prsty stočíme ve směru konvenčního proudu (proti hodinových ručiček) → palec ukazuje směr B ve středu → dovnitř roviny stránky (od pozorovatele)."
     },
     {
@@ -1204,7 +1116,7 @@ const MVE_TESTS = {
       ],
       "correct": 3,
       "answer_count": 5,
-      "image_name": "test_img29.png",
+      "image_name": "FY1/test_img29.png",
       "explanation": "Elektrická síla na proton (q = +e): F_E = +e·E⃗ míří v záporném směru y (dolů). Aby byla celková síla nulová, musí magnetická síla mířit nahoru (+y). F_M = q·v⃗ × B̄ = e·(v x̂) × B̄. Aby výsledek mířil nahoru (+y), musí v⃗ × B̄ = +ŷ. Pro v⃗ = v x̂: x̂ × (−ẑ) = +ŷ. Tedy B̄ musí mířit v záporném směru z → dovnitř listu."
     },
     {
@@ -1217,7 +1129,7 @@ const MVE_TESTS = {
       ],
       "correct": 1,
       "answer_count": 4,
-      "image_name": "test_img32.png",
+      "image_name": "FY1/test_img32.png",
       "explanation": "Uvnitř vodiče s konstantní hustotou proudu j platí Ampérův zákon: B·2πr = μ₀·j·πr², tedy B = μ₀jr/2. Magnetická indukce roste lineárně s r uvnitř vodiče (od nuly ve středu po maximum na povrchu). Vně klesá jako 1/r. Graf b) zobrazuje lineární růst uvnitř."
     },
     {
@@ -1273,7 +1185,7 @@ const MVE_TESTS = {
       ],
       "correct": 2,
       "answer_count": 5,
-      "image_name": "test_img33.png",
+      "image_name": "FY1/test_img33.png",
       "explanation": "Vodič s proudem I leží na x = 2, vodič s proudem 3I na x = 6 (dle obrázku). Pole se ruší mezi vodiči (stejný směr proudů). Označme hledaný bod x: r₁ = x − 2, r₂ = 6 − x. Podmínka B₁ = B₂: I/r₁ = 3I/r₂ → r₂ = 3r₁ → 6 − x = 3(x − 2) → 6 − x = 3x − 6 → 12 = 4x → x = 3."
     },
     {
@@ -1301,36 +1213,12 @@ const MVE_TESTS = {
       ],
       "correct": 0,
       "answer_count": 5,
-      "image_name": "test_img35.png",
+      "image_name": "FY1/test_img35.png",
       "explanation": "Elektrony se pohybují proti směru hodinových ručiček, ale mají záporný náboj → konvenční proud teče ve směru hodinových ručiček. Pravidlem pravé ruky pro smyčku s proudem ve směru hodinových ručiček: palec ukazuje do roviny stránky (od pozorovatele) → B ve středu míří do roviny stránky."
     }
   ]
 }
 };
-
-document.getElementById('t1Desc').textContent =
-  MVE_TESTS.t1.questions.length + ' otázek — kinematika, dynamika, Newtonovy zákony, elektrický náboj, Gaussův zákon, elektrické pole';
-document.getElementById('t2Desc').textContent =
-  MVE_TESTS.t2.questions.length + ' otázek — magnetické pole, Ampérův a Faradayův zákon, Lorentzova síla, elektromagnetická indukce';
-
-function startTest(id){
-  const data = MVE_TESTS[id];
-  if(!data) return;
-  sessionStorage.setItem('ql-data', JSON.stringify({subject: data.subject, questions: data.questions}));
-  window.location.href = 'quiz.html';
-}
-
-if(window.location.protocol==='file:'){
-  document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('.ad-col').forEach(function(el){el.style.display='none';});
-  });
-}
-document.addEventListener('contextmenu',e=>e.preventDefault());
-document.addEventListener('keydown',e=>{
-  if(e.ctrlKey&&(e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S')){e.preventDefault();return false;}
-  if(e.ctrlKey&&e.shiftKey&&['I','i','J','j','C','c'].includes(e.key)){e.preventDefault();return false;}
-  if(e.key==='F12'){e.preventDefault();return false;}
-});
 </script>
 </body>
 </html>

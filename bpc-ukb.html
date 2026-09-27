@@ -71,11 +71,11 @@ body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calib
 .sbox::placeholder{color:var(--subtle);}
 
 /* PAGE LAYOUT — side ads */
-.page-layout{display:flex;flex:1;}
+.page-layout{display:flex;flex:1;padding:0 160px;}
 .ad-col{width:160px;flex-shrink:0;padding:20px 10px;display:flex;flex-direction:column;align-items:center;position:sticky;top:80px;height:fit-content;align-self:flex-start;}
 .ad-col.left{padding-left:16px;}
 .ad-col.right{padding-right:16px;}
-.content-col{flex:1;min-width:0;display:flex;flex-direction:column;}
+.content-col{flex:1;width:100%;min-width:0;display:flex;flex-direction:column;}
 .ad-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--subtle);display:block;margin-bottom:4px;text-align:center;}
 .adsbygoogle{display:block;width:160px;min-height:600px;background:var(--surface2);border-radius:8px;}
 
@@ -161,7 +161,7 @@ body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calib
 .footer-links a:hover{color:var(--accent);}
 
 /* hide side ads on narrow screens */
-@media(max-width:960px){.ad-col{display:none;}}
+@media(max-width:960px){.page-layout{padding:0 14px;}.ad-col{display:none;}}
 @media(max-width:640px){
   .top-panel{font-size:12px;padding:7px 14px;}
   .topbar{padding:10px 14px;}
@@ -249,10 +249,6 @@ if (window.location.protocol === 'file:') {
   <input class="sbox" id="sbox" placeholder="🔍 Hledat…">
 </div>
 <div class="page-layout">
-  <aside class="ad-col left">
-    <span class="ad-label">Reklama</span>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="true"></ins><script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
-  </aside>
   <div class="content-col">
     <div class="area" id="browseArea"></div>
     <div class="area" id="drillArea">
@@ -285,10 +281,6 @@ if (window.location.protocol === 'file:') {
       </div>
     </div>
   </div>
-  <aside class="ad-col right">
-    <span class="ad-label">Reklama</span>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1943080999913414" data-ad-slot="4530151493" data-ad-format="auto" data-full-width-responsive="true"></ins><script>if(window.location.protocol!=="file:"){(adsbygoogle=window.adsbygoogle||[]).push({});}</script>
-  </aside>
 </div>
 <footer class="site-footer">
   <div class="footer-inner">
