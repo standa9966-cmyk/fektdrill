@@ -31,10 +31,6 @@
   --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
 }
 body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
-.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
-.top-panel a{color:#fff;text-decoration:none;font-weight:600;}
-.top-panel a:hover{text-decoration:underline;}
-.top-panel-text{color:rgba(255,255,255,.8);}
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 24px;flex-shrink:0;}
 .topbar-brand{font-size:18px;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:-.3px;}
 .topbar-brand:hover{color:var(--accent-h);}
@@ -71,11 +67,7 @@ a.inline{color:var(--accent);}
 </style>
 </head>
 <body>
-<div class="top-panel">
-  <span class="top-panel-text">🔗 Také nás zajímá:</span>
-  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
-</div>
-<div class="topbar">
+ <div class="topbar">
   <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
   <div class="topbar-right">
     <a class="btn-home" href="index.html">← Domů</a>
@@ -98,7 +90,7 @@ a.inline{color:var(--accent);}
 
     <h2>Co nabízíme</h2>
     <ul>
-      <li>Testové otázky z předmětů jako BPC-UKB (Základy kybernetiky), Cisco CCNA a dalších</li>
+      <li>Testové otázky z předmětů FEKT VUT, jako BPC-UKB (Základy kybernetiky), BPC-MVE (Elektrická měření), BPC-FY1 (Fyzika 1) a dalších</li>
       <li>Dva režimy procvičování — <strong>Procházet</strong> (všechny otázky se správnými odpověďmi) a <strong>Drill</strong> (interaktivní procvičování)</li>
       <li>Vysvětlení správných odpovědí pro lepší pochopení látky</li>
       <li>Možnost nahrát vlastní sadu otázek ve formátu JSON</li>

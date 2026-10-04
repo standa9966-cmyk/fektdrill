@@ -22,11 +22,6 @@
 </head>
 <body>
 
-<div class="top-panel">
-  <span class="top-panel-text">🔗 Také nás zajímá:</span>
-  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
-</div>
-
 <div class="topbar">
   <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
   <div class="topbar-right">
@@ -1052,6 +1047,35 @@ const TESTS = {
       "answer_count": 5,
       "image_name": null,
       "explanation": "Číslicové osciloskopy využívají vzorkování v reálném čase (real-time, vhodné pro jednorázové/neopakující se děje) a periodické (ekvivalentní/sekvenční) vzorkování, při kterém se vzorky odebírají postupně z více period opakujícího se signálu a skládají do jednoho výsledného průběhu."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Jak je určena doba náběžné či sestupné hrany?",
+      "answers": [
+        "Čas mezi 10 % a 90 % úrovně signálu.",
+        "Čas mezi 0 % a 90 % úrovně signálu.",
+        "Čas mezi 10 % a 100 % úrovně signálu.",
+        "Čas mezi 10 % a 63 % úrovně signálu.",
+        "Čas mezi 0 % a 100 % úrovně signálu.",
+        "Čas mezi 0 % a 63 % úrovně signálu."
+      ],
+      "correct": 0,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Doba náběžné (sestupné) hrany se měří mezi 10 % a 90 % ustálené úrovně signálu. Začátek a konec hrany bývají zaoblené a zatížené šumem či překmity, proto se krajní části neberou v úvahu. Úroveň 63 % souvisí s časovou konstantou RC článku, ne s dobou hrany."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Jaká veličina je na svislé (Y) ose při standardním zobrazení průběhu signálu na osciloskopu?",
+      "answers": [
+        "Okamžitá velikost měřeného napětí",
+        "Čas od okamžiku daného spouštěcími obvody",
+        "Frekvence vzorkování"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Při standardním zobrazení (režim Y-t) ukazuje svislá osa Y okamžitou hodnotu měřeného napětí a vodorovná osa X čas, který se odvíjí od okamžiku spuštění časové základny spouštěcími obvody."
     }
   ]
 },
@@ -1170,6 +1194,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Voltmetr ukazuje přesně polovinu napájecího napětí (5 V z 10 V), což je podmínka metody polovičního napětí – vstupní odpor voltmetru se v tomto okamžiku rovná nastavenému odporu dekády, tedy 1 MΩ."
     },
+    // DOPLNĚNO (4. 10. 2026): přidány možnosti 3599, 3500, 3999
     {
       "question": "Jaký maximální údaj se zobrazí na měřicím přístroji s počtem zobrazovaných míst 3 1/2?",
       "answers": [
@@ -1177,10 +1202,13 @@ const TESTS = {
         "199",
         "300.5",
         "999",
-        "399"
+        "399",
+        "3599",
+        "3500",
+        "3999"
       ],
       "correct": 0,
-      "answer_count": 5,
+      "answer_count": 8,
       "image_name": null,
       "explanation": "Počet zobrazovaných míst 3 1/2 znamená, že nejvýznamnější místo zobrazuje pouze 0 nebo 1 a zbylá tři místa 0 až 9. Maximální zobrazitelný údaj je proto 1999."
     },
@@ -1239,6 +1267,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Chyba ze čtené hodnoty = 0,20 % × 5 V = 0,01 V. Chyba z rozsahu = 0,05 % × 10 V = 0,005 V. Celková absolutní chyba je jejich součet: 0,01 V + 0,005 V = 0,015 V."
     },
+    // NOVÁ OTÁZKA (4. 10. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jaká je chyba z rozsahu při měření hodnoty 5 V na rozsahu 10 V, pokud výrobce udává chybu číslicového přístroje: +/- (0,20 % ze čtené hodnoty + 0,05 % z rozsahu)?",
       "answers": [
@@ -1263,6 +1292,92 @@ const TESTS = {
       "answer_count": 4,
       "image_name": null,
       "explanation": "Digitální voltmetry nejčastěji využívají integrující A/D převodníky (s dvojí nebo trojí integrací) nebo kompenzační převodníky s postupnou integrací – tyto principy dobře potlačují vliv rušení a šumu a poskytují vysokou přesnost měření."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Jaký typ rušení obvykle potlačují číslicové voltmetry vybavené integračními převodníky?",
+      "answers": [
+        "Sériové a souhlasné rušení",
+        "Číslicové voltmetry s integračními převodníky nedokáží potlačit rušení. Je nutné mít jiný typ převodníku.",
+        "Pouze souhlasné rušení",
+        "Pouze sériové rušení"
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Integrační převodník průměruje vstupní napětí po dobu integrace, takže sériové (normálové) rušení, typicky síťové 50 Hz, se při integraci přes celistvý násobek jeho periody vyruší. Souhlasné rušení se potlačuje díky plovoucímu (izolovanému) vstupu a stínění. Takové voltmetry proto potlačují oba typy rušení."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Co je to rozlišovací schopnost digitálního voltmetru?",
+      "answers": [
+        "Minimální změna měřeného napětí, která způsobí změnu údaje o hodnotu 1 na posledním místě displeje LSD na nejvyšším rozsahu přístroje.",
+        "Maximální změna měřeného napětí, která způsobí změnu údaje o hodnotu 1 na posledním místě displeje LSD na nejvyšším rozsahu přístroje.",
+        "Počet zobrazovaných míst na displeji.",
+        "Maximální změna měřeného napětí, která způsobí změnu údaje o hodnotu 1 na posledním místě displeje LSD na nejnižším rozsahu přístroje.",
+        "Minimální změna měřeného napětí, která způsobí změnu údaje o hodnotu 1 na posledním místě displeje LSD na nejnižším rozsahu přístroje."
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Rozlišovací schopnost je nejmenší změna vstupního napětí, kterou přístroj ještě zobrazí, tedy změna o 1 na posledním (nejméně významném) místě displeje. Nejjemnější je na nejnižším rozsahu, proto se udává právě tam. Počet zobrazovaných míst je jiný parametr (rozlišení displeje)."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Jak je zakreslena korekční křivka v grafu?",
+      "answers": [
+        "Body odpovídající korekcím pro jednotlivé dílky stupnice vykreslíme do grafu a nepropojujeme.",
+        "Body odpovídající korekcím pro jednotlivé dílky stupnice proložíme pomocí nelineární regrese.",
+        "Body odpovídající korekcím pro jednotlivé dílky stupnice spojíme úsečkami.",
+        "Korekční křivka se do grafu nevynáší, hodnoty odpovídající korekcím se zapisují pouze do tabulky.",
+        "Body odpovídající korekcím pro jednotlivé dílky stupnice proložíme pomocí exponenciální regrese."
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Korekce se určí jen v kalibrovaných bodech stupnice a mezi nimi se neprokládá žádná regresní funkce. Sousední body se spojí úsečkami, takže vznikne lomená čára, ze které lze korekci pro hodnotu mezi body odečíst lineární interpolací."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "V jakých jednotkách je udávána absolutní chyba měření?",
+      "answers": [
+        "V jednotkách měřené veličiny",
+        "Ve voltech",
+        "Bez jednotky",
+        "V ampérech",
+        "V %"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Absolutní chyba je rozdíl naměřené a skutečné hodnoty (ΔX = XM − XS), proto má vždy stejnou jednotku jako měřená veličina: při měření napětí ve voltech, při měření proudu v ampérech atd. V procentech nebo bez jednotky se udává chyba relativní."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Jaký počet indikovaných míst zobrazovače má digitální měřicí přístroj s počtem míst rozlišovací jednotky 3 ½?",
+      "answers": [
+        "3999",
+        "1999",
+        "3500",
+        "199"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Údaj 3 ½ místa znamená tři plná místa (0–9) a jedno „půl“ místo na nejvyšší pozici, které ukazuje jen 0 nebo 1. Přístroj tak zobrazí nejvýše 1999, tedy 2000 různých hodnot (0 až 1999)."
+    },
+    // NOVÁ OTÁZKA (přidáno 4. 10. 2026)
+    {
+      "question": "Jak je definována absolutní chyba měření?",
+      "answers": [
+        "ΔX = XS − XM",
+        "ΔX = XM − XS",
+        "ΔX = |XM − XS|"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Absolutní chyba je rozdíl naměřené hodnoty XM a skutečné (správné) hodnoty XS: ΔX = XM − XS. Má znaménko, které říká, zda přístroj ukazuje víc (+), nebo méně (−) než je skutečnost, proto se nepoužívá absolutní hodnota. Opačný rozdíl XS − XM je korekce."
     }
   ]
 },

@@ -50,10 +50,6 @@ if (window.location.protocol !== 'file:') {
 body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calibri,Arial,sans-serif;font-size:15px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .2s,color .2s;}
 
 /* TOP PANEL */
-.top-panel{background:#0060c6;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;flex-shrink:0;}
-.top-panel a{color:#fff;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px;}
-.top-panel a:hover{text-decoration:underline;}
-.top-panel-text{color:rgba(255,255,255,.8);}
 
 /* TOPBAR */
 .topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;flex-wrap:wrap;transition:background .2s;flex-shrink:0;}
@@ -174,7 +170,6 @@ body{background:var(--bg);color:var(--text);font-family:'Aptos','Segoe UI',Calib
 /* hide side ads on narrow screens */
 @media(max-width:960px){.page-layout{padding:0 14px;}.ad-col{display:none;}}
 @media(max-width:640px){
-  .top-panel{font-size:12px;padding:7px 14px;}
   .topbar{padding:10px 14px;}
   .subject-lbl{display:none;}
   .prog-outer{width:70px;}
@@ -230,11 +225,7 @@ if (window.location.protocol === 'file:') {
 </head>
 <body>
 
-<div class="top-panel">
-  <span class="top-panel-text">🔗 Také nás zajímá:</span>
-  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
-</div>
-<div class="topbar">
+ <div class="topbar">
   <div class="topbar-l">
     <button class="btn-back" onclick="history.back()">← Zpět</button>
     <span class="subject-lbl" id="subLbl">BPC-UKB</span>

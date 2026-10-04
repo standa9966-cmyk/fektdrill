@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="TechQuizz — BPC-MPE online testy a procvičování otázek zdarma">
-<title>BPC-MPE — TechQuizz</title>
+<meta name="description" content="TechQuizz — Elektrotechnická kvalifikace online testy a procvičování otázek zdarma">
+<title>Elektrotechnická kvalifikace — TechQuizz</title>
 <link rel="icon" href="techtestzone.jpg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TechQuizz">
-<meta property="og:title" content="BPC-MPE — TechQuizz">
-<meta property="og:description" content="TechQuizz — BPC-MPE online testy a procvičování otázek zdarma">
-<meta property="og:url" content="https://standa9966-cmyk.github.io/fektdrill/mpe.html">
+<meta property="og:title" content="Elektrotechnická kvalifikace — TechQuizz">
+<meta property="og:description" content="TechQuizz — Elektrotechnická kvalifikace online testy a procvičování otázek zdarma">
+<meta property="og:url" content="https://standa9966-cmyk.github.io/fektdrill/kvalifikace.html">
 <meta property="og:image" content="https://standa9966-cmyk.github.io/fektdrill/images/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,11 +21,6 @@
 <script src="common.js"></script>
 </head>
 <body>
-
-<div class="top-panel">
-  <span class="top-panel-text">🔗 Také nás zajímá:</span>
-  <a href="https://techquizz.com/ccna.html" target="_blank" rel="noopener">🌐 Cisco CCNA testy &rarr;</a>
-</div>
 
 <div class="topbar">
   <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
@@ -39,14 +34,14 @@
   <div class="main-col">
     <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
     <div class="subject-logo">TechQuizz</div>
-    <h1>BPC-MPE</h1>
-    <p class="sub">Materiály pro elektrotechniku — struktura látek, polovodiče, dielektrika, magnetismus. Vyberte si test, který chcete procvičit.</p>
+    <h1>Elektrotechnická kvalifikace</h1>
+    <p class="sub">Oficiální testové otázky dle §4 NV 194/2022 Sb. — bezpečnost práce v elektrotechnice a první pomoc.</p>
 
     <div class="cards" id="testCards">
       <a class="card" href="#" onclick="startTest('t1');return false;">
         <div class="card-tag">// Test 1</div>
-        <div class="card-name">Struktura látek a materiály</div>
-        <div class="card-desc" id="t1Desc">otázek — kvantová čísla, krystaly, polovodiče, dielektrika, magnetické materiály a ferity</div>
+        <div class="card-name">Bezpečnost práce a první pomoc</div>
+        <div class="card-desc" id="t1Desc">otázek — napěťové soustavy, ochrana před úrazem, třídy ochrany, kvalifikace osob, resuscitace a první pomoc</div>
         <div class="arrow">→</div>
       </a>
     </div>
@@ -69,1554 +64,859 @@
 // Data testů – logika stránky je v common.js
 const TESTS = {
   t1: {
-  "subject": "BPC-MPE - Test 1: Struktura látek, polovodiče, dielektrika a magnetické materiály",
+  "subject": "Elektrotechnická kvalifikace - Test 1: Bezpečnost práce a první pomoc (§4 NV 194/2022 Sb.)",
   "questions": [
     {
-      "question": "Hlavní kvantové číslo",
+      "question": "Rozdělení EZ podle napětí mezi vodiči v uzemněné střídavé soustavě je:",
       "answers": [
-        "souvisí s velikostí elektronové sféry a může nabývat hodnot celých přirozených čísel.",
-        "souvisí s momentem hybnosti elektronu a charakterizuje tvar elektronové sféry",
-        "souvisí s orientací nábojového oblaku v magnetickém poli",
-        "určuje směr spinu elektronu"
+        "mn do 230V; nn do 24 kV; vn do 52 kV",
+        "mn do 25 V; nn do 500 V; vn do 52 kV",
+        "mn do 50 V; nn do 1000 V; vn do 52 kV"
       ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Hlavní kvantové číslo n určuje velikost (energetickou slupku) elektronové sféry a nabývá hodnot přirozených čísel 1, 2, 3, ... odpovídajících slupkám K, L, M, ..."
-    },
-    {
-      "question": "Hlavní kvantové číslo může nabývat hodnot:",
-      "answers": [
-        "1, 2, 3, 4, 5, 6, ... (K, L, M, N, O, P, Q, ...)",
-        "0, 1, 2, 3, ... (s, p, d, f, ...)",
-        "-1, 0, +1",
-        "pouze hodnot 1 a 2"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Slupky se označují písmeny K, L, M, N, O, P, Q pro n = 1 až 7."
-    },
-    {
-      "question": "Vedlejší kvantové číslo",
-      "answers": [
-        "souvisí s momentem hybnosti elektronu v atomu a charakterizuje tvar elektronové sféry a může nabývat hodnot celých čísel v intervalu 0 až hlavní kvantové číslo mínus jedna",
-        "souvisí s velikostí elektronové sféry a nabývá hodnot přirozených čísel",
-        "souvisí s orientací nábojového oblaku v prostoru",
-        "určuje spinový moment elektronu"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Vedlejší (orbitální) kvantové číslo l určuje tvar orbitalu (momentu hybnosti) a nabývá hodnot 0 až n-1."
-    },
-    {
-      "question": "Vedlejší kvantové číslo může nabývat hodnot:",
-      "answers": [
-        "0, 1, 2, 3, 4, 5, ... (s, p, d, f, g, h, ...)",
-        "1, 2, 3, 4, 5, ... (K, L, M, N, ...)",
-        "-1/2 a +1/2",
-        "pouze celá čísla od 1 do 7"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Podslupky s, p, d, f, g, h odpovídají hodnotám l = 0, 1, 2, 3, 4, 5."
-    },
-    {
-      "question": "Magnetické kvantové číslo",
-      "answers": [
-        "souvisí s orientací nábojového oblaku a může nabývat hodnot celých čísel v intervalu záporné hodnoty vedlejšího kvantového čísla až po kladnou hodnotu vedlejšího kvantového čísla",
-        "souvisí s velikostí elektronové sféry a nabývá hodnot přirozených čísel",
-        "souvisí s momentem hybnosti elektronu a charakterizuje tvar orbitalu",
-        "nabývá pouze hodnot +1/2 a -1/2"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Magnetické kvantové číslo m_l určuje orientaci orbitalu v prostoru (a tedy nábojového oblaku) a nabývá celočíselných hodnot od -l do +l."
-    },
-    {
-      "question": "Pravidlo energetické výlučnosti (výhodnosti) říká,",
-      "answers": [
-        "že elektrony se umisťují nejprve na elektronových vrstvách a orbitalech s nejnižší úrovní energie",
-        "že v atomu nemohou existovat dva elektrony se všemi čtyřmi shodnými kvantovými čísly",
-        "že elektrony se v orbitalech párují až po obsazení všech orbitalů nespárovanými elektrony",
-        "že elektrony obsazují orbitaly zcela náhodně bez ohledu na energii"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Elektrony obsazují nejprve energeticky nejnižší volné stavy (orbitaly), teprve poté přecházejí na vyšší energetické hladiny."
-    },
-    {
-      "question": "Wiedemann-Franzův zákon říká, že",
-      "answers": [
-        "Poměr tepelné vodivosti a měrné elektrické vodivosti je úměrný absolutní teplotě",
-        "Tepelná vodivost kovů je nepřímo úměrná jejich elektrické vodivosti",
-        "Elektrická vodivost kovů nezávisí na teplotě",
-        "Tepelná a elektrická vodivost kovů jsou na sobě nezávislé veličiny"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Wiedemann-Franzův zákon spojuje tepelnou a elektrickou vodivost kovů přes Lorenzovo číslo: λ/σ = L·T."
-    },
-    {
-      "question": "Který elektrovodný materiál má nejlepší elektrickou vodivost?",
-      "answers": [
-        "stříbro",
-        "měď",
-        "hliník",
-        "zlato"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Stříbro má ze všech kovů nejnižší měrný elektrický odpor, a tedy nejlepší elektrickou vodivost (měď a hliník jsou horší, zlato ještě horší)."
-    },
-    {
-      "question": "Vliv střídavého elektrického pole na vlastnosti dielektrika popisuje:",
-      "answers": [
-        "komplexní permitivita ve frekvenční závislosti",
-        "statická permitivita nezávislá na frekvenci",
-        "pouze ztrátový činitel bez frekvenční závislosti",
-        "reálná část permitivity bez imaginární složky"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Chování dielektrika ve střídavém poli (ztráty, fázový posun) popisuje komplexní permitivita ε* = ε' − jε'', závislá na frekvenci."
-    },
-    {
-      "question": "Dotekové napětí dvou kovů (materiálů) je",
-      "answers": [
-        "přímo úměrně závislé na absolutní teplotě v místě doteku dvou kovů s rozdílnou výstupní prací elektronu z kovu a různou koncentrací vodivostních elektronů",
-        "nepřímo úměrné absolutní teplotě v místě doteku",
-        "nezávislé na teplotě, závisí jen na druhu kovů",
-        "přímo úměrné ploše dotyku dvou kovů"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Kontaktní (dotekové) napětí mezi dvěma různými kovy vzniká vlivem rozdílné výstupní práce elektronů a roste přímo úměrně s absolutní teplotou místa doteku."
-    },
-    {
-      "question": "Diamantová krystalická mřížka se definuje jako",
-      "answers": [
-        "2 plošně centrované kubické mřížky posunuté o 1/4 tělesové úhlopříčky",
-        "prostorově centrovaná kubická mřížka",
-        "plošně centrovaná kubická mřížka bez posunutí",
-        "jednoduchá hexagonální mřížka"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Diamantová mřížka vzniká proložením dvou plošně centrovaných kubických mřížek navzájem posunutých o čtvrtinu tělesové úhlopříčky — typická pro Si, Ge, C."
-    },
-    {
-      "question": "Funkce pro výpočet hustoty stavů je",
-      "answers": [
-        "nástroj na výpočet koncentraci možných stavů ve vodivostním a valenčním pásu. Koncentrace možných stavů je závislá na efektivní hmotnosti nosiče náboje a na odmocnině energie hladiny stavu.",
-        "nástroj na výpočet celkového počtu atomů v krystalu",
-        "nástroj na výpočet rychlosti nosičů náboje",
-        "funkce popisující pouze rozložení příměsí v polovodiči"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Hustota stavů udává počet kvantových stavů dostupných elektronům ve vodivostním/valenčním pásu na jednotku energie a objemu, závislou na efektivní hmotnosti nosičů."
-    },
-    {
-      "question": "Koncentrace volných děr ve vlastním polovodiči je přímo úměrná efektivní hodnotě hustoty stavů",
-      "answers": [
-        "ve valenčním pásu a nepřímo úměrná exponentu převrácené hodnoty absolutní teploty",
-        "ve vodivostním pásu a přímo úměrná exponentu absolutní teploty",
-        "ve valenčním pásu a přímo úměrná exponentu absolutní teploty",
-        "ve vodivostním pásu a nepřímo úměrná exponentu převrácené hodnoty absolutní teploty"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Koncentrace děr ve vlastním polovodiči roste s hustotou stavů ve valenčním pásu a exponenciálně klesá s převrácenou hodnotou absolutní teploty (Boltzmannův faktor)."
-    },
-    {
-      "question": "Koncentrace volných elektronů ve vlastním polovodiči je přímo úměrná efektivní hodnotě hustoty stavů",
-      "answers": [
-        "ve vodivostním pásu a nepřímo úměrná exponentu převrácené hodnoty absolutní teploty.",
-        "ve valenčním pásu a nepřímo úměrná exponentu převrácené hodnoty absolutní teploty",
-        "ve vodivostním pásu a přímo úměrná absolutní teplotě lineárně",
-        "ve valenčním pásu a přímo úměrná exponentu absolutní teploty"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Analogicky koncentrace volných elektronů závisí na hustotě stavů ve vodivostním pásu a stejném exponenciálním teplotním členu."
-    },
-    {
-      "question": "Doplňte chybějící slova:",
-      "answers": [
-        "P typ polovodiče vzniká přidáním příměsi do vlastního polovodiče, která má o jeden elektron méně, že je počet elektronů ve valenční konfiguraci vlastního polovodiče. Tato příměs se nazývá akceptor.",
-        "P typ polovodiče vzniká přidáním příměsi, která má o jeden elektron více; příměs se nazývá donor.",
-        "P typ polovodiče vzniká odebráním atomů z vlastního polovodiče bez příměsi.",
-        "P typ polovodiče vzniká ozářením vlastního polovodiče ultrafialovým světlem."
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Příměs typu akceptor (s jedním elektronem méně) vytváří polovodič typu P."
-    },
-    {
-      "question": "Doplňte chybějící slova:",
-      "answers": [
-        "N typ polovodiče vzniká přidáním příměsi do vlastního polovodiče, která má o jeden elektron více, že je počet elektronů ve valenční konfiguraci vlastního polovodiče. Tato příměs se nazývá donor.",
-        "N typ polovodiče vzniká přidáním příměsi, která má o jeden elektron méně; příměs se nazývá akceptor.",
-        "N typ polovodiče vzniká odebráním atomů z vlastního polovodiče bez příměsi.",
-        "N typ polovodiče vzniká ochlazením vlastního polovodiče na absolutní nulu."
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Příměs typu donor (s jedním elektronem navíc) vytváří polovodič typu N."
-    },
-    {
-      "question": "Nábojová neutralita v polovodiči nastane, pokud",
-      "answers": [
-        "součet volných elektronů a ionizovaných akceptorů je roven součtu volných děr a ionizovaných donorů.",
-        "součet volných elektronů je roven součtu volných děr bez ohledu na ionizaci příměsí",
-        "koncentrace donorů je rovna koncentraci akceptorů",
-        "všechny příměsi jsou plně ionizovány bez ohledu na koncentraci nosičů"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Nábojová neutralita znamená, že celkový kladný náboj (díry + ionizované donory) je vyvážen celkovým záporným nábojem (elektrony + ionizované akceptory)."
-    },
-    {
-      "question": "Při nízkých teplotách je pohyblivost nosičů",
-      "answers": [
-        "ovlivněna rozptylem na ionizovaných příměsích. S rostoucí teplotou tento vliv klesá, proto se pohyblivost zvyšuje až do bodu, kde převládne vliv mřížkového rozptylu a pohyblivost s teplotou začne klesat.",
-        "konstantní, nezávisí na teplotě ani na příměsích",
-        "ovlivněna pouze mřížkovým rozptylem, vliv příměsí je zanedbatelný",
-        "s klesající teplotou monotónně klesá až k nule"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Při nízkých teplotách dominuje rozptyl na ionizovaných příměsích; s rostoucí teplotou tento vliv slábne až do bodu, kdy převáží mřížkový (fononový) rozptyl."
-    },
-    {
-      "question": "Dielektrická susceptibilita k má v elektrickém poli vždy",
-      "answers": [
-        "kladnou hodnotu (k > 0). Ve vakuu je k = 0.",
-        "zápornou hodnotu (k < 0)",
-        "hodnotu rovnou permitivitě vakua",
-        "hodnotu nezávislou na materiálu, vždy k = 1"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Susceptibilita popisuje, jak snadno se dielektrikum polarizuje; je vždy nezáporná, ve vakuu (bez polarizovatelných částic) je nulová."
-    },
-    {
-      "question": "Celkové ztráty elektrického pole v dielektrickém materiálu",
-      "answers": [
-        "jsou součtem ztrát způsobených vodivostí, polarizací a případně tzv. ionizací. Jednotka pro ztráty je W/kg.",
-        "jsou způsobeny pouze vodivostí materiálu",
-        "jsou nulové u všech reálných dielektrik",
-        "závisí pouze na tloušťce dielektrika, nikoli na frekvenci pole"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Hysterezní ztráty rostou lineárně s frekvencí magnetického pole (na rozdíl od ztrát vířivými proudy, které rostou s druhou mocninou frekvence)."
-    },
-    {
-      "question": "Celkové ztráty magnetického pole v materiálu",
-      "answers": [
-        "jsou součtem ztrát hysterezí, vířivými proudy a ztráty magnetickým zpožděním. Jednotka pro ztřáty je W/kg.",
-        "jsou způsobeny pouze hysterezí",
-        "jsou nezávislé na frekvenci magnetického pole",
-        "vznikají pouze při stejnosměrném magnetování"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Magnetické ztráty se skládají ze ztrát hysterezí, vířivými proudy a ztrát magnetickým dozníváním (poslední jsou frekvenčně závislé)."
-    },
-    {
-      "question": "Mezi pomalé polarizace (relaxační) patří",
-      "answers": [
-        "dipólová a iontová-relaxační polarizace",
-        "elektronová a iontová polarizace",
-        "pouze elektronová polarizace",
-        "spontánní a rezonanční polarizace"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Relaxační (pomalé) polarizace zahrnují dipólovou a iontovou-relaxační polarizaci, které potřebují delší čas na ustavení rovnováhy."
-    },
-    {
-      "question": "Mezi zvláštní typy polarizace patří",
-      "answers": [
-        "mezivrstvová, samovolná (spontánní), trvalá (permanentní) a rezonanční polorizace",
-        "pouze elektronová a iontová polarizace",
-        "pouze dipólová polarizace",
-        "pouze polarizace vodivostním proudem"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Zvláštní typy polarizace zahrnují mezivrstvovou, spontánní, trvalou a rezonanční polarizaci — vyskytují se jen u specifických materiálů."
-    },
-    {
-      "question": "Paramagnetické látky mají",
-      "answers": [
-        "nevykompenzované spinové i dráhové stavy.",
-        "vykompenzované spinové i dráhové stavy",
-        "nevykompenzované spinové momenty jen ve vnitřních vrstvách",
-        "trvalou magnetizaci i bez vnějšího pole"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Feromagnetika mají nevykompenzované spinové momenty (uspořádané do domén), zatímco dráhové momenty jsou vykompenzovány."
-    },
-    {
-      "question": "Feromagnetické látky mají",
-      "answers": [
-        "nevykompenzované spinové momenty na některé z vnitřních vrstev elektronového obalu a vykompenzované dráhové momenty.",
-        "vykompenzované spinové i dráhové momenty",
-        "nevykompenzované dráhové momenty a vykompenzované spinové momenty",
-        "žádné nevykompenzované magnetické momenty"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Paramagnetika mají nevykompenzované jak spinové, tak dráhové magnetické momenty jednotlivých elektronů/atomů."
-    },
-    {
-      "question": "Antiferomagnetické látky mají",
-      "answers": [
-        "nezaplněné vnitřní kvantové stavy se střídající se orientací magnetického momentu.",
-        "všechny magnetické momenty orientované souhlasně",
-        "zaplněné vnitřní kvantové stavy bez magnetického momentu",
-        "trvalou spontánní magnetizaci jako feromagnetika"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Antiferomagnetika mají střídavě orientované magnetické momenty ve stejně obsazených, ale neúplně zaplněných vnitřních stavech, které se navzájem přesně ruší."
-    },
-    {
-      "question": "Kovalentní krystal se vyznačuje",
-      "answers": [
-        "vysokou mechanickou pevností a tvrdostí a je nerozpustný ve vodě. Řadí se mezi izolanty případně polovodiče.",
-        "nízkou mechanickou pevností a dobrou rozpustností ve vodě",
-        "vysokou elektrickou vodivostí jako kovy",
-        "křehkostí a vznikem elektrolytu při rozpuštění"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Kovalentní krystaly (např. diamant) jsou tvrdé, mechanicky pevné a nerozpustné ve vodě — patří mezi izolanty nebo polovodiče."
-    },
-    {
-      "question": "Iontový krystal se vyznačuje",
-      "answers": [
-        "vysokou mechanickou pevností, křehkostí (není možná plastická deformace), nízkou vodivostí a vyšší hodnotou relativní premitivity. Krystal je rozpustný ve vodě a vzniká elektrolyt obsahující kationty a anionty.",
-        "nízkou mechanickou pevností a vysokou plastickou deformovatelností",
-        "vysokou elektrickou vodivostí za nízkých teplot",
-        "nerozpustností ve vodě"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Iontové krystaly jsou pevné, ale křehké (bez plastické deformace), s nízkou vodivostí v pevném stavu, rozpustné ve vodě za vzniku elektrolytu."
-    },
-    {
-      "question": "Čím může být zrušen stav supravodivosti v látce?",
-      "answers": [
-        "zvýšením teploty, zvýšením intenzity magnetického pole, zvýšením proudové hustoty",
-        "pouze snížením teploty",
-        "pouze snížením proudové hustoty",
-        "zvýšením tlaku na materiál"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Supravodivost lze zrušit (přejít zpět do normálního stavu) zvýšením teploty nad kritickou teplotu, zvýšením magnetického pole nebo zvýšením proudové hustoty nad kritické hodnoty."
-    },
-    {
-      "question": "Supravodivost je",
-      "answers": [
-        "způsobená Cooperovými elektronovými páry.",
-        "způsobená volnými elektrony bez vzájemné interakce",
-        "způsobená iontovou vodivostí materiálu",
-        "důsledkem vysoké koncentrace příměsí v materiálu"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Supravodivost (podle BCS teorie) je způsobena vznikem Cooperových párů elektronů, které se pohybují bez rozptylu na mřížce."
-    },
-    {
-      "question": "Rezistivita kovů se phybuje v rozmezí",
-      "answers": [
-        "10^-8 až 10^-5 Ωm",
-        "10^-2 až 10^2 Ωm",
-        "10^-12 až 10^-9 Ωm",
-        "10^0 až 10^3 Ωm"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Typická rezistivita kovů se pohybuje v rozmezí přibližně 10^-8 až 10^-5 Ω·m."
-    },
-    {
-      "question": "Rezistivita kovů v teplotě varu",
-      "answers": [
-        "skokově vzrůstá",
-        "skokově klesá",
-        "zůstává beze změny",
-        "plynule klesá k nule"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Při teplotě varu kovu dochází ke skokové (nespojité) změně rezistivity v důsledku fázové přeměny (kapalina–pára)."
-    },
-    {
-      "question": "Rezistivita kovů",
-      "answers": [
-        "při velmi nízkých teplotách, avšak T>20 K, je úměrná T^5 a nad Debyeovou teplotou vzrůstá s teplotou lineárně.",
-        "je nad Debyeovou teplotou konstantní, nezávislá na teplotě",
-        "při všech teplotách klesá lineárně s teplotou",
-        "je úměrná druhé mocnině teploty ve všech teplotních oblastech"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Rezistivita kovů roste s teplotou při nízkých teplotách jako T^5 (Bloch–Grüneisenův zákon) a nad Debyeovou teplotou lineárně."
-    },
-    {
-      "question": "Hlavními požadavky na elektrovodné materiály jsou:",
-      "answers": [
-        "malá rezistivita, výhodná zpracovatelnost, postačující odolnost proti korozi, dobré mechanické vlastnosti, snadé spojování a pájení, dostupnost a cena",
-        "vysoká rezistivita a nízká cena",
-        "špatná zpracovatelnost a vysoká odolnost proti korozi",
-        "velká hmotnost a snadná pájitelnost"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Elektrovodné materiály musí mít malou rezistivitu, dobrou zpracovatelnost, odolnost proti korozi, dobré mechanické vlastnosti a být cenově dostupné."
-    },
-    {
-      "question": "Termoplasty při zahřívání",
-      "answers": [
-        "přecházejí do plastického stavu s vysokou viskozitou. Zahřátím nedochází ke změně chemické struktury.",
-        "chemicky se zesíťují a ztvrdnou natrvalo",
-        "se rozkládají bez přechodu do plastického stavu",
-        "zůstávají tuhé až do bodu hoření"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Termoplasty při zahřátí měknou (přecházejí do viskózního plastického stavu) bez chemické změny struktury, a proto je lze opakovaně tvářet."
-    },
-    {
-      "question": "Termoelektrické napětí termočlánku je",
-      "answers": [
-        "přímo úměrně závislé na rozdílu teplot měřicího konce a vztažného konce termočlánku vytvořených ze dvou kovů. Citlivost termočlánku je dána přirozeným logaritmem podílu koncentrace elektronů v těchto kovech.",
-        "nezávislé na rozdílu teplot obou konců",
-        "přímo úměrné absolutní teplotě měřicího konce bez ohledu na vztažný konec",
-        "závislé pouze na materiálu, nikoli na teplotním rozdílu"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Termoelektrické (Seebeckovo) napětí je úměrné rozdílu teplot spojů termočlánku a logaritmu poměru koncentrací elektronů v použitých kovech."
-    },
-    {
-      "question": "Kritérium stanovující, zda látka bude mít polovodičové vlastnosti říká, že",
-      "answers": [
-        "v látce se musí vyskytovat kovalentní vyzby",
-        "v látce se musí vyskytovat iontové vazby",
-        "v látce se musí vyskytovat kovové vazby",
-        "látka nesmí obsahovat žádné vazby mezi atomy"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Pro polovodičové vlastnosti materiálu je nutná přítomnost kovalentních vazeb (umožňujících tvorbu zakázaného pásu vhodné šířky)."
-    },
-    {
-      "question": "Kritérium stanovující, zda látka bude mít polovodičové vlastnosti říká, že součet počtu vazeb tvořených atomem s valencí 4 a podílu počtu všech valenčních elektronů s počtem atomů s valencí rovnou 4 musí být",
-      "answers": [
-        "8",
-        "4",
-        "6",
-        "10"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Součet vazeb a poměrný počet valenčních elektronů na atom s valencí 4 musí dávat hodnotu 8 (pravidlo oktetu)."
-    },
-    {
-      "question": "Polovodičové materiály tří prvkového složení (př. CuFeS_2, ZnSiAs_2) krystalizují v soustavě:",
-      "answers": [
-        "chalkopyritového typu",
-        "diamantového typu",
-        "sfaleritového typu",
-        "krychlové jednoduché"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Trojprvkové polovodičové sloučeniny (např. CuFeS2) krystalizují v chalkopyritové soustavě."
-    },
-    {
-      "question": "Ve vlastním polovodiči se Fermiho hladina se zvyšující se teplotou",
-      "answers": [
-        "posouvá od středu zakázaného pásu v závislosti na logaritmu poměru efektivní hmotností volných děr a volných elektronů",
-        "se nemění, zůstává vždy uprostřed zakázaného pásu",
-        "se posouvá směrem k valenčnímu pásu bez ohledu na efektivní hmotnosti",
-        "skokově přeskočí do vodivostního pásu"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "S rostoucí teplotou se Fermiho hladina ve vlastním polovodiči posouvá od středu zakázaného pásu v závislosti na logaritmu poměru efektivních hmotností děr a elektronů."
-    },
-    {
-      "question": "Ve vlastním polovodiči se Fermiho hladina se označuje",
-      "answers": [
-        "jako W_i, a protože ve vlastním polovodiči platí p=n a při T=0 K leží W_i uprostřed zakázaného pásu.",
-        "jako W_F a leží vždy na okraji vodivostního pásu",
-        "jako W_g a rovná se šířce zakázaného pásu",
-        "jako W_c a odpovídá dnu vodivostního pásu"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Fermiho hladina vlastního polovodiče se značí W_i; při T = 0 K leží přesně uprostřed zakázaného pásu, protože platí p = n."
-    },
-    {
-      "question": "Fermiho hladina energie je hodnota energie, která vyvolá změnu stavu elektronu",
-      "answers": [
-        "dle Fermi-Diracovy rozdělovací funkce s 50% pravděpodobností a v Maxwell - Boltzmanově rozdělovací funkci s 100% pravděpodobností.",
-        "vždy se 100% pravděpodobností v obou rozdělovacích funkcích",
-        "pouze v Maxwell-Boltzmannově rozdělení, ve Fermi-Diracově nemá význam",
-        "s 0% pravděpodobností v obou rozděleních"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Fermiho hladina odpovídá energii, při které je pravděpodobnost obsazení stavu elektronem 50 % (Fermi–Dirac), zatímco v klasické (Boltzmannově) aproximaci by odpovídala 100% obsazení."
-    },
-    {
-      "question": "Řešení počtu majoritních nosičů pomocí rovnic termodynamické rovnováhy a nábojové neutrality ve stavu plné ionizace příměsí polovodiče vede",
-      "answers": [
-        "ke kvadratické rovnici s jedním reálným výsledkem",
-        "k lineární rovnici s jedním řešením",
-        "ke kvadratické rovnici bez reálného řešení",
-        "k soustavě nekonečně mnoha rovnic"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Výpočet vede na kvadratickou rovnici pro koncentraci majoritních nosičů, z níž má fyzikální význam jen jeden (kladný) reálný kořen."
-    },
-    {
-      "question": "Difuzní složka elektronového proudu v polovodiči je rovna",
-      "answers": [
-        "kladné hodnotě elektrického náboje vynásobéné difuzním koeficientem elektronů a gradientu elektrického pole.",
-        "záporné hodnotě náboje vynásobené difuzním koeficientem elektronů a gradientem koncentrace",
-        "kladné hodnotě náboje vynásobené driftovou rychlostí elektronů",
-        "součinu náboje a intenzity elektrického pole"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Difuzní elektronový proud je úměrný náboji elektronu (zápornému), difuznímu koeficientu elektronů a gradientu jejich koncentrace."
-    },
-    {
-      "question": "Difuzní složka v polovodiči je rovna",
-      "answers": [
-        "záporné hodnotě elektrického náboje vynásobené difuzním koeficientem děr a gradientu elektrického pole.",
-        "kladné hodnotě náboje vynásobené driftovou rychlostí děr",
-        "záporné hodnotě náboje vynásobené difuzním koeficientem elektronů",
-        "součinu náboje děr a intenzity elektrického pole"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Difuzní děrový proud je úměrný kladnému náboji díry, difuznímu koeficientu děr a gradientu jejich koncentrace."
-    },
-    {
-      "question": "Vodivost polovodičů je",
-      "answers": [
-        "dána součtem elektronového proudu a děrového. V případě nehomogenního polovodiče děrový difuzní proud působí proti celkovému proudu.",
-        "dána pouze elektronovým proudem, děrový proud je zanedbatelný",
-        "dána pouze děrovým proudem",
-        "nezávislá na součtu elektronového a děrového proudu"
-      ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Celková vodivost polovodiče je součtem elektronové a děrové složky proudu; v nehomogenním polovodiči může difuzní děrový proud směřovat opačně než celkový proud."
+      "explanation": "Elektrická zařízení (EZ) se podle napětí mezi vodiči dělí na malé napětí (mn) do 50 V, nízké napětí (nn) do 1000 V a vysoké napětí (vn) do 52 kV."
     },
     {
-      "question": "Reálné dielektrikum obsahuje",
+      "question": "Jmenovité napětí střídavých rozvodných sítí v ČR je:",
       "answers": [
-        "Velké množství vázaného náboje a malé množství volného náboje.",
-        "pouze vázané náboje, žádné volné náboje",
-        "velké množství volných nábojů a malé množství vázaných",
-        "pouze volné náboje jako vodič"
+        "12/24 V",
+        "120/300 V",
+        "230/400 V"
       ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Reálné dielektrikum obsahuje převážně vázané náboje a jen nepatrné množství volných nábojů (způsobujících svodový proud)."
-    },
-    {
-      "question": "Ideální dielektrikum",
-      "answers": [
-        "má pouze vázané náboje",
-        "má pouze volné náboje",
-        "obsahuje stejné množství volných a vázaných nábojů",
-        "nemá žádné náboje, ani volné, ani vázané"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Ideální (dokonalé) dielektrikum obsahuje výhradně vázané náboje, žádné volné."
-    },
-    {
-      "question": "Mezi rychlé polarizace patří",
-      "answers": [
-        "elektronová a iontová polarizace",
-        "dipólová a iontová-relaxační polarizace",
-        "pouze mezivrstvová polarizace",
-        "pouze spontánní polarizace"
-      ],
-      "correct": 0,
-      "answer_count": 4,
-      "image_name": null,
-      "explanation": "Rychlé polarizace (elektronová, iontová) se ustavují prakticky okamžitě, bez znatelného zpoždění vůči poli."
-    },
-    {
-      "question": "Vyberte pravdivé prohlášení:",
-      "answers": [
-        "Vložením diamagnetika do magnetického pole dojde k deformaci orbitu a k vytvořením magnetických momentů atomů. Jejich vektorovým součtem vznikne magnetizace látky, která má opačný směr než magnetické pole.",
-        "Vložením diamagnetika do pole vznikne magnetizace stejného směru jako pole",
-        "Diamagnetika jsou do magnetického pole silně vtahována",
-        "Diamagnetika vykazují trvalou magnetizaci i bez vnějšího pole"
-      ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vložením diamagnetika do pole se indukovaná magnetizace orientuje proti směru vnějšího pole (Lenzův zákon na úrovni elektronových orbitalů)."
+      "explanation": "Standardní jmenovité napětí veřejné distribuční sítě v ČR je 230 V (fáze–nula) / 400 V (fáze–fáze)."
     },
     {
-      "question": "Ionizační energie",
+      "question": "Mez bezpečných jmenovitých napětí při předpokládaném dotyku neživých částí v prostorech normálních je:",
       "answers": [
-        "je práce nutná k odtržení nejvolněji vázaného elektronu od atomu, resp. iontu",
-        "je energie uvolněná při připojení elektronu k neutrálnímu atomu",
-        "je energie potřebná k rozštěpení atomového jádra",
-        "je energie vyzářená atomem při emisi fotonu"
+        "25 V~ a 120 V=",
+        "50 V~ a 120 V=",
+        "60 V~ a 60 V="
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ionizační energie je práce potřebná k odtržení nejslaběji vázaného elektronu z neutrálního atomu nebo iontu."
+      "explanation": "V prostorech normálních je mez bezpečného napětí 50 V pro střídavé (~) a 120 V pro stejnosměrné (=) napětí."
     },
     {
-      "question": "Doplňte chybějící slovo",
+      "question": "Dovolené meze trvalého dotykového napětí v prostředí suchém pro EZ do 1000 V jsou:",
       "answers": [
-        "Je-li lineární dislokace rozmístěna ve struktuře systematicky, vzniká šroubová dislokace, která je vzhledem k hranové dislokaci druhým limitním připadem.",
-        "vzniká hranová dislokace jako jediný možný typ poruchy",
-        "vzniká bodová porucha typu vakance",
-        "vzniká Frenkelova porucha"
+        "12 V~ a 24 V=",
+        "25 V~ a 60 V=",
+        "50 V~ a 120 V="
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Šroubová dislokace vzniká systematickým rozmístěním lineární poruchy ve struktuře — je druhým limitním případem vedle hranové dislokace."
+      "explanation": "V suchém prostředí je dovolená mez trvalého dotykového napětí 25 V~ a 60 V=."
     },
     {
-      "question": "Slitina železo/chrom/hliník/ (Fe-Cr-Al) se nazývá:",
+      "question": "Odpor uzemnění uzlu zdroje nemá být větší než:",
       "answers": [
-        "Chromel",
-        "kanthal",
-        "bronz",
-        "mosaz"
+        "10 Ω, ve ztížených podmínkách nejvýše 15 Ω",
+        "15 Ω, ve ztížených podmínkách nejvýše 5 Ω",
+        "5 Ω, ve ztížených podmínkách nejvýše 15 Ω"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Slitina Fe-Cr-Al se nazývá kanthal a používá se pro topné odporové prvky s vysokou tepelnou odolností."
+      "explanation": "Odpor uzemnění uzlu zdroje má být nejvýše 5 Ω, ve ztížených podmínkách (např. skalnaté podloží) nejvýše 15 Ω."
     },
     {
-      "question": "Slitina měď/cín (Cu-Sn) se nazývá:",
+      "question": "Plynové potrubí se jako náhodný ochranný vodič:",
       "answers": [
-        "bronz",
-        "mosaz",
-        "dural",
-        "kanthal"
+        "Musí použít",
+        "Může použít",
+        "Nesmí použít"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Slitina Cu-Sn se nazývá bronz."
+      "explanation": "Plynové potrubí se nesmí použít jako náhodný ochranný vodič kvůli riziku výbuchu a korozi způsobené svodovými proudy."
     },
     {
-      "question": "Slitina měď/zinek (Cu-Zn) se nazývá:",
+      "question": "Silnoproudá zařízení jsou zařízení:",
       "answers": [
-        "mosaz",
-        "bronz",
-        "dural",
-        "chromel"
+        "Kde proud protékající přesahuje 2,5A~ a 5A=",
+        "Kde proud protékající přesahuje 5A~ a 10A=",
+        "U nichž mohou vzniknout proudy nebezpečné osobám, zvířatům a věcem"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Slitina Cu-Zn se nazývá mosaz."
+      "explanation": "Silnoproudá zařízení jsou definována jako zařízení, u nichž mohou vznikat proudy nebezpečné osobám, zvířatům nebo věcem."
     },
     {
-      "question": "Proč se nepoužívá stříbrné pokovení kontaktů i když stříbro má lepší elektrickou vodivost než zlato?",
+      "question": "Barva bezpečnostních tabulek výstrahy je:",
       "answers": [
-        "stříbro koroduje a na rozdíl od zlata na jeho povrchu nevzniká pasivační vrstva, která by zabraňovala hluboké korozi",
-        "stříbro je dražší než zlato",
-        "stříbro má horší tepelnou vodivost než zlato",
-        "stříbro je mechanicky měkčí a rychle se opotřebovává"
+        "Oranžová",
+        "Červená",
+        "Žlutá"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Stříbro na povrchu koroduje (tmavne, tvoří sulfid), zatímco na zlatě nevzniká pasivační vrstva bránící korozi — proto se pro kontakty preferuje zlato i přes horší vodivost stříbra."
+      "explanation": "Bezpečnostní tabulky výstrahy mají žlutou barvu (typicky s černým trojúhelníkovým symbolem)."
     },
     {
-      "question": "Koncentraci nosičů vlastního polovodiče (intrinsického) lze vypočítat v rámci W+ΔW",
+      "question": "Barva bezpečnostních tabulek zákazu je:",
       "answers": [
-        "vynásobením hodnoty funkce hustoty stavů pravděpodobností rozdělovací funkce. Protože volné elektrony v jednom stavu mohou nabývat spinového čísla 1/2 a -1/2, celková koncentrace je dvojnásobná hodnota.",
-        "sečtením hodnoty funkce hustoty stavů a rozdělovací funkce",
-        "vydělením hustoty stavů rozdělovací funkcí",
-        "pouze z hodnoty zakázaného pásu bez rozdělovací funkce"
+        "Černá",
+        "Červená",
+        "Žlutá"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Koncentrace nosičů se získá vynásobením hustoty stavů a příslušné rozdělovací funkce (Fermi-Diracovy) a započtením obou spinových stavů (faktor 2)."
+      "explanation": "Bezpečnostní tabulky zákazu mají červenou barvu."
     },
     {
-      "question": "Ztrátový činitel v dielektrických materiálech se označuje",
+      "question": "Bezpečnostní značka v provedení modrý kruh, bílý symbol je značka:",
       "answers": [
-        "jako tg δ a vychází z náhradního schématu reálného kondenzátoru - jeho paralelní kapacity a paralelního odporu či sériové kapacity a sériového odporu a je závislý na frekvenci",
-        "jako η a je nezávislý na frekvenci",
-        "jako cos φ a vychází pouze ze sériové kapacity",
-        "jako Q a roste s kvalitou izolantu"
+        "Příkazu",
+        "Výstrahy",
+        "Zákazu"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ztrátový činitel tg δ vychází z náhradního schématu reálného kondenzátoru (paralelní/sériová kombinace R a C) a je frekvenčně závislý."
+      "explanation": "Modrý kruh s bílým symbolem označuje značku příkazu (co je nutno udělat)."
     },
     {
-      "question": "Ferimagnetické látky mají",
+      "question": "Bezpečnostní značky v provedení na zeleném podkladu jsou značky:",
       "answers": [
-        "různě zaplněné vnitřní kvantové stavy se střídající se orientací silného a slabého magnetického momentu.",
-        "všechny magnetické momenty stejně velké a souhlasně orientované",
-        "žádné vnitřní kvantové stavy s magnetickým momentem",
-        "vykompenzované momenty jako diamagnetika"
+        "Informační",
+        "Příkazu",
+        "Zákazu"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ferimagnetika mají různě velké, střídavě orientované magnetické momenty ve vnitřních stavech, takže se momenty vzájemně nevyruší úplně, jen částečně."
+      "explanation": "Zelený podklad se používá u informačních značek (např. únikové cesty, první pomoc)."
     },
     {
-      "question": "Iontová vazba vzniká",
+      "question": "V označení stupně krytí IP udává první číslice:",
       "answers": [
-        "při reakci prvků typu kov/nekov",
-        "při reakci prvků typu nekov/nekov",
-        "při reakci prvků typu kov/kov",
-        "pouze u vzácných plynů"
+        "Stupeň ochrany osob před nebezpečným dotykem živých částí a stupeňochrany zařízení před vniknutím cizích pevných těles",
+        "Stupeň ochrany před vlhkostí, vody a korozí",
+        "Stupeň ochrany před vniknutí bez klíče či nástroje"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Iontová vazba vzniká mezi prvky typu kov–nekov (přenosem elektronu)."
+      "explanation": "První číslice krytí IP udává stupeň ochrany osob před nebezpečným dotykem živých částí a stupeň ochrany zařízení před vniknutím cizích pevných těles."
     },
     {
-      "question": "Kovalentní vazba vzniká",
+      "question": "Prostředky základní ochrany EZ zajišťují ochranu:",
       "answers": [
-        "při reakci prvků typu nekov/nekov",
-        "při reakci prvků typu kov/nekov",
-        "při reakci prvků typu kov/kov",
-        "pouze u kovů"
+        "Jen při normálním provozu",
+        "Vždy",
+        "Základní i při poruše"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Kovalentní vazba vzniká mezi prvky typu nekov–nekov (sdílením elektronového páru)."
+      "explanation": "Prostředky základní ochrany chrání pouze při normálním (bezporuchovém) provozu zařízení — nezajišťují ochranu při poruše."
     },
     {
-      "question": "Kovová vazba vzniká",
+      "question": "Prostředky zvýšené ochrany EZ zajišťují ochranu:",
       "answers": [
-        "při reakci prvků typu kov/kov",
-        "při reakci prvků typu nekov/nekov",
-        "při reakci prvků typu kov/nekov",
-        "pouze u plynů"
+        "Vždy",
+        "Základní i pokročilou",
+        "Základní i při poruše"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Kovová vazba vzniká mezi prvky typu kov–kov (delokalizovaný elektronový plyn)."
+      "explanation": "Prostředky zvýšené ochrany (např. dvojitá izolace) zajišťují ochranu jak při normálním provozu, tak i při poruše zařízení."
     },
     {
-      "question": "Hundovo pravidlo říká,",
+      "question": "Při ochraně automatickým odpojením se pro střídavé rozvodné sítě do 1000 V dovoluje doba odpojení:",
       "answers": [
-        "že v orbitalech o stejné energii vznikají elektronové páry teprve po obsazení všech těchto orbitalů nespárovanými elektrony, které mají stejnou hodnotu spinu",
-        "že elektrony se v orbitalech párují ihned, jakmile je to možné",
-        "že elektrony obsazují nejprve orbitaly s nejvyšší energií",
-        "že v atomu nemohou existovat dva elektrony se stejným spinem"
+        "nepřesahující 0.5 s",
+        "nepřesahující 2 s",
+        "nepřesahující 5 s"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Hundovo pravidlo: elektrony obsazují degenerované orbitaly nejprve po jednom (nespárované, se stejným spinem), teprve poté se párují."
+      "explanation": "Maximální dovolená doba automatického odpojení od zdroje ve střídavých sítích do 1000 V je 5 s."
     },
     {
-      "question": "Kritérium, které stanovuje, zda látka bude mít polovodičové vlastnosti v pozemských podmínkách říká, že energie potřebná pro rozbití valenční vazby musí být menší než",
+      "question": "Pro automatické odpojení od zdroje v síti TT 230 V AC, zajišťující ochranu před nebezpečným dotykem neživé části koncového obvodu do 32 A, musí ochranný prvek vypnout v čase do:",
       "answers": [
-        "3 eV",
-        "1 eV",
-        "10 eV",
-        "0,1 eV"
+        "0.2 s",
+        "1 s",
+        "2 s"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Pro polovodičové vlastnosti v běžných pozemských podmínkách musí být energie potřebná k rozbití valenční vazby menší než přibližně 3 eV."
+      "explanation": "V síti TT musí ochranný prvek pro koncové obvody do 32 A vypnout do 0,2 s — sítě TT vyžadují kratší vypínací čas kvůli vyššímu odporu zemní smyčky."
     },
     {
-      "question": "Polovodičové materiály čistého elementárního složení (př. C, Si, Ge, Sn) krystalizují v soustavě:",
+      "question": "Pro automatické odpojení od zdroje v síti TN 230 V AC, zajišťující ochranu před nebezpečným dotykem neživé části koncového obvodu do 32 A, musí ochranný prvek vypnout v čase do:",
       "answers": [
-        "diamantového typu",
-        "sfaleritového typu",
-        "chalkopyritového typu",
-        "krychlové prostorově centrované"
+        "0.2 s",
+        "0.4 s",
+        "1 s"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Elementární polovodiče (C, Si, Ge, Sn) krystalizují v diamantové soustavě."
+      "explanation": "V síti TT musí ochranný prvek pro koncové obvody do 32 A vypnout do 0,2 s — sítě TT vyžadují kratší vypínací čas kvůli vyššímu odporu zemní smyčky."
     },
     {
-      "question": "Vznik doménové struktury ve feroelektrické látce (při působení elektrického pole) je charakteristický rys pro",
+      "question": "Při základní ochraně krytím musí kryty:",
       "answers": [
-        "Spontání polarizaci",
-        "elektronovou polarizaci",
-        "iontovou polarizaci",
-        "mezivrstvovou polarizaci"
+        "Být dostatečně odolné, vyhovující alespoň IPxxB (IP2X), horní vodorovné kryty pak IPxxD (IP4X), odstranitelné jen klíčem či nástrojem",
+        "Být dostatečně odolné, vyhovující alespoň IPxxB (IP4X), horní vodorovné kryty pak IPxxD (IP2X), odstranitelné jen klíčem či nástrojem",
+        "Být voděodolné, odstranitelné jen klíčem či nástrojem"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vznik doménové struktury feroelektrika je charakteristickým rysem spontánní (samovolné) polarizace."
+      "explanation": "Kryty musí odpovídat alespoň krytí IPxxB (IP2X), horní vodorovné plochy krytí IPxxD (IP4X), a musí být odstranitelné pouze pomocí klíče či nástroje."
     },
     {
-      "question": "Běžné paramagnetické látky jsou magnetickým polem:",
+      "question": "Ochranu zábranou v prostorech volně přístupných laikům:",
       "answers": [
-        "slabě přitahovány dovnitř magnetického pole",
-        "silně vytlačovány mimo magnetické pole",
-        "zcela nezávislé na magnetickém poli",
-        "trvale zmagnetovány i po odstranění pole"
+        "Musí se použít",
+        "Nelze použít",
+        "V ČR lze použít"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Paramagnetické látky jsou vnějším magnetickým polem slabě přitahovány dovnitř pole."
+      "explanation": "Ochranu zábranou (na rozdíl od krytí) nelze v prostorech volně přístupných laikům použít, protože zábranu lze bez nástroje odstranit nebo obejít."
     },
     {
-      "question": "Snížit ztráty vířivými proudy lze",
+      "question": "Napětí obvodů při ochranně elektrickým oddělením nesmí přesáhnout hodnotu:",
       "answers": [
-        "snížením tloušťky plechů (materiálů), zvýšením rezistivity (např. přidáním křemíku ...)",
-        "zvětšením tloušťky plechů materiálu",
-        "snížením rezistivity materiálu",
-        "zvýšením frekvence magnetického pole"
+        "230 V",
+        "400 V",
+        "500 V"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ztráty vířivými proudy se sníží zmenšením tloušťky plechů/lamel a zvýšením rezistivity materiálu (např. legováním křemíkem)."
+      "explanation": "Při ochraně elektrickým oddělením (transformátorem s oddělenými vinutími) nesmí napětí obvodu přesáhnout 500 V."
     },
     {
-      "question": "Magnetické ztráty vířivými proudy jsou:",
+      "question": "Základní ochrana polohou spočívá:",
       "answers": [
-        "přímo úměrné druhé mocnině frekvence magnetického pole",
-        "přímo úměrné frekvenci magnetického pole (lineárně)",
-        "nezávislé na frekvenci magnetického pole",
-        "nepřímo úměrné frekvenci magnetického pole"
+        "V umístění živých částí do prostorů přístupným pouze pracovníků znalých",
+        "V umístění živých částí mimo dosah",
+        "V umístění živých částí více než2,5 m od sebe"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ztráty vířivými proudy rostou s druhou mocninou frekvence magnetického pole (na rozdíl od hysterezních ztrát, které rostou lineárně s frekvencí)."
+      "explanation": "Ochrana polohou spočívá v umístění živých částí mimo dosah (mimo tzv. dosah rukou) osob."
     },
     {
-      "question": "Pravidlo maximální multiplicity říká,",
+      "question": "Doplňkovou ochranu proudovým chráničem lze realizovat:",
       "answers": [
-        "že elektrony se v elektronovém obalu umisťují tak, aby počet nevykompenzovaných spinů v obsazeném orbitalu byl maximální.",
-        "že elektrony se v orbitalech párují ihned, jakmile je to možné",
-        "že v atomu nemohou existovat dva elektrony se stejnými kvantovými čísly",
-        "že elektrony obsazují vždy jen nejnižší orbital"
+        "Chráničem se jmenovitým rozdílovým proudem nejvýše 3 mA",
+        "Chráničem se jmenovitým rozdílovým proudem nejvýše 30 mA",
+        "Chráničem se jmenovitým rozdílovým proudem nejvýše 300 mA"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Pravidlo maximální multiplicity (Hundovo pravidlo) říká, že elektrony obsazují orbitaly tak, aby počet nespárovaných spinů byl maximální."
+      "explanation": "Doplňkovou ochranu lze realizovat proudovým chráničem se jmenovitým rozdílovým (reziduálním) proudem nejvýše 30 mA."
     },
     {
-      "question": "Koncentrace vakancí se vzrůstající teplotou se mění",
+      "question": "Pro ochranu omezením ustáleného dotykového proudu a energie nesmí proud tekoucí odporem 2000 Ohmů mezi částmi současně přístupnými dotyku překročit hodnoty:",
       "answers": [
-        "exponenciálně",
-        "lineárně",
-        "zůstává konstantní",
-        "klesá"
+        "10 mA~ nebo 20 mA=",
+        "10 mA~ nebo 3,5 mA=",
+        "3,5 mA~ nebo 10 mA="
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Koncentrace vakancí (bodových poruch) roste s teplotou exponenciálně (Arrheniův typ závislosti)."
+      "explanation": "Limitní hodnoty ustáleného dotykového proudu jsou 3,5 mA pro střídavý (~) a 10 mA pro stejnosměrný (=) proud."
     },
     {
-      "question": "Elektroafinita",
+      "question": "Pro ochranu omezením ustáleného proudu a energie nesmí nahromaděná energie mezi částmi současně přístupnými dotyku překročit hodnotu:",
       "answers": [
-        "je množství energie, které se uvolní, jestliže se připojí volný elektron k neutrálnímu atomu",
-        "je práce nutná k odtržení elektronu od neutrálního atomu",
-        "je schopnost atomu vázat se s jinými atomy chemickou vazbou",
-        "je energie potřebná k ionizaci atomu jako celku"
+        "0,5 mJ",
+        "5 mJ",
+        "50 mJ"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Elektroafinita je energie uvolněná při připojení volného elektronu k neutrálnímu atomu (souvisí s elektronegativitou, ale je odlišná veličina)."
+      "explanation": "Limitní hodnota nahromaděné energie mezi současně dotykově přístupnými částmi je 0,5 mJ."
     },
     {
-      "question": "Monokrystalická látka:",
+      "question": "Proudovým chráničem musí procházet:",
       "answers": [
-        "má pravidelné uspořádání částic v prostoru na velkou i malou vzdálenost. Zpravidla má v různých směrech různé vlastnosti. Má přesně určenou teplotu tání.",
-        "má pravidelné uspořádání jen na malou vzdálenost, na velkou nepravidelné",
-        "nemá žádné pravidelné uspořádání částic",
-        "nemá přesně určenou teplotu tání"
+        "Pouze ochranný vodič",
+        "Pouze zemnící vodič",
+        "Všechny pracovní vodiče"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Monokrystal má pravidelné (periodické) uspořádání částic na malou i velkou vzdálenost, typicky anizotropní vlastnosti a ostrou teplotu tání."
+      "explanation": "Proudovým chráničem musí procházet všechny pracovní (živé) vodiče chráněného obvodu, aby chránič mohl vyhodnotit součet vektorových proudů."
     },
     {
-      "question": "Polykrystalická látka:",
+      "question": "Vidlice a zásuvky pro obvody SELV musí splňovat tyto požadavky:",
       "answers": [
-        "má pravidelné uspořádání částic v prostoru na malou vzdálenost, ale na velkou vzdálenost nepravidelné. Zpravidla má v různých směrech stejné vlastnosti. Přesně určenou teplotu tání.",
-        "má pravidelné uspořádání částic i na velkou vzdálenost",
-        "nemá žádné pravidelné uspořádání částic",
-        "má v různých směrech vždy různé vlastnosti"
+        "Nesmí být záměnné s vidlicemi a zásuvkami sítí jiných napětí a musí mít kontakt pro ochranný vodič",
+        "Nesmí být záměnné s vidlicemi a zásuvkami sítí jiných napětí a může mít kontakt pro ochranný vodič",
+        "Nesmí být záměnné s vidlicemi a zásuvkami sítí jiných napětí a nesmí mít kontakt pro ochranný vodič"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Polykrystal má pravidelné uspořádání jen na malou vzdálenost (v rámci jednotlivých zrn), na velkou vzdálenost je neuspořádaný; makroskopicky bývá izotropní."
+      "explanation": "Vidlice a zásuvky obvodů SELV nesmí být záměnné se zásuvkami sítí jiných napětí a nesmí mít kontakt pro ochranný vodič (obvod SELV se neuzemňuje)."
     },
     {
-      "question": "Reaktoplasty (termosety) při zahřívání",
+      "question": "Živé části obvodů PELV s napětím nepřesahujícím 12V~ nebo 25V=:",
       "answers": [
-        "dochází v první fázi k měknutí a lze je tvářet, avšak jen omezenou dobu. Během dalšího zahřívání dochýzí k chemické rakci –⁠ prostorovému zesíťování struktury.",
-        "zůstávají trvale tvárné bez chemické změny",
-        "se při každém dalším zahřátí znovu roztaví",
-        "se nemění, jsou tepelně zcela inertní"
+        "Musí mít základní ochranu",
+        "Nemusí mít ochranný vodič",
+        "Nemusí mít základní ochranu"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Reaktoplasty při zahřátí nejprve měknou a lze je krátce tvářet, poté ale chemicky zesíťují (vytvrdí) a stanou se natrvalo netavitelné."
+      "explanation": "Živé části obvodů PELV s velmi nízkým napětím (do 12 V~ nebo 25 V=) nemusí mít základní ochranu, protože riziko úrazu je při tak nízkém napětí zanedbatelné."
     },
     {
-      "question": "Vodivá kovová skla",
+      "question": "Jako zdroje pro ochranu malým napětím lze použít:",
       "answers": [
-        "mají vodivost menší než krystalické kovy, složením lze měnit teplotní koeficient a může dosahovat záporných hodnot. Některá kovová skla mohou být supravodivá.",
-        "mají vodivost vyšší než krystalické kovy",
-        "nemohou být nikdy supravodivá",
-        "mají teplotní koeficient vždy kladný"
+        "Bezpečnostní ochranný transformátor, akumulátor",
+        "Ochranu polohou",
+        "Základní ochranu"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vodivá kovová skla (amorfní kovy) mají nižší vodivost než krystalické kovy téhož složení, jejich teplotní koeficient lze složením ladit i do záporných hodnot, a některá jsou supravodivá."
+      "explanation": "Jako bezpečné zdroje malého napětí (SELV/PELV) lze použít bezpečnostní ochranný transformátor nebo akumulátor (galvanicky oddělené zdroje)."
     },
     {
-      "question": "Zvyšujeme-li tlak na kov",
+      "question": "Obvody SELV:",
       "answers": [
-        "u vetšiny kovů rezistivita klesá",
-        "u většiny kovů rezistivita roste",
-        "rezistivita zůstává konstantní",
-        "kov ztrácí elektrickou vodivost úplně"
+        "Jsou uzemněné",
+        "Musí být spojeny se zemí",
+        "Nesmí být spojeny se zemí"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "U většiny kovů rezistivita s rostoucím tlakem klesá, protože se zmenšuje mřížková konstanta a usnadňuje se pohyb elektronů."
+      "explanation": "Obvody SELV (Safety Extra Low Voltage) nesmí být spojeny se zemí ani s ochranným vodičem jiných obvodů."
     },
     {
-      "question": "Mezi zvláštní polarizační jevy patří",
+      "question": "Z označení PELV vyplývá, že jde o obvody:",
       "answers": [
-        "elektrostrikce, pyroelektrický a piezoelektrický jev",
-        "pouze elektrostrikce bez dalších jevů",
-        "pouze piezoelektrický jev",
-        "magnetostrikce a Hallův jev"
+        "Bezpečné",
+        "Neuzemněné",
+        "Uzemněné"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Dielektrické ztráty zahrnují složku vodivostní, polarizační a případně ionizační — udávají se v jednotce výkonu na jednotku hmotnosti (W/kg)."
+      "explanation": "Na rozdíl od SELV jsou obvody PELV (Protective Extra Low Voltage) uzemněné, i když pracují s velmi nízkým napětím."
     },
     {
-      "question": "Elektrostrikce se vyskytuje",
+      "question": "Ochrana základní izolací znamená, že:",
       "answers": [
-        "u všech dielektrik a dochází ke změně geometrických rozměrů v závislosti na druhé mocnině intenzity elektrického pole E^2",
-        "pouze u krystalických anizotropních dielektrik",
-        "pouze u feromagnetických materiálů",
-        "pouze u vodičů"
+        "Živé části musí být mimo dosah laiků",
+        "Živé části musí být úplně pokryty izolací, kterou lze odstranit pouze jejím zničením",
+        "Živé části musí mít snadně odstranitelnou izolaci"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Elektrostrikce se vyskytuje u všech dielektrik a způsobuje změnu rozměrů úměrnou druhé mocnině intenzity pole (nezávisle na polaritě)."
+      "explanation": "Základní izolace znamená, že živé části musí být zcela pokryty izolací, kterou lze odstranit pouze jejím zničením (ne běžným rozebráním)."
     },
     {
-      "question": "Pyroelektrický jev se vyskytuje",
+      "question": "Zařízení mající dvojitou či zesílenou izolaci se označují jako:",
       "answers": [
-        "u přirozených elektretů a při změně teploty dochází ke změně polarizace.",
-        "u všech kovů při zahřátí",
-        "u polovodičů při osvětlení",
-        "pouze u diamagnetických látek"
+        "EZ třídy ochrany I",
+        "EZ třídy ochrany II",
+        "EZ třídy ochrany III"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Pyroelektrický jev se vyskytuje u přirozených elektretů — změna teploty mění jejich spontánní polarizaci."
+      "explanation": "Zařízení s dvojitou nebo zesílenou izolací spadají do třídy ochrany II (značené symbolem dvojitého čtverce)."
     },
     {
-      "question": "Přímí piezoelektrický jev se vyskytuje",
+      "question": "Elektrické zařízení třídy ochrany II:",
       "answers": [
-        "u krystalických anizotropních dielektrik. U thoto jevu dochází k vyvolání elektrické polarizace mechanickou deformací.",
-        "u izotropních amorfních materiálů",
-        "u kovů při mechanickém namáhání",
-        "u feritů při změně teploty"
+        "Má dvojitou či zesílenou izolaci a nemá svorku pro připojení ochranného vodiče",
+        "Má ochranu základní i při poruše",
+        "Má pouze základní ochranu"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Přímý piezoelektrický jev (vznik náboje při deformaci) se vyskytuje u krystalických anizotropních dielektrik."
+      "explanation": "Zařízení třídy ochrany II má dvojitou nebo zesílenou izolaci a nemá svorku pro připojení ochranného vodiče, protože ochranu při poruše zajišťuje samotná izolace."
     },
     {
-      "question": "Obrácený piezoelektrický jev se vyskytuje",
+      "question": "Elektrické zařízení, u něhož je provedena jen pracovní izolace, se považuje z hlediska možného úrazu elektrickým proudem za zařízení:",
       "answers": [
-        "u krystalických anizotropních dielektrik. U tohoto jevu dochází ke změně geometrických rozměrů přímo úměrné velikosti přiloženého elektrického pole E.",
-        "u izotropních amorfních materiálů",
-        "pouze u feromagnetik",
-        "u polovodičů při ozáření"
+        "Bez ochrany",
+        "Bezpečné",
+        "Se základní ochranou"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Obrácený piezoelektrický jev (změna rozměrů při přiloženém poli) se vyskytuje u týchž krystalických anizotropních dielektrik."
+      "explanation": "Zařízení jen s pracovní (funkční) izolací se z hlediska bezpečnosti považuje za zařízení bez ochrany, protože pracovní izolace slouží jen k funkci zařízení, nikoli k ochraně před úrazem."
     },
     {
-      "question": "Pachenova křivka udává:",
+      "question": "V sítích TT se neživé části EZ:",
       "answers": [
-        "závislost zápalného napětí U_z na součinu tlaku plynu p a vzdálenosti elektrod d",
-        "závislost zápalného napětí pouze na tlaku plynu",
-        "závislost průrazného napětí pevného dielektrika na tloušťce",
-        "závislost odporu plynu na teplotě"
+        "Musí připojit na nulový vodič",
+        "Nesmějí připojit na nulový vodič",
+        "Nesmějí připojit na ochranný vodič"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Paschenova křivka udává závislost zápalného (průrazného) napětí plynu na součinu tlaku plynu a vzdálenosti elektrod (p·d)."
+      "explanation": "V sítích TT se neživé (kovové) části zařízení nesmí připojovat na nulový (pracovní) vodič, ale musí být uzemněny samostatně."
     },
     {
-      "question": "Vyberte pravdivé prohlášení:",
+      "question": "Elektrická zařízení třídy ochrany II musí mít připojovací vidlici:",
       "answers": [
-        "Vložením paramagnetika do magnetického pole dojde k pootočení existujících magnetických spinových i dráhových momentů. Jejich vektorovým součtem vznikne magnetizace látky, která má stejný směr jako magnetické pole.",
-        "Vložením paramagnetika do pole vznikne magnetizace opačného směru než pole",
-        "Paramagnetika jsou z magnetického pole vytlačována",
-        "Paramagnetika vykazují trvalou magnetizaci i bez vnějšího pole"
+        "Bez ochranného vodiče",
+        "Mimo dosah laiků",
+        "S ochranného vodiče"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vložením paramagnetika do pole dojde k pootočení existujících magnetických momentů (spinových i dráhových) do směru pole, takže výsledná magnetizace má stejný směr jako vnější magnetické pole (na rozdíl od diamagnetik)."
+      "explanation": "Zařízení třídy ochrany II musí mít vidlici bez ochranného kontaktu (vodiče), protože nepotřebují spojení s ochranným vodičem."
     },
     {
-      "question": "Podstatou mezivrstvové polarizace je:",
+      "question": "Elektrická zařízení třídy ochrany 0:",
       "answers": [
-        "pohyb volného náboje a jeho akumulace na hranicích nehomogenit",
-        "natočení dipólových molekul do směru pole",
-        "posun elektronového obalu vůči jádru atomu",
-        "posun iontů v krystalové mřížce"
+        "Lze použít pouze na území VUT FEKT",
+        "Lze v ČR používat",
+        "Nelze v ČR používat"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Podstatou mezivrstvové polarizace je pohyb volných nábojů a jejich hromadění na rozhraních (nehomogenitách) materiálu."
+      "explanation": "Zařízení třídy ochrany 0 (bez jakékoli ochrany při poruše, jen se základní izolací) se v ČR nesmí používat."
     },
     {
-      "question": "Čistě tepelný průraz v dielektriku vzniká:",
+      "question": "Izolace, která slouží k ochraně při poruše se nazývá:",
       "answers": [
-        "vývojem tepla působením elektrického pole a následným postupným růstem volných nosičů elektrického náboje. Jedná se o pomalý rozvoj průrazu",
-        "okamžitou nárazovou ionizací bez vývoje tepla",
-        "mechanickým poškozením materiálu",
-        "chemickou reakcí nezávislou na elektrickém poli"
+        "Přídavná",
+        "Vylepšená",
+        "Základní"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Čistě tepelný průraz vzniká pomalým vývojem tepla v dielektriku vlivem pole a následným nárůstem počtu volných nosičů — jde o pomalý proces."
+      "explanation": "Izolace zajišťující ochranu při poruše (nikoli jen za normálního provozu) se nazývá přídavná izolace."
     },
     {
-      "question": "Čistě elektrický průraz v dielektriku vzniká:",
+      "question": "Pro připojení elektrických předmětů třídy ochrany I se dvouvodičový pohyblivý přívod s vidlicí bez ochranného kontaktu:",
       "answers": [
-        "nárazovou ionizací způsobenou vysokou intenzitou elektrického pole a následným lavinovým výbojem (v plynech) nebo poručením krystalické mřítky. Jedná se o rychlý typ průrazu.",
-        "pomalým zahříváním materiálu působením elektrického pole",
-        "dlouhodobým stárnutím materiálu bez vlivu pole",
-        "chemickou korozí elektrod"
+        "Musí použít",
+        "Může použít",
+        "Nesmí použít"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Čistě elektrický průraz vzniká rychlou nárazovou ionizací při vysoké intenzitě pole a lavinovým výbojem nebo porušením mřížky."
+      "explanation": "Pro zařízení třídy ochrany I (vyžadující ochranný vodič) se nesmí použít dvouvodičový přívod bez ochranného kontaktu, protože by chybělo připojení ochranného vodiče."
     },
     {
-      "question": "Největší nevýhoda elektrotechnického uhlíku je:",
+      "question": "Jednofázový pohyblivý prodlužovací přívod pro obecné použití se provede jako:",
       "answers": [
-        "nesvařitelnost",
-        "nízká teplotní odolnost",
-        "vysoká cena",
-        "špatná elektrická vodivost v podélném směru"
+        "Třížilový, přičemž ochranný vodič je veden s ostatními",
+        "Třížilový, přičemž ochranný vodič je veden samostatně a musí být spojen s nulovým vodičem",
+        "Třížilový, přičemž ochranný vodič je veden samostatně a nesmí být spojen s nulovým vodičem"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Elektrotechnický (přírodní) uhlík se nedá svařovat, což komplikuje spojování kontaktů z tohoto materiálu."
+      "explanation": "Jednofázový prodlužovací přívod se provádí jako třížilový se samostatně vedeným ochranným vodičem, který nesmí být spojen s nulovým (pracovním) vodičem."
     },
     {
-      "question": "Polovodičové materiály binárních sloučenin (př. GaAs, ZnS, InSb) krystalizují v soustavě:",
+      "question": "Barva izolovaných krajních (fázových) vodičů může být:",
       "answers": [
-        "sfaleritového typu",
-        "diamantového typu",
-        "chalkopyritového typu",
-        "krychlové jednoduché"
+        "Černá, hnědá nebo šedá",
+        "Černá, zelená nebo modrá",
+        "Černá, červená nebo modrá"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Binární polovodičové sloučeniny (GaAs, ZnS, InSb) krystalizují ve sfaleritové (zinkblendové) soustavě."
+      "explanation": "Izolace krajních (fázových) vodičů může být černá, hnědá nebo šedá — tyto barvy jsou vyhrazeny pro fázové vodiče, nikoli pro N nebo PE."
     },
     {
-      "question": "Slitina hliník/měď/hořčík (Al–Cu–Mg) se nazývá:",
+      "question": "Fázové svorky elektrických předmětů a zařízení se ve střídavé rozvodné soustavě označují písmeny:",
       "answers": [
-        "dural",
-        "mosaz",
-        "bronz",
-        "chromel"
+        "I, U, R",
+        "K, L, M",
+        "U, V, W"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Slitina Al-Cu-Mg se nazývá dural."
+      "explanation": "Fázové svorky se ve střídavé soustavě označují písmeny U, V, W (podle norem pro točivé stroje a rozvody)."
     },
     {
-      "question": "Elektrická vodivost vodičů I. třídy",
+      "question": "Nulový (střední) vodič střídavé soustavy se označuje:",
       "answers": [
-        "je způsobená elektronovým mechanismem vodivosti",
-        "je způsobená iontovým mechanismem vodivosti",
-        "je způsobená pouze děrovou vodivostí",
-        "nezávisí na typu nosičů náboje"
+        "L",
+        "N",
+        "S"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vodiče I. třídy (kovy) vedou proud pohybem volných elektronů."
+      "explanation": "Nulový (střední, pracovní) vodič se označuje písmenem N."
     },
     {
-      "question": "Elektrická vodivost vodičů II. třídy",
+      "question": "Svorka ochranného vodiče se na elektrickém předmětu značí:",
       "answers": [
-        "je způsobená iontovým mechanismem vodivosti",
-        "je způsobená elektronovým mechanismem vodivosti",
-        "je způsobená pouze fotoelektrickým jevem",
-        "nezávisí na typu nosičů náboje"
+        "N",
+        "PE",
+        "PEN"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vodiče II. třídy (elektrolyty) vedou proud pohybem iontů."
+      "explanation": "Svorka ochranného vodiče se značí písmeny PE (Protective Earth)."
     },
     {
-      "question": "Paluiho princip výlučnosti říká:",
+      "question": "VodičPEN je:",
       "answers": [
-        "že v atomu nemohou existovat dva elektrony, které by měly všechny čtyři kvantová čisla stejná",
-        "že elektrony se v orbitalech párují až po jejich úplném zaplnění",
-        "že v atomu může existovat libovolný počet elektronů se stejnými kvantovými čísly",
-        "že hlavní kvantové číslo určuje spin elektronu"
+        "Vodič slučující funkci ochranného vodič a nulového vodiče",
+        "Vodič slučující funkci pracovních vodičů a nulového vodiče",
+        "Vodič slučující funkci pracovních vodičů a ochranného vodiče"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Pauliho princip výlučnosti: v atomu nemohou existovat dva elektrony se všemi čtyřmi kvantovými čísly stejnými."
+      "explanation": "Vodič PEN slučuje funkci ochranného vodiče (PE) a nulového vodiče (N) v jednom společném vodiči — používá se v některých částech distribuční soustavy."
     },
     {
-      "question": "Magnetické ztráty hysterezí jsou:",
+      "question": "Jištění vodičůPE a PEN:",
       "answers": [
-        "přímo úměrné frekvenci magnetického pole",
-        "přímo úměrné druhé mocnině frekvence magnetického pole",
-        "nezávislé na frekvenci magnetického pole",
-        "nepřímo úměrné frekvenci magnetického pole"
+        "Je nutností",
+        "Je povoleno",
+        "Je zakázáno"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Magnetické ztráty hysterezí jsou přímo úměrné frekvenci magnetického pole (lineárně) a ploše hysterezní smyčky."
+      "explanation": "Jištění (např. pojistkami nebo jističi) vodičů PE a PEN je zakázáno, protože by jejich přerušením mohla vzniknout nebezpečná ztráta ochranného spojení."
     },
     {
-      "question": "Běžné diamagnetické látky jsou magnetickým polem:",
+      "question": "Obsluha je taková činnost na EZ, kdy:",
       "answers": [
-        "slabě vytlačovány mimo magnetické pole",
-        "silně vtahovány do magnetického pole",
-        "zcela neovlivněny magnetickým polem",
-        "trvale zmagnetovány i po odstranění pole"
+        "Pracovník nepoužívá nástrojůa nemůže přijít do styku s živými částmi",
+        "Pracovník nepoužívá nástrojů, ale může přijít do styku s živými částmi",
+        "Pracovník používá nástrojůa nemůže přijít do styku s živými částmi"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Diamagnetické látky jsou vnějším magnetickým polem slabě vytlačovány mimo pole."
+      "explanation": "Obsluha je činnost, při které pracovník nepoužívá žádné nástroje a nemůže přijít do styku s živými částmi (např. zapínání/vypínání spínačem)."
     },
     {
-      "question": "Co je ferit?",
+      "question": "Práce je taková činnost na EZ, kdy:",
       "answers": [
-        "materiál obsahující oxidy železa (Fe) využívaný ve vysokofrekvenční a mikrovlnné technice pro výrobu jádra transformátorů, antén a v magnetických zesilovačích",
-        "čistý kov s vysokou elektrickou vodivostí používaný ve vinutích transformátorů",
-        "izolační polymer používaný jako dielektrikum kondenzátorů",
-        "supravodivý materiál pracující při pokojové teplotě"
+        "Pracovník nepoužívá nástrojůa může přijít do styku s živými částmi",
+        "Pracovník nepoužívá nástrojů, ale může přijít do styku s živými částmi",
+        "Pracovník používá nástrojůa může přijít do styku s živými částmi"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ferit je keramický materiál na bázi oxidů železa, využívaný díky vysoké rezistivitě (nízkým ztrátám vířivými proudy) ve vysokofrekvenční a mikrovlnné technice pro jádra transformátorů, antény a magnetické zesilovače."
+      "explanation": "Práce je činnost, při které pracovník používá nástroje a může přijít do styku s živými částmi zařízení."
     },
     {
-      "question": "Magnetické měkké ferity se vyznačují:",
+      "question": "§4 NV 194/2022 Sb. stanovuje požadavky pro kvalifikaci:",
       "answers": [
-        "nízkou mírou nasycení magnetizací, vysokou rezistivitou se záporným teplotním součinitelem rezistivity",
-        "vysokou mírou nasycení magnetizací a nízkou rezistivitou",
-        "nízkou rezistivitou s kladným teplotním součinitelem",
-        "vysokou koercitivní silou jako magneticky tvrdé materiály"
+        "Osob poučených",
+        "Osob znalých pro samostatnou činnost",
+        "Osob znalých"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Magneticky měkké ferity mají nízkou remanentní magnetizaci (snadno se přemagnetovávají) a vysokou rezistivitu se záporným teplotním součinitelem."
+      "explanation": "§4 nařízení vlády č. 194/2022 Sb. stanovuje požadavky na kvalifikaci osob poučených."
     },
     {
-      "question": "Magneticky měkké ferity jsou",
+      "question": "§6 NV 194/2022 Sb. stanovuje požadavky pro kvalifikaci:",
       "answers": [
-        "oxidické ferimagnetika (s nevykompenzovaným antiparalelním uspořádáním magnetických momentů v doméně)",
-        "kovové feromagnetika s vykompenzovanými momenty",
-        "diamagnetické materiály bez vlastního magnetického momentu",
-        "paramagnetické krystaly s náhodnou orientací momentů"
+        "Osob poučených",
+        "Osob znalých",
+        "Osob znalých pro samostatnou činnost"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Magneticky měkké ferity jsou oxidická ferimagnetika s nevykompenzovaným antiparalelním uspořádáním momentů v doméně."
+      "explanation": "§6 nařízení vlády č. 194/2022 Sb. stanovuje požadavky na kvalifikaci osob znalých pro samostatnou činnost."
     },
     {
-      "question": "Magneticky měkké ferity se používají:",
+      "question": "Osoby poučené mohou na EZ pracovat:",
       "answers": [
-        "pouze při teplotách pod (Curieovou teplotou)",
-        "pouze při teplotách nad Curieovou teplotou",
-        "při libovolné teplotě bez omezení",
-        "pouze při teplotách blízkých absolutní nule"
+        "V blízkosti nekrytých částí EZ nn pod napětím ve vzdálenosti větší než20 cm pod dozorem",
+        "S dohledem osoby znalé v blízkosti nekrytých živých částí elektrických zařízení nízkého napětí pod napětím, v bezpečné vzdálenosti od nich, nebo až na dotyk s izolačním krytem chránícím před nahodilým dotykem s živou částí",
+        "V blízkosti nekrytých částí EZ nn pod napětím ve vzdálenosti větší než80 cm s dohledem"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Ferity si zachovávají feri/feromagnetické vlastnosti jen pod Curieho teplotou; nad ní přecházejí do paramagnetického stavu."
+      "explanation": "Osoba poučená smí pracovat v blízkosti nekrytých živých částí zařízení nízkého napětí pod napětím jen s dohledem osoby znalé, v bezpečné vzdálenosti od nich, nebo až na dotyk s izolačním krytem chránícím před nahodilým dotykem."
     },
     {
-      "question": "Relativní permeabilita ur:",
+      "question": "Při práci pod dozorem odpovídá za dodržování bezpečnostních předpisů:",
       "answers": [
-        "je závislá na teplotě a intenzitě magnetického pole",
-        "je konstantní, nezávisí na teplotě ani na intenzitě pole",
-        "závisí pouze na frekvenci magnetického pole",
-        "závisí pouze na tvaru vzorku"
+        "Osoba dozírající",
+        "Osoba provádějící činnost",
+        "Osoba znalá"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Relativní permeabilita feromagnetik/ferimagnetik není konstantní veličina — mění se s teplotou i s okamžitou intenzitou magnetického pole H."
+      "explanation": "Při práci pod dozorem nese odpovědnost za dodržování bezpečnostních předpisů pracovník dozírající (nikoli pracovník provádějící činnost)."
     },
     {
-      "question": "Jednotka relativní permeability ur?",
+      "question": "Při práci s dohledem odpovídá za dodržování bezpečnostních předpisů:",
       "answers": [
-        "je bezrozměrná [-]",
-        "H/m",
-        "T",
-        "A/m"
+        "Osoba dozírající",
+        "Osoba provádějící činnost",
+        "Osoba znalá"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Relativní permeabilita je poměrová veličina (μ_r = μ/μ_0), proto je bezrozměrná."
+      "explanation": "Při práci s dohledem (méně přísný dozor než „pod dozorem“) odpovídá za dodržování předpisů sám pracovník provádějící činnost."
     },
     {
-      "question": "Jednotka intenzity magnetického pole H?",
+      "question": "Pro následky úrazu elektrickým proudem je rozhodující:",
       "answers": [
-        "Ampér na metr [A * m-1]",
-        "Tesla [T]",
-        "Henry na metr [H/m]",
-        "Weber [Wb]"
+        "Velikost napětí, který protéká tělem zasaženého",
+        "Velikost proudu, který protéká tělem zasaženého",
+        "Čas, po který proud protékal tělem zasaženého"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Intenzita magnetického pole H se udává v ampérech na metr [A·m^-1]."
+      "explanation": "Rozhodujícím faktorem pro závažnost následků úrazu elektrickým proudem je velikost proudu, který protéká tělem zasaženého (nikoli přímo napětí)."
     },
     {
-      "question": "Při překročení TC Curieovy teploty dochází:",
+      "question": "Za současně přístupné dotyku se považují části navzájem vzdálené:",
       "answers": [
-        "Přechodu materiálu z ferimagnetického stavu na paramagnetický stav.",
-        "k přechodu z paramagnetického do ferimagnetického stavu",
-        "k přechodu z diamagnetického do feromagnetického stavu",
-        "k žádné změně magnetických vlastností materiálu"
+        "Méněnež1,5 m",
+        "Méněnež2 m",
+        "Méněnež2,5 m"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Nad Curieho teplotou přechází materiál z feromagnetického/ferimagnetického do paramagnetického stavu (ztráta spontánní magnetizace)."
+      "explanation": "Za současně přístupné dotyku se považují části vzdálené od sebe méně než 2,5 m (typický dosah rukou dvou osob)."
     },
     {
-      "question": "Při Curiově teplotě magnetických materiálů TC dochází:",
+      "question": "Před použitím ochranných pomůcek je pracovník povinen:",
       "answers": [
-        "k přechodu ze stavu ferimagnetického do stavu paramagnetického",
-        "k přechodu z paramagnetického do feromagnetického stavu",
-        "k přechodu z diamagnetického do paramagnetického stavu",
-        "k úplné ztrátě elektrické vodivosti materiálu"
+        "Přesvědčit se o jejich původu",
+        "Přesvědčit se o jejich stáří",
+        "Přesvědčit se o jejich řádném stavu"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Při Curieho teplotě dochází k přechodu ze stavu ferimagnetického (uspořádaného) do stavu paramagnetického (neuspořádaného)."
+      "explanation": "Před použitím ochranných pomůcek se musí pracovník přesvědčit o jejich řádném (nepoškozeném) stavu."
     },
     {
-      "question": "Curieho teplotu určíte, když:",
+      "question": "Nepřímá srdeční masáž má být prováděna s frekvencí asi:",
       "answers": [
-        "počáteční permeabilita klesne na 50 % své hodnoty zjištěné při teplotě J = 20 ˚C",
-        "počáteční permeabilita vzroste na dvojnásobek hodnoty při 20 °C",
-        "materiál zcela ztratí elektrickou vodivost",
-        "magnetická indukce dosáhne nulové hodnoty při jakékoli teplotě"
+        "100 stlačení za minutu",
+        "50 stlačení za minutu",
+        "80 stlačení za minutu"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Curieho teplota se experimentálně určuje jako teplota, při níž počáteční permeabilita klesne na polovinu své hodnoty při referenční teplotě 20 °C."
+      "explanation": "Doporučená frekvence nepřímé srdeční masáže je přibližně 100 stlačení za minutu."
     },
     {
-      "question": "Hodnota permeability vakua (absolutní) je:",
+      "question": "Před započetím nepřímé srdeční masáže je potřeba:",
       "answers": [
-        "4pi*10^-7 Hm^-I",
-        "8,85·10^-12 F/m",
-        "1,6·10^-19 C",
-        "6,02·10^23 mol^-1"
+        "Uložit postiženého rovně na záda na nerovnou a pevnou podložku",
+        "Uložit postiženého rovně na záda na rovnou a měkkou podložku",
+        "Uložit postiženého rovně na záda na rovnou a pevnou podložku"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Absolutní permeabilita vakua μ0 = 4π·10^-7 H·m^-1."
+      "explanation": "Postiženého je nutné uložit rovně na záda na rovnou a pevnou podložku, aby byla masáž účinná."
     },
     {
-      "question": "Co je to křivka prvotní magnetizace?",
+      "question": "Při provádění nepřímé srdeční masáže musí mít zachránce:",
       "answers": [
-        "Závislost magnetické indukce při monoténně rostoucí intenzitě mag. pole na odmagnetovaném materiálu.",
-        "Závislost magnetické indukce na teplotě při konstantní intenzitě pole",
-        "Závislost intenzity pole na čase při konstantní indukci",
-        "Hysterezní smyčka naměřená na již zmagnetovaném materiálu"
+        "Obě ruce napnuté v loktech",
+        "Pokrčené ruce v loktech",
+        "Čistý trestní rejstřík"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Křivka prvotní magnetizace popisuje závislost magnetické indukce B na monotónně rostoucí intenzitě pole H, měřenou na předem zcela odmagnetovaném vzorku."
+      "explanation": "Zachránce musí mít při masáži obě ruce napnuté v loktech, aby síla stlačení šla přímo z ramen a byla dostatečně účinná."
     },
     {
-      "question": "Jednotka magnetické indukce B?",
+      "question": "Při provádění nepřímé srdeční masáže je nutno stlačovat hrudní kost u dospělého člověka:",
       "answers": [
-        "Tesla [T]",
-        "Ampér na metr [A/m]",
-        "Henry [H]",
-        "Weber na metr čtvereční [Wb/m]"
+        "Do hloubky 1-2 cm",
+        "Do hloubky 4-5 cm",
+        "Do hloubky 8-10 cm"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Magnetická indukce B se udává v teslách [T]."
+      "explanation": "Hrudní kost dospělého se při masáži stlačuje do hloubky přibližně 4–5 cm."
     },
     {
-      "question": "Relativní permeabilitu jádra cívky můžeme vypočítat tak, že:",
+      "question": "Poměr stlačení srdce a umělého dýchání při resuscitaci má být:",
       "answers": [
-        "Podělíme změřenou sériovou indukčnost cívky s jádrem vypočtenou geometrickou indukčností bez jádra",
-        "vynásobíme indukčnost cívky s jádrem indukčností bez jádra",
-        "odečteme od indukčnosti s jádrem indukčnost bez jádra",
-        "podělíme indukčnost bez jádra indukčností s jádrem"
+        "20 stlačení a 2 vdechy",
+        "30 stlačení a 2 vdechy",
+        "30 stlačení a 3 vdech"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Relativní permeabilitu jádra lze určit jako podíl naměřené sériové indukčnosti cívky s jádrem a vypočtené (geometrické) indukčnosti stejné cívky bez jádra."
+      "explanation": "Standardní poměr při kardiopulmonální resuscitaci je 30 stlačení hrudníku a 2 umělé vdechy."
     },
     {
-      "question": "Po vložení feromagnetika (ur = 1000) do vnějšího magnetického pole o konstantní intenzitě H se magnetická indukce B oproti magnetické indukci ve vakuu B0:",
+      "question": "Automatický externí defibrilátor použijeme v případě:",
       "answers": [
-        "silně zvětší (10^3 krát)",
-        "zůstane stejná jako ve vakuu",
-        "mírně se zmenší (na polovinu)",
-        "zvětší se jen nepatrně (o desítky procent)"
+        "Kdyžpostižený neodpovídá",
+        "Omdlení postiženého",
+        "Zástavy dechu postiženého"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Vložením feromagnetika s μ_r = 1000 do pole o konstantní intenzitě H se magnetická indukce oproti vakuu zvětší přibližně tisíckrát (B = μ_r·B0)."
+      "explanation": "Automatický externí defibrilátor (AED) se použije v případě zástavy dechu a srdeční činnosti (bezvědomí s nepřítomností normálního dýchání)."
     },
     {
-      "question": "Norma definuje na normální křivce magnetizace tyto parametry:",
+      "question": "Pokud postižený po úrazu elektrickým proudem dýchá a má hmatný tep, zůstává při vědomí a není viditelně zraněn:",
       "answers": [
-        "počáteční permeabilitu a maximální permeabilitu",
-        "pouze remanentní indukci a koercitivní sílu",
-        "pouze Curieho teplotu",
-        "pouze ztrátový činitel"
+        "Je nutno přesto zavolat lékařskou pomoc",
+        "Může a nemusí být přivolaná lékařskou pomoc",
+        "Není nutno zavolat lékařskou pomoc"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Norma na normální (prvotní) magnetizační křivce definuje počáteční permeabilitu (v limitě H→0) a maximální permeabilitu (v inflexním bodě křivky)."
+      "explanation": "I když se postižený jeví v pořádku, po zásahu elektrickým proudem je nutné vždy přivolat lékařskou pomoc kvůli riziku skrytých (např. srdečních) následků."
     },
     {
-      "question": "Při měření budete používat digitální RLC-metr. Na měření které veličiny přístroj nastavíte?",
+      "question": "Zdravotnickou záchrannou službu je možné přivolat tísňovým telefonním číslem:",
       "answers": [
-        "měření indukčnosti L",
-        "měření kapacity C",
-        "měření odporu R",
-        "měření činitele jakosti Q bez volby veličiny"
+        "150",
+        "155",
+        "158"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Digitální RLC-metr se pro měření cívek nastavuje na měření indukčnosti L."
+      "explanation": "Zdravotnickou záchrannou službu lze v ČR přivolat na telefonním čísle 155."
     },
     {
-      "question": "V laboratorní úloze Měření teplotní závislosti počáteční permeability feritů budete měřit:",
+      "question": "Jestliže postižený nabyl po resuscitaci vědomí:",
       "answers": [
-        "Indukčnost L toroidních cívek",
-        "Kapacitu C toroidních cívek",
-        "Odpor R toroidních cívek",
-        "Napětí U na svorkách cívky"
+        "Musí být nadále sledován a musí zůstat vleže",
+        "Musí být nadále sledován, ale může se postavit na nohy",
+        "Nesmí být sledován a může sám odejít"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "V úloze o teplotní závislosti permeability feritů se měří indukčnost L toroidních (prstencových) cívek navinutých na feritovém jádře."
+      "explanation": "I po nabytí vědomí musí být postižený nadále sledován a zůstat vleže, protože stav se může znovu zhoršit."
     },
     {
-      "question": "Při realizaci laboratorní úlohy Měření teplotní závislosti počáteční permeability feritů budete prakticky:",
+      "question": "Resuscitace se musí provádět:",
       "answers": [
-        "nastavovat teplotu vzorků a měřit indukčnost cívek",
-        "měřit pouze při pokojové teplotě bez jejího nastavování",
-        "nastavovat frekvenci generátoru a měřit napětí",
-        "měřit pouze hmotnost vzorků při různých teplotách"
+        "Dokud se neobnoví životní funkce nebo do předání postiženého do péče záchranářů",
+        "Po dobu 10 minut",
+        "Po dobu 5 minut"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Prakticky se v úloze nastavuje (mění) teplota vzorku feritového jádra a při každé teplotě se měří indukčnost cívky."
+      "explanation": "Resuscitace se provádí nepřetržitě, dokud se neobnoví životní funkce postiženého nebo dokud není předán do péče záchranářů."
     },
     {
-      "question": "Při realizaci grafu ur=f(v)",
+      "question": "Kontrola krevního oběhu se provádí u laické první pomoci:",
       "answers": [
-        "na ose x bude teplota a na ose y relativní permeabilita",
-        "na ose x bude relativní permeabilita a na ose y teplota",
-        "na ose x bude čas a na ose y magnetická indukce",
-        "na ose x bude frekvence a na ose y kapacita"
+        "kontrolou dýchání",
+        "kontrola tepu",
+        "kontrola zorniček"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "V grafu závislosti μ_r na teplotě se na osu x vynáší teplota a na osu y relativní permeabilita."
+      "explanation": "U laické první pomoci se krevní oběh (přítomnost základních životních funkcí) posuzuje kontrolou dýchání — laik se již neučí hmatat pulz, protože je to nespolehlivé."
     },
     {
-      "question": "Jednotka teplotního součinitele relativní permeability je:",
+      "question": "Mezi základní životní funkce patří:",
       "answers": [
-        "K^-1",
-        "bezrozměrná [-]",
-        "T (Tesla)",
-        "H/m"
+        "reakce na dotek, světlo a zvuk",
+        "vědomí, spontánní dýchání a spontánní srdeční aktivita",
+        "řešit rovnice pozpátku"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 1,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Teplotní součinitel relativní permeability se udává v jednotce K^-1 (změna na jednotku teploty)."
+      "explanation": "Mezi základní životní funkce patří vědomí, spontánní dýchání a spontánní srdeční aktivita — jejich kontrola je prvním krokem při poskytování první pomoci."
     },
     {
-      "question": "Relativní permeabilita je u fero- a ferimagnetik:",
+      "question": "Pokud postižený nedýchá, ihned zahájíme:",
       "answers": [
-        "vždy větší jak 1",
-        "vždy menší jak 1",
-        "vždy rovna přesně 1",
-        "vždy záporná"
+        "kardiopulmonální resuscitaci, laik musí v počátku provádět umělé dýchání",
+        "kardiopulmonální resuscitaci, laik může v počátku provádět umělé dýchání",
+        "kardiopulmonální resuscitaci, laik nemusí v počátku provádět umělé dýchání"
       ],
-      "correct": 0,
-      "answer_count": 4,
+      "correct": 2,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Relativní permeabilita fero- a ferimagnetik je vždy větší než 1 (zesilují vnější magnetické pole)."
+      "explanation": "Pokud postižený nedýchá, ihned zahájíme kardiopulmonální resuscitaci (nepřímou srdeční masáž); laik nemusí v počátku provádět umělé dýchání, důležitější jsou nepřerušované kompese hrudníku."
     },
     {
-      "question": "Relativní permeabilita ferimagnetik v oblasti pracovních teplot:",
+      "question": "Resuscitace se smí ukončit pouze:",
       "answers": [
-        "s teplotou lineárně roste",
-        "s teplotou exponenciálně klesá",
-        "je na teplotě zcela nezávislá",
-        "s teplotou skokově roste na dvojnásobek"
+        "po obnovení základních životních funkcí, po předání postiženého do péče záchranářů, nebo po vyčerpání zachránce",
+        "pokud je dotyčná osoba z FEKTU",
+        "pokud má dotyčná osoba kardiostimulátor"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "V oblasti pracovních teplot (pod Curieho teplotou) relativní permeabilita ferimagnetik s rostoucí teplotou přibližně lineárně roste, než prudce klesne k nule u Curieho teploty."
+      "explanation": "Resuscitace se smí ukončit pouze po obnovení základních životních funkcí, po předání postiženého do péče záchranářů, nebo po vyčerpání zachránce."
     },
     {
-      "question": "Počáteční permeabilita upoč je relativní permeabilita, která:",
+      "question": "Vnitřní krvácení při laické první pomoci:",
       "answers": [
-        "se vztahuje na počáteční oblast normální křivky magnetizace, kde H se blíží k nule",
-        "se vztahuje k oblasti nasycení normální křivky magnetizace",
-        "se vztahuje k maximální hodnotě na hysterezní smyčce",
-        "je konstantní a nezávisí na intenzitě pole H"
+        "nelze zastavit, je třeba zabránit rozvoji šoku a zavolat rychlou zdravotnickou pomoc",
+        "je možné zastavit, ale důležitější je zabránit rozvoji šoku a zavolat rychlou zdravotnickou pomoc",
+        "musíme okamžitě zastavit, jinak hrozí postiženému šok"
       ],
       "correct": 0,
-      "answer_count": 4,
+      "answer_count": 3,
       "image_name": null,
-      "explanation": "Počáteční permeabilita je definována jako limita relativní permeability pro H blížící se k nule na počátku normální magnetizační křivky."
+      "explanation": "Vnitřní krvácení nelze laickou první pomocí zastavit — je třeba zabránit rozvoji šoku (poloha, tepelný komfort) a co nejrychleji přivolat zdravotnickou záchrannou službu."
     }
   ]
 }
