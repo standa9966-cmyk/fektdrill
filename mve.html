@@ -1691,6 +1691,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Pretrigger umožňuje zobrazit i tu část průběhu signálu, která nastala ještě před okamžikem spuštění (synchronizace) — číslicový osciloskop průběžně ukládá vzorky do kruhové paměti, takže po příchodu spouštěcího impulzu může zobrazit i data z doby před ním."
     },
+    // NOVÁ OTÁZKA (18. 10. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Čím je udávána přesnost, neboli rozlišovací schopnost osciloskopu?",
       "answers": [
@@ -1703,6 +1704,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Rozlišovací schopnost (vertikální rozlišení) číslicového osciloskopu je dána počtem bitů A/D převodníku připadajících na jeden získaný vzorek — čím vyšší bitové rozlišení, tím jemněji lze rozlišit amplitudu signálu."
     },
+    // NOVÁ OTÁZKA (18. 10. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "K čemu dojde při nedodržení vzorkovacího teorému?",
       "answers": [
@@ -1780,6 +1782,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Start a stop impulsy pro měření časového intervalu se u číslicového čítače mohou odvozovat jak od náběžných, tak od sestupných hran měřeného průběhu, podle nastavení přístroje a definice měřeného intervalu (např. šířka pulzu, perioda)."
     },
+    // NOVÁ OTÁZKA (18. 10. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Pro zobrazení jakých signálů je vhodné použít funkci Hold-off pro zpoždění spouštěcího pulsu?",
       "answers": [
@@ -1922,6 +1925,100 @@ const TESTS = {
       "answer_count": 5,
       "image_name": null,
       "explanation": "Jedna celá perioda T odpovídá fázovému úhlu 360°. Fázový posuv se proto vypočte jako podíl časového intervalu ta (odpovídajícího fázovému posunu) a periody T, vynásobený 360°: Fázový posuv = 360° × (ta/T)."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "Jaká podmínka musí být splněna pro vzorkování vstupního signálu pro převod signálu z analogové podoby do podoby digitální?",
+      "answers": [
+        "Rekonstrukční teorém",
+        "Není potřeba splnit žádnou podmínku pro vzorkování",
+        "Vzorkovací teorém",
+        "Thomasův teorém"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Vzorkovací (Shannonův–Kotělnikovův) teorém říká, že vzorkovací frekvence musí být alespoň dvojnásobkem nejvyšší frekvence obsažené v signálu. Jen tak lze z diskrétních vzorků původní signál jednoznačně zrekonstruovat bez aliasingu."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "Co je výhodné při vzorkování v reálném čase u číslicového osciloskopu pro vzorkovací rychlost a hloubku paměti osciloskopu?",
+      "answers": [
+        "Co nejnižší rychlost vzorkování + co nejmenší hloubka paměti",
+        "Co nejnižší rychlost vzorkování + co největší hloubka paměti",
+        "Co nejvyšší rychlost vzorkování + co největší hloubka paměti",
+        "Co nejvyšší rychlost vzorkování + co nejmenší hloubka paměti"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při vzorkování v reálném čase se celý průběh zachytí během jediného průchodu. Vysoká vzorkovací rychlost zajistí věrné zachycení rychlých dějů a velká hloubka paměti umožní udržet tuto rychlost i při delším zaznamenaném časovém úseku (doba záznamu = počet vzorků v paměti / vzorkovací rychlost)."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "Jaká podmínka musí platit mezi hodnotou vzorkovací frekvence fvz a maximální frekvencí fmax signálu, který chceme navzorkovat?",
+      "answers": [
+        "fvz >= 3·fmax",
+        "fvz <= 2·fmax",
+        "fvz = 2·fmax",
+        "fvz >= 2·fmax"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Podle vzorkovacího teorému musí být vzorkovací frekvence alespoň dvojnásobkem nejvyšší frekvence signálu: fvz ≥ 2·fmax. Při nižší vzorkovací frekvenci vzniká aliasing a signál nelze správně zrekonstruovat."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "Co umožňuje režim sběru a zobrazení dat Average (průměrování)?",
+      "answers": [
+        "Umožňuje zobrazení pomalu se měnících signálů.",
+        "Snížení šumu v zobrazeném signálu a zlepšení viditelnosti signálu.",
+        "Umožňuje zachytit špičky nebo velmi rychlé impulzy v signálu."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Režim Average průměruje více po sobě jdoucích záznamů opakujícího se signálu. Náhodný šum se při průměrování potlačí, zatímco užitečný (synchronně spouštěný) signál zůstane, takže se zlepší jeho viditelnost. Zachycení rychlých špiček je úkolem režimu Peak Detect."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "K jakému účelu slouží spouštěcí obvody osciloskopu (trigger)?",
+      "answers": [
+        "Ke generování signálu spouštění, který způsobí spuštění vzorkování a následné zobrazení stabilního obrázku na obrazovce osciloskopu",
+        "Ke generování časového intervalu, který způsobí zpoždění mezi okamžikem vzorkování a okamžikem zobrazení stabilního obrázku na obrazovce osciloskopu",
+        "K zesílení jasu zobrazovaného signálu na obrazovce osciloskopu"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Spouštěcí obvody vygenerují spouštěcí impulz vždy ve stejném bodě průběhu (např. při dané úrovni a směru hrany). Záznam tak začíná pokaždé ve stejné fázi signálu a periodický průběh se na obrazovce zobrazí stabilně, neujíždí."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "Jaké druhy vzorkování mohou používat číslicové osciloskopy?",
+      "answers": [
+        "Pouze náhodné vzorkování",
+        "Pouze vzorkování v reálném čase",
+        "Vzorkování v reálném čase a vzorkování v ekvivalentním čase (sekvenční a náhodné vzorkování)"
+      ],
+      "correct": 2,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Číslicové osciloskopy vzorkují buď v reálném čase (celý průběh během jednoho spuštění, vhodné i pro jednorázové děje), nebo v ekvivalentním čase, kdy se vzorky skládají z více period opakujícího se signálu. Ekvivalentní vzorkování má dvě varianty: sekvenční a náhodné."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 10. 2026)
+    {
+      "question": "V jakých jednotkách se udává rychlost vzorkování u digitálního osciloskopu?",
+      "answers": [
+        "Vzorky za sekundu",
+        "Hz",
+        "s⁻¹"
+      ],
+      "correct": 0,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Vzorkovací rychlost osciloskopu se udává ve vzorcích za sekundu (S/s, např. 1 GS/s). Hz a s⁻¹ jsou sice rozměrově stejné, ale označují frekvenci periodického děje, ne počet odebraných vzorků."
     }
   ]
 }
