@@ -785,6 +785,91 @@ const TESTS = {
       "answer_count": 3,
       "image_name": null,
       "explanation": "Interval prvního multimetru (8,15–8,16 V) a interval druhého multimetru (8,17–8,20 V) se vzájemně nepřekrývají (mezi 8,16 V a 8,17 V je mezera) — měření proto NEJSOU kompatibilní, protože podmínkou kompatibility je právě vzájemné překrytí intervalů daných nejistotou obou měření."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "Jaké jsou analogové metody měření kmitočtu?",
+      "answers": [
+        "Metody využívající selektivní LC nebo RC obvody, porovnávací metody a metody s přímým údajem.",
+        "Metody porovnávací",
+        "Metoda výpočtem z periody signálu.",
+        "Metody využívají selektivní RL nebo CL obvody, metoda pomocí Lissajousových obrazců."
+      ],
+      "correct": 0,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mezi analogové metody měření kmitočtu patří metody se selektivními (rezonančními) LC nebo RC obvody, porovnávací metody (např. pomocí Lissajousových obrazců nebo záznějová metoda) a metody s přímým údajem (analogové kmitoměry). Samotné porovnávací metody jsou jen jejich částí a výpočet z periody je číslicová metoda."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "Jaký typ osciloskopu je potřeba pro měření frekvence měřeného signálu pomocí srovnávací metody?",
+      "answers": [
+        "Jednokanálový osciloskop.",
+        "Dvoukanálový osciloskop.",
+        "Srovnávací metoda pro měření frekvence signálu se na osciloskopu nedá měřit.",
+        "Pouze analogový osciloskop.",
+        "Pouze jednokanálový číslicový osciloskop."
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Srovnávací metoda porovnává měřený signál se signálem o známé (referenční) frekvenci. Oba signály je potřeba přivést současně na dva vstupy, například v režimu XY pro Lissajousovy obrazce, proto je nutný dvoukanálový osciloskop. Může být analogový i číslicový."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "Jakou metodou je vhodné měřit nízké frekvence (do 10 Hz) pomocí čítače?",
+      "answers": [
+        "Tak nízké frekvence nelze čítačem měřit.",
+        "Srovnávací metodu měření frekvence.",
+        "Přímé metody měření frekvence.",
+        "Nepřímou metodu - měření periody a následný výpočet frekvence."
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při přímém měření čítač počítá periody signálu během hradlovacího času (typicky 1 s). U frekvencí do 10 Hz by napočítal jen několik period a chyba ±1 impulz by byla obrovská. Proto se měří perioda (čítají se rychlé impulzy referenčního oscilátoru během jedné periody) a frekvence se dopočte jako f = 1/T."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "V jakém poměru budou frekvence dvou signálů a jaká je mezi nimi fáze, pokud se na osciloskopu zobrazí Lissajousův obrazec ve tvaru úsečky?",
+      "answers": [
+        "Poměr frekvencí 2:1, fáze 0 stupňů",
+        "Poměr frekvencí 1:1, fáze 90 stupňů",
+        "Poměr frekvencí 2:1, fáze 90 stupňů",
+        "Poměr frekvencí 1:1, fáze 0 stupňů"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_usecka.png",
+      "explanation": "Úsečka vzniká, když mají oba signály stejnou frekvenci (1:1) a jsou ve fázi (0°), takže výchylky v ose X i Y rostou a klesají současně. Při fázi 180° by úsečka byla skloněná na druhou stranu a při 90° by vznikla elipsa nebo kruh."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "V jakém poměru jsou frekvence dvou signálů, pokud se na osciloskopu zobrazí následující Lissajousův obrazec?",
+      "answers": [
+        "1:1",
+        "1:2",
+        "1:4",
+        "1:3"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_1_3.png",
+      "explanation": "Poměr frekvencí se zjistí podle počtu dotyků (vrcholů) obrazce s vodorovnou a svislou hranou. Obrazec se ve svislém směru vlní třikrát častěji než ve vodorovném, takže signál na ose Y má trojnásobnou frekvenci: fx : fy = 1 : 3."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "V jakém poměru jsou frekvence dvou signálů, pokud se na osciloskopu zobrazí tento Lissajousův obrazec?",
+      "answers": [
+        "1:1",
+        "1:4",
+        "1:2",
+        "1:8"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": "mve_lissajous_1_2.png",
+      "explanation": "Obrazec tvaru osmičky má ve vodorovném směru jeden vrchol a ve svislém dva. Signál na ose Y má tedy dvojnásobnou frekvenci než signál na ose X: fx : fy = 1 : 2."
     }
   ]
 },
