@@ -870,6 +870,49 @@ const TESTS = {
       "answer_count": 4,
       "image_name": "mve_lissajous_1_2.png",
       "explanation": "Obrazec tvaru osmičky má ve vodorovném směru jeden vrchol a ve svislém dva. Signál na ose Y má tedy dvojnásobnou frekvenci než signál na ose X: fx : fy = 1 : 2."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "Jak vypadá Lissajousův obrazec pro signály se stejnou fází a stejnou frekvencí?",
+      "answers": [
+        "Elipsa",
+        "Položená osmička",
+        "Úsečka",
+        "Kruh"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Mají-li oba signály stejnou frekvenci i fázi, výchylky v ose X a Y jsou si v každém okamžiku úměrné, takže stopa se pohybuje po přímce a vznikne šikmá úsečka. Fázový posun by z ní udělal elipsu (při 90° a stejných amplitudách kruh), položená osmička odpovídá poměru frekvencí 1:2."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "Z jakých údajů se určí délka časového intervalu měřená číslicovým čítačem?",
+      "answers": [
+        "Z rozdílu času mezi start a stop impulsem.",
+        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich amplitudy.",
+        "Z rozdílu času mezi náběžnou a časovou hranou měřeného signálu.",
+        "Z počtu načtených impulsů referenčního signálu mezi start a stop impulsem a z jejich periody."
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Start impulz otevře hradlo a stop impulz ho zavře. Mezitím čítač počítá impulzy referenčního oscilátoru se známou periodou T0. Měřený interval je pak t = N · T0, kde N je počet načtených impulzů. Amplituda impulzů na výsledek vliv nemá."
+    },
+    // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
+    {
+      "question": "Jaké jsou metody měření fázového posuvu?",
+      "answers": [
+        "Měření fázového rozdílu pomocí měření časového intervalu, pomocí fázového detektoru, osciloskopické metody.",
+        "Měření pouze pomocí čítače.",
+        "Měření fázového rozdílu pouze pomocí měření časového intervalu.",
+        "Měření fázového rozdílu pomocí srovnávací metody a pomocí fázového detektoru.",
+        "Osciloskopické metody, srovnávací metoda, nepřímá metoda."
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Fázový posuv lze měřit třemi skupinami metod: měřením časového intervalu mezi odpovídajícími body obou signálů (např. čítačem, φ = 360° · Δt/T), pomocí fázového detektoru a osciloskopicky (přímo z časového průběhu nebo pomocí Lissajousových obrazců). Možnosti se slovem „pouze“ jsou neúplné."
     }
   ]
 },
