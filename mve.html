@@ -873,6 +873,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Mezi analogové metody měření kmitočtu patří metody se selektivními (rezonančními) LC nebo RC obvody, porovnávací metody (např. pomocí Lissajousových obrazců nebo záznějová metoda) a metody s přímým údajem (analogové kmitoměry). Samotné porovnávací metody jsou jen jejich částí a výpočet z periody je číslicová metoda."
     },
+    // NOVÁ OTÁZKA (6. 11. 2026, lab 05) – už v testu byla, shoduje se se screenshotem
     // NOVÁ OTÁZKA (přidáno 2. 11. 2026, lab 05)
     {
       "question": "Jaký typ osciloskopu je potřeba pro měření frekvence měřeného signálu pomocí srovnávací metody?",
@@ -986,6 +987,51 @@ const TESTS = {
       "answer_count": 5,
       "image_name": null,
       "explanation": "Fázový posuv lze měřit třemi skupinami metod: měřením časového intervalu mezi odpovídajícími body obou signálů (např. čítačem, φ = 360° · Δt/T), pomocí fázového detektoru a osciloskopicky (přímo z časového průběhu nebo pomocí Lissajousových obrazců). Možnosti se slovem „pouze“ jsou neúplné."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 05)
+    {
+      "question": "Jaké typy signálů lze měřit pomocí Lissajousových obrazců?",
+      "answers": [
+        "Pouze pro harmonické signály",
+        "Pro harmonické i neharmonické signály",
+        "Pouze pro stejnosměrné signály",
+        "Pouze pro obdélníkový průběh signálu",
+        "Pouze pro neharmonické signály"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Lissajousovy obrazce vznikají skládáním dvou kolmých harmonických kmitů v režimu XY. Jen u harmonických (sinusových) signálů mají jednoznačný, snadno čitelný tvar (úsečka, elipsa, kruh, osmička…), ze kterého lze určit poměr frekvencí nebo fázový posuv."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 05)
+    {
+      "question": "Jak se vypočte fázový posuv ve stupních u měření fáze pomocí čítače? (ta je časový interval změřený čítačem odpovídající fázovému posuvu, T perioda impulsů)",
+      "answers": [
+        "Fázový posuv = 180·(ta/T)",
+        "Fázový posuv = cos(ta/T)",
+        "Fázový posuv = 360·(T/ta)",
+        "Fázový posuv = ta/T",
+        "Fázový posuv = 360·(ta/T)"
+      ],
+      "correct": 4,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Celá perioda T odpovídá 360°. Fázový posuv je proto stejný díl z 360°, jaký díl periody tvoří změřený interval ta: φ = 360° · ta/T."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 05)
+    {
+      "question": "Co umožňuje měřit univerzální čítač?",
+      "answers": [
+        "Měření amplitudy, fáze a zkreslení signálu.",
+        "Měření časových intervalů, periody, kmitočtu signálu.",
+        "Měření časových intervalů a překmitů signálu.",
+        "Měření časových intervalů a zkreslení signálu.",
+        "Měření amplitudy, efektivní hodnoty a střední hodnoty signálu."
+      ],
+      "correct": 1,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Univerzální čítač počítá impulzy během hradlovacího času nebo mezi start a stop impulzem. Umí tak měřit kmitočet, periodu a časové intervaly (z nich i poměr kmitočtů nebo fázový posuv). Amplitudu, efektivní hodnotu ani zkreslení čítač neměří."
     }
   ]
 },
