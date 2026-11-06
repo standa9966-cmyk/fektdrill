@@ -481,6 +481,7 @@ const TESTS = {
   t6: {
   "subject": "MVE - Test 6: Měření impedance, kapacity a vzájemné indukčnosti",
   "questions": [
+    // NOVÁ OTÁZKA (6. 11. 2026, lab 06) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jaký je vztah mezi ztrátovým úhlem δ a fází φ u pasivních prvků?",
       "answers": [
@@ -532,6 +533,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Měření kapacity (a obecně reaktančních prvků) mostovou metodou vyžaduje střídavé napájecí napětí — kapacita a indukčnost se totiž projevují jen při proměnném proudu/napětí. Při stejnosměrném napájení by kondenzátor po nabití nevedl proud a most by nebylo možné vyvážit."
     },
+    // NOVÁ OTÁZKA (6. 11. 2026, lab 06) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jaké jsou metody pro měření kapacity?",
       "answers": [
@@ -558,6 +560,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Impedanci prvku nebo obvodu lze měřit můstkovými metodami (vyvážené střídavé můstky), výchylkovými metodami (přístroje s výchylkou úměrnou impedanci) nebo rezonančními metodami (využívajícími rezonanci LC obvodu)."
     },
+    // NOVÁ OTÁZKA (6. 11. 2026, lab 06) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Na jakém zákoně jsou založeny přímoukazující přístroje pro měření elektrického odporu?",
       "answers": [
@@ -599,6 +602,76 @@ const TESTS = {
       "answer_count": 5,
       "image_name": null,
       "explanation": "Vzájemnou indukčnost lze měřit přímou metodou, diferenční metodou, nebo ji určit výpočtem z měření naprázdno a nakrátko — analogicky k určování parametrů transformátoru."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 06)
+    {
+      "question": "Jaká je výhoda používání logaritmické stupnice na osách grafu?",
+      "answers": [
+        "Umožňuje názorně zobrazovat veličinu, která vykazuje malé změny v hodnotách.",
+        "Umožňuje názorně zobrazovat veličinu v rozpětí mnoha řádů.",
+        "Umožňuje názorně zobrazovat veličinu v rozpětí jednoho řádu."
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Na logaritmické ose zabírá každý řád (dekáda, např. 1–10, 10–100, 100–1000) stejnou délku. Do jednoho grafu se tak přehledně vejdou hodnoty lišící se o mnoho řádů, což se využívá třeba u frekvenčních charakteristik impedance."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 06)
+    {
+      "question": "Jaký je vztah mezi ztrátovým činitelem tgδ a činitelem jakosti Q?",
+      "answers": [
+        "tgδ = Q²",
+        "tgδ = 1 + Q",
+        "tgδ = 1/Q",
+        "tgδ = 1 − Q",
+        "tgδ = Q"
+      ],
+      "correct": 2,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Ztrátový činitel a činitel jakosti jsou navzájem převrácené hodnoty: tgδ = 1/Q. Čím menší jsou ztráty prvku (menší tgδ), tím vyšší je jeho jakost Q. U kondenzátorů se obvykle udává tgδ, u cívek Q."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 06)
+    {
+      "question": "Při přímém měření elektrického odporu Ohmovou metodou byly zjištěny tyto hodnoty: U = 10 V, I = 0,1 A. Jaká je hodnota měřeného elektrického odporu?",
+      "answers": [
+        "0,01 Ω",
+        "1 Ω",
+        "10 Ω",
+        "100 Ω"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Podle Ohmova zákona R = U / I = 10 V / 0,1 A = 100 Ω."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 06)
+    {
+      "question": "Jak se vypočte vzájemná indukčnost dvou cívek při měření diferenční metodou, kdy je změřena indukčnost La při zapojení cívek do série a sčítání magnetických toků, a Lb při zapojení tak, aby se magnetické toky odečítaly?",
+      "answers": [
+        "M = (Lb − La) / 4",
+        "M = (La − Lb) / 4",
+        "M = (La − Lb) / 3",
+        "M = (La + Lb) / 4"
+      ],
+      "correct": 1,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Při souhlasném sériovém zapojení platí La = L1 + L2 + 2M, při nesouhlasném Lb = L1 + L2 − 2M. Odečtením dostaneme La − Lb = 4M, tedy M = (La − Lb) / 4. Protože La > Lb, vyjde M kladné."
+    },
+    // NOVÁ OTÁZKA (přidáno 6. 11. 2026, lab 06)
+    {
+      "question": "Který parametr pasivního prvku je označován písmenem Z?",
+      "answers": [
+        "Admitance",
+        "Reaktance",
+        "Susceptance",
+        "Impedance"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Písmenem Z se značí impedance (zdánlivý odpor), komplexní veličina Z = R + jX. Admitance je Y (převrácená hodnota impedance), reaktance X (imaginární část impedance) a susceptance B (imaginární část admitance)."
     }
   ]
 },
