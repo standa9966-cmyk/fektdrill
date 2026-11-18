@@ -108,6 +108,7 @@ const TESTS = {
   t8: {
   "subject": "MVE - Test 8: Měření jednofázového výkonu",
   "questions": [
+    // NOVÁ OTÁZKA (18. 11. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jaká je jednotka činného výkonu?",
       "answers": [
@@ -194,6 +195,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "U kapacitní zátěže proud předbíhá napětí, takže fázový posuv φ nabývá záporných hodnot (0° až -90°)."
     },
+    // NOVÁ OTÁZKA (18. 11. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jak se vypočte účiník z činného a zdánlivého výkonu při harmonických průbězích napětí a proudu?",
       "answers": [
@@ -209,6 +211,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Účiník cosφ je definován jako poměr činného výkonu P ke zdánlivému výkonu S: cosφ = P/S."
     },
+    // NOVÁ OTÁZKA (18. 11. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jak se vypočte činný výkon při sinusovém průběhu napětí a proudu?",
       "answers": [
@@ -236,16 +239,19 @@ const TESTS = {
       "image_name": null,
       "explanation": "P = U·I·cosφ = 100 V × 1 A × 0,5 = 50 W."
     },
+    // DOPLNĚNO (18. 11. 2026): přidány možnosti W/hod, W.hod podle screenshotu
     {
       "question": "Jaká je jednotka zdánlivého výkonu?",
       "answers": [
         "VAr",
         "W",
         "VA",
-        "bez jednotky"
+        "bez jednotky",
+        "W/hod",
+        "W.hod"
       ],
       "correct": 2,
-      "answer_count": 4,
+      "answer_count": 6,
       "image_name": null,
       "explanation": "Jednotkou zdánlivého výkonu je voltampér (VA)."
     },
@@ -274,6 +280,22 @@ const TESTS = {
       "answer_count": 3,
       "image_name": null,
       "explanation": "Spektrum amplitudově modulovaného (AM) signálu je tvořeno třemi složkami: nosným kmitočtem a dvěma postranními pásmy (součtovým a rozdílovým kmitočtem), které vznikají součinem nosného a modulačního signálu."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 11. 2026)
+    {
+      "question": "Jaká je jednotka jalového výkonu?",
+      "answers": [
+        "VAr",
+        "W.hod",
+        "bez jednotky",
+        "W/hod",
+        "VA",
+        "W"
+      ],
+      "correct": 0,
+      "answer_count": 6,
+      "image_name": null,
+      "explanation": "Jalový výkon Q = U·I·sinφ se udává ve voltampérech reaktančních (VAr). Činný výkon je ve wattech (W) a zdánlivý ve voltampérech (VA). W·h je jednotka energie, ne výkonu."
     }
   ]
 },
@@ -317,6 +339,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Modulace, u které je nosným signálem harmonický (sinusový) signál, se nazývá analogová modulace (např. AM, FM, PM) — na rozdíl od impulsové (pulzní) modulace, kde je nosným signálem impulsní signál."
     },
+    // NOVÁ OTÁZKA (18. 11. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "V jakých jednotkách se obvykle vyjadřuje dynamický rozsah spektrálního analyzátoru?",
       "answers": [
@@ -342,6 +365,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Amplitudová modulace (AM) mění amplitudu nosného signálu úměrně okamžité hodnotě modulačního signálu — kmitočet nosného signálu zůstává konstantní, mění se pouze jeho amplituda (obálka)."
     },
+    // NOVÁ OTÁZKA (18. 11. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Co je to hloubka modulace?",
       "answers": [
@@ -354,6 +378,7 @@ const TESTS = {
       "image_name": null,
       "explanation": "Hloubka modulace je měřítkem toho, jak silně modulační signál ovlivňuje (moduluje) nosný signál — u amplitudové modulace udává poměr amplitudy modulačního signálu k amplitudě nosného signálu."
     },
+    // NOVÁ OTÁZKA (18. 11. 2026) – už v testu byla, shoduje se se screenshotem
     {
       "question": "Jakým parametrem se hodnotí zkreslení vyššími harmonickými složkami?",
       "answers": [
@@ -475,6 +500,74 @@ const TESTS = {
       "answer_count": 5,
       "image_name": null,
       "explanation": "Průmyslová (napájecí) síť je charakterizována hodnotou napětí, kmitočtu, zkreslením (obsahem harmonických) a stabilitou (konstantností) těchto parametrů v čase."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 11. 2026)
+    {
+      "question": "Jak se vypočte hloubka modulace?",
+      "answers": [
+        "m = Un/Um, kde Um je amplituda modulačního signálu a Un je amplituda nosné",
+        "m = Um/Un, kde Um je amplituda modulačního signálu a Un je amplituda nosné",
+        "m = F/f, kde F je kmitočtový zdvih a f je kmitočet"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Hloubka (index) amplitudové modulace je poměr amplitudy modulačního signálu k amplitudě nosné: m = Um/Un (často v %). Poměr F/f je index kmitočtové modulace, ne hloubka AM."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 11. 2026)
+    {
+      "question": "K jaké hodnotě výkonu na jmenovité zátěži je vztažena hodnotka u jednotky dBm?",
+      "answers": [
+        "1 W",
+        "1 kW",
+        "1 mW",
+        "10 W"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Jednotka dBm vyjadřuje výkon v decibelech vztažený k 1 mW: P[dBm] = 10·log(P / 1 mW). 0 dBm tedy odpovídá 1 mW, 30 dBm odpovídá 1 W. Pro vztažení k 1 W se používá dBW."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 11. 2026)
+    {
+      "question": "Jaké je základní rozdělení spektrálních analyzátorů?",
+      "answers": [
+        "Spektrální analyzátory s využitím kvantování signálu a spektrální analyzátory využívající výpočet Hilbertovy transformace",
+        "Spektrální analyzátory s využitím filtrace signálu a spektrální analyzátory využívající výpočet Fourierovy transformace",
+        "Spektrální analyzátory s využitím modulace signálu a spektrální analyzátory využívající výpočet Fourierovy transformace"
+      ],
+      "correct": 1,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Spektrální analyzátory se dělí na filtrační (analogové: s paralelní soustavou pásmových propustí nebo s přeladitelným filtrem či superheterodynem) a na analyzátory, které spektrum počítají z navzorkovaného signálu pomocí Fourierovy transformace (FFT)."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 11. 2026)
+    {
+      "question": "Jaké metody lze použít pro měření hloubky modulace u číslicového osciloskopu?",
+      "answers": [
+        "Hloubku modulace lze určit pouze z časového průběhu amplitudově modulovaného signálu.",
+        "Hloubku modulace lze určit pouze pomocí lichoběžníkové metody.",
+        "Hloubku modulace lze určit z časového průběhu amplitudově modulovaného signálu nebo pomocí lichoběžníkové metody."
+      ],
+      "correct": 2,
+      "answer_count": 3,
+      "image_name": null,
+      "explanation": "Z časového průběhu AM signálu se odečte maximální a minimální rozkmit obálky a m = (Umax − Umin)/(Umax + Umin). Lichoběžníková metoda používá režim XY (modulovaný signál na Y, modulační na X), ze stran vzniklého lichoběžníku se m spočte stejným vzorcem. Použít lze obě metody."
+    },
+    // NOVÁ OTÁZKA (přidáno 18. 11. 2026)
+    {
+      "question": "Z jakých hodnot napětí jednotlivých harmonických složek daného periodického signálu se vypočte činitel zkreslení?",
+      "answers": [
+        "Z efektivních nebo z amplitud napětí",
+        "Ze střední hodnoty napětí",
+        "Pouze z amplitudy napětí",
+        "Z efektivních hodnot napětí",
+        "Z hodnot peak – peak napětí"
+      ],
+      "correct": 0,
+      "answer_count": 5,
+      "image_name": null,
+      "explanation": "Činitel zkreslení je poměr velikosti vyšších harmonických k velikosti celého signálu (nebo základní harmonické). Protože jde o poměr, lze dosadit efektivní hodnoty i amplitudy harmonických, výsledek je stejný. Moodle u této otázky uznává jako správnou i možnost „Z efektivních hodnot napětí“."
     }
   ]
 },
