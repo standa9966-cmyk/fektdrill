@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — BPC-AN4 (angličtina) online testy a procvičování otázek zdarma">
+<title>BPC-AN4 — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechQuizz">
+<meta property="og:title" content="BPC-AN4 — TechQuizz">
+<meta property="og:description" content="TechQuizz — BPC-AN4 (angličtina) online testy a procvičování otázek zdarma">
+<meta property="og:url" content="https://standa9966-cmyk.github.io/fektdrill/an4.html">
+<meta property="og:image" content="https://standa9966-cmyk.github.io/fektdrill/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TechQuizz – online testy a procvičování">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script src="common.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
+  <div class="topbar-right">
+    <a class="btn-home" href="index.html">← Domů</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="page-outer">
+  <div class="main-col">
+    <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
+    <div class="subject-logo">TechQuizz</div>
+    <h1>BPC-AN4</h1>
+    <p class="sub">Angličtina 4 — business English. Vyberte si test, který chcete procvičit.</p>
+
+    <div class="cards" id="testCards">
+      <a class="card" href="#" onclick="startTest('t1');return false;">
+        <div class="card-tag">// Test 1</div>
+        <div class="card-name">Mock test: Ellederová Eva 2026</div>
+        <div class="card-desc" id="t1Desc">otázek — gramatika, business slovní zásoba, frázová slovesa, telefonování, vyjednávání a prezentace</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="privacy.html">Ochrana soukromí</a>
+      <a href="cookies.html">Nastavení cookies</a>
+      <a href="about_us.html">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Data testů – logika stránky je v common.js
+const TESTS = {
+  t1: {
+    "subject": "BPC-AN4 - Mock test: Ellederová Eva 2026",
+    "questions": [
+      {
+        "question": "We ______ the investors this afternoon to finalize the deal.",
+        "answers": [
+          "meet",
+          "will meet",
+          "will have met",
+          "are meeting"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Present continuous vyjadřuje předem domluvený plán do budoucna (schůzka dnes odpoledne). Will meet by značilo spíše spontánní rozhodnutí."
+      },
+      {
+        "question": "If sales ______ this quarter, the company ______ additional staff.",
+        "answers": [
+          "'d increase / 'd hire",
+          "'ll increase / 'll hire",
+          "increased / hired",
+          "increase / 'll hire"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "První kondicionál: v if-větě přítomný čas prostý (increase), ve větě hlavní will + infinitiv ('ll hire). Will se do if-věty nedává."
+      },
+      {
+        "question": "The marketing team ______ the presentation when the CEO called.",
+        "answers": [
+          "prepared",
+          "was preparing",
+          "has prepared",
+          "had been preparing"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Minulý průběhový čas popisuje probíhající činnost, kterou přerušila jiná krátká událost v minulém čase prostém (called)."
+      },
+      {
+        "question": "The graph shows that more and more companies ______ in sustainable technologies.",
+        "answers": [
+          "invest",
+          "are going to invest",
+          "are investing",
+          "will invest"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Trend probíhající v současnosti se vyjadřuje present continuous; 'more and more' se s ním typicky pojí."
+      },
+      {
+        "question": "Many traditional industries are ______ threat ______ rapid technological changes and shifting consumer expectations.",
+        "answers": [
+          "under, by",
+          "under, from",
+          "in, by",
+          "in, from"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ustálené spojení 'be under threat from' znamená být ohrožen něčím."
+      },
+      {
+        "question": "She ______ the sales department since 2021.",
+        "answers": [
+          "has managed",
+          "is managing",
+          "was managing",
+          "managed"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "'Since 2021' vyžaduje present perfect, protože činnost začala v minulosti a trvá dosud."
+      },
+      {
+        "question": "The board meeting ______ at 9 a.m. on Mondays.",
+        "answers": [
+          "meets",
+          "is meeting",
+          "will be meeting",
+          "has met"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Present simple se používá pro pravidelné, opakující se události a rozvrhy ('on Mondays')."
+      },
+      {
+        "question": "The client ______ the contract before we could schedule the follow-up meeting.",
+        "answers": [
+          "was cancelling",
+          "had cancelled",
+          "has cancelled",
+          "cancelled"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Past perfect vyjadřuje děj, který proběhl dříve než jiný minulý děj (before we could schedule)."
+      },
+      {
+        "question": "We will miss the deadline ______ the team works overtime tonight.",
+        "answers": [
+          "provided",
+          "if",
+          "unless",
+          "supposing"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Unless = if not: deadline nestihneme, pokud tým nebude pracovat přesčas. Provided, if a supposing by smysl obrátily."
+      },
+      {
+        "question": "Several firms are ______ for the exclusive supply deal.",
+        "answers": [
+          "giving",
+          "offering",
+          "bringing",
+          "bidding"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Bid for = ucházet se o zakázku nebo kontrakt v soutěži nabídek."
+      },
+      {
+        "question": "The company decided to ______ its operations and reduce staff.",
+        "answers": [
+          "upgrade",
+          "relocate",
+          "downsize",
+          "outsource"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Downsize znamená zmenšit firmu a snížit počet zaměstnanců, což přesně sedí na 'reduce staff'."
+      },
+      {
+        "question": "The new product helped the company break into a ______ market.",
+        "answers": [
+          "gross",
+          "niche",
+          "turnover",
+          "concession"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Niche market je úzce specializovaný tržní segment; 'break into' znamená proniknout na trh."
+      },
+      {
+        "question": "We reached a/an ______ after several rounds of negotiation.",
+        "answers": [
+          "estimate",
+          "agreement",
+          "invoice",
+          "reception"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Reach an agreement je ustálené spojení pro dosažení dohody po jednání."
+      },
+      {
+        "question": "Chase Manhattan Bank is a/an ______ of Chase Manhattan Corp.",
+        "answers": [
+          "subsidiary",
+          "daughter company",
+          "sister company",
+          "child's company"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Subsidiary je správný obchodní termín pro dceřinou společnost; sister company by byla sesterská firma pod stejným vlastníkem."
+      },
+      {
+        "question": "If negotiations reach a ______, both sides may need to take a break before continuing.",
+        "answers": [
+          "deal",
+          "refund",
+          "takeover",
+          "deadlock"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Deadlock je patová situace, kdy se jednání nemůže pohnout, a proto je vhodná pauza."
+      },
+      {
+        "question": "The hotel offered us a ______ suite with a private balcony and ocean view.",
+        "answers": [
+          "budget",
+          "executive",
+          "deluxe",
+          "wooden"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Deluxe označuje luxusní kategorii ubytování; budget (levný) a wooden (dřevěný) se do kontextu nehodí."
+      },
+      {
+        "question": "I always try to ______ my options before making an important business decision.",
+        "answers": [
+          "weigh up",
+          "bottom out",
+          "break into",
+          "put through"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Weigh up = zvážit klady a zápory možností před rozhodnutím."
+      },
+      {
+        "question": "Their profits have been ______ in recent months due to the economic slowdown.",
+        "answers": [
+          "soaring",
+          "plunging",
+          "stabilizing",
+          "recovering"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Plunge znamená prudce klesat, což odpovídá důsledku hospodářského zpomalení. Soaring je opak (prudký růst)."
+      },
+      {
+        "question": "I dread long flights because I always suffer from severe ______ afterwards.",
+        "answers": [
+          "jet lag",
+          "connection",
+          "schedule overrun",
+          "delay"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Jet lag je únava a dezorientace způsobená časovým posunem po dlouhém letu."
+      },
+      {
+        "question": "The speaker began to ______ a joke in the middle of her presentation to ease the tension.",
+        "answers": [
+          "hit",
+          "screw up",
+          "weigh up",
+          "crack"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Crack a joke je ustálené spojení: utrousit vtip."
+      },
+      {
+        "question": "Brand ______ is the degree to which people know about a particular brand.",
+        "answers": [
+          "sensitivity",
+          "consciousness",
+          "awareness",
+          "alertness"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Brand awareness je marketingový termín pro povědomí o značce."
+      },
+      {
+        "question": "Hello, I'm calling about an invoice. Can you ______ me through to someone in the accounts department, please?",
+        "answers": [
+          "get",
+          "put",
+          "bring",
+          "take"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Put someone through je telefonní fráze: spojit někoho s požadovanou osobou."
+      },
+      {
+        "question": "When markets are ______ with cheap imports, local companies struggle to compete.",
+        "answers": [
+          "flooded",
+          "merged",
+          "transferred",
+          "outsourced"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Be flooded with znamená být zaplaven (levným zbožím), což místním firmám ztěžuje konkurenci."
+      },
+      {
+        "question": "The marketing team decided to ______ out a revised version of the product.",
+        "answers": [
+          "take",
+          "make",
+          "put",
+          "bring"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Bring out = uvést na trh nebo vydat nový produkt či verzi."
+      },
+      {
+        "question": "The company will ______ the contract negotiations until both parties have reached a clearer understanding of the proposed terms.",
+        "answers": [
+          "arrange",
+          "open",
+          "postpone",
+          "cancel"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Postpone znamená odložit na později; jednání se obnoví, až budou podmínky jasnější. Cancel by jednání zrušilo úplně."
+      },
+      {
+        "question": "Know what your ______ position is – what you'll be prepared to do after other things have failed and if you don't reach an agreement.",
+        "answers": [
+          "opening",
+          "walk-away",
+          "target",
+          "fall-back"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Fall-back position je záložní řešení, ke kterému se vrátíte, když ostatní možnosti selžou."
+      },
+      {
+        "question": "One point that I would really like to ______ is that we won't let you down in a crisis.",
+        "answers": [
+          "get",
+          "stress",
+          "take",
+          "analyse"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Stress a point znamená zdůraznit bod, což je typická prezentační a vyjednávací fráze."
+      },
+      {
+        "question": "We need to ______ the issue immediately to prevent further delays in the project.",
+        "answers": [
+          "sort",
+          "address",
+          "take",
+          "arrange"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Address an issue = začít řešit problém. Sort by vyžadovalo 'sort out'."
+      },
+      {
+        "question": "The report ______ figures from the latest market analysis to support the company's growth strategy.",
+        "answers": [
+          "launches",
+          "arranges",
+          "quotes",
+          "produces"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Quote figures znamená citovat čísla ze zdroje na podporu argumentu."
+      },
+      {
+        "question": "It's time to break ______ the negotiation and end all current discussions.",
+        "answers": [
+          "off",
+          "into",
+          "out",
+          "down"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Break off = přerušit nebo ukončit (jednání); break down by znamenalo selhání, break out začátek konfliktu."
+      },
+      {
+        "question": "During the meeting, the manager answered a question and then ______ back to what he had been saying about the new marketing strategy.",
+        "answers": [
+          "went",
+          "stood",
+          "kept",
+          "took"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Go back to = vrátit se k tématu. Fráze se používá, když se mluvčí po odbočce vrací k původnímu tématu."
+      },
+      {
+        "question": "We should ______ the facts before accepting their final offer.",
+        "answers": [
+          "lose",
+          "check",
+          "skip",
+          "forget"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Před přijetím nabídky je rozumné fakta ověřit (check). Ostatní slovesa nedávají v kontextu smysl."
+      },
+      {
+        "question": "Okay, ______ it with me. I'll do what I can.",
+        "answers": [
+          "take",
+          "give",
+          "leave",
+          "keep"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Leave it with me je ustálená fráze: nechte to na mně, postarám se o to."
+      },
+      {
+        "question": "Could you please ______ up a meeting ______ the client next week?",
+        "answers": [
+          "do / for",
+          "make / at",
+          "take / on",
+          "set / with"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Set up a meeting = zorganizovat schůzku; schůzka se domlouvá 'with' někým."
+      },
+      {
+        "question": "A: \"Have you heard back from the supplier about the revised contract yet?\" B: \"Not yet, but I'll chase it ______ this afternoon and let you know as soon as I get a response.\"",
+        "answers": [
+          "up",
+          "off",
+          "out",
+          "down"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Chase something up = urgovat, připomínat se kvůli něčemu, na co čekáme odpověď."
+      },
+      {
+        "question": "That ______ me to the end of my talk.",
+        "answers": [
+          "leaves",
+          "brings",
+          "ends",
+          "takes"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "That brings me to the end of... je standardní závěrečná fráze prezentace."
+      },
+      {
+        "question": "I'll review your proposal this afternoon and ______ back to you with my feedback by tomorrow morning.",
+        "answers": [
+          "put",
+          "bring",
+          "get",
+          "turn"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Get back to someone = ozvat se někomu s odpovědí nebo zpětnou vazbou."
+      },
+      {
+        "question": "Great, I'll review it once I receive it. Thanks for the call — ______ to you later.",
+        "answers": [
+          "listen",
+          "say",
+          "tell",
+          "speak"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Speak to you later je běžné rozloučení na konci telefonátu."
+      },
+      {
+        "question": "______ me confirm the meeting details.",
+        "answers": [
+          "Let",
+          "Make",
+          "Do",
+          "Want"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Let me + infinitiv je zdvořilá fráze nabízející, že něco udělám (Let me confirm...)."
+      },
+      {
+        "question": "______ we've agreed is to move forward with the new strategy and monitor the results closely.",
+        "answers": [
+          "That",
+          "What",
+          "Which",
+          "Whose"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "What we've agreed is... je rozštěpená věta; 'what' tu funguje jako podmět věty (to, na čem jsme se shodli)."
+      },
+      {
+        "question": "Another ______ is to introduce a flexible working policy to improve employee satisfaction.",
+        "answers": [
+          "problem",
+          "delay",
+          "option",
+          "reason"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Another option = další možnost nebo alternativa. Věta 'is to introduce...' uvádí konkrétní návrh řešení."
+      },
+      {
+        "question": "Have you ______ any useful contacts?",
+        "answers": [
+          "done",
+          "put",
+          "taken",
+          "made"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Make contacts = navazovat kontakty; ustálené spojení v networkingu a obchodní komunikaci."
+      },
+      {
+        "question": "A: \"Could we move the project update meeting to Saturday afternoon due to the tight deadline?\" B: \"Saturday is ______ by me; I'll make sure all the necessary documents are ready beforehand.\"",
+        "answers": [
+          "fine",
+          "right",
+          "well",
+          "sure"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Fine by me je ustálený výraz: vyhovuje mi to, souhlasím."
+      },
+      {
+        "question": "I'm willing to reduce the price, but only ______ one condition: we sign the contract today.",
+        "answers": [
+          "by",
+          "on",
+          "with",
+          "for"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "On one condition = pod jednou podmínkou. Předložka 'on' je ustálená s 'condition'."
+      },
+      {
+        "question": "I'll get ______ to the issue with the supplier this afternoon and make sure we resolve the delivery delays as soon as possible.",
+        "answers": [
+          "up",
+          "out",
+          "on",
+          "off"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Get on to something = pustit se do řešení problému nebo se kvůli němu s někým spojit. Předložka 'on' tvoří frázové sloveso."
+      },
+      {
+        "question": "After several meetings, we finally ______ out the details of the new partnership agreement.",
+        "answers": [
+          "took",
+          "made",
+          "kept",
+          "sorted"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Sort out the details = dořešit nebo vyjasnit podrobnosti; v kontextu dohody jde o dotažení detailů."
+      },
+      {
+        "question": "A: \"Are you ______ to the keynote this afternoon?\" B: \"Yes, I am. I'd like to hear the CEO's vision for the company's future.\"",
+        "answers": [
+          "going",
+          "making",
+          "taking",
+          "doing"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Go to the keynote = jít na hlavní projev; odpověď 'Yes, I am' to potvrzuje."
+      },
+      {
+        "question": "It's been a ______ meeting you.",
+        "answers": [
+          "happy",
+          "pleasure",
+          "good",
+          "joy"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "It's been a pleasure meeting you je ustálená zdvořilostní fráze při loučení."
+      },
+      {
+        "question": "There is no need for further explanation; the figures speak for ______ and show the success of the project.",
+        "answers": [
+          "them",
+          "their",
+          "themselves",
+          "itself"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Speak for themselves je idiom: mluví samy za sebe. Figures je množné číslo, proto zvratné 'themselves'."
+      },
+      {
+        "question": "______ all, effective communication is essential for successful teamwork.",
+        "answers": [
+          "Over",
+          "Beyond",
+          "Under",
+          "Above"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Above all = především, nade vše; zdůrazňuje nejdůležitější bod."
+      },
+      {
+        "question": "Could you ______ a brief overview of the project objectives before we start the meeting?",
+        "answers": [
+          "give",
+          "bring",
+          "hold",
+          "send"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Give an overview = podat přehled. Ustálené spojení v prezentačním a business jazyce."
+      },
+      {
+        "question": "A: \"Do you know Mark's department?\" B: \"I think he is ______ R&D. He works on new product development.\"",
+        "answers": [
+          "at",
+          "in",
+          "of",
+          "on"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Be in a department = pracovat v oddělení (in R&D, in Sales, in Finance)."
+      },
+      {
+        "question": "Can I call you ______ in ten minutes?",
+        "answers": [
+          "up",
+          "off",
+          "back",
+          "over"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Call someone back = zavolat zpět, typická fráze v telefonování."
+      },
+      {
+        "question": "We need to ______ a procedure for handling future disputes before we sign the contract.",
+        "answers": [
+          "waste",
+          "chase",
+          "miss",
+          "agree"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Agree a procedure = dohodnout postup. Britská angličtina používá 'agree' i bez předložky (agree a price, agree a procedure)."
+      },
+      {
+        "question": "Let's ______ on to the next item on the agenda and discuss the budget proposal.",
+        "answers": [
+          "move",
+          "pass",
+          "walk",
+          "turn"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Move on to the next item = přejít k dalšímu bodu programu, standardní fráze vedení schůzky."
+      },
+      {
+        "question": "We would like to put ______ a proposal to extend the partnership for another two years.",
+        "answers": [
+          "through",
+          "forward",
+          "off",
+          "away"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Put forward a proposal = předložit návrh. Put through znamená spojit telefonem, put off odložit."
+      },
+      {
+        "question": "Does he work ______ our parent company or one of our international subsidiaries?",
+        "answers": [
+          "at",
+          "of",
+          "for",
+          "by"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Work for a company = pracovat pro firmu (zaměstnavatele)."
+      },
+      {
+        "question": "A: \"Where is Dan ______?\" B: \"In our Singapore office, but he travels frequently across Southeast Asia.\"",
+        "answers": [
+          "lived",
+          "stayed",
+          "set",
+          "based"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Be based = mít sídlo, působit někde; odpověď uvádí, ve které kanceláři Dan působí."
+      },
+      {
+        "question": "By listening carefully, we quickly ______ rapport during the negotiation.",
+        "answers": [
+          "built",
+          "fell",
+          "kept",
+          "lost"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Build rapport = vybudovat vztah a vzájemné porozumění; rapport se buduje (build), případně vytváří nebo rozvíjí."
+      },
+      {
+        "question": "So, ______ you are saying is that we need to reduce costs before launching the new project.",
+        "answers": [
+          "that",
+          "what",
+          "which",
+          "how"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "So, what you are saying is... je fráze pro ověření porozumění a shrnutí slov druhého."
+      },
+      {
+        "question": "Our Head of Innovation gave an interesting talk ______ AI and its impact on customer service.",
+        "answers": [
+          "in",
+          "by",
+          "about",
+          "of"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Give a talk about + téma = přednášet o tématu. Předložka 'about' uvádí, čeho se přednáška týká."
+      },
+      {
+        "question": "I'll ______ the IT team to deal with it before the client meeting.",
+        "answers": [
+          "say",
+          "suggest",
+          "speak",
+          "ask"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ask someone to do something = požádat někoho, aby něco udělal (ask the IT team to deal with it)."
+      },
+      {
+        "question": "A: \"Have you ______ to our London office before?\" B: \"Yes, I have. I visited it last year for a client meeting.\"",
+        "answers": [
+          "been",
+          "gone",
+          "visited",
+          "stayed"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Have you been to... je present perfect s 'been' pro zkušenost s návštěvou místa."
+      },
+      {
+        "question": "The speaker divided the presentation ______ several parts, focusing first on challenges and then on possible solutions.",
+        "answers": [
+          "on",
+          "into",
+          "to",
+          "of"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Divide something into parts = rozdělit něco na části."
+      },
+      {
+        "question": "Could you ______ me a favour and review this report before the meeting?",
+        "answers": [
+          "make",
+          "give",
+          "do",
+          "take"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Do someone a favour = udělat někomu laskavost; ustálené spojení s do."
+      },
+      {
+        "question": "Have you been ______ any interesting industry conferences lately?",
+        "answers": [
+          "at",
+          "in",
+          "for",
+          "to"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Have you been to + místo nebo akce = byl jsi na něčem."
+      },
+      {
+        "question": "The two sides will ______ the bargaining phase once they agree on the main objectives of the deal.",
+        "answers": [
+          "begin",
+          "leave",
+          "miss",
+          "avoid"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Begin the bargaining phase = zahájit fázi vyjednávání, která následuje po shodě na hlavních cílech."
+      },
+      {
+        "question": "Could you ______ a look at these figures before the meeting and let me know if anything needs to be revised?",
+        "answers": [
+          "see",
+          "take",
+          "watch",
+          "do"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Take a look at = podívat se na. Ustálené spojení s take (nebo have a look)."
+      },
+      {
+        "question": "I agree with the proposal, but there is an important point to be ______ about the potential risks involved.",
+        "answers": [
+          "done",
+          "given",
+          "made",
+          "put"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "A point to be made about = poznámka, kterou je třeba zmínit. Konstrukce 'there is a point to be made' je ustálená v diskusích a vyjednávání."
+      },
+      {
+        "question": "I know you're about to join another meeting, so I won't ______ you. I just wanted to confirm the final details of the presentation.",
+        "answers": [
+          "stay",
+          "leave",
+          "pass",
+          "keep"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "I won't keep you = nebudu vás zdržovat; zdvořilá fráze na konci hovoru."
+      },
+      {
+        "question": "Please ______ on until we receive approval from the finance team.",
+        "answers": [
+          "hold",
+          "put",
+          "stand",
+          "wait up"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Hold on = počkat, vydržet; ustálená fráze (také při telefonování)."
+      },
+      {
+        "question": "The team met with the client to ______ up requirements for the new service agreement.",
+        "answers": [
+          "bring",
+          "set",
+          "put",
+          "make"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Set up requirements = stanovit požadavky. Set up se používá pro zavedení nebo nastavení něčeho nového."
+      },
+      {
+        "question": "I'm ______ late for the client meeting but should arrive within ten minutes.",
+        "answers": [
+          "going",
+          "coming",
+          "running",
+          "doing"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Be running late = mít zpoždění; ustálená fráze, když se někdo opozdí."
+      },
+      {
+        "question": "Effective leaders know when to ______ a task to the right person.",
+        "answers": [
+          "isolate",
+          "chase",
+          "stress",
+          "delegate"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Delegate a task = přenést úkol na vhodnou osobu; základní vedoucí dovednost."
+      },
+      {
+        "question": "______ me a moment, I need to clarify this point with the finance team before we proceed.",
+        "answers": [
+          "Excuse",
+          "Take",
+          "Make",
+          "Have"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Excuse me a moment = omluvte mě na chvilku; zdvořilý způsob, jak přerušit jednání nebo hovor. Přijatelné je i 'Spare me a moment'."
+      }
+    ]
+  }
+};
+</script>
+</body>
+</html>
