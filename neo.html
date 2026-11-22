@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TechQuizz — BPC-NEO online testy a procvičování otázek zdarma">
+<title>BPC-NEO — TechQuizz</title>
+<link rel="icon" href="techtestzone.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechQuizz">
+<meta property="og:title" content="BPC-NEO — TechQuizz">
+<meta property="og:description" content="TechQuizz — BPC-NEO online testy a procvičování otázek zdarma">
+<meta property="og:url" content="https://standa9966-cmyk.github.io/fektdrill/neo.html">
+<meta property="og:image" content="https://standa9966-cmyk.github.io/fektdrill/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TechQuizz – online testy a procvičování">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script src="common.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-brand" href="index.html">⚡ TechQuizz</a>
+  <div class="topbar-right">
+    <a class="btn-home" href="index.html">← Domů</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="page-outer">
+  <div class="main-col">
+    <div class="back-link"><a href="index.html">← Zpět na výběr předmětů</a></div>
+    <div class="subject-logo">TechQuizz</div>
+    <h1>BPC-NEO</h1>
+    <p class="sub">Návrh elektronických obvodů – procvičování teorie ke zkoušce (podle otázek verze 2024 a přednášek). Vyberte si test.</p>
+
+    <div class="cards" id="testCards">
+      <a class="card" href="#" onclick="startTest('t1');return false;">
+        <div class="card-tag">// Test 1</div>
+        <div class="card-name">Pasivní součástky a diody</div>
+        <div class="card-desc" id="t1Desc">otázek — rezistory, kondenzátory, cívky, chlazení, diody, usměrňovače</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t2');return false;">
+        <div class="card-tag">// Test 2</div>
+        <div class="card-name">Tranzistory BJT a FET</div>
+        <div class="card-desc" id="t2Desc">otázek — režimy, modely, třídy zesilovačů, spínače, průrazy, SOA, JFET, MOSFET</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t3');return false;">
+        <div class="card-tag">// Test 3</div>
+        <div class="card-name">OZ, generátory a filtry</div>
+        <div class="card-desc" id="t3Desc">otázek — parametry OZ, základní zapojení, oscilátory, 555, aproximace filtrů</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="card" href="#" onclick="startTest('t4');return false;">
+        <div class="card-tag">// Test 4</div>
+        <div class="card-name">Opto, speciální součástky, zdroje</div>
+        <div class="card-desc" id="t4Desc">otázek — fotodiody, LED, optrony, SSR, tyristory, termistory, stabilizátory, ZV</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 TechQuizz.com</span>
+    <div class="footer-links">
+      <a href="privacy.html">Ochrana soukromí</a>
+      <a href="cookies.html">Nastavení cookies</a>
+      <a href="about_us.html">O nás</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Data testů – logika stránky je v common.js
+const TESTS = {
+  "t1": {
+    "subject": "BPC-NEO - Test 1: Pasivní součástky a diody",
+    "questions": [
+      {
+        "question": "Co udává teplotní součinitel odporu (TKR) rezistoru?",
+        "answers": [
+          "Změnu ztrátového výkonu rezistoru s teplotou ve W/K",
+          "Tepelný odpor mezi rezistorem a okolím v K/W",
+          "Maximální teplotu, při které smí být rezistor plně zatížen",
+          "Relativní změnu odporu při změně teploty o 1 K, typicky v ppm/K"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "TKR (TCR) je relativní změna odporu na 1 K, udává se v ppm/K. Např. 100 ppm/K při ohřátí o 50 K znamená změnu o 0,5 % (NEO_01, str. 37)."
+      },
+      {
+        "question": "Jak se s rostoucím kmitočtem chová rezistor s malou hodnotou odporu (např. pod 100 Ω)?",
+        "answers": [
+          "Uplatní se parazitní indukčnost a impedance roste",
+          "Odpor klesá kvůli povrchovému jevu",
+          "Impedance je na kmitočtu nezávislá",
+          "Uplatní se parazitní kapacita a impedance klesá"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U malých odporů převládá vliv sériové parazitní indukčnosti (přívody, šroubovice), takže se rezistor chová induktivně. U velkých odporů naopak převládá paralelní kapacita (NEO_01, str. 38)."
+      },
+      {
+        "question": "Který typ rezistoru je nejméně vhodný pro vysoké kmitočty?",
+        "answers": [
+          "Drátový",
+          "Metalizovaný SMD",
+          "Tenkovrstvý",
+          "Hmotový"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Drátový rezistor je vinutý drát, tedy vlastně cívka s mezizávitovou kapacitou. Indukčnost se zmenšuje bifilárním vinutím (NEO_01, str. 39–40)."
+      },
+      {
+        "question": "Který typ rezistoru nejlépe snáší impulzy o velké energii?",
+        "answers": [
+          "Fóliový přesný",
+          "Tenkovrstvý SMD",
+          "Hmotový (objemový)",
+          "Uhlíkový vrstvový"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Hmotový rezistor vede proud celým objemem, nevznikají v něm lokálně přehřátá místa, a proto snese silné impulzy. Za to má horší stabilitu (NEO_01, str. 42)."
+      },
+      {
+        "question": "Který typ SMD rezistoru dosahuje nejmenší tolerance a nejmenšího TKR?",
+        "answers": [
+          "Uhlíkový vrstvový",
+          "Hmotový",
+          "Tlustovrstvý (cermet)",
+          "Fóliový (tolerance až 0,01 %, TKR až 0,05 ppm/K)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Fóliové rezistory mají nejlepší parametry, tenkovrstvé jsou přesné (0,05 %), tlustovrstvé jsou nejběžnější a nejlevnější (1–5 %) (NEO_01, str. 45)."
+      },
+      {
+        "question": "Jak je definován ztrátový činitel kondenzátoru?",
+        "answers": [
+          "tg δ = C / C_jmen, udává toleranci kapacity",
+          "tg δ = ω·L / R, čím větší, tím lepší kondenzátor",
+          "tg δ = I_R / I_C = 1 / (ω·R_p·C), ideální kondenzátor má tg δ = 0",
+          "tg δ = U_max / U_jmen, udává napěťovou rezervu"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ztrátový úhel δ je odchylka fázového posuvu proudu od ideálních 90°. Ztrátový činitel je poměr činného a jalového proudu (NEO_01, str. 56–57)."
+      },
+      {
+        "question": "Co je ESR kondenzátoru?",
+        "answers": [
+          "Maximální napětí, které kondenzátor snese",
+          "Odpor izolace dielektrika mezi elektrodami",
+          "Ekvivalentní sériový odpor – reprezentuje ztráty v elektrodách, vývodech a dielektriku",
+          "Sériová indukčnost vývodů kondenzátoru"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "ESR způsobuje zahřívání kondenzátoru a zvětšuje zvlnění. Parazitní indukčnost je ESL, svod dielektrika je izolační odpor (NEO_01, str. 58–59)."
+      },
+      {
+        "question": "Jak se chová kondenzátor nad svým vlastním rezonančním kmitočtem?",
+        "answers": [
+          "Induktivně – impedance s kmitočtem roste kvůli ESL",
+          "Jako rozpojený obvod",
+          "Kapacitně – impedance dál klesá",
+          "Jako čistý odpor rovný ESR na všech kmitočtech"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "ESL a C tvoří sériový rezonanční obvod. Pod rezonancí impedance klesá, v rezonanci je rovna ESR, nad ní roste jako ωL (NEO_01, str. 59)."
+      },
+      {
+        "question": "Proč se k elektrolytickému kondenzátoru často připojuje paralelně keramický kondenzátor (např. 100 nF)?",
+        "answers": [
+          "Keramický kondenzátor zvýší celkovou kapacitu na dvojnásobek",
+          "Elektrolyt má velké ESL a ESR, keramický kondenzátor odfiltruje vysokofrekvenční složky",
+          "Keramický kondenzátor chrání elektrolyt před přepólováním",
+          "Snižuje svodový proud elektrolytu"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Elektrolyt má velkou kapacitu, ale na vyšších kmitočtech se kvůli ESL chová induktivně. MLCC s malým ESL pokryje vysoké kmitočty (NEO_01, str. 82)."
+      },
+      {
+        "question": "Která vlastnost je typická pro kondenzátory s metalizovanými elektrodami (MP)?",
+        "answers": [
+          "Jejich kapacita silně závisí na napětí",
+          "Jsou polarizované jako elektrolytické",
+          "Po průrazu dielektrika se samy zregenerují",
+          "Mají největší kapacitu na jednotku objemu ze všech typů"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při průrazu se tenká napařená vrstva kovu v okolí místa průrazu odpaří a zkrat zmizí (samoregenerace)."
+      },
+      {
+        "question": "Který keramický dielektrický materiál je teplotně nejstabilnější a vhodný pro rezonanční obvody?",
+        "answers": [
+          "Typ III (bariérová vrstva)",
+          "Typ I – NP0 (C0G)",
+          "Typ II – X7R",
+          "Typ II – Y5V"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Keramika typu I (NP0/C0G) má malou ε_r, ale je stabilní a lineární. Typ II (X7R, Y5V) má velkou ε_r, ale kapacita výrazně závisí na teplotě a napětí."
+      },
+      {
+        "question": "Jaká je hlavní nevýhoda hliníkových elektrolytických kondenzátorů?",
+        "answers": [
+          "Jejich kapacita roste s kmitočtem",
+          "Mají malou kapacitu (max. desítky nF)",
+          "Kapalný elektrolyt vysychá – omezená životnost, velký svodový proud a velká tolerance",
+          "Nesnesou napětí vyšší než 1 V"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Hliníkové elektrolyty jsou nejčastější příčinou poruch zdrojů. Typická životnost je tisíce hodin při 85–105 °C, tolerance −20/+100 % (NEO_01, str. 75–78)."
+      },
+      {
+        "question": "Jak je definován činitel jakosti cívky Q?",
+        "answers": [
+          "Q = ω·L_s / R_s – poměr jalového a činného výkonu",
+          "Q = 1 / (2π√(LC)) – vlastní rezonanční kmitočet",
+          "Q = R_s / (ω·L_s) – poměr činného a jalového výkonu",
+          "Q = L / L_jmen – přesnost indukčnosti"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Q = 1/tg δ = ωL_s/R_s. Čím menší ztráty, tím vyšší Q (NEO_01, str. 90)."
+      },
+      {
+        "question": "Co určuje vlastní rezonanční kmitočet cívky?",
+        "answers": [
+          "Maximální proud cívky",
+          "Pouze materiál jádra",
+          "Odpor vinutí a indukčnost",
+          "Indukčnost spolu s mezizávitovou (parazitní) kapacitou C_P"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "f_r = 1/(2π√(L·C_P)). Nad f_r se cívka chová kapacitně (NEO_01, str. 91–92)."
+      },
+      {
+        "question": "Které jádro se hodí pro spínané zdroje pracující na desítkách až stovkách kHz?",
+        "answers": [
+          "Žádné – na těchto kmitočtech se používají jen vzduchové cívky",
+          "Masivní ocelové jádro",
+          "Jádro z transformátorových plechů z křemíkové oceli",
+          "Feritové jádro Mn-Zn"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ferity jsou nevodivé, nemají vířivé proudy, a proto se hodí pro vyšší kmitočty. Mn-Zn ferity mají μ_r 600–10 000 pro desítky až stovky kHz. Ocelové plechy jsou pro síťových 50 Hz (NEO_01, str. 93–94)."
+      },
+      {
+        "question": "Proč se jádra síťových transformátorů skládají z izolovaných plechů?",
+        "answers": [
+          "Aby se omezily vířivé proudy v jádře",
+          "Aby se zvýšila permeabilita jádra",
+          "Aby se snížila hmotnost transformátoru",
+          "Aby se zabránilo nasycení jádra"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ocel je vodivá, a v masivním jádře by střídavé pole indukovalo velké vířivé proudy a ztráty. Izolované plechy přeruší jejich dráhu."
+      },
+      {
+        "question": "Jaká analogie se používá při výpočtu chlazení součástek?",
+        "answers": [
+          "Ztrátový výkon ↔ proud, teplota ↔ napětí, tepelný odpor ↔ elektrický odpor",
+          "Ztrátový výkon ↔ napětí, teplota ↔ proud, tepelný odpor ↔ vodivost",
+          "Teplota ↔ náboj, výkon ↔ kapacita",
+          "Tepelný odpor ↔ indukčnost, teplota ↔ proud"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Platí ΔT = P·R_th, tedy obdoba Ohmova zákona U = I·R. Tepelná kapacita odpovídá elektrické kapacitě (CV2)."
+      },
+      {
+        "question": "Stabilizátor má ztrátový výkon 2 W, R_thJC = 5 K/W, R_thCH = 1 K/W, R_thHA = 14 K/W a okolní teplota je 40 °C. Jaká je teplota čipu?",
+        "answers": [
+          "68 °C",
+          "120 °C",
+          "52 °C",
+          "80 °C"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "T_J = T_A + P·(R_thJC + R_thCH + R_thHA) = 40 + 2·(5 + 1 + 14) = 40 + 40 = 80 °C."
+      },
+      {
+        "question": "Jaké je typické prahové napětí germaniové diody v propustném směru?",
+        "answers": [
+          "Asi 0,05 V",
+          "Asi 1,8 V",
+          "Asi 0,3 V",
+          "Asi 0,7 V"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ge ≈ 0,3 V, Schottkyho dioda ≈ 0,3–0,4 V, Si ≈ 0,6–0,7 V (NEO_02, str. 36)."
+      },
+      {
+        "question": "Které tvrzení o Schottkyho diodě je pravdivé?",
+        "answers": [
+          "Je tvořena přechodem PN se silně dotovanými oblastmi",
+          "Má nízké propustné napětí a je velmi rychlá, ale má větší závěrný proud než křemíková dioda",
+          "Má nejmenší závěrný proud ze všech diod",
+          "Má velmi dlouhou dobu zotavení v závěrném směru"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Schottkyho dioda má přechod kov–polovodič, nemá akumulaci minoritních nosičů, a proto je velmi rychlá. Daní je větší závěrný proud a nižší průrazné napětí (NEO_02, str. 35)."
+      },
+      {
+        "question": "Jak se změní propustné napětí křemíkové diody při konstantním proudu, když teplota vzroste?",
+        "answers": [
+          "Vzroste asi o 2 mV/K",
+          "Nezmění se",
+          "Klesne asi o 2 mV na každý kelvin",
+          "Klesne asi o 0,2 V/K"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Teplotní součinitel propustného napětí Si diody je přibližně −2 mV/K. Závěrný proud se zdvojnásobí při ohřátí o cca 6 K (NEO_02, str. 28)."
+      },
+      {
+        "question": "Jaký teplotní součinitel má Zenerův průraz?",
+        "answers": [
+          "Záporný – průrazné napětí s teplotou klesá",
+          "Kladný – průrazné napětí s teplotou roste",
+          "Nulový",
+          "Závisí jen na proudu, ne na teplotě"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Zenerův (tunelový) průraz převládá do cca 5 V a má záporný TK. Lavinový průraz (nad cca 6–7 V) má kladný TK. Kolem 5–6 V se oba vyruší (NEO_02, str. 38)."
+      },
+      {
+        "question": "Který průraz přechodu PN je destruktivní (nevratný)?",
+        "answers": [
+          "Tepelný průraz",
+          "Zenerův průraz",
+          "Oba – Zenerův i lavinový – jsou vždy destruktivní",
+          "Lavinový průraz"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Tepelný průraz je kladná zpětná vazba: proud → teplo → větší proud. Teplota „uteče“ a přechod se zničí. Zenerův a lavinový průraz jsou vratné, pokud se omezí proud (NEO_02, str. 37)."
+      },
+      {
+        "question": "Čím je způsobena doba závěrného zotavení diody t_rr?",
+        "answers": [
+          "Akumulovaným nábojem minoritních nosičů, který je po přepólování nutné odstranit",
+          "Bariérovou kapacitou v závěrném směru, která se musí vybít do zátěže",
+          "Ohřevem přechodu během propustného stavu",
+          "Indukčností přívodů diody"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "V propustném stavu je okolí přechodu zaplaveno nosiči (difúzní kapacita). Po přepólování teče krátce velký závěrný proud, dokud nosiče nezmizí (NEO_02, str. 45)."
+      },
+      {
+        "question": "Jaký je praktický důsledek dlouhé doby zotavení usměrňovací diody ve spínaném zdroji?",
+        "answers": [
+          "Snížení výstupního napětí na polovinu",
+          "Velké ztráty při vypínání, přepěťové špičky a rušení – je nutné použít rychlou nebo Schottkyho diodu",
+          "Dioda se nikdy nezavře a zdroj nefunguje",
+          "Žádný – doba zotavení se projevuje jen na 50 Hz"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Během t_rr teče velký proud při velkém závěrném napětí, a to znamená ztrátový výkon v každé periodě. Strmý konec proudu v obvodu s indukčností vytváří přepětí."
+      },
+      {
+        "question": "Jakým napětím je namáhána dioda jednocestného usměrňovače se sběrným kondenzátorem (U_1 je efektivní hodnota)?",
+        "answers": [
+          "√2·U_1 / 2",
+          "Až 2√2·U_1",
+          "√2·U_1",
+          "U_1"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Na katodě je nabitý kondenzátor (+√2U_1) a na anodě záporný vrchol (−√2U_1), rozdíl je tedy 2√2U_1 (CV4)."
+      },
+      {
+        "question": "Jaké závěrné napětí musí snést diody v můstkovém (Graetzově) usměrňovači?",
+        "answers": [
+          "4·U_1",
+          "2√2·U_1",
+          "U_1/2",
+          "√2·U_1"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "V můstku jsou v závěrném směru vždy dvě diody v sérii, takže každá vidí jen √2U_1. U uzlového zapojení je to 2√2U_1 (CV4, str. 8)."
+      },
+      {
+        "question": "Jak velký filtrační kondenzátor je potřeba pro dvoucestný usměrňovač, je-li I_Z = 0,5 A, f = 50 Hz a dovolené zvlnění ΔU = 1 V?",
+        "answers": [
+          "2,5 mF",
+          "5 mF",
+          "10 mF",
+          "0,5 mF"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "C = I/(k·f·ΔU), pro dvoucestný usměrňovač k = 2: C = 0,5/(2·50·1) = 5·10⁻³ F = 5 mF."
+      },
+      {
+        "question": "Jaká je výhoda uzlového dvoucestného usměrňovače oproti můstkovému?",
+        "answers": [
+          "Proud prochází jen jednou diodou, takže je úbytek napětí poloviční",
+          "Stačí obyčejný transformátor bez vyvedeného středu",
+          "Zvlnění má kmitočet 4f",
+          "Diody jsou namáhány polovičním závěrným napětím"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Uzlové zapojení potřebuje trafo s vyvedeným středem a diody namáhané napětím 2√2U_1, ale úbytek je jen jedno U_F. Hodí se pro nízká napětí a velké proudy."
+      },
+      {
+        "question": "Na jaké napětí se naprázdno nabije výstup kaskádního násobiče s N stupni (U_0 je vrchol vstupního napětí)?",
+        "answers": [
+          "Přibližně 2N·(U_0 − U_D)",
+          "N·U_0",
+          "U_0 / N",
+          "N²·U_0"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Každý stupeň (2 diody, 2 kondenzátory) přidá přibližně 2U_0. Násobič je vhodný jen pro malé proudy – při zatížení napětí rychle klesá."
+      },
+      {
+        "question": "Na čem je založen diodový spínač vf signálu?",
+        "answers": [
+          "Dioda signál usměrní a kondenzátor jej vyhladí",
+          "Dynamický odpor diody r_d = U_T/I se mění řídicím stejnosměrným proudem",
+          "Dioda pracuje v Zenerově průrazu a omezuje amplitudu",
+          "Využívá se doby zotavení diody"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při velkém řídicím proudu má dioda malý r_d a signál projde (A_u = R/(R+r_d) ≈ 1). V závěrném směru je dioda rozpojená a A_u ≈ 0 (CV3, str. 21–22)."
+      },
+      {
+        "question": "Proč musí být amplituda signálu v diodovém spínači malá?",
+        "answers": [
+          "Aby signál sám neotevíral či nezavíral diodu – dioda musí pracovat v okolí pracovního bodu",
+          "Kvůli omezenému proudu řídicího zdroje U_N",
+          "Aby nedošlo k lavinovému průrazu oddělovacích kondenzátorů",
+          "Protože dynamický odpor diody je pro velké signály nulový"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Spínač pracuje s linearizovaným modelem (r_d). Velký signál by diodu přepínal sám a zkresloval by se, proto se pro vypnutí volí záporné řídicí napětí."
+      }
+    ]
+  },
+  "t2": {
+    "subject": "BPC-NEO - Test 2: Bipolární a unipolární tranzistory",
+    "questions": [
+      {
+        "question": "Jak jsou dotovány vrstvy bipolárního tranzistoru?",
+        "answers": [
+          "Báze nejsilněji, aby měla malý odpor",
+          "Kolektor nejsilněji, emitor nejslaběji",
+          "Všechny tři vrstvy stejně",
+          "Emitor nejsilněji, báze slabě, kolektor nejslaběji"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "N_E ≫ N_B > N_C. Silně dotovaný emitor zajistí, že proud přechodu EB tvoří hlavně nosiče z emitoru. Báze je tenká a slabě dotovaná (NEO_03, str. 10)."
+      },
+      {
+        "question": "Jak jsou polarizovány přechody BJT v aktivním normálním režimu?",
+        "answers": [
+          "Oba přechody závěrně",
+          "Oba přechody propustně",
+          "Přechod BE propustně, přechod BC závěrně",
+          "Přechod BE závěrně, přechod BC propustně"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "V aktivním režimu emitor vstřikuje nosiče do báze a závěrně polarizovaný přechod BC je odsává do kolektoru. Oba přechody propustně znamenají saturaci, oba závěrně uzavřený stav."
+      },
+      {
+        "question": "Proč musí být báze bipolárního tranzistoru velmi tenká?",
+        "answers": [
+          "Aby snesla velké závěrné napětí",
+          "Aby měla co nejmenší odpor",
+          "Aby nosiče vstříknuté z emitoru nestihly v bázi rekombinovat a dostaly se do kolektoru",
+          "Aby se zmenšila kapacita přechodu BE"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Šířka báze musí být mnohem menší než difúzní délka nosičů. Jen malá část nosičů rekombinuje (bázový proud), většina je odsáta do kolektoru (NEO_03, str. 9–10)."
+      },
+      {
+        "question": "Ve kterém režimu pracuje sepnutý tranzistorový spínač?",
+        "answers": [
+          "V inverzním aktivním režimu",
+          "V saturaci",
+          "V aktivním normálním režimu",
+          "V uzavřeném (závěrném) režimu"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "V saturaci jsou oba přechody propustné a U_CE ≈ U_CEsat ≈ 0,1–0,3 V. Rozepnutý spínač je v uzavřeném stavu (NEO_03, str. 21–22)."
+      },
+      {
+        "question": "Co udává parametr h21e?",
+        "answers": [
+          "Proudový zesilovací činitel β při výstupu nakrátko",
+          "Výstupní vodivost tranzistoru",
+          "Zpětný napěťový přenos",
+          "Vstupní odpor tranzistoru"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "h21e = i_C/i_B při u_CE = 0. h11e je vstupní odpor, h12e zpětný napěťový přenos (~10⁻⁴), h22e výstupní vodivost (NEO_03, str. 48)."
+      },
+      {
+        "question": "Za jakých podmínek se měří parametry h11e a h21e?",
+        "answers": [
+          "Při vstupu nakrátko (u_BE = 0)",
+          "Při výstupu nakrátko (u_CE = 0)",
+          "Při výstupu naprázdno (i_C = 0)",
+          "Při vstupu naprázdno (i_B = 0)"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "h11 a h21 se definují při výstupu nakrátko, h12 a h22 při vstupu naprázdno. Tyto podmínky se dají snadno realizovat (NEO_03, str. 48)."
+      },
+      {
+        "question": "Jak se vypočítá dynamický odpor r_E v malosignálovém T-modelu BJT?",
+        "answers": [
+          "r_E = β · R_E",
+          "r_E = U_A / I_C",
+          "r_E = U_CE / I_C",
+          "r_E = U_T / I_E ≈ 26 mV / I_E"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Přechod BE je propustně polarizovaná dioda, a proto má dynamický odpor U_T/I. Platí také r_B = (β+1)·r_E (NEO_03, str. 57)."
+      },
+      {
+        "question": "Který fyzikální jev modeluje odpor r_CE v malosignálovém modelu BJT?",
+        "answers": [
+          "Tranzistorový jev",
+          "Difúzní kapacitu přechodu BE",
+          "Lavinový průraz přechodu BC",
+          "Earlyho jev (modulace šířky báze)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "r_CE ≈ (U_A + U_CE)/I_C. S rostoucím U_CE se zmenšuje efektivní šířka báze a I_C mírně roste (NEO_03, str. 23–24)."
+      },
+      {
+        "question": "Jak se Earlyho jev projeví ve výstupních charakteristikách BJT?",
+        "answers": [
+          "Charakteristiky se zakřiví směrem dolů při velkém I_C",
+          "Při malém U_CE se objeví záporný diferenciální odpor",
+          "Charakteristiky jsou mírně skloněné a jejich prodloužení se protínají v bodě −U_A na ose U_CE",
+          "Charakteristiky jsou dokonale vodorovné"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Earlyho napětí U_A (desítky až stovky V) je průsečík prodloužených výstupních charakteristik se zápornou osou U_CE."
+      },
+      {
+        "question": "Tranzistor má I_C = 2 mA a U_A = 100 V, U_CE = 10 V. Jaký je jeho výstupní odpor r_CE?",
+        "answers": [
+          "55 kΩ",
+          "50 kΩ",
+          "13 Ω",
+          "5 kΩ"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "r_CE = (U_A + U_CE)/I_C = (100 + 10)/0,002 = 55 kΩ."
+      },
+      {
+        "question": "Jaká je strmost g_m bipolárního tranzistoru při I_C = 1 mA (U_T = 26 mV)?",
+        "answers": [
+          "Asi 3,85 mS",
+          "Asi 1 S",
+          "Asi 38,5 mS",
+          "Asi 26 mS"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "g_m = I_C/U_T = 0,001/0,026 ≈ 38,5 mS."
+      },
+      {
+        "question": "Kde leží pracovní bod tranzistoru ve třídě B?",
+        "answers": [
+          "Uprostřed lineární části charakteristiky – tranzistor vede celou periodu",
+          "Na počátku charakteristiky – klidový proud je nulový, každý tranzistor vede jen jednu půlvlnu",
+          "Hluboko v saturaci",
+          "V oblasti průrazu přechodu BC"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Třída B má I_C0 = 0 a dvojčinné zapojení NPN+PNP. Vyšší účinnost (teor. až π/4 ≈ 78,5 %), ale přechodové zkreslení (NEO_05, str. 23)."
+      },
+      {
+        "question": "Jak se odstraňuje přechodové zkreslení zesilovače ve třídě B?",
+        "answers": [
+          "Zapojením kondenzátoru paralelně k zátěži",
+          "Malým předpětím bází (diody, násobič U_BE) – přechodem do třídy AB",
+          "Použitím tranzistorů s větším β",
+          "Zvětšením napájecího napětí"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ve třídě AB teče malý klidový proud a oba tranzistory jsou na hranici otevření, takže kolem nuly nevzniká mrtvé pásmo (NEO_05, str. 24)."
+      },
+      {
+        "question": "Který zesilovač má nejmenší nelineární zkreslení, ale nejnižší účinnost?",
+        "answers": [
+          "Třída C",
+          "Třída B",
+          "Třída A",
+          "Třída AB"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Ve třídě A tranzistor vede celou periodu a stále teče klidový proud. Zesiluje v lineární části charakteristiky, ale účinnost je nízká."
+      },
+      {
+        "question": "Proč se v kolektoru zesilovače SE používá aktivní zátěž místo rezistoru?",
+        "answers": [
+          "Aby zesilovač neotáčel fázi",
+          "Aby se zvětšil vstupní odpor zesilovače",
+          "Zdroj proudu má velký dynamický odpor při malém stejnosměrném úbytku – zesílení vzroste bez potřeby vysokého napájení",
+          "Aby se snížil výstupní odpor zesilovače"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Zesílení SE ≈ −g_m·R_C. Velký R_C by vyžadoval velký úbytek napětí. Tranzistor jako zdroj proudu (proudové zrcadlo) má velké r_CE jen pro střídavý signál (NEO_03, str. 99)."
+      },
+      {
+        "question": "Jaký je rozdíl mezi Darlingtonovým a Sziklaiovým zapojením?",
+        "answers": [
+          "Sziklai má proudové zesílení β₁ + β₂, Darlington β₁·β₂",
+          "Darlington používá dva tranzistory stejného typu, Sziklai tranzistory opačného typu (NPN + PNP)",
+          "Darlington zesiluje napětí, Sziklai proud",
+          "Darlington se používá jen s FET tranzistory"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Obě zapojení mají β ≈ β₁·β₂. Sziklai má mezi vstupem a výstupem jen jeden přechod BE (cca 0,7 V), Darlington dva (cca 1,4 V) (NEO_03, str. 30–32)."
+      },
+      {
+        "question": "Jaká je nevýhoda Darlingtonova zapojení při použití jako spínač?",
+        "answers": [
+          "Nemožnost spínat proudy větší než 100 mA",
+          "Velké saturační napětí U_CEsat (= U_CEsat1 + U_BE2) a pomalejší vypínání",
+          "Záporný výstupní odpor",
+          "Příliš malé proudové zesílení"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Výstupní tranzistor nemůže jít do hluboké saturace, protože jeho U_CE nemůže klesnout pod U_CEsat1 + U_BE2."
+      },
+      {
+        "question": "Jak velká je Millerova kapacita zesilovače SE se zesílením A_U a kapacitou C_cb?",
+        "answers": [
+          "C_M = C_cb + C_be",
+          "C_M = |A_U|² · C_cb",
+          "C_M = C_cb / (1 + |A_U|)",
+          "C_M = (1 + |A_U|)·C_cb"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Napětí na C_cb je (1 + |A_U|)krát větší než vstupní, takže ze vstupu se jeví jako tolikrát větší kapacita. Ta snižuje horní mezní kmitočet (NEO_05, str. 48)."
+      },
+      {
+        "question": "Které zapojení potlačuje vliv Millerovy kapacity?",
+        "answers": [
+          "Zesilovač SE bez emitorového rezistoru",
+          "Zesilovač SE s větším R_C",
+          "Darlingtonovo zapojení",
+          "Kaskoda SE–SB"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "V kaskodě drží tranzistor SB napětí na kolektoru prvního tranzistoru konstantní. První tranzistor tak nemá napěťové zesílení a Millerův jev se neuplatní (NEO_05, str. 49–51)."
+      },
+      {
+        "question": "Jaké napěťové zesílení má kaskoda SE–SB ve srovnání s jedním stupněm SE?",
+        "answers": [
+          "Přibližně jednotkové",
+          "Přibližně dvojnásobné",
+          "Rovné součinu zesílení obou stupňů",
+          "Přibližně stejné (A_U ≈ R_K/r_E), ale s větší šířkou pásma"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Tranzistor SB má proudové zesílení ≈ 1, jen převádí proud do zátěže. Zisk je ve větší šířce pásma, výstupním odporu a izolaci výstupu od vstupu (NEO_05, str. 51)."
+      },
+      {
+        "question": "Jaký je účel urychlovacího kondenzátoru paralelně k bázovému rezistoru tranzistorového spínače?",
+        "answers": [
+          "Proudovým impulzem rychle nabije/odsaje náboj báze a zkrátí doby sepnutí a vypnutí",
+          "Chrání tranzistor před přepětím při vypínání indukční zátěže",
+          "Omezuje maximální kolektorový proud",
+          "Vyhlazuje zvlnění napájecího napětí"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při vypnutí kondenzátor vytvoří záporný proudový impulz, který rychle odvede akumulovaný náboj z báze a zkrátí dobu přesahu t_s (NEO_03, str. 82–83)."
+      },
+      {
+        "question": "Která ze spínacích dob bipolárního tranzistoru bývá nejdelší?",
+        "answers": [
+          "Doba náběhu t_r",
+          "Doba přesahu t_s (odčerpání akumulovaného náboje ze saturace)",
+          "Doba zpoždění t_d",
+          "Všechny jsou stejně dlouhé"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "t_OFF = t_s + t_f. Tranzistor v saturaci má v bázi nadbytečný náboj, který se musí nejdřív odčerpat. Proto se používají Schottkyho desaturační diody (NEO_03, str. 80–81)."
+      },
+      {
+        "question": "K čemu slouží nulová dioda paralelně k indukční zátěži tranzistorového spínače?",
+        "answers": [
+          "Zvýší proud zátěží",
+          "Uzavře proud cívky po vypnutí tranzistoru a zabrání vzniku přepětí, které by tranzistor zničilo",
+          "Zrychlí sepnutí tranzistoru",
+          "Stabilizuje napětí na zátěži"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při vypnutí se cívka snaží udržet proud a vytvoří napětí −L·di/dt. Nulová dioda nabídne proudu cestu a omezí přepětí (NEO_05, str. 64)."
+      },
+      {
+        "question": "Při jakém zapojení báze je průrazné napětí kolektor–emitor nejnižší?",
+        "answers": [
+          "Při bázi připojené přes malý odpor k emitoru",
+          "Při rozpojené (volné) bázi – U_(BR)CE0",
+          "Při záporném předpětí báze",
+          "Při bázi spojené s emitorem nakrátko"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Zbytkový proud přechodu BC teče do báze a tranzistor ho zesílí β-krát, takže lavina začne dřív. Platí U_CB0 > U_CEU > U_CES > U_CER > U_CE0 (NEO_03, str. 62)."
+      },
+      {
+        "question": "Co je druhý průraz bipolárního tranzistoru?",
+        "answers": [
+          "Nevratný lokální průraz – proud se soustředí do horkého místa struktury (tepelný) nebo vznikne nárazovou ionizací při vypínání (proudový)",
+          "Vratný lavinový průraz přechodu BC",
+          "Průraz oxidu pod hradlem",
+          "Průraz přechodu BE při závěrném napětí asi 5 V"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "První průraz je elektrický lavinový průraz BC a je vratný. Druhý průraz je lokální a struktura se v horkém místě protaví (NEO_03, str. 60–61)."
+      },
+      {
+        "question": "Čím je ohraničena oblast SOA bipolárního tranzistoru?",
+        "answers": [
+          "Pouze maximálním napětím a maximálním proudem",
+          "Maximálním proudem, hyperbolou max. ztrátového výkonu, čarou druhého průrazu a maximálním napětím",
+          "Saturačním napětím a zbytkovým proudem",
+          "Tranzitním kmitočtem a Earlyho napětím"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "SOA (Safe Operating Area) je bezpečná pracovní oblast. MOSFET nemá omezení druhým průrazem (NEO_03, str. 64)."
+      },
+      {
+        "question": "Jak je definován tranzitní kmitočet f_T bipolárního tranzistoru?",
+        "answers": [
+          "Kmitočet, při kterém je fázový posuv 45°",
+          "Kmitočet, při kterém h21e klesne o 3 dB",
+          "Kmitočet, při kterém se tranzistor rozkmitá",
+          "Kmitočet, při kterém modul |h21e| klesne na 1"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "f_T = β₀·f_β (součin zesílení a šířky pásma). Pokles o 3 dB definuje mezní kmitočet f_β (NEO_03, str. 66)."
+      },
+      {
+        "question": "Tranzistor má β₀ = 200 a f_T = 400 MHz. Jaký je jeho mezní kmitočet f_β?",
+        "answers": [
+          "80 GHz",
+          "200 MHz",
+          "0,5 MHz",
+          "2 MHz"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "f_β = f_T/β₀ = 400 MHz / 200 = 2 MHz."
+      },
+      {
+        "question": "K čemu slouží zapojení „násobič kapacity“?",
+        "answers": [
+          "Ke zvýšení výstupního napětí usměrňovače na dvojnásobek",
+          "Ke stabilizaci napětí na přesnou hodnotu",
+          "K měření kapacity kondenzátorů",
+          "K vyhlazení zvlnění napájecího napětí – emitorový sledovač kopíruje napětí z RC filtru v bázi, kapacita se jeví β-krát větší"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Přes R₁ teče jen bázový proud, takže úbytek je malý a malý C₂ stačí. Výstup sleduje střední hodnotu vstupu bez zvlnění, nejde ale o stabilizátor (NEO_08, str. 7)."
+      },
+      {
+        "question": "Jaký proud teče zátěží stabilizátoru proudu s BJT, Zenerovou diodou U_Z = 5,7 V a R_E = 100 Ω (U_BE = 0,7 V, β velké)?",
+        "answers": [
+          "57 mA",
+          "50 mA",
+          "5 mA",
+          "64 mA"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "I_C ≈ I_E = (U_Z − U_BE)/R_E = (5,7 − 0,7)/100 = 50 mA."
+      },
+      {
+        "question": "Kdy je ztrátový výkon tranzistoru ve stabilizátoru proudu největší?",
+        "answers": [
+          "Při maximální zátěži R_Zmax",
+          "Při zkratu zátěže (R_Z = 0)",
+          "Při odpojené Zenerově diodě",
+          "Ztrátový výkon nezávisí na zátěži"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "P_T = U_CE·I_C a proud je konstantní. Napětí U_CE je největší, když na zátěži nic nepadá: P_Tmax = (U_CC − U_E)·I_C."
+      },
+      {
+        "question": "Jak je polarizován přechod hradlo–kanál u tranzistoru JFET při normální činnosti?",
+        "answers": [
+          "Střídavě podle polarity signálu",
+          "Závěrně – hradlem prakticky neteče proud",
+          "Nijak – hradlo je izolováno oxidem",
+          "Propustně – hradlem teče řídicí proud"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Závěrně polarizovaný přechod zajistí velký vstupní odpor. Šířka depletiční vrstvy řídí průřez kanálu (NEO_04, str. 7)."
+      },
+      {
+        "question": "Jak se nazývá režim tranzistoru FET, ve kterém pracuje jako zesilovač?",
+        "answers": [
+          "Inverzní režim",
+          "Režim průrazu",
+          "Saturační režim (za zaškrcením kanálu)",
+          "Odporový (lineární) režim"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pozor na opačné názvy než u BJT: saturace FET (proud nezávisí na U_DS) odpovídá aktivnímu režimu BJT (NEO_04, str. 10)."
+      },
+      {
+        "question": "Jaký vztah platí pro proud drainu N-JFET v saturaci?",
+        "answers": [
+          "I_D = I_DSS·(1 − U_GS/U_P)²",
+          "I_D = I_DSS·e^(U_GS/U_T)",
+          "I_D = I_DSS·(1 − U_GS/U_P)",
+          "I_D = 2·I_DSS·(U_GS − U_P)"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Převodní charakteristika je parabola. Při U_GS = 0 teče I_DSS, při U_GS = U_P je kanál uzavřen."
+      },
+      {
+        "question": "JFET má I_DSS = 8 mA a U_P = −4 V. Jaký proud teče při U_GS = −2 V?",
+        "answers": [
+          "1 mA",
+          "4 mA",
+          "2 mA",
+          "6 mA"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "I_D = 8·(1 − (−2)/(−4))² = 8·(1 − 0,5)² = 8·0,25 = 2 mA."
+      },
+      {
+        "question": "Čím se liší E-MOSFET (indukovaný kanál) od D-MOSFETu (trvalý kanál)?",
+        "answers": [
+          "Liší se jen pouzdrem, charakteristiky jsou stejné",
+          "E-MOSFET má hradlo oddělené přechodem PN, D-MOSFET oxidem",
+          "E-MOSFET při U_GS = 0 nevede, kanál vznikne až při U_GS > U_P > 0; D-MOSFET vede již při U_GS = 0",
+          "D-MOSFET lze řídit jen kladným napětím"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "E-MOSFET je normálně zavřený (obohacovací), D-MOSFET je normálně otevřený a lze ho řídit zápornými i kladnými napětími (NEO_04, str. 16–21)."
+      },
+      {
+        "question": "MOSFET má K = 50 mA/V² a U_P = 2 V. Jaký proud teče při U_GS = 3 V (saturace)?",
+        "answers": [
+          "50 mA",
+          "25 mA",
+          "150 mA",
+          "100 mA"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "I_D = K·(U_GS − U_P)² = 0,05·(3 − 2)² = 50 mA. Strmost by byla g_m = 2K(U_GS − U_P) = 100 mS."
+      },
+      {
+        "question": "Co je hlavní příčinou průrazu oxidu pod hradlem MOSFETu?",
+        "answers": [
+          "Statická elektřina – oxid se prorazí již při U_GS kolem 10–20 V",
+          "Dlouhodobé přehřátí pouzdra",
+          "Velký proud drainu",
+          "Záporné napětí na drainu"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Tloušťka oxidu je menší než 1 µm. Ochranou je antistatická manipulace, Zenerovy diody a rezistory v hradle (NEO_04, str. 22)."
+      },
+      {
+        "question": "Proč nemá MOSFET (na rozdíl od BJT) omezení SOA druhým průrazem?",
+        "answers": [
+          "Protože pracuje jen s malými napětími",
+          "Protože jeho hradlo je izolováno oxidem",
+          "Při velkých proudech má I_D záporný teplotní součinitel, takže teplejší místo vede méně a proud se rozloží rovnoměrně",
+          "Protože nemá žádný přechod PN"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U BJT vede teplejší místo víc a proud se do něj soustředí (horké místo). U MOSFETu tento mechanismus chybí (NEO_04, str. 47–49)."
+      },
+      {
+        "question": "Co je body dioda u výkonového MOSFETu?",
+        "answers": [
+          "Dioda zapojená v sérii s drainem",
+          "Parazitní dioda mezi substrátem (spojeným se source) a drainem, která vede při opačné polaritě U_DS",
+          "Zenerova dioda chránící hradlo",
+          "Fotodioda pro optické řízení hradla"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Substrát je spojen se source a tvoří s oblastí drainu přechod PN. V měničích se body dioda využívá jako nulová dioda (NEO_04, str. 15)."
+      }
+    ]
+  },
+  "t3": {
+    "subject": "BPC-NEO - Test 3: Operační zesilovače, generátory a filtry",
+    "questions": [
+      {
+        "question": "Jaké hodnoty má ideální operační zesilovač?",
+        "answers": [
+          "A₀ = 1, R_in = 0, R_out → ∞",
+          "A₀ ≈ 100, R_in ≈ 1 MΩ, R_out ≈ 75 Ω",
+          "A₀ → ∞, R_in → ∞, R_out → 0, nekonečná šířka pásma",
+          "A₀ → ∞, R_in = 0, R_out → ∞"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Reálný OZ má A₀ ≈ 10⁵–10⁶, R_in 10⁶–10¹² Ω a R_out desítky až stovky Ω (NEO_06, str. 11, 50)."
+      },
+      {
+        "question": "Jaká dvě pravidla se používají při výpočtu zapojení s ideálním OZ se zápornou zpětnou vazbou?",
+        "answers": [
+          "Vstupní proud je roven výstupnímu proudu",
+          "Napětí na obou vstupech je rovno napájecímu napětí",
+          "Rozdílové napětí mezi vstupy je nulové a do vstupů neteče proud",
+          "Výstupní napětí je nulové a výstupní proud je nekonečný"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U_d ≈ 0 díky ZZV a obrovskému zesílení, I₊ = I₋ ≈ 0 díky velkému vstupnímu odporu (NEO_06, str. 12)."
+      },
+      {
+        "question": "Co udává činitel CMRR?",
+        "answers": [
+          "Poměr zesílení rozdílového a souhlasného signálu",
+          "Poměr výstupního a vstupního odporu",
+          "Potlačení vlivu změn napájecího napětí",
+          "Rychlost změny výstupního napětí"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "CMRR = A_d/A_CM, CMR = 20·log CMRR ≈ 85–140 dB. Vliv napájení popisuje PSR (SVR) (NEO_06, str. 36–37)."
+      },
+      {
+        "question": "OZ má CMR = 100 dB. Kolikrát je souhlasný signál zesílen méně než rozdílový?",
+        "answers": [
+          "100krát",
+          "100 000krát",
+          "1000krát",
+          "10¹⁰krát"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "100 dB = 20·log(CMRR), CMRR = 10⁵."
+      },
+      {
+        "question": "OZ má rychlost přeběhu SR = 0,5 V/µs. Jaký je přibližně nejvyšší kmitočet sinusového signálu o amplitudě 10 V bez zkreslení?",
+        "answers": [
+          "Asi 0,8 kHz",
+          "Asi 500 kHz",
+          "Asi 80 kHz",
+          "Asi 8 kHz"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "f_max = SR/(2π·U_m) = 0,5·10⁶/(2π·10) ≈ 8 kHz."
+      },
+      {
+        "question": "Jak se projeví překročení rychlosti přeběhu (SR) u sinusového signálu?",
+        "answers": [
+          "Výstup se rozkmitá na vyšším kmitočtu",
+          "Sinusovka se deformuje na trojúhelníkový průběh",
+          "Zvýší se stejnosměrná složka výstupu",
+          "Signál se fázově otočí o 180°"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Výstup nemůže růst rychleji než SR. Největší strmost má sinus při průchodu nulou (ω·U_m), takže tam se tvar nejdřív „zarovná“ do přímky (NEO_06, str. 42)."
+      },
+      {
+        "question": "OZ má GBW = 10 MHz. Jaká je šířka pásma neinvertujícího zesilovače se zesílením 100?",
+        "answers": [
+          "1 GHz",
+          "1 MHz",
+          "10 kHz",
+          "100 kHz"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "BW = GBW / A_U = 10 MHz / 100 = 100 kHz."
+      },
+      {
+        "question": "Jakou strmostí klesá kmitočtová charakteristika kmitočtově kompenzovaného OZ nad prvním zlomem?",
+        "answers": [
+          "−20 dB/dekádu",
+          "−3 dB/dekádu",
+          "−6 dB/dekádu",
+          "−40 dB/dekádu"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Kompenzovaný OZ se chová jako dolní propust 1. řádu, součin zesílení a kmitočtu je proto konstantní (GBW)."
+      },
+      {
+        "question": "Pro jakou aplikaci je nejdůležitější OZ s velmi malým vstupním klidovým proudem (FET/CMOS vstup)?",
+        "answers": [
+          "Výkonový zesilovač pro reproduktor",
+          "Zesilovač pro senzor s velkou vnitřní impedancí (např. pH elektroda)",
+          "Komparátor pro detekci průchodu nulou síťového napětí",
+          "Rychlý video zesilovač"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Klidový proud na vysoké vnitřní impedanci zdroje vytvoří velkou chybu napětí. OZ s FET vstupem mají I_B v řádu fA až pA (NEO_06, str. 51)."
+      },
+      {
+        "question": "Jaký je napěťový přenos invertujícího zesilovače s R₁ = 10 kΩ (vstupní) a R₂ = 47 kΩ (zpětnovazební)?",
+        "answers": [
+          "−5,7",
+          "4,7",
+          "5,7",
+          "−4,7"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "A_U = −R₂/R₁ = −47/10 = −4,7."
+      },
+      {
+        "question": "Jaký je vstupní odpor invertujícího zesilovače s ideálním OZ?",
+        "answers": [
+          "Nekonečný",
+          "Nulový",
+          "Roven vstupnímu rezistoru R₁",
+          "Roven R₁ + R₂"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Invertující vstup je na virtuální zemi, takže zdroj signálu „vidí“ jen R₁ proti zemi."
+      },
+      {
+        "question": "Jaký je napěťový přenos neinvertujícího zesilovače s R₂ = 90 kΩ (zpětnovazební) a R₁ = 10 kΩ (do země)?",
+        "answers": [
+          "−9",
+          "0,1",
+          "9",
+          "10"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "A_U = 1 + R₂/R₁ = 1 + 9 = 10."
+      },
+      {
+        "question": "Které zapojení s OZ se používá jako impedanční oddělovač s jednotkovým zesílením?",
+        "answers": [
+          "Převodník proud–napětí",
+          "Invertující zesilovač s R₂ = R₁",
+          "Integrátor",
+          "Napěťový sledovač (neinvertující zesilovač se 100% zpětnou vazbou)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Sledovač má A_U = 1, velký vstupní a malý výstupní odpor. Invertor se R₂ = R₁ má sice |A_U| = 1, ale malý vstupní odpor a otáčí fázi."
+      },
+      {
+        "question": "Invertující sumátor má R₁₁ = R₁₂ = 10 kΩ a R₂ = 20 kΩ. Na vstupech je U₁₁ = 1 V a U₁₂ = 0,5 V. Jaké je výstupní napětí?",
+        "answers": [
+          "3 V",
+          "−3 V",
+          "−0,75 V",
+          "−1,5 V"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U_výst = −R₂·(U₁₁/R₁₁ + U₁₂/R₁₂) = −20k·(1/10k + 0,5/10k) = −2·1,5 = −3 V."
+      },
+      {
+        "question": "Jaká podmínka musí platit pro odpory rozdílového zesilovače s jedním OZ, aby byl potlačen souhlasný signál?",
+        "answers": [
+          "R₄ = 0",
+          "R₂/R₁ = R₄/R₃ (poměry děliče a zpětné vazby se musí shodovat)",
+          "R₁ = R₂ = R₃ = R₄ musí platit vždy",
+          "R₁ + R₂ = R₃ + R₄"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pak U_výst = (R₄/R₃)·(U₊ − U₋). Nepřesnost rezistorů zhoršuje CMR, proto se používá přístrojový zesilovač (NEO_06, str. 24–26)."
+      },
+      {
+        "question": "Jakou hlavní výhodu má přístrojový zesilovač se třemi OZ oproti jednoduchému rozdílovému zesilovači?",
+        "answers": [
+          "Funguje jen s jedním vstupem",
+          "Velký a stejný vstupní odpor obou vstupů, vysoké CMR a zesílení nastavitelné jediným rezistorem",
+          "Nevyžaduje napájení",
+          "Má nekonečnou šířku pásma"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Vstupní OZ jsou v neinvertujícím zapojení. Souhlasné napětí jimi projde s jednotkovým zesílením a odstraní ho až třetí OZ (NEO_07, str. 17–21)."
+      },
+      {
+        "question": "Jaké je zesílení přístrojového zesilovače se třemi OZ, je-li R₂ = 24,5 kΩ a R₁ (mezi invertujícími vstupy) = 1 kΩ (OZ₃ má zesílení 1)?",
+        "answers": [
+          "24,5",
+          "49",
+          "25,5",
+          "50"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "A = 1 + 2R₂/R₁ = 1 + 49 = 50."
+      },
+      {
+        "question": "Jaké výstupní napětí dává převodník proud–napětí s ideálním OZ a R_F = 100 kΩ při vstupním proudu 20 µA?",
+        "answers": [
+          "2 V",
+          "−0,2 V",
+          "−2 V",
+          "−20 V"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U₀ = −I·R_F = −20·10⁻⁶ · 100·10³ = −2 V. Vstupní odpor převodníku je ideálně nulový (NEO_07, str. 25)."
+      },
+      {
+        "question": "Jakou přenosovou funkci má invertující integrátor s ideálním OZ (vstupní R, zpětnovazební C)?",
+        "answers": [
+          "K(p) = −pRC",
+          "K(p) = 1 + 1/(pRC)",
+          "K(p) = −R/C",
+          "K(p) = −1/(pRC)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Z₁ = R, Z₂ = 1/(pC), K = −Z₂/Z₁. V časové oblasti u_v = −(1/RC)·∫u₁dt. Záměnou R a C vznikne derivátor (NEO_07, str. 28)."
+      },
+      {
+        "question": "Proč se v praxi zapojuje paralelně ke kondenzátoru integrátoru rezistor s velkým odporem?",
+        "answers": [
+          "Zvýší rychlost přeběhu",
+          "Zmenší vstupní odpor integrátoru",
+          "Omezí stejnosměrné zesílení, aby offset a klidové proudy nedovedly výstup do saturace",
+          "Zajistí kladnou zpětnou vazbu potřebnou pro integraci"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pro DC má ideální integrátor nekonečné zesílení, takže i malý offset by se integroval až do saturace."
+      },
+      {
+        "question": "Jaká je výhoda přesného usměrňovače s OZ oproti samotné diodě?",
+        "answers": [
+          "Úbytek napětí na diodě je kompenzován zesílením OZ – lze usměrnit i signály menší než 0,6 V",
+          "Zvládá vyšší kmitočty než samotná dioda",
+          "Má vyšší účinnost pro velké výkony",
+          "Nepotřebuje napájení"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Dioda je uvnitř smyčky ZV. OZ zvýší napětí na svém výstupu přesně o U_D (NEO_07, str. 41, 44)."
+      },
+      {
+        "question": "Jakou funkci realizuje dvoucestný přesný usměrňovač s OZ?",
+        "answers": [
+          "Integrál vstupního signálu",
+          "Logaritmus vstupního signálu",
+          "Druhou mocninu vstupního signálu",
+          "Absolutní hodnotu vstupního signálu |U₁|"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Obě půlvlny jsou na výstupu kladné. Používá se k měření střední hodnoty AC napětí a v detektorech amplitudy (NEO_07, str. 42)."
+      },
+      {
+        "question": "Jak funguje sledovací zapojení symetrického napájecího zdroje?",
+        "answers": [
+          "OZ řídí regulační tranzistor záporné větve tak, aby střed děliče ze dvou stejných rezistorů mezi +U a −U byl na nule",
+          "Kladná větev sleduje zápornou pomocí komparátoru",
+          "Záporné napětí vzniká invertováním kladného napětí transformátorem",
+          "Obě větve mají vlastní Zenerovu diodu a jsou nezávislé"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Záporné napětí tak přesně kopíruje velikost kladného, i když se kladné nastavuje (CV11, str. 13)."
+      },
+      {
+        "question": "Jak zní Barkhausenovo kritérium oscilací?",
+        "answers": [
+          "β·A_U = 0",
+          "β·A_U = 1 – fázová podmínka (posuv smyčky k·2π) a amplitudová podmínka (|βA_U| = 1) současně",
+          "β·A_U = −1 při libovolné fázi",
+          "|A_U| > 1 bez ohledu na zpětnou vazbu"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pro náběh kmitů musí být |βA_U| > 1, pak se zesílení musí stabilizovat na 1 (NEO_12, str. 12–14)."
+      },
+      {
+        "question": "Co se stane, když v oscilátoru zůstane trvale |βA_U| > 1 bez stabilizace amplitudy?",
+        "answers": [
+          "Amplituda roste až do saturace zesilovače a signál se zkreslí",
+          "Kmity zaniknou",
+          "Amplituda zůstane konstantní a sinusová",
+          "Oscilátor kmitá na nižším kmitočtu"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při |βA_U| < 1 by kmity zanikly. Proto je potřeba nelineární prvek, který zesílení s rostoucí amplitudou sníží."
+      },
+      {
+        "question": "Který tříbodový oscilátor používá kapacitní dělič C₁, C₂ a cívku L?",
+        "answers": [
+          "Colpittsův",
+          "Wienův",
+          "Hartleyův",
+          "Armstrongův"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Hartley má dělenou indukčnost (L₁, L₂) a kondenzátor. Clapp je Colpitts s dalším sériovým C₃ pro lepší stabilitu (NEO_12, str. 16–17)."
+      },
+      {
+        "question": "Jaký přenos a fázi má Wienův článek (se stejnými R a C) na kmitočtu f₀ = 1/(2πRC)?",
+        "answers": [
+          "Přenos 3 a fázový posuv 0°",
+          "Přenos 1 a fázový posuv 180°",
+          "Přenos 1/3 a fázový posuv 90°",
+          "Přenos 1/3 a fázový posuv 0°"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Proto musí mít neinvertující zesilovač oscilátoru zesílení přesně 3 (R₂ = 2R₁) (NEO_12, str. 24)."
+      },
+      {
+        "question": "Wienův oscilátor má R = 10 kΩ a C = 10 nF. Na jakém kmitočtu kmitá?",
+        "answers": [
+          "Asi 16 kHz",
+          "Asi 160 Hz",
+          "Asi 10 kHz",
+          "Asi 1,6 kHz"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "f₀ = 1/(2πRC) = 1/(2π·10⁴·10⁻⁸) ≈ 1592 Hz."
+      },
+      {
+        "question": "Čím se stabilizuje amplituda oscilátoru s Wienovým článkem?",
+        "answers": [
+          "Velkým kondenzátorem na výstupu",
+          "Nelineárním prvkem v záporné ZV (antiparalelní diody, žárovka, termistor, JFET jako řízený odpor)",
+          "Krystalem v sérii s článkem",
+          "Kladnou ZV přes rezistor"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "S rostoucí amplitudou nelineární prvek zmenší zesílení neinvertujícího zesilovače na 3 (NEO_12, str. 27–28)."
+      },
+      {
+        "question": "Z jakých dvou bloků se skládá generátor obdélníku a trojúhelníku se dvěma OZ?",
+        "answers": [
+          "Integrátoru a komparátoru s hysterezí (Schmittova klopného obvodu)",
+          "Derivátoru a usměrňovače",
+          "Dvou integrátorů v kaskádě",
+          "Wienova článku a sledovače"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Komparátor dává obdélník ±U_sat, integrátor z něj vytvoří trojúhelník. Při dosažení prahu se komparátor překlopí (NEO_07, str. 49)."
+      },
+      {
+        "question": "Na jakém principu pracují regenerativní (parametrické) oscilátory?",
+        "answers": [
+          "Piezoelektrickým jevem v krystalu",
+          "Kladnou zpětnou vazbou přes zesilovač a RC článek",
+          "Nabíjením kondenzátoru konstantním proudem",
+          "Prvek se záporným diferenciálním odporem vykompenzuje ztráty rezonančního obvodu"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Používají se tunelová dioda a Gunnova dioda (charakteristika N), tyristor a diak (charakteristika S). Využití hlavně ve vf a mikrovlnné technice (NEO_12, str. 9–10)."
+      },
+      {
+        "question": "Jakého činitele jakosti dosahuje krystalový rezonátor?",
+        "answers": [
+          "10² až 10³",
+          "10⁴ až 10⁶",
+          "Přibližně 1",
+          "10 až 100"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Běžný LC obvod má Q řádově 10². Vysoké Q znamená strmou fázovou charakteristiku, a tedy velkou stabilitu kmitočtu (NEO_12, str. 29–30)."
+      },
+      {
+        "question": "Jak vypadá náhradní schéma krystalu?",
+        "answers": [
+          "Paralelní obvod L, C bez odporu",
+          "Rezistor v sérii s kondenzátorem",
+          "Cívka paralelně s rezistorem",
+          "Sériový obvod L, C, R paralelně s kapacitou elektrod C₀"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Krystal má sériovou rezonanci f_s = 1/(2π√(LC)) a o něco vyšší paralelní rezonanci f_p (NEO_12, str. 30)."
+      },
+      {
+        "question": "Kolik stabilních stavů má monostabilní klopný obvod a k čemu se používá?",
+        "answers": [
+          "Žádný – jako generátor obdélníku",
+          "Dva – jako paměťový obvod",
+          "Tři – jako dělič kmitočtu třemi",
+          "Jeden stabilní stav – jako časovač (po spouštěcím impulzu vydrží dobu T v nestabilním stavu)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Astabilní KO nemá žádný stabilní stav (generátor), bistabilní má dva (paměť, dělič dvěma) (NEO_12, str. 39)."
+      },
+      {
+        "question": "Mezi jakými úrovněmi kmitá napětí na časovacím kondenzátoru astabilního klopného obvodu s časovačem 555?",
+        "answers": [
+          "Mezi 1/3 a 2/3 napájecího napětí",
+          "Mezi 0 a U_CC",
+          "Mezi 1/2 a 3/4 napájecího napětí",
+          "Mezi 0,7 V a U_CC − 0,7 V"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Prahy nastavuje dělič ze tří stejných rezistorů 5 kΩ a hlídají je dva komparátory. Doby proto nezávisí na napájecím napětí (NEO_12, str. 42–43)."
+      },
+      {
+        "question": "K čemu slouží vývod DISCH časovače 555?",
+        "answers": [
+          "Je to vstup pro spuštění (trigger)",
+          "Je to výstup s proudem až 200 mA",
+          "Nastavuje referenční úrovně komparátorů",
+          "Je to kolektor vybíjecího tranzistoru, který vybije časovací kondenzátor, když je výstup v nule"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Vývody: 1 GND, 2 TRIG, 3 OUT, 4 RESET, 5 CONT, 6 THRES, 7 DISCH, 8 VCC."
+      },
+      {
+        "question": "Co je toleranční pole kmitočtového filtru?",
+        "answers": [
+          "Zakázané oblasti v grafu modulové charakteristiky, kterými charakteristika navrženého filtru nesmí procházet – zadání pro návrh",
+          "Povolený rozsah napájecího napětí OZ ve filtru",
+          "Rozsah tolerancí součástek, se kterými lze filtr postavit",
+          "Oblast kmitočtů, kde je fázová charakteristika lineární"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pro DP je propustné pásmo do F_M s přípustným zvlněním, přechodné pásmo F_M až F_P a nepropustné pásmo od F_P s potlačením K_POT (CV10, str. 6)."
+      },
+      {
+        "question": "Která aproximace filtru má nejplošší charakteristiku v propustném pásmu (bez zvlnění)?",
+        "answers": [
+          "Cauerova (eliptická)",
+          "Čebyševova",
+          "Butterworthova",
+          "Inverzní Čebyševova"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Butterworth je kompromis strmosti a fáze. Čebyšev má zvlnění v propustném pásmu, Cauer v obou pásmech (CV10, str. 9–11)."
+      },
+      {
+        "question": "Která aproximace filtru má nejlineárnější fázovou charakteristiku (zachová tvar impulzů)?",
+        "answers": [
+          "Butterworthova",
+          "Cauerova",
+          "Besselova",
+          "Čebyševova"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Besselův filtr má nejmenší strmost, ale téměř konstantní skupinové zpoždění."
+      },
+      {
+        "question": "Která aproximace dosáhne pro daný řád největší strmosti v přechodném pásmu?",
+        "answers": [
+          "Všechny stejnou – strmost závisí jen na řádu",
+          "Besselova",
+          "Butterworthova",
+          "Cauerova (eliptická)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Cauer má zvlnění v propustném i nepropustném pásmu a nulové body přenosu. Za strmost platí nejhorší fází a nejsložitější realizací."
+      },
+      {
+        "question": "Jakou strmostí klesá modulová charakteristika dolní propusti 3. řádu za mezním kmitočtem?",
+        "answers": [
+          "−20 dB/dekádu",
+          "−3 dB/dekádu",
+          "−60 dB/dekádu",
+          "−30 dB/dekádu"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Strmost je −20·n dB/dek, kde n je řád filtru (nejvyšší mocnina p ve jmenovateli přenosové funkce)."
+      },
+      {
+        "question": "Co určuje řád kmitočtového filtru?",
+        "answers": [
+          "Počet rezistorů ve filtru",
+          "Počet operačních zesilovačů ve filtru",
+          "Poměr mezního kmitočtu a kmitočtu potlačení",
+          "Nejvyšší mocnina p ve jmenovateli přenosové funkce (obvykle počet akumulačních prvků L, C)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Vyšší řád znamená strmější přechod a větší potlačení, ale složitější realizaci. Filtry vyšších řádů se skládají kaskádně z bloků 2. řádu (CV10)."
+      }
+    ]
+  },
+  "t4": {
+    "subject": "BPC-NEO - Test 4: Optoelektronika, speciální součástky a napájecí zdroje",
+    "questions": [
+      {
+        "question": "Na jakém principu pracují polovodičové detektory záření (fotodioda, fotorezistor)?",
+        "answers": [
+          "Na vnitřním fotoefektu – foton vygeneruje v polovodiči pár elektron–díra",
+          "Na Peltierově jevu",
+          "Na vnějším fotoefektu – foton vyrazí elektron do vakua",
+          "Na piezoelektrickém jevu"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Foton s energií hf ≥ E_g zvýší počet volných nosičů. Vnější fotoefekt využívá fotonka a fotonásobič (NEO_11, str. 19–21)."
+      },
+      {
+        "question": "Jak se mění odpor fotorezistoru s osvětlením?",
+        "answers": [
+          "Roste",
+          "Nejdřív roste, pak klesá",
+          "Klesá (z MΩ ve tmě na stovky Ω při osvětlení)",
+          "Nemění se, mění se jen jeho kapacita"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Fotorezistor je nejjednodušší detektor (bez přechodu PN), ale je pomalý (ms) (NEO_11, str. 24)."
+      },
+      {
+        "question": "Ve kterém kvadrantu VA charakteristiky pracuje fotodioda v hradlovém (fotovoltaickém) režimu?",
+        "answers": [
+          "Ve II. kvadrantu",
+          "Ve IV. kvadrantu – dioda je bez vnějšího zdroje a sama dodává výkon do zátěže",
+          "Ve III. kvadrantu – závěrné předpětí",
+          "V I. kvadrantu – propustný směr"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Odporový režim (závěrné předpětí) je ve III. kvadrantu, je rychlejší a lineární. Hradlový režim využívá solární článek (NEO_11, str. 30)."
+      },
+      {
+        "question": "Proč je fotodioda v odporovém (fotovodivostním) režimu rychlejší než v hradlovém?",
+        "answers": [
+          "Závěrné předpětí rozšíří depletiční oblast, zmenší kapacitu a vnější pole rychle odsává nosiče",
+          "Protože se v odporovém režimu uplatní lavinové násobení",
+          "Protože v odporovém režimu dioda vede v propustném směru",
+          "Protože v odporovém režimu nepotřebuje světlo"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "V hradlovém režimu se nosiče akumulují a dioda je pomalejší (desítky kHz). Odporový režim dosahuje MHz."
+      },
+      {
+        "question": "Co je typické pro lavinovou fotodiodu (APD)?",
+        "answers": [
+          "Pracuje v propustném směru jako LED",
+          "Je nejpomalejší ze všech fotodiod",
+          "Nemá přechod PN, jen fotovodivou vrstvu",
+          "Pracuje těsně pod průrazným napětím a fotoproud se lavinově násobí – vysoká citlivost"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Lavinové násobení dosahuje až 100×. APD se používá v optických komunikacích (NEO_11, str. 35)."
+      },
+      {
+        "question": "Na čem závisí vlnová délka záření LED?",
+        "answers": [
+          "Na barvě plastového pouzdra",
+          "Na šířce zakázaného pásu polovodičového materiálu: λ = hc/E_g",
+          "Na napájecím napětí obvodu",
+          "Na velikosti proudu diodou"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Širší zakázaný pás znamená větší energii fotonu a kratší vlnovou délku (modrá – GaN, InGaN). Užší pás znamená červenou až IR (GaAs) (NEO_11, str. 43–47)."
+      },
+      {
+        "question": "Jak se nejčastěji vyrábí bílé LED?",
+        "answers": [
+          "Zapojením dvou červených LED do série",
+          "Modrá (nebo UV) LED pokrytá luminoforem, který část světla přemění na delší vlnové délky",
+          "Ohřevem čipu do bílého žáru",
+          "Přímou emisí bílého světla z křemíkového přechodu"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Druhou možností je složení RGB (tři čipy). Bílé světlo nelze vyzařovat jedním přechodem přímo (NEO_11, str. 49–50)."
+      },
+      {
+        "question": "Proč klasická křemíková dioda nevyzařuje viditelné světlo?",
+        "answers": [
+          "Křemík je nepřímý polovodič – energie rekombinace se uvolní převážně jako teplo",
+          "Křemík má příliš široký zakázaný pás",
+          "Křemíková dioda neumožňuje propustný proud",
+          "Pouzdro křemíkových diod je neprůhledné"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Zářivá rekombinace je účinná jen u přímých polovodičů (GaAs, GaN…)."
+      },
+      {
+        "question": "Co udává parametr CTR optronu?",
+        "answers": [
+          "Proudový převodní činitel – poměr výstupního proudu I_C ku vstupnímu proudu LED I_F v %",
+          "Maximální kmitočet přenášeného signálu",
+          "Dobu sepnutí výstupního tranzistoru",
+          "Izolační pevnost mezi vstupem a výstupem"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "CTR = I_C/I_F·100 %, typicky 20–80 %, s Darlingtonem až 1000 %. S teplotou a stárnutím LED klesá (NEO_11, str. 52–55)."
+      },
+      {
+        "question": "K čemu se primárně používá optron?",
+        "answers": [
+          "K převodu stejnosměrného napětí na střídavé",
+          "K zesílení slabých optických signálů",
+          "K galvanickému oddělení obvodů (např. řídicí elektronika vs. síťové napětí)",
+          "K měření osvětlení"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Vstup a výstup jsou spojeny jen světlem. Izolační pevnost bývá 0,5–10 kV."
+      },
+      {
+        "question": "Který typ optronu je nejrychlejší?",
+        "answers": [
+          "Optron s fotodiodou (a rychlým zesilovačem/logickým výstupem)",
+          "Optron s fotorezistorem",
+          "Optron s fototranzistorem",
+          "Optron s Darlingtonovým fototranzistorem"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Fototranzistor má velkou kapacitu přechodu BC, a proto je pomalý. Darlington je ještě pomalejší, fotorezistor nejpomalejší."
+      },
+      {
+        "question": "Jaká je výhoda SSR (polovodičového relé) oproti elektromechanickému relé?",
+        "answers": [
+          "Nemá mechanické kontakty – delší životnost, nejiskří, je rychlé a umožňuje spínání v nule",
+          "Nemá úbytek napětí v sepnutém stavu",
+          "Ve vypnutém stavu má nulový svodový proud",
+          "Je odolnější proti přepětí a levnější"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Nevýhodou SSR jsou ztráty v sepnutém stavu (nutné chlazení), svodový proud a citlivost na přepětí (NEO_11, str. 61–63)."
+      },
+      {
+        "question": "Jaký výkonový prvek obvykle spíná zátěž v AC SSR?",
+        "answers": [
+          "Zenerova dioda",
+          "Elektrolytický kondenzátor",
+          "Triak (nebo dvojice antiparalelních tyristorů) buzený fototriakem",
+          "Jeden bipolární tranzistor NPN"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "DC SSR používají výkonové MOSFETy buzené fotovoltaickým optronem."
+      },
+      {
+        "question": "Co znamená spínání v nule (ZVS) u AC SSR?",
+        "answers": [
+          "Relé spíná jen nulový proud zátěže",
+          "Triak sepne jen v okamžiku, kdy síťové napětí prochází nulou – omezí proudové rázy a rušení",
+          "Zátěž je připojena trvale a SSR jen měří proud",
+          "Relé se sepne, když je řídicí proud nulový"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Varianta s náhodnou fází sepne okamžitě, což je potřeba např. pro fázové řízení."
+      },
+      {
+        "question": "Kolik vrstev má struktura tyristoru?",
+        "answers": [
+          "Čtyři (PNPN)",
+          "Tři (PNP)",
+          "Pět (NPNPN)",
+          "Dvě (PN)"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pětivrstvou strukturu má triak. Diak je třívrstvý (NEO_13, str. 33–34)."
+      },
+      {
+        "question": "Jak lze vypnout sepnutý (klasický) tyristor?",
+        "answers": [
+          "Záporným impulzem do hradla",
+          "Zvýšením napětí anoda–katoda",
+          "Odpojením proudu hradla",
+          "Snížením anodového proudu pod přídržný proud I_H"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Po sepnutí se tyristor drží sám díky vnitřní kladné ZV. Hradlem lze vypnout jen speciální tyristor GTO."
+      },
+      {
+        "question": "Čím se nejčastěji spíná tyristor (žádoucím způsobem)?",
+        "answers": [
+          "Zkratem hradla na katodu",
+          "Odpojením zátěže",
+          "Záporným napětím na anodě",
+          "Proudovým impulzem do hradla při kladném napětí anoda–katoda"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Nežádoucí sepnutí způsobí překročení spínacího napětí, velké du/dt, teplota nebo světlo."
+      },
+      {
+        "question": "Jakým náhradním modelem lze popsat tyristor?",
+        "answers": [
+          "Dvěma antiparalelními diodami",
+          "Tranzistorem MOSFET s body diodou",
+          "Dvojicí tranzistorů PNP a NPN se vzájemnou kladnou zpětnou vazbou",
+          "Rezistorem v sérii se Zenerovou diodou"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Kolektorový proud jednoho tranzistoru je bázovým proudem druhého. Jakmile se struktura otevře, drží se sama (NEO_13, str. 34)."
+      },
+      {
+        "question": "Čím se triak liší od tyristoru?",
+        "answers": [
+          "Nemá řídicí elektrodu",
+          "Spíná jen stejnosměrné napětí",
+          "Vypíná se záporným impulzem do hradla",
+          "Spíná obě polarity napětí – chová se jako dva antiparalelní tyristory se společným hradlem"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "VA charakteristika triaku je symetrická. Používá se pro fázové řízení střídavého napětí (stmívače, regulace motorů) (NEO_13, str. 47)."
+      },
+      {
+        "question": "K čemu se typicky používá diak?",
+        "answers": [
+          "Ke spínání výkonové zátěže",
+          "Ke spouštění triaků a tyristorů – po dosažení spínacího napětí (cca 30–40 V) vytvoří strmý proudový impulz",
+          "Jako detektor světla",
+          "Jako stabilizátor napětí 5 V"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Diak nemá hradlo, je symetrický a má oblast záporného diferenciálního odporu (NEO_13, str. 51)."
+      },
+      {
+        "question": "Co je polyswitch (PPTC)?",
+        "answers": [
+          "Přepěťová ochrana na bázi ZnO",
+          "Vratná nadproudová pojistka – polymer s uhlíkem, jehož odpor při přehřátí skokově vzroste a po vychladnutí se obnoví",
+          "Tavná pojistka, která se musí po vybavení vyměnit",
+          "Spínač ovládaný světlem"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při nadproudu se polymer rozepne a uhlíkové řetězce se přeruší. Malý proud ho pak drží v horkém stavu, dokud se porucha neodstraní (NEO_13, str. 15–16)."
+      },
+      {
+        "question": "Jakou VA charakteristiku má varistor?",
+        "answers": [
+          "Lineární jako běžný rezistor",
+          "Nesymetrickou jako dioda",
+          "S oblastí záporného diferenciálního odporu jako tunelová dioda",
+          "Symetrickou – do určitého napětí velký odpor, nad ním odpor prudce klesá a proud strmě roste"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Varistor ZnO se zapojuje paralelně k chráněnému obvodu jako ochrana proti přepětí (NEO_13, str. 19–20)."
+      },
+      {
+        "question": "Jak se mění odpor NTC termistoru s teplotou?",
+        "answers": [
+          "Klesá (exponenciálně)",
+          "Roste lineárně",
+          "Roste skokově nad Curieovou teplotou",
+          "Nemění se"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "NTC (negastor) se používá k měření teploty a k omezení zapínacího proudu. Odpor PTC (pozistoru) roste, a to skokově nad Curieovou teplotou (NEO_13, str. 6–8)."
+      },
+      {
+        "question": "Proč se NTC termistor zapojuje do série se vstupem napájecího zdroje?",
+        "answers": [
+          "Měří teplotu transformátoru",
+          "Stabilizuje výstupní napětí",
+          "Za studena má velký odpor a omezí zapínací proud; po zahřátí jeho odpor klesne a téměř nevadí",
+          "Chrání zdroj proti přepětí ze sítě"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při zapnutí se nabíjejí velké filtrační kondenzátory a proudový ráz by mohl poškodit diody nebo vyhodit jistič."
+      },
+      {
+        "question": "Na jakém jevu pracuje Peltierův článek?",
+        "answers": [
+          "Na termoelektrickém (Peltierově) jevu – průchodem proudu se jeden spoj ochlazuje a druhý ohřívá",
+          "Na Hallově jevu",
+          "Na vnitřním fotoefektu",
+          "Na piezoelektrickém jevu"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Sloupky P a N jsou zapojeny elektricky do série a tepelně paralelně. Teplou stranu je nutné chladit, protože odvádí i elektrický příkon (NEO_13, str. 25–27)."
+      },
+      {
+        "question": "Co se stane, když u Peltierova článku obrátíme polaritu proudu?",
+        "answers": [
+          "Článek začne vyrábět elektrickou energii",
+          "Prohodí se studená a teplá strana",
+          "Článek přestane fungovat",
+          "Obě strany se začnou ochlazovat"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Proto lze Peltierův článek použít k chlazení i k ohřevu (termostaty). Výrobu energie z rozdílu teplot popisuje Seebeckův jev."
+      },
+      {
+        "question": "Čím se transil (TVS) liší od Zenerovy diody?",
+        "answers": [
+          "Transil se zapojuje v sérii se zátěží, Zenerova dioda paralelně",
+          "Transil pracuje v propustném směru",
+          "V normálním provozu nevede, je velmi rychlý a snese velký impulzní výkon; Zenerova dioda pracuje trvale v průrazu jako stabilizátor",
+          "Transil má vyšší úbytek v propustném směru a slouží k usměrňování"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Transil je lavinová dioda dimenzovaná na krátké velké proudové impulzy. Při zničení se zkratuje (NEO_13, str. 59–64)."
+      },
+      {
+        "question": "Jak se zapojuje transil pro ochranu obvodu před přepětím?",
+        "answers": [
+          "Paralelně k chráněnému obvodu (v závěrném směru)",
+          "Mezi výstup a vstup stabilizátoru",
+          "Do série s chráněným obvodem",
+          "Do zpětné vazby operačního zesilovače"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při přepětí se transil otevře a přepětí odvede mimo chráněný obvod."
+      },
+      {
+        "question": "Jaké je správné pořadí bloků lineárního napájecího zdroje?",
+        "answers": [
+          "Filtr → transformátor → stabilizátor → usměrňovač",
+          "Transformátor → usměrňovač → filtr → stabilizátor",
+          "Stabilizátor → filtr → usměrňovač → transformátor",
+          "Usměrňovač → transformátor → stabilizátor → filtr"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Transformátor sníží napětí a galvanicky oddělí výstup od sítě, usměrňovač vytvoří pulzující ss napětí, filtr zmenší zvlnění a stabilizátor udrží konstantní výstup (NEO_08, str. 6)."
+      },
+      {
+        "question": "Jaký ztrátový výkon vzniká na lineárním stabilizátoru 7805 při U_IN = 12 V a výstupním proudu 0,5 A?",
+        "answers": [
+          "2,5 W",
+          "3,5 W",
+          "0,5 W",
+          "6 W"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "P = (U_IN − U_OUT)·I = (12 − 5)·0,5 = 3,5 W, takže stabilizátor potřebuje chladič."
+      },
+      {
+        "question": "Co je drop-out napětí lineárního stabilizátoru?",
+        "answers": [
+          "Pokles výstupního napětí při zkratu",
+          "Úbytek na ochranné diodě",
+          "Minimální potřebný rozdíl mezi vstupním a výstupním napětím, při kterém ještě stabilizuje",
+          "Maximální napětí, které smí být na vstupu"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U 78xx je to asi 2–3 V, u LDO regulátorů jen 0,1–0,7 V (NEO_08, str. 26, 31)."
+      },
+      {
+        "question": "Proč se ke stabilizátoru 78xx připojují vstupní a výstupní kondenzátory co nejblíže vývodům?",
+        "answers": [
+          "Bez nich stabilizátor nedodá více než 10 mA",
+          "Slouží jako ochrana proti přepólování",
+          "Kondenzátory zvyšují výstupní napětí",
+          "Stabilizátor je regulační smyčka – kondenzátory zajistí stabilitu (nezakmitání) a dobrou odezvu na skoky zátěže"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Doporučeno C_IN = 100 nF–2,2 µF, C_O = 100 nF–1 µF. U LDO záleží i na ESR výstupního kondenzátoru (CV11, str. 11; NEO_08, str. 27)."
+      },
+      {
+        "question": "Jaké výstupní napětí má LM317 s R₁ = 240 Ω a R₂ = 720 Ω (zanedbejte I_ADJ)?",
+        "answers": [
+          "4 V",
+          "5 V",
+          "3,75 V",
+          "1,25 V"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "U_OUT = 1,25·(1 + R₂/R₁) = 1,25·(1 + 3) = 5 V."
+      },
+      {
+        "question": "Jak funguje proudové posílení stabilizátoru 78xx výkonovým PNP tranzistorem?",
+        "answers": [
+          "Tranzistor je zapojen jako Zenerova dioda",
+          "Úbytek na rezistoru R₁ (proud do stabilizátoru) otevře tranzistor, který převezme zbývající proud zátěže",
+          "Tranzistor zvýší výstupní napětí na dvojnásobek",
+          "Tranzistor nahradí stabilizátor a 78xx se odpojí"
+        ],
+        "correct": 1,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "R₁ se volí 0,7–5 Ω. Stabilizátor dál určuje výstupní napětí (CV11, str. 17)."
+      },
+      {
+        "question": "Jak se dimenzuje snímací rezistor R_SC pro omezení proudu posilovacího tranzistoru u stabilizátoru 78xx?",
+        "answers": [
+          "R_SC ≈ I_SC / 0,6 V",
+          "R_SC ≈ 0,6 V · I_SC",
+          "R_SC ≈ 0,6 V / I_SC",
+          "R_SC ≈ U_OUT / I_SC"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Při I·R_SC ≈ 0,6 V se otevře tranzistor T2 a odvede bázový proud výkonového tranzistoru T1."
+      },
+      {
+        "question": "Jaký je hlavní význam předřadného kondenzátoru C1 v beztransformátorovém zdroji ze sítě 230 V?",
+        "answers": [
+          "Vyhlazuje usměrněné napětí",
+          "Galvanicky odděluje výstup od sítě",
+          "Omezuje proud svou reaktancí bez tepelných ztrát (jalový výkon)",
+          "Zvyšuje výstupní napětí"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "I ≈ 2πfC₁U. Kondenzátor musí být dimenzován na min. 400 V (typ X2). Výstup NENÍ galvanicky oddělen od sítě (CV11, str. 24–26)."
+      },
+      {
+        "question": "Jaké je hlavní bezpečnostní riziko beztransformátorového zdroje se srážecím kondenzátorem?",
+        "answers": [
+          "Výstup je galvanicky spojen se sítí – hrozí úraz elektrickým proudem",
+          "Riziko výbuchu stabilizátoru 78Lxx",
+          "Vysoké výstupní napětí naprázdno nad 1 kV",
+          "Velký ztrátový výkon na kondenzátoru"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Zdroj je vhodný jen pro malé odběry uvnitř spotřebičů, kde se nikdo nemůže dotknout výstupu."
+      },
+      {
+        "question": "Jak zní Blackův vztah pro zesílení se zpětnou vazbou?",
+        "answers": [
+          "A'_U = A_U − β",
+          "A'_U = β / A_U",
+          "A'_U = A_U · (1 + β)",
+          "A'_U = A_U / (1 − β·A_U)"
+        ],
+        "correct": 3,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Pro záporné βA_U jde o zápornou ZV (zesílení klesá), pro 0 < βA_U < 1 o kladnou ZV. Při βA_U = 1 se obvod rozkmitá (NEO_05, str. 54)."
+      },
+      {
+        "question": "Jak ovlivňuje záporná zpětná vazba šířku pásma zesilovače?",
+        "answers": [
+          "Zužuje ji úměrně poklesu zesílení",
+          "Nemá na ni vliv",
+          "Rozšiřuje ji – kolikrát klesne zesílení, tolikrát vzroste horní a klesne dolní mezní kmitočet",
+          "Rozšiřuje ji jen směrem k nízkým kmitočtům"
+        ],
+        "correct": 2,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "ZZV také stabilizuje zesílení, zmenšuje zkreslení a vliv součástek a mění vstupní a výstupní impedanci (NEO_05, str. 55)."
+      },
+      {
+        "question": "Jak ovlivní vstupní impedanci zesilovače sériová záporná zpětná vazba?",
+        "answers": [
+          "Zvětší ji",
+          "Zmenší ji",
+          "Udělá ji zápornou",
+          "Nezmění ji"
+        ],
+        "correct": 0,
+        "answer_count": 4,
+        "image_name": null,
+        "explanation": "Sériová ZV na vstupu impedanci zvětšuje, paralelní ji zmenšuje. Napěťová ZV na výstupu zmenšuje výstupní impedanci, proudová ji zvětšuje (NEO_05, str. 56–57)."
+      }
+    ]
+  }
+};
+</script>
+</body>
+</html>
