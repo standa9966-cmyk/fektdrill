@@ -296,6 +296,34 @@ const TESTS = {
       "answer_count": 6,
       "image_name": null,
       "explanation": "Jalový výkon Q = U·I·sinφ se udává ve voltampérech reaktančních (VAr). Činný výkon je ve wattech (W) a zdánlivý ve voltampérech (VA). W·h je jednotka energie, ne výkonu."
+    },
+    // NOVÁ OTÁZKA (přidáno 22. 11. 2026)
+    {
+      "question": "Při měření výkonu střídavého proudu v jednofázové soustavě byly zjištěny následující hodnoty: U = 100 V, I = 1 A, cos φ = 0,5. Jaká je hodnota zdánlivého výkonu?",
+      "answers": [
+        "50 VA",
+        "100 W",
+        "50 W",
+        "100 VA"
+      ],
+      "correct": 3,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Zdánlivý výkon je S = U · I = 100 V · 1 A = 100 VA. Účiník cos φ se do něj nezapočítává, ten je potřeba jen pro činný výkon (P = U · I · cos φ = 50 W). Zdánlivý výkon se udává ve VA, ne ve W."
+    },
+    // NOVÁ OTÁZKA (přidáno 22. 11. 2026)
+    {
+      "question": "Jakých hodnot může nabývat fázový posuv mezi elektrickým napětím a proudem při měření výkonu na zátěži?",
+      "answers": [
+        "Pouze záporných hodnot",
+        "Je vždy nulový",
+        "Kladných i záporných hodnot",
+        "Pouze kladných hodnot"
+      ],
+      "correct": 2,
+      "answer_count": 4,
+      "image_name": null,
+      "explanation": "Znaménko fázového posuvu závisí na charakteru zátěže. U induktivní zátěže se proud za napětím zpožďuje a posuv je kladný, u kapacitní proud napětí předbíhá a posuv je záporný. Nulový je jen u čistě odporové zátěže."
     }
   ]
 },
