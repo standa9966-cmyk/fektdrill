@@ -20,7 +20,7 @@ Sbírku otázek ze zkoušek, zápočtových testů a cvičení, přehledně seř
 | BPC-KOM | Počítačové sítě | 1 |
 | BPC-MPE | Materiály pro elektrotechniku | 1 |
 | BPC-NEO | Návrh elektronických obvodů — teorie ke zkoušce | 11 |
-| BPC-AN4 | Angličtina 4 — business English | 1 |
+| BPC-AN4 | Angličtina 4 — business English | 11 |
 | Elektrotechnická kvalifikace | Bezpečnost práce a první pomoc (§4 NV 194/2022 Sb.) | 1 |
 
 Seznam se průběžně rozšiřuje.
